@@ -15,7 +15,7 @@ A lista de itens deve exibir as seguintes informações:
 + Foto do item [thumbnailHd]
 
 Após o usuário adicionar todos os itens no carrinho, ele deverá finalizar a compra.
-Para finalizar a compra, aconselhamos que use o [Apiray]{https://apiary.io} como API nessa etapa.
+Para finalizar a compra, aconselhamos que use o [Apiary](https://apiary.io) como API nessa etapa.
 
 ###### Simulação E-commerce
 
