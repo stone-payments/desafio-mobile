@@ -3,6 +3,7 @@
 # Desafio Mobile
 
 O desafio consiste em criar uma loja de itens de Star Wars que o usuário é capaz de adicionar os itens desejados em um carrinho de compras e finalizar a compra com uma simulação de transação e-commerce.
+
 O candidato deve dar **fork** neste repositório e após o termino do desenvolvimento, realizar um **pull request** para análise do time.
 
 Para obter os itens da loja, sua aplicação deverá realizar uma chamada `GET` na URL https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json
@@ -43,6 +44,7 @@ Todas as transações realizadas devem ser salvas em um banco interno com os seg
 + Últimos 4 dígitos do cartão
 + Nome do portador do cartão
 
+---
 #### LICENSE
 ```
 MIT License
