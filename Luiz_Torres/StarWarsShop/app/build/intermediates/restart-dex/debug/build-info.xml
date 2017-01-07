@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="21"
+    density="hdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="23812918292571"
+    token="-2473069129958332030"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="4943" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="304" />
+    <task
+        name="verifier"
+        duration="22" />
+
+    <artifact
+        location="C:\Users\Dindal\AndroidStudioProjects\StarWarsShop\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+        type="DEX" />
+
+    <build
+        timestamp="23224934306033"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\Dindal\AndroidStudioProjects\StarWarsShop\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="23812918292571"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Dindal\AndroidStudioProjects\StarWarsShop\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>

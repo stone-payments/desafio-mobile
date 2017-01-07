@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_info.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_info.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_add_cart.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_add_cart.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_loading.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_loading.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_cart.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_cart.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_credit_card.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_credit_card.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_remove.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_remove.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_shopping.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_shopping.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_error.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_error.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_add.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_add.png"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_refresh.png",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_refresh.png"
+    }
+]
