@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:maxLines="1"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:id="@+id/tv_checkout_enter_credit_card"
+        android:text="@string/enter_credit_card"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_checkout_credit_card_number"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="1"
+        android:padding="7dp"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:hint="@string/credit_card_number"
+        android:layout_below="@+id/tv_checkout_enter_credit_card"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_checkout_credit_card_exp_date_m"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+        android:maxLength="2"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:hint="@string/credit_card_exp_date_m"
+        android:layout_below="@+id/et_checkout_credit_card_number"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_checkout_credit_card_exp_date_a"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+        android:maxLength="2"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:hint="@string/credit_card_exp_date_a"
+        android:layout_toRightOf="@+id/et_checkout_credit_card_exp_date_m"
+        android:layout_toEndOf="@+id/et_checkout_credit_card_exp_date_m"
+        android:layout_below="@+id/et_checkout_credit_card_number"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_checkout_credit_card_number"
+        android:layout_toLeftOf="@+id/et_checkout_credit_card_cvv"
+        android:layout_toStartOf="@id/et_checkout_credit_card_cvv"
+        android:src="@mipmap/ic_cvc"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_checkout_credit_card_cvv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:maxLength="4"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:hint="@string/credit_card_cvv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/et_checkout_credit_card_number"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_checkout_credit_card_name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:hint="@string/credit_card_name"
+        android:layout_below="@+id/et_checkout_credit_card_exp_date_a"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:id="@+id/tv_checkout_totalPrice"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:text="R$200000"
+        android:layout_above="@+id/btn_checkout_confirm"/>
+
+    <RelativeLayout
+        android:id="@+id/btn_checkout_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_checkout_checkout_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tint="@color/white"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_credit_card" />
+
+        <TextView
+            android:id="@+id/tv_checkout_cart_checkout_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/iv_checkout_checkout_img"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:ems="16"
+            android:textColor="@color/white"
+
+            android:text="@string/confirm" />
+    </RelativeLayout>
+
+</RelativeLayout>
