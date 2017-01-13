@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">StarWarsStore</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Activities -->
+
+    <!-- Menus -->
+    <string name="store">Loja</string>
+    <string name="carrinho">Carrinho</string>
+    <string name="minhas_compras">Minhas Compras</string>
+</resources>
