@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/checkout_listOfProducts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9">
+        <Button
+            android:id="@+id/validaPinActivity_btnConfirma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/background_black_button"
+            android:minHeight="30dp"
+            android:minWidth="25dp"
+            android:text="@string/btn_checkout"
+            android:textColor="#FFFFFFFF"
+            android:textSize="10sp" />
+    </LinearLayout>
+</LinearLayout>

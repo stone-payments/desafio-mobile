@@ -13,12 +13,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.am.store.starwars.helper.AndroidLogger;
+import com.am.store.starwars.integration.store.action.ProductAction;
+import com.am.store.starwars.integration.store.service.RestServiceBuilder;
+import com.am.store.starwars.model.store.product.Product;
 import com.am.store.starwars.view.fragment.ProductsListFragment;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class StarWarStoreActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String LOG_CONSTANT = StarWarStoreActivity.class.getName();
+    private static final AndroidLogger logger = AndroidLogger.getInstance();
+
+    private static Class HOME_FRAGMENT_CLASS = ProductsListFragment.class;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +52,36 @@ public class StarWarStoreActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        AndroidLogger.configurationLog(getApplicationContext());
+
+        loadFragmet(HOME_FRAGMENT_CLASS);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        try {
+            RestServiceBuilder restBuilder = new RestServiceBuilder("https://raw.githubusercontent.com", ProductAction.class);
+            ProductAction productAction = (ProductAction) restBuilder.build();
+
+            Call<List<Product>> response = productAction.getProducts();
+            response.enqueue(new Callback<List<Product>>() {
+                @Override
+                public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                    logger.info(LOG_CONSTANT, "funcionou");
+                }
+
+                @Override
+                public void onFailure(Call<List<Product>> call, Throwable t) {
+                    logger.error(LOG_CONSTANT, "nao funcionou!!!!!!!!!!!!!!!!!!!!!");
+                }
+            });
+
+        } catch (Exception e) {
+            logger.error(LOG_CONSTANT, e);
+        }
     }
 
     @Override
@@ -83,7 +128,7 @@ public class StarWarStoreActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Fragment fragment = null;
-        Class fragmentClass = ProductsListFragment.class;
+        Class fragmentClass = HOME_FRAGMENT_CLASS;
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
@@ -93,6 +138,16 @@ public class StarWarStoreActivity extends AppCompatActivity
 
         }
 
+        loadFragmet(fragmentClass);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private void loadFragmet(Class fragmentClass) {
+
+        Fragment fragment = null;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -101,9 +156,5 @@ public class StarWarStoreActivity extends AppCompatActivity
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_fragment, fragment).commit();
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
