@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">StarWarsStore</string>
+    <string name="tool_bar_title">Start Wars Store</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="btn_buy">Comprar</string>
 
     <!-- Activities -->
 
@@ -12,4 +14,15 @@
     <string name="store">Loja</string>
     <string name="carrinho">Carrinho</string>
     <string name="minhas_compras">Minhas Compras</string>
+
+
+    <!-- Excluir -->
+<!--    <string name="menu_refresh">Refresh</string>
+
+    <string name="menu_color_scheme">Color scheme</string>
+    <string name="menu_color_scheme_1">Scheme #1</string>
+    <string name="menu_color_scheme_2">Scheme #2</string>
+    <string name="menu_color_scheme_3">Scheme #3</string>
+    <string name="sample_show_log">Show Log</string>
+    <string name="sample_hide_log">Hide Log</string>-->
 </resources>

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.am.store.starwars.StarWarStoreActivity">
+    tools:context="com.am.store.starwars.StarWarStoreActivity"
+    tools:ignore="MissingPrefix">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,20 +25,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/app_name" />
+                android:text="@string/tool_bar_title"
+                fontPath="fonts/starwars_font.ttf"/>
 
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_star_war_store" />
+   <!-- <include layout="@layout/content_star_war_store" />-->
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    <FrameLayout
+        android:id="@+id/content_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"/>
 
 </android.support.design.widget.CoordinatorLayout>
