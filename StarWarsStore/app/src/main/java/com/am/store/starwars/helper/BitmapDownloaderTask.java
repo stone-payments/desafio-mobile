@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
+import com.am.store.starwars.exception.StarWarIntegrationException;
+import com.am.store.starwars.exception.StarWarsException;
 import com.am.store.starwars.view.adapter.ProductViewAdapter;
 
 import java.io.IOException;
@@ -41,25 +43,20 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
     @Override
     // Actual download method, run in the task thread
     protected Bitmap doInBackground(String... params) {
-        // params comes from the execute() call: params[0] is the url.
-        return downloadBitmap(params[0]);
+        try {
+            // params comes from the execute() call: params[0] is the url.
+            return downloadBitmap(params[0]);
+        } catch (StarWarsException e) {
+            logger.error(LOG_CONSTANT, "Problems to execute AsyncTask! ", e);
+        }
+
+        return null;
     }
 
     @Override
     // Once the image is downloaded, associates it to the imageView
     protected void onPostExecute(Bitmap bitmap) {
-/*        if (isCancelled()) {
-            bitmap = null;
-        }
-
-        if (imageViewReference != null) {
-            ImageView imageView = imageViewReference.get();
-            if (imageView != null) {
-                imageView.setImageBitmap(bitmap);
-            }
-        }*/
-
-        if (imageViewReference != null) {
+        if (imageViewReference != null && bitmap != null) {
             ImageView imageView = imageViewReference.get();
             BitmapDownloaderTask bitmapDownloaderTask = getBitmapDownloaderTask(imageView);
             // Change bitmap only if this process is still associated with it
@@ -69,7 +66,7 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
         }
     }
 
-    private Bitmap downloadBitmap(String url) {
+    private Bitmap downloadBitmap(String url) throws StarWarIntegrationException {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -81,20 +78,9 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
             InputStream bitmapAsStream = response.body().byteStream(); // Read the data from the stream
             bitmapDecoded = BitmapFactory.decodeStream(bitmapAsStream);
         } catch (IOException e) {
-            //TODO:
+            logger.error(LOG_CONSTANT, "Problems during download of image from url " + url);
+            throw new StarWarIntegrationException("Problems during download of image from url " + url, e);
         }
-       /* client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                System.out.println("request failed: " + e.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                InputStream bitmapAsStream = response.body().byteStream(); // Read the data from the stream
-                bitmapDecoded = BitmapFactory.decodeStream(bitmapAsStream);
-            }
-        });*/
 
         return getResizedBitmap(bitmapDecoded, 40, 40);
     }
@@ -124,20 +110,6 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
     }
 
     private static boolean cancelPotentialDownload(String url, ImageView imageView) {
-
-/*        DownloadedDrawable downloadDrawable = new DownloadedDrawable(new BitmapDownloaderTask(imageView));
-        BitmapDownloaderTask bitmapDownloaderTask = downloadDrawable.getBitmapDownloaderTask(imageView);
-
-        if (bitmapDownloaderTask != null) {
-            String bitmapUrl = url;
-            if ((bitmapUrl == null) || (!bitmapUrl.equals(url))) {
-                bitmapDownloaderTask.cancel(true);
-            } else {
-                // The same URL is already being downloaded.
-                return false;
-            }
-        }
-        return true;*/
 
         BitmapDownloaderTask bitmapDownloaderTask = getBitmapDownloaderTask(imageView);
 
