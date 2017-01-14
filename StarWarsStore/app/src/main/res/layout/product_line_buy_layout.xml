@@ -76,13 +76,13 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/validaPinActivity_btnConfirma"
+            android:id="@+id/productLine_btnBuy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:background="@drawable/background_black_button"
-            android:minHeight="20dp"
+            android:minHeight="32dp"
             android:minWidth="65dp"
             android:text="@string/btn_buy"
             android:textColor="#FFFFFFFF"

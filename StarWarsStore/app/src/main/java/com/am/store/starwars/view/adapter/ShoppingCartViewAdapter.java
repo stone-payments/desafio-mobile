@@ -7,18 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.am.store.starwars.R;
 import com.am.store.starwars.core.ShoppingCartManager;
-import com.am.store.starwars.dao.ShoppingCartDAO;
-import com.am.store.starwars.exception.StarWarPersistenceException;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.exception.StarWarsException;
 import com.am.store.starwars.helper.AndroidLogger;
-import com.am.store.starwars.helper.BitmapDownloaderTask;
 import com.am.store.starwars.helper.formatter.CurrencyFormatter;
 import com.am.store.starwars.model.store.product.Product;
 import com.am.store.starwars.model.store.product.ProductEntity;
@@ -29,18 +26,18 @@ import java.util.List;
  * Created by Augusto on 14/01/2017.
  */
 
-public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
+public class ShoppingCartViewAdapter extends BaseAdapter {
 
     private static final String LOG_CONSTANT = ProductViewAdapter.class.getName();
     private static final AndroidLogger logger = AndroidLogger.getInstance();
 
     private Context context;
-    private List<Product> products;
+    private List<ProductEntity> products;
     private LayoutInflater mInflater = null;
-
     private ShoppingCartManager shoppingCartManager;
 
-    public ProductViewAdapter(Context context, List<Product> products) {
+
+    public ShoppingCartViewAdapter(Context context, List<ProductEntity> products) {
         this.context = context;
         this.products = products;
         this.shoppingCartManager = new ShoppingCartManager();
@@ -55,10 +52,10 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
     @Override
     public Object getItem(int position) {
         if (position > 0) {
-        return products.get(position);
+            return products.get(position);
+        }
+        return null;
     }
-    return null;
-}
 
     @Override
     public long getItemId(int position) {
@@ -72,16 +69,16 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
-            convertView = mInflater.inflate(R.layout.product_line_buy_layout, null);
+            convertView = mInflater.inflate(R.layout.product_line_cart_layout, null);
         }
 
         ImageView imgProduct = (ImageView) convertView.findViewById(R.id.productLine_imgProduct);
         TextView txtAmount = (TextView) convertView.findViewById(R.id.productLine_amout);
         TextView txtProduct = (TextView) convertView.findViewById(R.id.productLine_product);
         TextView txtVendor = (TextView) convertView.findViewById(R.id.productLine_vendor);
-        Button btnBuy = (Button) convertView.findViewById(R.id.productLine_btnBuy);
+        ImageButton btnBuy = (ImageButton) convertView.findViewById(R.id.productLine_btnDelete);
 
-        Product product = null;
+        ProductEntity product = null;
         try {
             product = products.get(position);
             txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
@@ -95,27 +92,13 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
                 try {
-                    shoppingCartManager.addItem(new ProductEntity(products.get(position)));
+                    shoppingCartManager.deleteProduct(products.get(position));
                 } catch (StarWarServiceException e) {
-                    logger.error(LOG_CONSTANT, "Problems to insert product in Shopping Cart", e);
+                    logger.error("Problems to delete product from ShoppingCart!", e);
                 }
             }
         });
 
-        try {
-            download(product.getImageEndpoint(), imgProduct);
-        } catch (Exception e) {
-            logger.error(LOG_CONSTANT, "Problems downloading Bitmap for Product " + product.getTitle());
-        }
-
         return convertView;
-    }
-
-    public void download(String url, ImageView imageView) {
-        BitmapDownloaderTask task = new BitmapDownloaderTask(imageView);
-        BitmapDownloaderTask.DownloadedDrawable downloadedDrawable = new BitmapDownloaderTask.DownloadedDrawable(task);
-        imageView.setImageDrawable(downloadedDrawable);
-        imageView.setMinimumHeight(156);
-        task.execute(url);
     }
 }
