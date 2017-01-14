@@ -70,6 +70,9 @@ public class ShoppingCartDAO {
             logger.error(LOG_CONSTANT, "Problems to delete product");
             throw new StarWarPersistenceException(e);
         }
+        finally {
+            //realm.close();
+        }
     }
 
     public void clearShoppingCart() throws StarWarPersistenceException {
@@ -86,6 +89,9 @@ public class ShoppingCartDAO {
         } catch (Exception e) {
             logger.error(LOG_CONSTANT, "Problems to delete all items in cart", e);
             throw new StarWarPersistenceException(e);
+        }
+        finally {
+            //realm.close();
         }
     }
 }

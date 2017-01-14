@@ -2,6 +2,7 @@ package com.am.store.starwars.view.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.am.store.starwars.R;
 import com.am.store.starwars.core.ShoppingCartManager;
+import com.am.store.starwars.dao.ProductImageDAO;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.exception.StarWarsException;
 import com.am.store.starwars.helper.AndroidLogger;
@@ -36,12 +38,14 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
     private List<ProductEntity> products;
     private LayoutInflater mInflater = null;
     private ShoppingCartManager shoppingCartManager;
+    private ProductImageDAO imageDAO;
 
 
     public ShoppingCartViewAdapter(Context context, List<ProductEntity> products) {
         this.context = context;
         this.products = products;
         this.shoppingCartManager = new ShoppingCartManager();
+        this.imageDAO = new ProductImageDAO();
         mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -85,6 +89,9 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
             txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
             txtVendor.setText(product.getSeller());
             txtProduct.setText(product.getTitle());
+
+            Bitmap bitmap = imageDAO.getImage(product.getTitle());
+            imgProduct.setImageBitmap(bitmap);
         } catch (StarWarsException e) {
             logger.error(LOG_CONSTANT, "Problems to format data for View", e);
         }

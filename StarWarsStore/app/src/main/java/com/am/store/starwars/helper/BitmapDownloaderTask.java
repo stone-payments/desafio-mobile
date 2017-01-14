@@ -9,7 +9,9 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
+import com.am.store.starwars.dao.ProductImageDAO;
 import com.am.store.starwars.exception.StarWarIntegrationException;
+import com.am.store.starwars.exception.StarWarPersistenceException;
 import com.am.store.starwars.exception.StarWarsException;
 import com.am.store.starwars.view.adapter.ProductViewAdapter;
 
@@ -35,9 +37,12 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
     private String url;
     private final WeakReference<ImageView> imageViewReference;
     private Bitmap bitmapDecoded = null;
+    private ProductImageDAO productImageDAO;
+    private String downloadKey;
 
     public BitmapDownloaderTask(ImageView imageView) {
         imageViewReference = new WeakReference<ImageView>(imageView);
+        this.productImageDAO = new ProductImageDAO();
     }
 
     @Override
@@ -45,6 +50,11 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
     protected Bitmap doInBackground(String... params) {
         try {
             // params comes from the execute() call: params[0] is the url.
+
+            if(params!= null && params.length > 1) {
+                downloadKey = params[1];
+            }
+
             return downloadBitmap(params[0]);
         } catch (StarWarsException e) {
             logger.error(LOG_CONSTANT, "Problems to execute AsyncTask! ", e);
@@ -56,12 +66,20 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
     @Override
     // Once the image is downloaded, associates it to the imageView
     protected void onPostExecute(Bitmap bitmap) {
+
         if (imageViewReference != null && bitmap != null) {
+
             ImageView imageView = imageViewReference.get();
             BitmapDownloaderTask bitmapDownloaderTask = getBitmapDownloaderTask(imageView);
+
             // Change bitmap only if this process is still associated with it
             if (this == bitmapDownloaderTask) {
                 imageView.setImageBitmap(bitmap);
+                try {
+                    this.productImageDAO.insertImage(downloadKey, bitmap);
+                } catch (StarWarPersistenceException e) {
+                    logger.error(LOG_CONSTANT, "Problems to persist BitMap", e);
+                }
             }
         }
     }
@@ -85,7 +103,7 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
         return getResizedBitmap(bitmapDecoded, 40, 40);
     }
 
-    public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
+    private Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
 
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -136,7 +154,7 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
         return null;
     }
 
-    public void download(String url, ImageView imageView) {
+    private void download(String url, ImageView imageView) {
         if (cancelPotentialDownload(url, imageView)) {
             BitmapDownloaderTask task = new BitmapDownloaderTask(imageView);
             DownloadedDrawable downloadedDrawable = new DownloadedDrawable(task);

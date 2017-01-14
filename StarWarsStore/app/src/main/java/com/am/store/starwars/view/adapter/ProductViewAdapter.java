@@ -103,7 +103,7 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
         });
 
         try {
-            download(product.getImageEndpoint(), imgProduct);
+            download(product.getImageEndpoint(), imgProduct, product);
         } catch (Exception e) {
             logger.error(LOG_CONSTANT, "Problems downloading Bitmap for Product " + product.getTitle());
         }
@@ -111,11 +111,11 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
         return convertView;
     }
 
-    public void download(String url, ImageView imageView) {
+    public void download(String url, ImageView imageView, Product product) {
         BitmapDownloaderTask task = new BitmapDownloaderTask(imageView);
         BitmapDownloaderTask.DownloadedDrawable downloadedDrawable = new BitmapDownloaderTask.DownloadedDrawable(task);
         imageView.setImageDrawable(downloadedDrawable);
         imageView.setMinimumHeight(156);
-        task.execute(url);
+        task.execute(url, product.getTitle());
     }
 }
