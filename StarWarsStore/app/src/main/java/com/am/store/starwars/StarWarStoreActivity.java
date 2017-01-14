@@ -17,6 +17,7 @@ import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.integration.store.action.ProductAction;
 import com.am.store.starwars.integration.store.service.RestServiceBuilder;
 import com.am.store.starwars.model.store.product.Product;
+import com.am.store.starwars.view.fragment.CheckoutFragment;
 import com.am.store.starwars.view.fragment.ProductsListFragment;
 
 import java.util.List;
@@ -110,11 +111,11 @@ public class StarWarStoreActivity extends AppCompatActivity
         Class fragmentClass = HOME_FRAGMENT_CLASS;
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            fragmentClass = HOME_FRAGMENT_CLASS;
         } else if (id == R.id.nav_gallery) {
-
+            fragmentClass = CheckoutFragment.class;
         } else if (id == R.id.nav_slideshow) {
-
+            fragmentClass = HOME_FRAGMENT_CLASS;
         }
 
         loadFragmet(fragmentClass);

@@ -16,9 +16,12 @@
     <string name="carrinho">Carrinho</string>
     <string name="minhas_compras">Minhas Compras</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
     <!-- Excluir -->
-<!--    <string name="menu_refresh">Refresh</string>
+    <!--    <string name="menu_refresh">Refresh</string>
 
     <string name="menu_color_scheme">Color scheme</string>
     <string name="menu_color_scheme_1">Scheme #1</string>
