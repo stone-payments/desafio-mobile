@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.am.store.starwars.R;
@@ -63,7 +64,7 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
 
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
@@ -93,6 +94,8 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
             public void onClick(View v) {
                 try {
                     shoppingCartManager.deleteProduct(products.get(position));
+                    products = shoppingCartManager.getShoppingCart();
+                    notifyDataSetChanged();
                 } catch (StarWarServiceException e) {
                     logger.error("Problems to delete product from ShoppingCart!", e);
                 }
