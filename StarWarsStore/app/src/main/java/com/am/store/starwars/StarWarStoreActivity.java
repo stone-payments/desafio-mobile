@@ -61,27 +61,6 @@ public class StarWarStoreActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-
-        try {
-            RestServiceBuilder restBuilder = new RestServiceBuilder("https://raw.githubusercontent.com", ProductAction.class);
-            ProductAction productAction = (ProductAction) restBuilder.build();
-
-            Call<List<Product>> response = productAction.getProducts();
-            response.enqueue(new Callback<List<Product>>() {
-                @Override
-                public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                    logger.info(LOG_CONSTANT, "funcionou");
-                }
-
-                @Override
-                public void onFailure(Call<List<Product>> call, Throwable t) {
-                    logger.error(LOG_CONSTANT, "nao funcionou!!!!!!!!!!!!!!!!!!!!!");
-                }
-            });
-
-        } catch (Exception e) {
-            logger.error(LOG_CONSTANT, e);
-        }
     }
 
     @Override
