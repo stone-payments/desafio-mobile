@@ -55,7 +55,14 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
                 downloadKey = params[1];
             }
 
-            return downloadBitmap(params[0]);
+            Bitmap bitmap = productImageDAO.getImage(downloadKey);
+
+            if(bitmap!= null) {
+                return bitmap;
+            }
+            else {
+                return downloadBitmap(params[0]);
+            }
         } catch (StarWarsException e) {
             logger.error(LOG_CONSTANT, "Problems to execute AsyncTask! ", e);
         }
