@@ -11,6 +11,9 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.am.store.starwars.R;
+import com.am.store.starwars.StarWarStoreActivity;
+import com.am.store.starwars.exception.StarWarsException;
+import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.helper.formatter.CurrencyFormatter;
 import com.am.store.starwars.model.store.product.Product;
 
@@ -23,6 +26,9 @@ import java.util.List;
  */
 
 public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
+
+    private static final String LOG_CONSTANT = ProductViewAdapter.class.getName();
+    private static final AndroidLogger logger = AndroidLogger.getInstance();
 
     private Context context;
     private List<Product> products;
@@ -76,10 +82,14 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
         TextView txtProduct = (TextView) convertView.findViewById(R.id.productLine_product);
         TextView txtVendor = (TextView) convertView.findViewById(R.id.productLine_vendor);
 
-        Product product = products.get(position);
-        txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
-        txtVendor.setText(product.getSeller());
-        txtProduct.setText(product.getTitle());
+        try {
+            Product product = products.get(position);
+            txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
+            txtVendor.setText(product.getSeller());
+            txtProduct.setText(product.getTitle());
+        } catch (StarWarsException e) {
+            logger.error(LOG_CONSTANT, "Problems to format data for View", e);
+        }
 
         return convertView;
     }

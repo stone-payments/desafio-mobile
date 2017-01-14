@@ -1,5 +1,7 @@
 package com.am.store.starwars.helper.formatter;
 
+import com.am.store.starwars.exception.StarWarHelperException;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -9,7 +11,7 @@ import java.util.Locale;
 
 public class CurrencyFormatter {
 
-    public static String transformToCurrency(String value) {
+    public static String transformToCurrency(String value) throws StarWarHelperException {
         try {
             if (value != null && !"".equals(value)) {
                 double parsed = Double.parseDouble(value);
@@ -20,8 +22,7 @@ public class CurrencyFormatter {
 
             return value;
         } catch (Exception e) {
-            //TODO:
-            throw e;
+            throw new StarWarHelperException("Problems to format value " + value, e);
         }
     }
 }
