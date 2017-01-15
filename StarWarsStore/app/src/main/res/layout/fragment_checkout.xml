@@ -117,6 +117,8 @@
                 android:id="@+id/activity_checkout_cvv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:inputType="number"
                 android:hint="Código"
                 android:maxLength="4" />
         </android.support.design.widget.TextInputLayout>

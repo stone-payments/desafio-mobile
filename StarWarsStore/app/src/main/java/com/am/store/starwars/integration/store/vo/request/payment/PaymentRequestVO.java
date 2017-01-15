@@ -62,4 +62,13 @@ public class PaymentRequestVO {
     public void setExpDate(String expDate) {
         this.expDate = expDate;
     }
+
+    public String getLastDigitsOfCardNumber() {
+
+        if (cardNumber != null && !"".equals(cardNumber) && cardNumber.length() >= 4) {
+            return cardNumber.substring(cardNumber.length() - 4);
+        }
+
+        return null;
+    }
 }

@@ -44,7 +44,7 @@ public class ShoppingCartManager {
         }
     }
 
-    public String getShoppingCartAmount() {
+    public int getShoppingCartAmount() {
 
         int amount = 0;
         try {
@@ -59,7 +59,7 @@ public class ShoppingCartManager {
             logger.error(LOG_CONSTANT, "Problesm to identify shopping cart amount!", e);
         }
 
-        return String.valueOf(amount);
+        return amount;
     }
 
     public void deleteProduct(Product product) throws StarWarServiceException {

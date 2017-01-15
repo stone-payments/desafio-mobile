@@ -8,24 +8,24 @@ import io.realm.RealmObject;
 
 public class Purchase extends RealmObject {
 
-    private String amount;
-    private String dateTime;
+    private int amount;
+    private long dateTime;
     private String lastDigitsCardNumber;
     private String cardHolder;
 
-    public String getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public String getDateTime() {
+    public long getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(long dateTime) {
         this.dateTime = dateTime;
     }
 

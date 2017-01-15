@@ -1,8 +1,10 @@
 package com.am.store.starwars.view.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,9 +14,14 @@ import android.widget.TextView;
 
 import com.am.store.starwars.R;
 import com.am.store.starwars.core.ShoppingCartManager;
+import com.am.store.starwars.exception.StarWarPersistenceException;
+import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.exception.StarWarsException;
 import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.helper.formatter.CurrencyFormatter;
+import com.am.store.starwars.integration.store.service.PaymentService;
+import com.am.store.starwars.integration.store.vo.request.payment.PaymentRequestVO;
+import com.am.store.starwars.model.store.product.Purchase;
 
 import io.card.payment.CardIOActivity;
 import io.card.payment.CreditCard;
@@ -39,6 +46,7 @@ public class CheckoutActivity extends AppCompatActivity {
     private Button btnConfirm;
 
     private ShoppingCartManager shoppingCartManager;
+    private PaymentService paymentService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,7 @@ public class CheckoutActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_checkout);
 
         shoppingCartManager = new ShoppingCartManager();
+        paymentService = new PaymentService();
 
         // add back arrow to toolbar
         if (getSupportActionBar() != null) {
@@ -62,10 +71,33 @@ public class CheckoutActivity extends AppCompatActivity {
         btnConfirm = (Button) findViewById(R.id.activity_checkout_btnConfirm);
 
         try {
-            txtAmount.setText(CurrencyFormatter.transformToCurrency(shoppingCartManager.getShoppingCartAmount()));
+            txtAmount.setText(CurrencyFormatter.transformToCurrency(String.valueOf(shoppingCartManager.getShoppingCartAmount())));
         } catch (StarWarsException e) {
             logger.error(LOG_CONSTANT, "Problems to show Shoppingcart amount in View!", e);
         }
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    paymentService.performPayment(createPaymentRequest());
+
+                    new AlertDialog.Builder(CheckoutActivity.this)
+                            .setTitle("Pagamento aprovado")
+                            .setMessage("Parabéns, sua compra foi realizada com sucesso!")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                    finish();
+                                }
+                            })
+                            .setIcon(R.drawable.darth_vader_icon)
+                            .show();
+                } catch (StarWarServiceException e) {
+                    logger.error(LOG_CONSTANT, "Problems to send payment", e);
+                }
+            }
+        });
     }
 
     @Override
@@ -147,5 +179,16 @@ public class CheckoutActivity extends AppCompatActivity {
         }
 
         logger.info(LOG_CONSTANT, resultStr);
+    }
+
+    private PaymentRequestVO createPaymentRequest() {
+        PaymentRequestVO request = new PaymentRequestVO();
+        request.setAmount(shoppingCartManager.getShoppingCartAmount());
+        request.setCardHolderName(editCardHolderName.getText().toString());
+        request.setCardNumber(editCardNumber.getText().toString());
+        request.setCvv(Integer.parseInt(editCVV.getText().toString()));
+        request.setExpDate(editValidate.getText().toString());
+
+        return request;
     }
 }

@@ -3,6 +3,7 @@ package com.am.store.starwars.integration.store.action;
 import com.am.store.starwars.integration.store.vo.request.payment.PaymentRequestVO;
 import com.am.store.starwars.integration.store.vo.response.payment.PaymentResponseVO;
 
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
@@ -13,5 +14,5 @@ import retrofit2.http.POST;
 public interface PaymentAction {
 
     @POST("/payment")
-    public PaymentResponseVO performPayment(@Body PaymentRequestVO paymentRequestVO);
+    public Call<PaymentResponseVO> performPayment(@Body PaymentRequestVO paymentRequestVO);
 }
