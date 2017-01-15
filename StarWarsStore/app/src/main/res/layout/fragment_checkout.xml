@@ -78,8 +78,7 @@
             android:gravity="center_vertical"
             android:layout_weight="0.3"
             android:minHeight="40dp"
-            android:background="@android:drawable/ic_menu_camera"
-            android:onClick="onScanPress"/>
+            android:background="@android:drawable/ic_menu_camera" />
 
     </LinearLayout>
 

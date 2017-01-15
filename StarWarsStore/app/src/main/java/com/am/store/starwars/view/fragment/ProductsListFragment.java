@@ -14,6 +14,11 @@ import com.am.store.starwars.integration.store.vo.ProductVO;
 import com.am.store.starwars.view.adapter.ProductViewAdapter;
 import com.am.store.starwars.view.fragment.swipe.SwipeRefreshListFragment;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -71,12 +76,14 @@ public class ProductsListFragment extends SwipeRefreshListFragment {
             response.enqueue(new Callback<List<ProductVO>>() {
                 @Override
                 public void onResponse(Call<List<ProductVO>> call, Response<List<ProductVO>> response) {
-                    logger.info(LOG_TAG, "funcionou");
-                    ProductViewAdapter adapter = new ProductViewAdapter(getContext(), response.body());
 
-                    // Set the adapter between the ListView and its backing data.
+                    logger.info(LOG_TAG, "funcionou");
+                    List<ProductVO> productVOs = response.body();
+
+                    onRefreshComplete(productVOs);
+                    ProductViewAdapter adapter = new ProductViewAdapter(getContext(), productVOs);
+
                     setListAdapter(adapter);
-                    onRefreshComplete(response.body());
                 }
 
                 @Override
@@ -93,5 +100,19 @@ public class ProductsListFragment extends SwipeRefreshListFragment {
     private void onRefreshComplete(List<ProductVO> result) {
         logger.info(LOG_TAG, "onRefreshComplete");
         setRefreshing(false);
+
+        Collections.sort(result, new Comparator<ProductVO>() {
+
+            DateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+
+            @Override
+            public int compare(ProductVO o1, ProductVO o2) {
+                try {
+                    return f.parse(o1.getDate()).compareTo(f.parse(o2.getDate()));
+                } catch (ParseException e) {
+                    throw new IllegalArgumentException(e);
+                }
+            }
+        });
     }
 }

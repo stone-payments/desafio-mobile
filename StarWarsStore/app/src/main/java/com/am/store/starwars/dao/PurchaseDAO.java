@@ -10,6 +10,7 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 /**
  * Created by Augusto on 15/01/2017.
@@ -46,7 +47,7 @@ public class PurchaseDAO {
         Realm realm = Realm.getDefaultInstance();
         try {
             RealmQuery<Purchase> query = realm.where(Purchase.class);
-            RealmResults<Purchase> purchases = query.findAll();
+            RealmResults<Purchase> purchases = query.findAllSorted("dateTime", Sort.DESCENDING);
             return purchases;
         } catch (Exception e) {
             logger.error(LOG_CONSTANT, "Problems to read all purchaes!", e);

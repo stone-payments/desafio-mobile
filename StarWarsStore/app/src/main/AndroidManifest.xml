@@ -14,12 +14,14 @@
         android:required="false" />
 
     <application
+        xmlns:tools="http://schemas.android.com/tools"
         android:name="StarWarStoreApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
         <activity
             android:name=".StarWarStoreActivity"
             android:label="@string/app_name"
@@ -33,14 +35,6 @@
 
         <activity android:name=".view.activity.CheckoutActivity" />
 
-        <activity
-            android:name="io.card.payment.CardIOActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:hardwareAccelerated="true" />
-
-        <activity
-            android:name="io.card.payment.DataEntryActivity"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
