@@ -51,16 +51,15 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
         try {
             // params comes from the execute() call: params[0] is the url.
 
-            if(params!= null && params.length > 1) {
+            if (params != null && params.length > 1) {
                 downloadKey = params[1];
             }
 
             Bitmap bitmap = productImageDAO.getImage(downloadKey);
 
-            if(bitmap!= null) {
+            if (bitmap != null) {
                 return bitmap;
-            }
-            else {
+            } else {
                 return downloadBitmap(params[0]);
             }
         } catch (StarWarsException e) {
@@ -81,11 +80,16 @@ public class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
 
             // Change bitmap only if this process is still associated with it
             if (this == bitmapDownloaderTask) {
-                imageView.setImageBitmap(bitmap);
-                try {
-                    this.productImageDAO.insertImage(downloadKey, bitmap);
-                } catch (StarWarPersistenceException e) {
-                    logger.error(LOG_CONSTANT, "Problems to persist BitMap", e);
+
+                if (imageView.getDrawable() == null || (imageView.getDrawable() instanceof DownloadedDrawable)) {
+                    imageView.setImageBitmap(bitmap);
+                    try {
+                        this.productImageDAO.insertImage(downloadKey, bitmap);
+                    } catch (StarWarPersistenceException e) {
+                        logger.error(LOG_CONSTANT, "Problems to persist BitMap", e);
+                    }
+                } else {
+                    logger.info(LOG_CONSTANT, "Image has already been downloaded and defined");
                 }
             }
         }

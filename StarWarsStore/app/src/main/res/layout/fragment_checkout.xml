@@ -7,7 +7,7 @@
     android:gravity="start">
 
     <TextView
-        android:id="@+id/activity_chekcout_txtAmount"
+        android:id="@+id/activity_checkout_txtAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
@@ -17,55 +17,81 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:id="@+id/activity_chekcout_layout_cardholdername"
+        android:id="@+id/activity_checkout_layout_cardholdername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_chekcout_txtAmount"
+        android:layout_below="@id/activity_checkout_txtAmount"
         android:layout_gravity="center"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_chekcout_name_txtInputLayout"
+            android:id="@+id/activity_checkout_name_txtInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/activity_chekcout_name"
+                android:id="@+id/activity_checkout_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nome" />
+
         </android.support.design.widget.TextInputLayout>
+
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/activity_checkout_layout_cardNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/activity_chekcout_layout_cardholdername"
+        android:layout_below="@+id/activity_checkout_layout_cardholdername"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_chekcout_card_txtInputLayout"
+            android:id="@+id/activity_checkout_card_txtInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4">
+            android:layout_weight="0.6">
 
             <EditText
-                android:id="@+id/activity_chekcout_card"
+                android:id="@+id/activity_checkout_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Cartão"
                 android:maxLength="16" />
+
         </android.support.design.widget.TextInputLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:minWidth="65dp"
+            android:gravity="center_vertical"
+            android:layout_weight="0.3"
+            android:minHeight="40dp"
+            android:background="@android:drawable/ic_menu_camera"
+            android:onClick="onScanPress"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_checkout_layout_cardNumber"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_chekcout_validate_txtInputLayout"
+            android:id="@+id/activity_checkout_validate_txtInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
@@ -73,7 +99,7 @@
             android:paddingRight="8dp">
 
             <EditText
-                android:id="@+id/activity_chekcout_validate"
+                android:id="@+id/activity_checkout_validate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Validade"
@@ -81,14 +107,14 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_chekcout_cvv_txtInputLayout"
+            android:id="@+id/activity_checkout_cvv_txtInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:paddingLeft="8dp">
 
             <EditText
-                android:id="@+id/activity_chekcout_cvv"
+                android:id="@+id/activity_checkout_cvv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Código"
@@ -96,9 +122,8 @@
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
-
     <Button
-        android:id="@+id/activity_chekcout_btnConfirma"
+        android:id="@+id/activity_checkout_btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

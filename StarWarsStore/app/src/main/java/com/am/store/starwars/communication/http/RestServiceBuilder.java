@@ -1,4 +1,4 @@
-package com.am.store.starwars.integration.store.service;
+package com.am.store.starwars.communication.http;
 
 import com.am.store.starwars.integration.store.action.Action;
 

@@ -1,6 +1,7 @@
 package com.am.store.starwars.view.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.am.store.starwars.core.ShoppingCartManager;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.model.store.product.Product;
+import com.am.store.starwars.view.activity.CheckoutActivity;
 import com.am.store.starwars.view.adapter.ShoppingCartViewAdapter;
 
 import java.util.List;
@@ -59,7 +61,7 @@ public class ShoppingCartFragment extends Fragment {
         View layoutFragment = inflater.inflate(R.layout.shoppingcart_layout, container, false);
 
         ListView listView = (ListView) layoutFragment.findViewById(R.id.shoppingCart_listOfProducts);
-        Button btnBuy = (Button)layoutFragment.findViewById(R.id.shoppingCart_btnBuy);
+        Button btnBuy = (Button) layoutFragment.findViewById(R.id.shoppingCart_btnBuy);
         ViewGroup layoutCheckout = (ViewGroup) layoutFragment.findViewById(R.id.shoppingCart_items);
         TextView lblNoItems = (TextView) layoutFragment.findViewById(R.id.shoppingCart_txtNoItems);
 
@@ -72,6 +74,14 @@ public class ShoppingCartFragment extends Fragment {
 
                 ShoppingCartViewAdapter adapter = new ShoppingCartViewAdapter(getContext().getApplicationContext(), products);
                 listView.setAdapter(adapter);
+
+                btnBuy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intentCheckout = new Intent(getActivity(), CheckoutActivity.class);
+                        startActivity(intentCheckout);
+                    }
+                });
             } else {
                 layoutCheckout.setVisibility(View.GONE);
                 lblNoItems.setVisibility(View.VISIBLE);

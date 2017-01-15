@@ -1,5 +1,7 @@
 package com.am.store.starwars.core;
 
+import android.content.Intent;
+
 import com.am.store.starwars.dao.ShoppingCartDAO;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.helper.AndroidLogger;
@@ -40,6 +42,24 @@ public class ShoppingCartManager {
             logger.error(LOG_CONSTANT, "Problems to read item in ShoppingCart", e);
             throw new StarWarServiceException(e);
         }
+    }
+
+    public String getShoppingCartAmount() {
+
+        int amount = 0;
+        try {
+
+            List<Product> products = getShoppingCart();
+
+            for (Product product : products) {
+                amount += Integer.parseInt(product.getPrice());
+            }
+
+        } catch (Exception e) {
+            logger.error(LOG_CONSTANT, "Problesm to identify shopping cart amount!", e);
+        }
+
+        return String.valueOf(amount);
     }
 
     public void deleteProduct(Product product) throws StarWarServiceException {

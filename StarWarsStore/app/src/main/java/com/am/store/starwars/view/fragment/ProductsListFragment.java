@@ -8,7 +8,7 @@ import android.view.View;
 import com.am.store.starwars.R;
 import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.integration.store.action.ProductAction;
-import com.am.store.starwars.integration.store.service.RestServiceBuilder;
+import com.am.store.starwars.communication.http.RestServiceBuilder;
 import com.am.store.starwars.integration.store.vo.ProductVO;
 import com.am.store.starwars.view.adapter.ProductViewAdapter;
 import com.am.store.starwars.view.fragment.swipe.SwipeRefreshListFragment;

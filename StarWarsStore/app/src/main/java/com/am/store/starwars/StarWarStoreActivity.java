@@ -1,6 +1,7 @@
 package com.am.store.starwars;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.am.store.starwars.helper.AndroidLogger;
+import com.am.store.starwars.view.activity.CheckoutActivity;
 import com.am.store.starwars.view.fragment.CheckoutFragment;
 import com.am.store.starwars.view.fragment.ProductsListFragment;
 import com.am.store.starwars.view.fragment.ShoppingCartFragment;
@@ -107,9 +109,14 @@ public class StarWarStoreActivity extends AppCompatActivity
             fragmentClass = HOME_FRAGMENT_CLASS;
         } else if (id == R.id.nav_gallery) {
             fragmentClass = ShoppingCartFragment.class;
-        } else if (id == R.id.nav_slideshow) {
+        } /*else if (id == R.id.nav_slideshow) {
             fragmentClass = CheckoutFragment.class;
-        }
+
+            Intent intentCheckout = new Intent(this, CheckoutActivity.class);
+            intentCheckout.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(intentCheckout);
+            return true;
+        }*/
 
         loadFragmet(fragmentClass);
 

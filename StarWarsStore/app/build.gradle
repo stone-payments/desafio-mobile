@@ -46,7 +46,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    /* compile 'io.realm:realm-android:0.87.4'*/
+    compile 'io.card:android-sdk:5.4.1@aar'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
