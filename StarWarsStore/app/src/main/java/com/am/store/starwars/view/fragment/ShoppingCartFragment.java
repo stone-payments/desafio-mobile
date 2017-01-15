@@ -3,21 +3,18 @@ package com.am.store.starwars.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.am.store.starwars.R;
-import com.am.store.starwars.StarWarStoreActivity;
 import com.am.store.starwars.core.ShoppingCartManager;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.helper.AndroidLogger;
-import com.am.store.starwars.model.store.product.ProductEntity;
+import com.am.store.starwars.model.store.product.Product;
 import com.am.store.starwars.view.adapter.ShoppingCartViewAdapter;
 
 import java.util.List;
@@ -67,7 +64,7 @@ public class ShoppingCartFragment extends Fragment {
         TextView lblNoItems = (TextView) layoutFragment.findViewById(R.id.shoppingCart_txtNoItems);
 
         try {
-            List<ProductEntity> products = shoppingCartManager.getShoppingCart();
+            List<Product> products = shoppingCartManager.getShoppingCart();
 
             if (products != null && (!products.isEmpty())) {
                 layoutCheckout.setVisibility(View.VISIBLE);

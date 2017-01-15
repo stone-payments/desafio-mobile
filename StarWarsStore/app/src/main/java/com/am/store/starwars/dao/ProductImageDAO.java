@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 
 import com.am.store.starwars.exception.StarWarPersistenceException;
 import com.am.store.starwars.helper.AndroidLogger;
-import com.am.store.starwars.model.store.product.ProductEntity;
 import com.am.store.starwars.model.store.product.ProductImageEntity;
 
 import io.realm.Realm;
@@ -36,7 +35,7 @@ public class ProductImageDAO {
             realm.copyToRealmOrUpdate(entity);
             realm.commitTransaction();
         } catch (Exception e) {
-            logger.error(LOG_CONSTANT, "Problems to insert Product Image!", e);
+            logger.error(LOG_CONSTANT, "Problems to insert ProductVO Image!", e);
             realm.cancelTransaction();
             throw new StarWarPersistenceException(e);
         } finally {

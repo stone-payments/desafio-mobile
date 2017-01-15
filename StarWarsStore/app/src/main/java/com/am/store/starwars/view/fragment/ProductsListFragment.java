@@ -1,25 +1,18 @@
 package com.am.store.starwars.view.fragment;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 
 import com.am.store.starwars.R;
 import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.integration.store.action.ProductAction;
 import com.am.store.starwars.integration.store.service.RestServiceBuilder;
-import com.am.store.starwars.model.store.product.Product;
+import com.am.store.starwars.integration.store.vo.ProductVO;
 import com.am.store.starwars.view.adapter.ProductViewAdapter;
 import com.am.store.starwars.view.fragment.swipe.SwipeRefreshListFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -75,10 +68,10 @@ public class ProductsListFragment extends SwipeRefreshListFragment {
             RestServiceBuilder restBuilder = new RestServiceBuilder("https://raw.githubusercontent.com", ProductAction.class);
             ProductAction productAction = (ProductAction) restBuilder.build();
 
-            Call<List<Product>> response = productAction.getProducts();
-            response.enqueue(new Callback<List<Product>>() {
+            Call<List<ProductVO>> response = productAction.getProducts();
+            response.enqueue(new Callback<List<ProductVO>>() {
                 @Override
-                public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                public void onResponse(Call<List<ProductVO>> call, Response<List<ProductVO>> response) {
                     logger.info(LOG_TAG, "funcionou");
                     ProductViewAdapter adapter = new ProductViewAdapter(getContext(), response.body());
 
@@ -88,7 +81,7 @@ public class ProductsListFragment extends SwipeRefreshListFragment {
                 }
 
                 @Override
-                public void onFailure(Call<List<Product>> call, Throwable t) {
+                public void onFailure(Call<List<ProductVO>> call, Throwable t) {
                     logger.error(LOG_TAG, "nao funcionou!!!!!!!!!!!!!!!!!!!!!");
                 }
             });
@@ -98,7 +91,7 @@ public class ProductsListFragment extends SwipeRefreshListFragment {
         }
     }
 
-    private void onRefreshComplete(List<Product> result) {
+    private void onRefreshComplete(List<ProductVO> result) {
         logger.info(LOG_TAG, "onRefreshComplete");
         setRefreshing(false);
     }

@@ -4,8 +4,6 @@ import com.am.store.starwars.dao.ShoppingCartDAO;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.model.store.product.Product;
-import com.am.store.starwars.model.store.product.ProductEntity;
-import com.am.store.starwars.view.adapter.ProductViewAdapter;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class ShoppingCartManager {
         this.cartDao = new ShoppingCartDAO();
     }
 
-    public void addItem(ProductEntity product) throws StarWarServiceException {
+    public void addItem(Product product) throws StarWarServiceException {
         try {
             this.cartDao.insertProduct(product);
         } catch (Exception e) {
@@ -33,9 +31,9 @@ public class ShoppingCartManager {
         }
     }
 
-    public List<ProductEntity> getShoppingCart() throws StarWarServiceException {
+    public List<Product> getShoppingCart() throws StarWarServiceException {
         try {
-            List<ProductEntity> products = this.cartDao.getShoppingCart();
+            List<Product> products = this.cartDao.getShoppingCart();
 
             return products;
         } catch (Exception e) {
@@ -44,7 +42,7 @@ public class ShoppingCartManager {
         }
     }
 
-    public void deleteProduct(ProductEntity product) throws StarWarServiceException {
+    public void deleteProduct(Product product) throws StarWarServiceException {
         try {
             this.cartDao.deleteProduct(product);
         } catch (Exception e) {

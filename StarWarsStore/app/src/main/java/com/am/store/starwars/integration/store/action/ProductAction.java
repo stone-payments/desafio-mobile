@@ -1,11 +1,10 @@
 package com.am.store.starwars.integration.store.action;
 
-import com.am.store.starwars.model.store.product.Product;
+import com.am.store.starwars.integration.store.vo.ProductVO;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.GET;
 
 /**
@@ -14,5 +13,5 @@ import retrofit2.http.GET;
 public interface ProductAction {
 
     @GET("/stone-pagamentos/desafio-mobile/master/products.json")
-    public Call<List<Product>> getProducts();
+    public Call<List<ProductVO>> getProducts();
 }

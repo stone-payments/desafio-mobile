@@ -14,18 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.am.store.starwars.helper.AndroidLogger;
-import com.am.store.starwars.integration.store.action.ProductAction;
-import com.am.store.starwars.integration.store.service.RestServiceBuilder;
-import com.am.store.starwars.model.store.product.Product;
 import com.am.store.starwars.view.fragment.CheckoutFragment;
 import com.am.store.starwars.view.fragment.ProductsListFragment;
 import com.am.store.starwars.view.fragment.ShoppingCartFragment;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class StarWarStoreActivity extends AppCompatActivity

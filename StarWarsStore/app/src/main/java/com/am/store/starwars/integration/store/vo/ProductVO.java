@@ -1,51 +1,33 @@
-package com.am.store.starwars.model.store.product;
+package com.am.store.starwars.integration.store.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
-import java.util.UUID;
-
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 /**
- * Created by Augusto on 14/01/2017.
+ * Created by Augusto on 13/01/2017.
  */
 
-public class ProductEntity extends RealmObject {
+public class ProductVO {
 
-    @PrimaryKey
-    private String id;
-
+    @JsonProperty("title")
     private String title;
 
+    @JsonProperty("seller")
     private String seller;
 
+    @JsonProperty("price")
     private String price;
 
+    @JsonProperty("zipcode")
     private String zipCode;
 
+    @JsonProperty("date")
     private String date;
 
+    @JsonProperty("thumbnailHd")
     private String imageEndpoint;
-
-    public ProductEntity() {
-
-    }
-
-    public ProductEntity(Product product) {
-        this.setId(UUID.randomUUID().toString());
-        this.setSeller(product.getSeller());
-        this.setDate(product.getDate());
-        this.setImageEndpoint(product.getImageEndpoint());
-        this.setPrice(product.getPrice());
-        this.setTitle(product.getTitle());
-        this.setZipCode(product.getZipCode());
-    }
 
     public String getTitle() {
         return title;
@@ -93,13 +75,5 @@ public class ProductEntity extends RealmObject {
 
     public void setSeller(String seller) {
         this.seller = seller;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

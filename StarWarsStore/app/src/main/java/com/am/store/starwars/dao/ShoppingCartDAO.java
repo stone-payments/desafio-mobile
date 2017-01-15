@@ -2,12 +2,11 @@ package com.am.store.starwars.dao;
 
 import com.am.store.starwars.exception.StarWarPersistenceException;
 import com.am.store.starwars.helper.AndroidLogger;
-import com.am.store.starwars.model.store.product.ProductEntity;
+import com.am.store.starwars.model.store.product.Product;
 
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
@@ -23,7 +22,7 @@ public class ShoppingCartDAO {
     public ShoppingCartDAO() {
     }
 
-    public void insertProduct(ProductEntity product) throws StarWarPersistenceException {
+    public void insertProduct(Product product) throws StarWarPersistenceException {
 
         Realm realm = Realm.getDefaultInstance();
 
@@ -40,12 +39,12 @@ public class ShoppingCartDAO {
         }
     }
 
-    public List<ProductEntity> getShoppingCart() throws StarWarPersistenceException {
+    public List<Product> getShoppingCart() throws StarWarPersistenceException {
 
         Realm realm = Realm.getDefaultInstance();
         try {
-            RealmQuery<ProductEntity> query = realm.where(ProductEntity.class);
-            RealmResults<ProductEntity> productsCart = query.findAll();
+            RealmQuery<Product> query = realm.where(Product.class);
+            RealmResults<Product> productsCart = query.findAll();
             return productsCart;
         } catch (Exception e) {
             logger.error(LOG_CONSTANT, "Problems to read all items in cart", e);
@@ -55,14 +54,14 @@ public class ShoppingCartDAO {
         }
     }
 
-    public void deleteProduct(final ProductEntity product) throws StarWarPersistenceException {
+    public void deleteProduct(final Product product) throws StarWarPersistenceException {
 
         Realm realm = Realm.getDefaultInstance();
         try {
             realm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
-                    RealmResults<ProductEntity> result = realm.where(ProductEntity.class).equalTo("id", product.getId()).findAll();
+                    RealmResults<Product> result = realm.where(Product.class).equalTo("id", product.getId()).findAll();
                     result.deleteAllFromRealm();
                 }
             });
@@ -81,8 +80,8 @@ public class ShoppingCartDAO {
             realm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
-                    RealmQuery<ProductEntity> query = realm.where(ProductEntity.class);
-                    RealmResults<ProductEntity> productsCart = query.findAll();
+                    RealmQuery<Product> query = realm.where(Product.class);
+                    RealmResults<Product> productsCart = query.findAll();
                     productsCart.deleteAllFromRealm();
                 }
             });

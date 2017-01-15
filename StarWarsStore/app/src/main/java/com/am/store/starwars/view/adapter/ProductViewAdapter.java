@@ -13,15 +13,13 @@ import android.widget.TextView;
 
 import com.am.store.starwars.R;
 import com.am.store.starwars.core.ShoppingCartManager;
-import com.am.store.starwars.dao.ShoppingCartDAO;
-import com.am.store.starwars.exception.StarWarPersistenceException;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.exception.StarWarsException;
 import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.helper.BitmapDownloaderTask;
 import com.am.store.starwars.helper.formatter.CurrencyFormatter;
+import com.am.store.starwars.integration.store.vo.ProductVO;
 import com.am.store.starwars.model.store.product.Product;
-import com.am.store.starwars.model.store.product.ProductEntity;
 
 import java.util.List;
 
@@ -35,12 +33,12 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
     private static final AndroidLogger logger = AndroidLogger.getInstance();
 
     private Context context;
-    private List<Product> products;
+    private List<ProductVO> products;
     private LayoutInflater mInflater = null;
 
     private ShoppingCartManager shoppingCartManager;
 
-    public ProductViewAdapter(Context context, List<Product> products) {
+    public ProductViewAdapter(Context context, List<ProductVO> products) {
         this.context = context;
         this.products = products;
         this.shoppingCartManager = new ShoppingCartManager();
@@ -81,7 +79,7 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
         TextView txtVendor = (TextView) convertView.findViewById(R.id.productLine_vendor);
         Button btnBuy = (Button) convertView.findViewById(R.id.productLine_btnBuy);
 
-        Product product = null;
+        ProductVO product = null;
         try {
             product = products.get(position);
             txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
@@ -95,7 +93,7 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
                 try {
-                    shoppingCartManager.addItem(new ProductEntity(products.get(position)));
+                    shoppingCartManager.addItem(new Product(products.get(position)));
                 } catch (StarWarServiceException e) {
                     logger.error(LOG_CONSTANT, "Problems to insert product in Shopping Cart", e);
                 }
@@ -105,13 +103,13 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
         try {
             download(product.getImageEndpoint(), imgProduct, product);
         } catch (Exception e) {
-            logger.error(LOG_CONSTANT, "Problems downloading Bitmap for Product " + product.getTitle());
+            logger.error(LOG_CONSTANT, "Problems downloading Bitmap for ProductVO " + product.getTitle());
         }
 
         return convertView;
     }
 
-    public void download(String url, ImageView imageView, Product product) {
+    public void download(String url, ImageView imageView, ProductVO product) {
         BitmapDownloaderTask task = new BitmapDownloaderTask(imageView);
         BitmapDownloaderTask.DownloadedDrawable downloadedDrawable = new BitmapDownloaderTask.DownloadedDrawable(task);
         imageView.setImageDrawable(downloadedDrawable);

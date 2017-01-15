@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.am.store.starwars.R;
@@ -21,7 +19,6 @@ import com.am.store.starwars.exception.StarWarsException;
 import com.am.store.starwars.helper.AndroidLogger;
 import com.am.store.starwars.helper.formatter.CurrencyFormatter;
 import com.am.store.starwars.model.store.product.Product;
-import com.am.store.starwars.model.store.product.ProductEntity;
 
 import java.util.List;
 
@@ -35,13 +32,13 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
     private static final AndroidLogger logger = AndroidLogger.getInstance();
 
     private Context context;
-    private List<ProductEntity> products;
+    private List<Product> products;
     private LayoutInflater mInflater = null;
     private ShoppingCartManager shoppingCartManager;
     private ProductImageDAO imageDAO;
 
 
-    public ShoppingCartViewAdapter(Context context, List<ProductEntity> products) {
+    public ShoppingCartViewAdapter(Context context, List<Product> products) {
         this.context = context;
         this.products = products;
         this.shoppingCartManager = new ShoppingCartManager();
@@ -83,7 +80,7 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
         TextView txtVendor = (TextView) convertView.findViewById(R.id.productLine_vendor);
         ImageButton btnBuy = (ImageButton) convertView.findViewById(R.id.productLine_btnDelete);
 
-        ProductEntity product = null;
+        Product product = null;
         try {
             product = products.get(position);
             txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
