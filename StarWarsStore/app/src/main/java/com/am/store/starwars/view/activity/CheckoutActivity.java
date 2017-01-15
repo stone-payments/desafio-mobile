@@ -87,7 +87,7 @@ public class CheckoutActivity extends AppCompatActivity {
                             .setMessage("Parabéns, sua compra foi realizada com sucesso!")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
+                                    dialog.dismiss();
                                     finish();
                                 }
                             })

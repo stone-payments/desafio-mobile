@@ -64,6 +64,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Cartão"
+                android:digits="0123456789"
+                android:inputType="number"
                 android:maxLength="16" />
 
         </android.support.design.widget.TextInputLayout>
@@ -102,6 +104,8 @@
                 android:id="@+id/activity_checkout_validate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="0123456789/"
+                android:inputType="number"
                 android:hint="Validade"
                 android:maxLength="5" />
         </android.support.design.widget.TextInputLayout>

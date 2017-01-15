@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.am.store.starwars.R;
+import com.am.store.starwars.constants.ActivityReturnCode;
 import com.am.store.starwars.core.ShoppingCartManager;
 import com.am.store.starwars.exception.StarWarServiceException;
 import com.am.store.starwars.helper.AndroidLogger;
@@ -33,8 +34,14 @@ public class ShoppingCartFragment extends Fragment {
 
     private ShoppingCartManager shoppingCartManager;
 
+    private ListView listView;
+    private Button btnBuy;
+    private ViewGroup layoutCheckout;
+    private TextView lblNoItems;
+
+    private ShoppingCartViewAdapter adapter;
+
     public ShoppingCartFragment() {
-        // Required empty public constructor
         shoppingCartManager = new ShoppingCartManager();
     }
 
@@ -60,10 +67,10 @@ public class ShoppingCartFragment extends Fragment {
         // Inflate the layout for this fragment
         View layoutFragment = inflater.inflate(R.layout.shoppingcart_layout, container, false);
 
-        ListView listView = (ListView) layoutFragment.findViewById(R.id.shoppingCart_listOfProducts);
-        Button btnBuy = (Button) layoutFragment.findViewById(R.id.shoppingCart_btnBuy);
-        ViewGroup layoutCheckout = (ViewGroup) layoutFragment.findViewById(R.id.shoppingCart_items);
-        TextView lblNoItems = (TextView) layoutFragment.findViewById(R.id.shoppingCart_txtNoItems);
+        listView = (ListView) layoutFragment.findViewById(R.id.shoppingCart_listOfProducts);
+        btnBuy = (Button) layoutFragment.findViewById(R.id.shoppingCart_btnBuy);
+        layoutCheckout = (ViewGroup) layoutFragment.findViewById(R.id.shoppingCart_items);
+        lblNoItems = (TextView) layoutFragment.findViewById(R.id.shoppingCart_txtNoItems);
 
         try {
             List<Product> products = shoppingCartManager.getShoppingCart();
@@ -72,14 +79,14 @@ public class ShoppingCartFragment extends Fragment {
                 layoutCheckout.setVisibility(View.VISIBLE);
                 lblNoItems.setVisibility(View.GONE);
 
-                ShoppingCartViewAdapter adapter = new ShoppingCartViewAdapter(getContext().getApplicationContext(), products);
+                adapter = new ShoppingCartViewAdapter(getContext().getApplicationContext(), products);
                 listView.setAdapter(adapter);
 
                 btnBuy.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intentCheckout = new Intent(getActivity(), CheckoutActivity.class);
-                        startActivity(intentCheckout);
+                        startActivityForResult(intentCheckout, ActivityReturnCode.PAYMENT_SUCCESS);
                     }
                 });
             } else {
@@ -91,5 +98,20 @@ public class ShoppingCartFragment extends Fragment {
         }
 
         return layoutFragment;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == ActivityReturnCode.PAYMENT_SUCCESS) {
+            adapter.notifyDataSetChanged();
+
+            getFragmentManager().beginTransaction()
+                    .replace(((ViewGroup) getView().getParent()).getId(), new ProductsListFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

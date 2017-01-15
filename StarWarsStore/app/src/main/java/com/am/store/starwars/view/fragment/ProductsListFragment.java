@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
 import com.am.store.starwars.R;
 import com.am.store.starwars.helper.AndroidLogger;
@@ -27,8 +28,6 @@ public class ProductsListFragment extends SwipeRefreshListFragment {
 
     private static final String LOG_TAG = ProductsListFragment.class.getSimpleName();
     private static final AndroidLogger logger = AndroidLogger.getInstance();
-
-    private static final int LIST_ITEM_COUNT = 20;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
