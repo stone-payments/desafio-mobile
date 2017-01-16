@@ -38,8 +38,7 @@ public class ProductsListFragment extends SwipeRefreshListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Notify the system to allow an options menu for this fragment.
-        setHasOptionsMenu(true);
+        setHasOptionsMenu(false);
     }
 
     @Override

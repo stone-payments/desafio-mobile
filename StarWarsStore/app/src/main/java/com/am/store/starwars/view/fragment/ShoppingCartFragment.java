@@ -69,6 +69,8 @@ public class ShoppingCartFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setHasOptionsMenu(false);
     }
 
     @Override
