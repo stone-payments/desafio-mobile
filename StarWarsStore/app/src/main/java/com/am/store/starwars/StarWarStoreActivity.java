@@ -18,6 +18,8 @@ import com.am.store.starwars.view.fragment.ProductsListFragment;
 import com.am.store.starwars.view.fragment.PurchasesFragment;
 import com.am.store.starwars.view.fragment.ShoppingCartFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class StarWarStoreActivity extends AppCompatActivity
@@ -28,12 +30,15 @@ public class StarWarStoreActivity extends AppCompatActivity
 
     private static Class HOME_FRAGMENT_CLASS = ProductsListFragment.class;
 
+    @BindView(R.id.nav_view)
+    protected NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_star_war_store);
+        ButterKnife.bind(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,7 +49,6 @@ public class StarWarStoreActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         AndroidLogger.configurationLog(getApplicationContext());

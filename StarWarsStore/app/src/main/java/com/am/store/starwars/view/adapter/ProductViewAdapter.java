@@ -23,6 +23,9 @@ import com.am.store.starwars.model.store.product.Product;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Augusto on 14/01/2017.
  */
@@ -66,30 +69,26 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        if (convertView == null) {
-            LayoutInflater mInflater = (LayoutInflater)
-                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-
-            convertView = mInflater.inflate(R.layout.product_line_buy_layout, null);
+        ViewHolder holder;
+        if (convertView != null) {
+            holder = (ViewHolder) convertView.getTag();
+        } else {
+            convertView = mInflater.inflate(R.layout.product_line_buy_layout, parent, false);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
         }
-
-        ImageView imgProduct = (ImageView) convertView.findViewById(R.id.productLine_imgProduct);
-        TextView txtAmount = (TextView) convertView.findViewById(R.id.productLine_amout);
-        TextView txtProduct = (TextView) convertView.findViewById(R.id.productLine_product);
-        TextView txtVendor = (TextView) convertView.findViewById(R.id.productLine_vendor);
-        Button btnBuy = (Button) convertView.findViewById(R.id.productLine_btnBuy);
 
         ProductVO product = null;
         try {
             product = products.get(position);
-            txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
-            txtVendor.setText(product.getSeller());
-            txtProduct.setText(product.getTitle());
+            holder.txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
+            holder.txtVendor.setText(product.getSeller());
+            holder.txtProduct.setText(product.getTitle());
         } catch (StarWarsException e) {
             logger.error(LOG_CONSTANT, "Problems to format data for View", e);
         }
 
-        btnBuy.setOnClickListener(new View.OnClickListener() {
+        holder. btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -101,7 +100,7 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
         });
 
         try {
-            download(product.getImageEndpoint(), imgProduct, product);
+            download(product.getImageEndpoint(), holder.imgProduct, product);
         } catch (Exception e) {
             logger.error(LOG_CONSTANT, "Problems downloading Bitmap for ProductVO " + product.getTitle());
         }
@@ -115,5 +114,27 @@ public class ProductViewAdapter extends BaseAdapter implements ListAdapter {
         imageView.setImageDrawable(downloadedDrawable);
         imageView.setMinimumHeight(156);
         task.execute(url, product.getTitle());
+    }
+
+    static class ViewHolder {
+
+        @BindView(R.id.productLine_imgProduct)
+        protected ImageView imgProduct;
+
+        @BindView(R.id.productLine_amout)
+        protected TextView txtAmount;
+
+        @BindView(R.id.productLine_product)
+        protected TextView txtProduct;
+
+        @BindView(R.id.productLine_vendor)
+        protected TextView txtVendor;
+
+        @BindView(R.id.productLine_btnBuy)
+        protected Button btnBuy;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

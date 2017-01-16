@@ -22,6 +22,9 @@ import com.am.store.starwars.view.adapter.ShoppingCartViewAdapter;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ShoppingCartFragment#newInstance} factory method to
@@ -34,10 +37,17 @@ public class ShoppingCartFragment extends Fragment {
 
     private ShoppingCartManager shoppingCartManager;
 
-    private ListView listView;
-    private Button btnBuy;
-    private ViewGroup layoutCheckout;
-    private TextView lblNoItems;
+    @BindView(R.id.shoppingCart_listOfProducts)
+    protected ListView listView;
+
+    @BindView(R.id.shoppingCart_btnBuy)
+    protected Button btnBuy;
+
+    @BindView(R.id.shoppingCart_items)
+    protected ViewGroup layoutCheckout;
+
+    @BindView(R.id.shoppingCart_txtNoItems)
+    protected TextView lblNoItems;
 
     private ShoppingCartViewAdapter adapter;
 
@@ -66,11 +76,7 @@ public class ShoppingCartFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layoutFragment = inflater.inflate(R.layout.shoppingcart_layout, container, false);
-
-        listView = (ListView) layoutFragment.findViewById(R.id.shoppingCart_listOfProducts);
-        btnBuy = (Button) layoutFragment.findViewById(R.id.shoppingCart_btnBuy);
-        layoutCheckout = (ViewGroup) layoutFragment.findViewById(R.id.shoppingCart_items);
-        lblNoItems = (TextView) layoutFragment.findViewById(R.id.shoppingCart_txtNoItems);
+        ButterKnife.bind(this, layoutFragment);
 
         try {
             List<Product> products = shoppingCartManager.getShoppingCart();

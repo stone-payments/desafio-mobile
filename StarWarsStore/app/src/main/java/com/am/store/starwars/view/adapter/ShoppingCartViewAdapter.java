@@ -22,6 +22,9 @@ import com.am.store.starwars.model.store.product.Product;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Augusto on 14/01/2017.
  */
@@ -67,33 +70,29 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
-        if (convertView == null) {
-            LayoutInflater mInflater = (LayoutInflater)
-                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-
-            convertView = mInflater.inflate(R.layout.product_line_cart_layout, null);
+        ShoppingCartViewAdapter.ViewHolder holder;
+        if (convertView != null) {
+            holder = (ShoppingCartViewAdapter.ViewHolder) convertView.getTag();
+        } else {
+            convertView = mInflater.inflate(R.layout.product_line_cart_layout, parent, false);
+            holder = new ShoppingCartViewAdapter.ViewHolder(convertView);
+            convertView.setTag(holder);
         }
-
-        ImageView imgProduct = (ImageView) convertView.findViewById(R.id.productLine_imgProduct);
-        TextView txtAmount = (TextView) convertView.findViewById(R.id.productLine_amout);
-        TextView txtProduct = (TextView) convertView.findViewById(R.id.productLine_product);
-        TextView txtVendor = (TextView) convertView.findViewById(R.id.productLine_vendor);
-        ImageButton btnBuy = (ImageButton) convertView.findViewById(R.id.productLine_btnDelete);
 
         Product product = null;
         try {
             product = products.get(position);
-            txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
-            txtVendor.setText(product.getSeller());
-            txtProduct.setText(product.getTitle());
+            holder.txtAmount.setText(CurrencyFormatter.transformToCurrency(product.getPrice()));
+            holder.txtVendor.setText(product.getSeller());
+            holder.txtProduct.setText(product.getTitle());
 
             Bitmap bitmap = imageDAO.getImage(product.getTitle());
-            imgProduct.setImageBitmap(bitmap);
+            holder.imgProduct.setImageBitmap(bitmap);
         } catch (StarWarsException e) {
             logger.error(LOG_CONSTANT, "Problems to format data for View", e);
         }
 
-        btnBuy.setOnClickListener(new View.OnClickListener() {
+        holder.btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -107,5 +106,28 @@ public class ShoppingCartViewAdapter extends BaseAdapter {
         });
 
         return convertView;
+    }
+
+
+    static class ViewHolder {
+
+        @BindView(R.id.productLine_imgProduct)
+        ImageView imgProduct;
+
+        @BindView(R.id.productLine_amout)
+        TextView txtAmount;
+
+        @BindView(R.id.productLine_product)
+        TextView txtProduct;
+
+        @BindView(R.id.productLine_vendor)
+        TextView txtVendor;
+
+        @BindView(R.id.productLine_btnDelete)
+        ImageButton btnBuy;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

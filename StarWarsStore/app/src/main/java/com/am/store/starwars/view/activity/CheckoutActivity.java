@@ -23,12 +23,13 @@ import com.am.store.starwars.integration.store.service.PaymentService;
 import com.am.store.starwars.integration.store.vo.request.payment.PaymentRequestVO;
 
 import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Augusto on 15/01/2017.
  */
-
 public class CheckoutActivity extends AppCompatActivity {
 
     private static final String LOG_CONSTANT = CheckoutActivity.class.getName();
@@ -36,12 +37,23 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private int MY_SCAN_REQUEST_CODE = 100; // arbitrary int
 
-    private TextView txtAmount;
-    private EditText editCardHolderName;
-    private EditText editCardNumber;
-    private EditText editValidate;
-    private EditText editCVV;
-    private Button btnConfirm;
+    @BindView(R.id.activity_checkout_txtAmount)
+    protected TextView txtAmount;
+
+    @BindView(R.id.activity_checkout_name)
+    protected EditText editCardHolderName;
+
+    @BindView(R.id.activity_checkout_card)
+    protected EditText editCardNumber;
+
+    @BindView(R.id.activity_checkout_validate)
+    protected EditText editValidate;
+
+    @BindView(R.id.activity_checkout_cvv)
+    protected EditText editCVV;
+
+    @BindView(R.id.activity_checkout_btnConfirm)
+    protected Button btnConfirm;
 
     private ShoppingCartManager shoppingCartManager;
     private PaymentService paymentService;
@@ -51,6 +63,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_checkout);
+        ButterKnife.bind(this);
 
         shoppingCartManager = new ShoppingCartManager();
         paymentService = new PaymentService();
@@ -60,13 +73,6 @@ public class CheckoutActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-        txtAmount = (TextView) findViewById(R.id.activity_checkout_txtAmount);
-        editCardHolderName = (EditText) findViewById(R.id.activity_checkout_name);
-        editCardNumber = (EditText) findViewById(R.id.activity_checkout_card);
-        editValidate = (EditText) findViewById(R.id.activity_checkout_validate);
-        editCVV = (EditText) findViewById(R.id.activity_checkout_cvv);
-        btnConfirm = (Button) findViewById(R.id.activity_checkout_btnConfirm);
 
         try {
             txtAmount.setText(CurrencyFormatter.transformToCurrency(String.valueOf(shoppingCartManager.getShoppingCartAmount())));

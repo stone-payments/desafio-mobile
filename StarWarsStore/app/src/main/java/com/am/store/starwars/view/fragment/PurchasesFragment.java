@@ -19,6 +19,8 @@ import com.am.store.starwars.view.adapter.PurchaseViewAdapter;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -31,8 +33,11 @@ public class PurchasesFragment extends Fragment {
     private static final String LOG_TAG = PurchasesFragment.class.getSimpleName();
     private static final AndroidLogger logger = AndroidLogger.getInstance();
 
-    private ListView purchasesListView;
-    private TextView txtNoPurchases;
+    @BindView(R.id.purchases_listOfPurchases)
+    protected ListView purchasesListView;
+
+    @BindView(R.id.purchasest_txtNoItems)
+    protected TextView txtNoPurchases;
 
     private PurchasesManager purchasesManager;
 
@@ -58,9 +63,7 @@ public class PurchasesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View currentLayout = inflater.inflate(R.layout.fragment_purchases, container, false);
-
-        purchasesListView = (ListView) currentLayout.findViewById(R.id.purchases_listOfPurchases);
-        txtNoPurchases = (TextView) currentLayout.findViewById(R.id.purchasest_txtNoItems);
+        ButterKnife.bind(this, currentLayout);
 
         try {
             PurchaseViewAdapter adapter = new PurchaseViewAdapter(getActivity().getApplicationContext(), purchasesManager.puchases());

@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.am.store.starwars.R;
@@ -15,6 +17,9 @@ import com.am.store.starwars.helper.formatter.CurrencyFormatter;
 import com.am.store.starwars.model.store.product.Purchase;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Augusto on 15/01/2017.
@@ -62,29 +67,42 @@ public class PurchaseViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        if (convertView == null) {
-            LayoutInflater mInflater = (LayoutInflater)
-                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-
-            convertView = mInflater.inflate(R.layout.purchases_line_layout, null);
+        PurchaseViewAdapter.ViewHolder holder;
+        if (convertView != null) {
+            holder = (PurchaseViewAdapter.ViewHolder) convertView.getTag();
+        } else {
+            convertView = mInflater.inflate(R.layout.purchases_line_layout, parent, false);
+            holder = new PurchaseViewAdapter.ViewHolder(convertView);
+            convertView.setTag(holder);
         }
 
         try {
             Purchase purchase = purchases.get(position);
 
-            TextView txtAmounmt = (TextView) convertView.findViewById(R.id.purchase_amout);
-            TextView txtDate = (TextView) convertView.findViewById(R.id.purchase_date);
-            TextView txtHour = (TextView) convertView.findViewById(R.id.purchase_hour);
-
-            txtAmounmt.setText(CurrencyFormatter.transformToCurrency(String.valueOf(purchase.getAmount())));
-            txtDate.setText(dateConveter.extractDate(purchase.getDateTime(), DateConveter.MMDD));
-            txtHour.setText(dateConveter.extractDate(purchase.getDateTime(), DateConveter.HHmm));
+            holder.txtAmounmt.setText(CurrencyFormatter.transformToCurrency(String.valueOf(purchase.getAmount())));
+            holder.txtDate.setText(dateConveter.extractDate(purchase.getDateTime(), DateConveter.MMDD));
+            holder.txtHour.setText(dateConveter.extractDate(purchase.getDateTime(), DateConveter.HHmm));
 
         } catch (Exception e) {
             //TODO:
         }
 
-
         return convertView;
+    }
+
+    static class ViewHolder {
+
+        @BindView(R.id.purchase_amout)
+        protected TextView txtAmounmt;
+
+        @BindView(R.id.purchase_date)
+        protected TextView txtDate;
+
+        @BindView(R.id.purchase_hour)
+        protected TextView txtHour;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }
