@@ -45,7 +45,7 @@ Todas as transações realizadas devem ser salvas em um banco interno com os seg
 + Últimos 4 dígitos do cartão
 + Nome do portador do cartão
 
-##### Lista de Transações
+###### Lista de Transações
 A aplicação deverá conter uma tela para exibir as transações que foram salvas em seu banco de dados.
  
 ---
