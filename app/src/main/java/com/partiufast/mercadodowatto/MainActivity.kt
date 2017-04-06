@@ -1,5 +1,6 @@
 package com.partiufast.mercadodowatto
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -13,9 +14,16 @@ import android.support.v4.view.ViewPager
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.*
 import android.widget.TextView
+import android.widget.Toast
+import com.facebook.drawee.backends.pipeline.Fresco
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import java.math.BigDecimal
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
@@ -33,6 +41,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val tabLayout = findViewById(R.id.tabs) as TabLayout
         tabLayout.setupWithViewPager(mViewPager)
+        tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_local_grocery_store_grey_24dp);
+
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
         val toggle = ActionBarDrawerToggle(
@@ -98,11 +108,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     class PlaceholderFragment : Fragment() {
 
+
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
             val rootView = inflater!!.inflate(R.layout.fragment_tabbed, container, false)
-            val textView = rootView.findViewById(R.id.section_label) as TextView
-            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
+            val recyclerView = rootView.findViewById(R.id.product_list_recycler_view) as RecyclerView
+
+           /* val url = "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json"
+
+            doAsync {
+                ProductRequest(url).run()
+                uiThread { Toast.makeText(context, "ProductRequest performed", Toast.LENGTH_SHORT).show()}
+            }*/
+            Fresco.initialize(context);
+
+            val product1 = Product("Sabre de Luz", BigDecimal("1500.00"), "Joana", "http://www.obrigadopelospeixes.com/wp-content/uploads/2015/12/kalippe_lightsaber_by_jnetrocks-d4dyzpo1-1024x600.jpg");
+            val product2 = Product("Blusa do Imperio", BigDecimal("79.90"), "Miguel", "https://cdn.awsli.com.br/600x450/21/21351/produto/3853007/f66e8c63ab.jpg");
+            val product3 = Product("Replica de BB-8", BigDecimal("133.00"), "Antonieta", "http://tf3dm.com/imgd/l29421-bb8-35865.jpg");
+
+            val list = listOf(product1, product2, product3, product1, product2, product3)
+
+            recyclerView.layoutManager = LinearLayoutManager(context);
+            val products = list
+            recyclerView.adapter = ProductListAdapter(products)
             return rootView
         }
 
@@ -136,15 +164,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         override fun getCount(): Int {
-            // Show 3 total pages.
-            return 3
+            // Show 2 total pages.
+            return 2
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
-                0 -> return "SECTION 1"
-                1 -> return "SECTION 2"
-                2 -> return "SECTION 3"
+                0 -> return "Loja"
+              //  1 -> return "Seu Carrinho"
             }
             return null
         }
