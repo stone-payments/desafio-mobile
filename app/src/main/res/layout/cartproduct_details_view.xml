@@ -6,8 +6,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cartList_image"
-        android:paddingRight="15dp"
-        android:paddingTop="10dp"
         android:src="@mipmap/ic_launcher"/>
 
     <TextView

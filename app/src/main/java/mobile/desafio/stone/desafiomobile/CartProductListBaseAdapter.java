@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -21,11 +23,13 @@ public class CartProductListBaseAdapter extends BaseAdapter {
     private ArrayList<CartProduct> allProducts;
     private LayoutInflater layoutInflater;
     private SpinnerListener spinnerListener;
+    private Context context;
 
     public CartProductListBaseAdapter(Context context, ArrayList<CartProduct> products, SpinnerListener spinnerListener) {
         this.allProducts = products;
         layoutInflater = LayoutInflater.from(context);
         this.spinnerListener = spinnerListener;
+        this.context = context;
     }
 
     @Override
@@ -73,6 +77,7 @@ public class CartProductListBaseAdapter extends BaseAdapter {
         }
 
         Product product = this.allProducts.get(position);
+        Picasso.with(context).load(product.getThumbnailHd()).resize(100,100).centerCrop().into(viewHolder.image);
         viewHolder.title.setText(product.getTitle());
         viewHolder.price.setText("R$ " + product.getPrice());
 

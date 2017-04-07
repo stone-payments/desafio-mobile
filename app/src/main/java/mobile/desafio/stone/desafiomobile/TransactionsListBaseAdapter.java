@@ -60,10 +60,10 @@ public class TransactionsListBaseAdapter extends BaseAdapter {
 
         Transaction transaction = this.allTransactions.get(position);
         viewHolder.value.setText("R$ " + transaction.getValue());
-        viewHolder.date.setText(transaction.getDate());
-        viewHolder.hour.setText(transaction.getHour());
-        viewHolder.cardOwner.setText(transaction.getCardOwner());
-        viewHolder.cardDigits.setText("xxx-xxxx-xxxx-" + transaction.getCardLastDigits());
+        viewHolder.date.setText("Data: " + transaction.getDate());
+        viewHolder.hour.setText("Hora: " + transaction.getHour());
+        viewHolder.cardOwner.setText("Autor: " + transaction.getCardOwner());
+        viewHolder.cardDigits.setText("Cartão: xxx-xxxx-xxxx-" + transaction.getCardLastDigits());
 
         return convertView;
     }

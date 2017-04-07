@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Gerson on 05/04/2017.
@@ -24,6 +27,9 @@ public class BuyItemActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         this.product = (Product)intent.getSerializableExtra("product");
+
+        ImageView imageView = (ImageView)findViewById(R.id.image);
+        Picasso.with(getBaseContext()).load(this.product.getThumbnailHd()).fit().centerInside().into(imageView);
 
         TextView itemName = (TextView)findViewById(R.id.itemName);
         itemName.setText(this.product.getTitle());

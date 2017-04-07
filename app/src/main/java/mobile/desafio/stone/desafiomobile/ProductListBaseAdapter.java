@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -18,10 +20,12 @@ public class ProductListBaseAdapter extends BaseAdapter {
 
     private ArrayList<Product> allProducts;
     private LayoutInflater layoutInflater;
+    private Context context;
 
     public ProductListBaseAdapter(Context context, ArrayList<Product> products){
         this.allProducts = products;
         layoutInflater = LayoutInflater.from(context);
+        this.context = context;
     }
     @Override
     public int getCount() {
@@ -48,6 +52,7 @@ public class ProductListBaseAdapter extends BaseAdapter {
             viewHolder.title = (TextView)convertView.findViewById(R.id.title);
             viewHolder.price = (TextView)convertView.findViewById(R.id.price);
             viewHolder.seller = (TextView)convertView.findViewById(R.id.seller);
+
             convertView.setTag(viewHolder);
         }
         else{
@@ -55,6 +60,7 @@ public class ProductListBaseAdapter extends BaseAdapter {
         }
 
         Product product = this.allProducts.get(position);
+        Picasso.with(context).load(product.getThumbnailHd()).resize(100,100).centerCrop().into(viewHolder.image);
         viewHolder.title.setText(product.getTitle());
         viewHolder.price.setText("R$ " + product.getPrice());
         viewHolder.seller.setText("Vendedor: " + product.getSeller());

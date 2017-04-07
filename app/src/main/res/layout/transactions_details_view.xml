@@ -6,48 +6,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/transactions_value"
-        android:text="R$ 99999"
-        android:textSize="25dp"
+        android:text="R$ 1000000"
+        android:textSize="30dp"
         android:textColor="#000000"
-        android:layout_alignBottom="@+id/transactions_card_owner"
         android:layout_alignParentTop="true"
         android:textAlignment="center"
-        android:gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/transactions_date"
-        android:layout_toRightOf="@id/transactions_value"
-        android:text="6/4/2016"
-        android:layout_marginLeft="20dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/transactions_hour"
-        android:layout_toRightOf="@id/transactions_date"
-        android:text="17:22"
-        android:layout_marginLeft="20dp"/>
+        android:gravity="center"
+        android:layout_alignBottom="@+id/transactions_hour" />
     
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/transactions_card_owner"
-        android:layout_toRightOf="@id/transactions_value"
-        android:layout_below="@id/transactions_date"
-        android:text="Luke SkyWalker"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="Autor: Luke SkyWalker"
+        android:layout_marginLeft="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/transactions_card_digits"
-        android:layout_toRightOf="@id/transactions_card_owner"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/transactions_card_owner"
+        android:text="Cartão: xxxx-xxxx-xxxx-1234"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/transactions_date"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/transactions_card_digits"
+        android:text="Data: 6/4/2016"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/transactions_hour"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@id/transactions_date"
-        android:text="xxxx-xxxx-xxxx-1234"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+        android:text="Hora: 17:22"
+        android:layout_marginLeft="20dp"/>
 </RelativeLayout>
