@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#443BA3</color>
+    <color name="colorPrimaryDark">#000080</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="produtct_line_bg_color">#F9F9F9</color>
+
+    <!-- Colors Pull-To-Refresh Layout -->
+    <color name="color_scheme_1_1">#33B5E5</color>
+    <color name="color_scheme_1_2">#99CC00</color>
+    <color name="color_scheme_1_3">#FFBB33</color>
+    <color name="color_scheme_1_4">#FF4444</color>
+</resources>
