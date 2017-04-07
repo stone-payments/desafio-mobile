@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/value"
+        android:text="R$ 100000"
+        android:textSize="40dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cardNumber"
+        android:text="Número do cartao:"
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/edt_cardNumber"
+        android:layout_alignBottom="@+id/edt_cardNumber"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_cardNumber"
+        android:layout_toRightOf="@id/tv_cardNumber"
+        android:layout_below="@id/value"
+        android:text=""
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:maxLength="16"
+        android:hint="ex:1234123412341234"
+        android:textColorHint="#AAAAAA"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cardOwner"
+        android:text="Proprietário:"
+        android:layout_below="@id/tv_cardNumber"
+        android:layout_marginTop="40dp"
+        android:layout_alignBaseline="@+id/edt_cardOwner"
+        android:layout_alignBottom="@+id/edt_cardOwner"
+        android:textSize="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_cardOwner"
+        android:text=""
+        android:layout_below="@+id/edt_cardNumber"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/tv_cardOwner"
+        android:layout_marginLeft="20dp"
+        android:hint="ex:Luke Skywalker"
+        android:maxLength="25"
+        android:textColorHint="#AAAAAA"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_secCode"
+        android:text="Código:"
+        android:layout_below="@id/tv_cardOwner"
+        android:layout_alignBaseline="@+id/edt_secCode"
+        android:layout_alignBottom="@+id/edt_secCode"
+        android:layout_marginTop="40dp"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_secCode"
+        android:text=""
+        android:layout_below="@+id/edt_cardOwner"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/tv_secCode"
+        android:layout_marginLeft="20dp"
+        android:maxLength="3"
+        android:hint="ex:111"
+        android:textColorHint="#AAAAAA"
+        android:inputType="numberPassword"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_expDate"
+        android:text="Vencimento:"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/edt_secCode"
+        android:layout_toLeftOf="@+id/edt_cardOwner"
+        android:layout_toStartOf="@+id/edt_cardOwner"
+        android:layout_alignBaseline="@+id/edt_expDate"
+        android:layout_alignBottom="@+id/edt_expDate"
+        />
+
+    <EditText
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_expDate"
+        android:text=""
+        android:layout_below="@+id/edt_secCode"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/tv_expDate"
+        android:layout_marginLeft="20dp"
+        android:maxLength="5"
+        android:hint="ex:05/22"
+        android:textColorHint="#AAAAAA"
+
+        android:digits="0123456789/"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_confirmPurchase"
+        android:text="Finalizar Compra"
+        android:textSize="20dp"
+        android:background="@color/lightGreen"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="finishPurchase"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mobile.desafio.stone.desafiomobile.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textSize="50dp"
+        android:textAlignment="center"
+        android:id="@+id/title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/btn_seeProducts"
+        android:background="@color/lightGreen"
+        android:text="@string/btn_seeProducts"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/title"
+        android:onClick="changeScreen_Buy"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@id/btn_seeProducts"
+        android:text="@string/btn_transition"
+        android:background="@color/darkGreen"
+        android:textColor="#ffffff"
+        android:onClick="changeScreen_Transition"/>
+
+</RelativeLayout>

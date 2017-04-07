@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/image"
+        android:layout_toRightOf="@+id/image"
+        android:textColor="#000000"
+        android:text="Título"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/price"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/title"
+        android:textColor="#000000"
+        android:text="R$ 999"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/seller"
+        android:layout_below="@id/price"
+        android:layout_alignLeft="@id/price"
+        android:text="Vendedor"/>
+
+</RelativeLayout>
