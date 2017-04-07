@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Desafio Mobile</string>
+    <string name="title">Desafio\nStone</string>
+    <string name="btn_seeProducts">Ver Produtos</string>
+    <string name="btn_transition">Transações Anteriores</string>
+    <string-array name="amountOptions">
+        <item>1 unidade</item>
+        <item>2 unidades</item>
+        <item>3 unidades</item>
+        <item>4 unidades</item>
+        <item>5 unidades</item>
+        <item>6 unidades</item>
+    </string-array>
+</resources>
