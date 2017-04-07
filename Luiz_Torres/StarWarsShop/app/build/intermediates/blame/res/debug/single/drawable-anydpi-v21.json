@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_info.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_refresh.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_refresh.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_error.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_add_cart.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_add_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_remove.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_remove.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_cart.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_credit_card.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_credit_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_shopping.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_shopping.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_loading.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_loading.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_add.xml",
+        "source": "C:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_add.xml"
+    }
+]

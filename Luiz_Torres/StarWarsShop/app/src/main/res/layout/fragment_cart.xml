@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_listItemsCart"
+        android:scrollbars="vertical"
+        android:layout_above="@+id/tv_cart_totalPrice"
+        />
+
+    <RelativeLayout
+        android:id="@+id/btn_cart_checkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_cart_checkout_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tint="@color/white"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_cart" />
+
+        <TextView
+            android:id="@+id/tv_cart_checkout_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/iv_cart_checkout_img"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="@string/checkout" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_cart_totalPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_cart_checkout"
+        android:text="R$:20000000,00"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+</RelativeLayout>

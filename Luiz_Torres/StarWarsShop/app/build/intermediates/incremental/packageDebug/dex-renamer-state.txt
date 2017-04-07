@@ -1,0 +1,7 @@
+#Fri Jan 06 23:57:45 BRST 2017
+base.0=C\:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_d177369b4a9b8626f1dda5ed355f7bd3ba4369bc
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_b8c7e205b6f3e3920ac440a6a235124e7544a277\\classes.dex
+base.1=C\:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_b8c7e205b6f3e3920ac440a6a235124e7544a277
+file.0=C\:\\Users\\Dindal\\AndroidStudioProjects\\StarWarsShop\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_d177369b4a9b8626f1dda5ed355f7bd3ba4369bc\\classes.dex

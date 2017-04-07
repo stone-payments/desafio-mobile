@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Star Wars</string>
+    <string name="bottom_cart">Cart</string>
+    <string name="bottom_refresh">Refresh</string>
+    <string name="bottom_shopping">Shopping</string>
+    <string name="bottom_orders">Orders</string>
+    <string name="checkout">Checkout</string>
+    <string name="enter_credit_card">Enter your credit card information</string>
+    <string name="credit_card_number">Card number</string>
+    <string name="credit_card_name">Enter the titular name\'s</string>
+    <string name="credit_card_exp_date_m">MM</string>
+    <string name="credit_card_exp_date_a">AA</string>
+    <string name="credit_card_cvv">CVV</string>
+    <string name="item_add">added to your cart</string>
+    <string name="item_remove">removed from your cart</string>
+    <string name="confirm">Confirm</string>
+    <string name="subtitle_shop">Shop</string>
+    <string name="subtitle_cart">Cart</string>
+    <string name="subtitle_orders">Orders</string>
+    <string name="subtitle_checkout">Checkout</string>
+    <string name="image_description">An image of the product</string>
+    <string name="error_response">Response error, please, try again</string>
+    <string name="error_connection">Connection error, make sure you\'re connected to internet</string>
+    <string name="error_card_length">Invalid card number(Min 13 and max 16)</string>
+    <string name="error_blank">You need to complete all spaces</string>
+    <string name="error_put">Error putting the JSON params</string>
+</resources>
