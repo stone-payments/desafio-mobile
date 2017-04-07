@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name=".MainActivity"
-            android:label="Desafio Mobile">
+            android:label="Desafio Mobile"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,16 +22,29 @@
             </intent-filter>
         </activity>
         <activity android:name=".BuyActivity"
-            android:label="Lista de Produtos">
+            android:label="Lista de Produtos"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
         </activity>
         <activity android:name=".BuyItemActivity"
-            android:label="Confirmar Item">
+            android:label="Confirmar Item"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
         </activity>
         <activity android:name=".CartActivity"
-            android:label="Carrinho">
+            android:label="Carrinho"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
         </activity>
         <activity android:name=".TransactionsActivity"
-            android:label="Transações">
+            android:label="Transações"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
+        <activity android:name=".ConfirmTransaction"
+            android:label="Dados do cartão"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
         </activity>
     </application>
 

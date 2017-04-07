@@ -36,7 +36,6 @@ public class GetJson extends AsyncTask<String, Void, String> {
     }
 
     protected void onPostExecute(String message){
-        Log.d("TAG", message);
         delegate.processFinish(message);
     }
 

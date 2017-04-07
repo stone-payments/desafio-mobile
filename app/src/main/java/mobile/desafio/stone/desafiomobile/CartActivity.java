@@ -12,10 +12,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import BD.BD;
 import BD.Transaction;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 
 
 public class CartActivity extends AppCompatActivity  implements SpinnerListener{
@@ -57,14 +66,13 @@ public class CartActivity extends AppCompatActivity  implements SpinnerListener{
         updateTotalPrice();
     }
 
+    OkHttpClient client = new OkHttpClient();
+
     public void finishPurchase(View v){
         if(Cart.getInstance().getAllProducts().size() > 0) {
-            BD bd = new BD(this);
-            bd.insert(new Transaction(this.price, "Luke Skywalker", "1234"));
-
-            Toast.makeText(this, "Compra realizada com sucesso!", Toast.LENGTH_SHORT).show();
-            Cart.getInstance().clean();
-            finish();
+            Intent intent = new Intent(this, ConfirmTransaction.class);
+            intent.putExtra("price", this.price);
+            startActivity(intent);
         }
         else{
             Toast.makeText(this, "Carrinho vazio.", Toast.LENGTH_SHORT).show();
