@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.leonardo.desafiomobile.auxiliares.Produto;
 import com.squareup.picasso.Picasso;
 
 public class Conf extends AppCompatActivity {
@@ -19,7 +18,6 @@ public class Conf extends AppCompatActivity {
     ImageView iv1;
     EditText et1;
     Button b1;
-    Produto item;
     String nome, preço, vendedor, imagem, zipcode, data, quantidade;
 
 
@@ -42,7 +40,7 @@ public class Conf extends AppCompatActivity {
         this.zipcode = i.getExtras().getString("ZIPCODE_KEY");
         this.data = i.getExtras().getString("DATA_KEY");
         tv2.setText(nome);
-        tv4.setText(preço);
+        tv4.setText("R$ " + preço);
         Picasso.with(this).load(imagem).into(iv1);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,5 +58,13 @@ public class Conf extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void cancelar(View view){
+        Intent i5 = new Intent(getApplicationContext(), Lista.class);
+        i5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i5.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i5);
+        finish();
     }
 }

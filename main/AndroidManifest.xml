@@ -19,7 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Conf" />
-        <activity android:name=".Carrinho"></activity>
+        <activity
+            android:name=".Carrinho"
+            android:launchMode="singleInstance" />
+        <activity android:name=".Transacao"></activity>
     </application>
 
 </manifest>

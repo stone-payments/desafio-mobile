@@ -24,21 +24,52 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="71dp"
-        app:cardElevation="5dp"
-        app:cardCornerRadius="5dp"
-        app:cardUseCompatPadding="true"
+        android:layout_height="250dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true" />
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="71dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/linearLayout"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="Total:"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/totalC"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20sp"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
 
         <Button
             android:id="@+id/button5"
@@ -47,7 +78,8 @@
             android:layout_weight="1"
             android:text="@string/voltar_para_a_lista"
             tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="380dp" />
+            tools:layout_editor_absoluteY="380dp"
+            android:onClick="abrirLista"/>
 
         <Button
             android:id="@+id/button4"
@@ -56,7 +88,8 @@
             android:layout_weight="1"
             android:text="@string/finalizar_a_compra"
             tools:layout_editor_absoluteX="160dp"
-            tools:layout_editor_absoluteY="380dp" />
+            tools:layout_editor_absoluteY="380dp"
+            android:onClick="confirmarC"/>
 
     </LinearLayout>
 

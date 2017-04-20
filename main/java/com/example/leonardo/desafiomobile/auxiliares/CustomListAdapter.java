@@ -42,7 +42,7 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Vi
                 .into(holder.fotoItem);
 
         holder.nome.setText(produtos.get(position).getTitle());
-        holder.preço.setText(produtos.get(position).getPrice());
+        holder.preço.setText("R$ " + produtos.get(position).getPrice());
         holder.vendedor.setText(produtos.get(position).getSeller());
 
 

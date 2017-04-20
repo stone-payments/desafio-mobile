@@ -32,7 +32,7 @@ public class Produto {
     }
 
     public String getPrice() {
-        return "R$ " + Double.toString(Double.parseDouble(price)/100);
+        return Double.toString(Double.parseDouble(price)/100);
     }
 
     public String getPrice1(){

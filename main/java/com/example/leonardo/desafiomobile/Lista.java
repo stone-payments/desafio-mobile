@@ -121,6 +121,12 @@ public class Lista extends AppCompatActivity{
         }
         return content.toString();
     }
+
+    public void retornar(View view){
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+
+    }
 }
 
 

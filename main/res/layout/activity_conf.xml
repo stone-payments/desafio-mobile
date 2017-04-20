@@ -95,8 +95,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="280dp"
-        android:layout_height="44dp"
+        android:layout_width="144dp"
+        android:layout_height="64dp"
         android:text="Adicionar ao Carrinho"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editText3"
@@ -106,6 +106,24 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_bias="0.623"/>
+        app:layout_constraintVertical_bias="0.631"
+        app:layout_constraintHorizontal_bias="0.95" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="121dp"
+        android:layout_height="62dp"
+        android:text="Cancelar"
+        app:layout_constraintRight_toLeftOf="@+id/button2"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintVertical_bias="0.651"
+        android:onClick="cancelar"/>
 
 </android.support.constraint.ConstraintLayout>
