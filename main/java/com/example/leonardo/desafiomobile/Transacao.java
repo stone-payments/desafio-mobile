@@ -54,7 +54,7 @@ public class Transacao extends AppCompatActivity {
             public void onClick(View view) {
                         if(!validar())
                             Toast.makeText(getApplicationContext(),"Campos não preenchidos!",Toast.LENGTH_LONG).show();
-                        else new sendJSON().execute("http://polls.apiblueprint.org/transacoes");
+                        else new sendJSON().execute("https://private-d9dbe-desafiomobile.apiary-mock.com/transacoes");
                 }
             }
         );
@@ -78,7 +78,12 @@ public class Transacao extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... urls) {
-            return Post(urls[0],t1,getApplicationContext());
+            return Post(urls[0],t1);
+        }
+
+        @Override
+        protected void onPostExecute(String result){
+            Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
         }
     }
 
@@ -90,7 +95,7 @@ public class Transacao extends AppCompatActivity {
                 !et4.getText().toString().trim().equals("");
     }
 
-    public static String Post(String newurl, Transação t, Context ctx){
+    public static String Post(String newurl, Transação t){
         String result ="";
         try{
             URL url = new URL(newurl);
@@ -117,20 +122,13 @@ public class Transacao extends AppCompatActivity {
             out.flush();
             out.close();
 
-            StringBuilder sb = new StringBuilder();
             int HttpResult = urlConnection.getResponseCode();
             if(HttpResult == HttpURLConnection.HTTP_OK){
-                BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                String line;
-                while((line = br.readLine()) != null){
-                    sb.append(line).append("\n");
-                }
-                result = sb.toString();
-                br.close();
+                result = Integer.toString(urlConnection.getResponseCode()) + ": " + urlConnection.getResponseMessage();
             }
-            //else{
-            //    Toast.makeText(ctx,urlConnection.getResponseMessage(),Toast.LENGTH_LONG).show();
-            //}
+            else{
+                result = Integer.toString(urlConnection.getResponseCode()) + ": " + urlConnection.getResponseMessage();
+            }
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
