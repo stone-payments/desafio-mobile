@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.leonardo.desafiomobile.Objetos.Produto;
 import com.example.leonardo.desafiomobile.R;
 import com.squareup.picasso.Picasso;
 
