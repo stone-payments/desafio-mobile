@@ -113,7 +113,7 @@ public class Lista extends AppCompatActivity{
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnecticon.getInputStream()));
             String line;
             while((line = bufferedReader.readLine())!= null){
-                content.append(line+"\n");
+                content.append(line).append("\n");
             }
             bufferedReader.close();
         }
@@ -127,6 +127,10 @@ public class Lista extends AppCompatActivity{
         Intent i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
 
+    }
+    public void irCarrinho(View view){
+        Intent i = new Intent(getApplicationContext(),Carrinho.class);
+        startActivity(i);
     }
 }
 

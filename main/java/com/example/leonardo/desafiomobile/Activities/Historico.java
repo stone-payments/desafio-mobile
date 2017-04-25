@@ -25,10 +25,11 @@ public class Historico extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historico);
         tv1 = (TextView) findViewById(R.id.database);
-        db = new DbHandler(this,"MeuCU.db",null,1);
+        db = new DbHandler(this,"Finalmente.db",null,1);
         s1 = db.getReadableDatabase();
         s = db.getTableAsString(s1);
         tv1.setText(s);
+        tv1.setMovementMethod(new ScrollingMovementMethod());
 
     }
 

@@ -19,11 +19,22 @@
         app:cardUseCompatPadding="true"/>
 
     <Button
-        android:id="@+id/retorno"
-        android:layout_width="match_parent"
+        android:id="@+id/irCarrinho"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:text="Retornar para Menu Principal"
+        android:onClick="retornar"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="retornar"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/retorno" />
+
+    <Button
+        android:id="@+id/retorno"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:onClick="irCarrinho"
+        android:text="Ver o Carrinho de Compras"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/irCarrinho"
+        android:layout_marginStart="11dp" />
 </RelativeLayout>

@@ -21,14 +21,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:elevation="5dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true">
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/tvT"
@@ -40,17 +41,18 @@
 
             <EditText
                 android:id="@+id/nCartaoT"
-                android:layout_width="170dp"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:maxLength="16"
+                android:inputType="" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal">
 
             <TextView
@@ -72,7 +74,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal">
 
             <TextView
@@ -86,7 +88,7 @@
 
             <EditText
                 android:id="@+id/cvvT"
-                android:layout_width="170dp"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:ems="10"
@@ -97,7 +99,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal">
 
             <TextView
@@ -111,7 +113,7 @@
 
             <EditText
                 android:id="@+id/nomeTitularT"
-                android:layout_width="170dp"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:ems="10"
@@ -121,7 +123,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal">
 
             <TextView
@@ -134,7 +136,7 @@
 
             <EditText
                 android:id="@+id/validadeT"
-                android:layout_width="170dp"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:ems="10"
@@ -147,9 +149,10 @@
         android:id="@+id/confirmarT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="35dp"
         android:text="Confirmar Compra"
         android:gravity="center"
+        android:layout_marginEnd="34dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 
@@ -159,9 +162,10 @@
         android:layout_height="wrap_content"
         android:text="Retornar"
         android:gravity="center"
+        android:onClick="retornar"
+        android:layout_marginEnd="44dp"
         android:layout_alignBaseline="@+id/confirmarT"
         android:layout_alignBottom="@+id/confirmarT"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="17dp" />
+        android:layout_toStartOf="@+id/confirmarT" />
 
 </RelativeLayout>

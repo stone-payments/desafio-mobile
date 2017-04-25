@@ -1,6 +1,7 @@
 package com.example.leonardo.desafiomobile.auxiliares;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.leonardo.desafiomobile.Activities.Carrinho;
 import com.example.leonardo.desafiomobile.Objetos.Produto;
 import com.example.leonardo.desafiomobile.R;
 import com.squareup.picasso.Picasso;
@@ -51,6 +53,9 @@ public class CustomListAdapter2 extends RecyclerView.Adapter<CustomListAdapter2.
             @Override
             public void onClick(View v) {
                 removeItem(position);
+                Intent i = new Intent(context,Carrinho.class);
+                context.startActivity(i);
+
             }
         });
 

@@ -13,7 +13,9 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="TextView"/>
+            android:text="TextView"
+            android:maxLines = "30"
+            android:scrollbars = "vertical"/>
 
         <Button
             android:id="@+id/voltar"
@@ -21,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="175dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="500dp"
             android:elevation="6dp"
             android:onClick="voltar"
             android:text="Voltar" />

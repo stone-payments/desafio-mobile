@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.leonardo.desafiomobile.R;
 import com.example.leonardo.desafiomobile.auxiliares.CustomListAdapter2;
@@ -47,11 +48,13 @@ public class Carrinho extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
 
-            Intent i2 = this.getIntent();
-            Bundle extras2 = i2.getExtras();
+        Intent i2 = this.getIntent();
+        Bundle extras2 = i2.getExtras();
+        atualizar();
+        if (extras2 != null) {
             this.nome = extras2.getString("NOME_KEY");
             this.preço = extras2.getString("PREÇO_KEY");
             this.data = extras2.getString("DATE_KEY");
@@ -60,23 +63,23 @@ public class Carrinho extends AppCompatActivity {
             this.vendedor = extras2.getString("VENDEDOR_KEY");
             this.qtd = extras2.getString("QTD_KEY");
             int i;
-            for (i = 0 ;i<carrinho.size();i++) {
+            for (i = 0; i < carrinho.size(); i++) {
                 Produto obj = carrinho.get(i);
                 if (this.nome.equals(obj.getTitle())) {
                     carrinho.remove(i);
                     addC();
                     adapter.notifyDataSetChanged();
                     atualizar();
-                    i=carrinho.size();
+                    i = carrinho.size();
                 }
             }
-            if(i==carrinho.size()) {
+            if (i == carrinho.size()) {
                 addC();
                 adapter.notifyDataSetChanged();
                 atualizar();
             }
         }
-
+    }
     @Override
     protected void onNewIntent(Intent intent){
         if (intent != null){
@@ -113,9 +116,24 @@ public class Carrinho extends AppCompatActivity {
         String texto = Double.toString(a);
         tv1.setText("R$ " + texto);
     }
+
     public void confirmarC(View view){
         Intent i12 = new Intent(getApplicationContext(), Transacao.class);
         i12.putExtra("TOTAL_KEY",tv1.getText());
-        startActivity(i12);
+        startActivityForResult(i12, 1);
+    }
+
+    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode == 1){
+            if(resultCode == Transacao.RESULT_OK){
+                Toast.makeText(this, "Compra Efetuada! Obrigado e Volte Sempre!", Toast.LENGTH_SHORT).show();
+                Intent i123 = new Intent(this, MainActivity.class);
+                startActivity(i123);
+                finish();
+            }
+            if(resultCode == Transacao.RESULT_CANCELED){
+                Toast.makeText(this,"Compra Cancelada!", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
