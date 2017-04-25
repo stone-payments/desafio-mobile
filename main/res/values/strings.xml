@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DesafioMobile</string>
+    <string name="carrinho">Carrinho</string>
+    <string name="voltar_para_o_lista">Voltar para o lista</string>
+    <string name="voltar_para_a_lista">Voltar para a lista</string>
+    <string name="finalizar_a_compra">Finalizar a compra</string>
+</resources>
