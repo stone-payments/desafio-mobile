@@ -13,6 +13,8 @@ import com.jademcosta.starstore.R;
 
 public class ItemsListActivity extends AppCompatActivity implements ItemsListContract.View {
 
+    private Presenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,9 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ItemsListInjector injector = new ItemsListInjector();
+        injector.inject(this);
+        
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,5 +55,10 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void setPresenter(Presenter presenter) {
+        this.presenter = presenter;
     }
 }
