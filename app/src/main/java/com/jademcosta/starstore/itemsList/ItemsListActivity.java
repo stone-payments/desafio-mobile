@@ -1,4 +1,4 @@
-package com.jademcosta.starstore;
+package com.jademcosta.starstore.itemsList;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ItemsListActivity extends AppCompatActivity {
+import com.jademcosta.starstore.R;
+
+public class ItemsListActivity extends AppCompatActivity implements ItemsListContract.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
