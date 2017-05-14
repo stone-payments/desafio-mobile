@@ -64,6 +64,12 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
     @Override
     public void setListItems(List<Item> items) {
         ItemsListAdapter adapter = new ItemsListAdapter(items);
+        adapter.setOnClickListener(new ItemsListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClicked(Item item) {
+                //TODO: jade: add item to cart
+            }
+        });
         recyclerView.setAdapter(adapter);
     }
 

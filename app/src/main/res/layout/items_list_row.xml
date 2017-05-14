@@ -40,4 +40,12 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/items_list_item_add_to_cart_button"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="#00ff00"
+        android:gravity="center"
+        android:text="+"/>
+
 </LinearLayout>

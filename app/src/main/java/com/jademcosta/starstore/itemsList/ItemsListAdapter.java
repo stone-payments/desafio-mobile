@@ -18,6 +18,7 @@ import java.util.List;
 public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.ItemsViewHolder> {
 
     private List<Item> items;
+    private OnItemClickListener listener;
 
     public ItemsListAdapter(List<Item> items) {
         this.items = items;
@@ -38,6 +39,15 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
         holder.price.setText(String.valueOf(item.getPrice()));
         holder.sellerName.setText(item.getSeller());
 
+        holder.addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener != null) {
+                    listener.onItemClicked(item);
+                }
+            }
+        });
+
         Glide.with(holder.itemView.getContext()).load(item.getThumbnailHd()).asBitmap()
                 .placeholder(R.drawable.item_placeholder)
                 .fallback(R.drawable.item_placeholder)
@@ -49,12 +59,17 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
         return items.size();
     }
 
+    public void setOnClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
     class ItemsViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
         TextView sellerName;
         TextView price;
         ImageView image;
+        View addToCartButton;
 
         public ItemsViewHolder(View itemView) {
             super(itemView);
@@ -63,6 +78,11 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
             sellerName = (TextView) itemView.findViewById(R.id.items_list_item_seller_name);
             price = (TextView) itemView.findViewById(R.id.items_list_item_price);
             image = (ImageView) itemView.findViewById(R.id.items_list_item_image);
+            addToCartButton = itemView.findViewById(R.id.items_list_item_add_to_cart_button);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClicked(Item item);
     }
 }
