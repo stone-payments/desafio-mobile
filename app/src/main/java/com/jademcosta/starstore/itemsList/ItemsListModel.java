@@ -20,7 +20,6 @@ public class ItemsListModel implements ItemsListContract.Model {
         this.api = api;
     }
 
-    @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }

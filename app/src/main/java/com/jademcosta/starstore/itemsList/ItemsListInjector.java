@@ -5,7 +5,7 @@ import com.jademcosta.starstore.network.ItemsApi;
 
 public class ItemsListInjector {
 
-    public void inject(ItemsListContract.View view) {
+    public void inject(ItemsListActivity view) {
         ItemsListModel model = buildModel();
         ItemsListPresenter presenter = new ItemsListPresenter();
 

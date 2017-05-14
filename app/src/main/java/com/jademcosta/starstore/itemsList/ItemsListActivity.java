@@ -36,7 +36,6 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         presenter.onCreate();
     }
 
-    @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }

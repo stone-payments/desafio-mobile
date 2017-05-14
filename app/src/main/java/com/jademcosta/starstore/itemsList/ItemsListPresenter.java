@@ -18,7 +18,6 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
         model.getItemsList();
     }
 
-    @Override
     public void setView(ItemsListContract.View view) {
         this.view = view;
     }
@@ -28,7 +27,6 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
         model.addItemToCart(item);
     }
 
-    @Override
     public void setModel(ItemsListContract.Model model) {
         this.model = model;
     }
