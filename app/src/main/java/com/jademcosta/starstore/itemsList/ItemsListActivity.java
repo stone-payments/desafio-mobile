@@ -62,7 +62,8 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
 
     @Override
     public void setListItems(List<Item> items) {
-        //TODO: jade: create adapter to show items
+        ItemsListAdapter adapter = new ItemsListAdapter(items);
+        recyclerView.setAdapter(adapter);
     }
 
     private void initializeListeners() {
