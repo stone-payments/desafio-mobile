@@ -24,6 +24,11 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
     }
 
     @Override
+    public void itemClicked(Item item) {
+        model.addItemToCart(item);
+    }
+
+    @Override
     public void setModel(ItemsListContract.Model model) {
         this.model = model;
     }

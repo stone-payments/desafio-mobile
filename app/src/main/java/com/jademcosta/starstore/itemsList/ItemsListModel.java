@@ -39,4 +39,9 @@ public class ItemsListModel implements ItemsListContract.Model {
             }
         });
     }
+
+    @Override
+    public void addItemToCart(Item item) {
+        //TODO: jade: add item to cart
+    }
 }

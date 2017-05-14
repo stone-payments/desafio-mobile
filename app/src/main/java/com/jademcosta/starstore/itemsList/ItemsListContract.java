@@ -19,6 +19,7 @@ public interface ItemsListContract {
         interface Presenter {
             void onCreate();
             void setView(View view);
+            void itemClicked(Item item);
         }
     }
 
@@ -26,6 +27,7 @@ public interface ItemsListContract {
 
         void setPresenter(Presenter presenter);
         void getItemsList();
+        void addItemToCart(Item item);
 
         interface Presenter {
             void setModel(Model model);
