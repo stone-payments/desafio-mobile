@@ -31,3 +31,5 @@
   **[] $VALUES;
   public *;
 }
+
+-keep class com.jademcosta.starstore.entity.** {*;}
