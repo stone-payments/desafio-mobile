@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jademcosta.starstore.R;
 import com.jademcosta.starstore.entity.Item;
 
@@ -33,8 +35,13 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
         final Item item = items.get(position);
 
         holder.name.setText(item.getTitle());
-        holder.price.setText(item.getPrice());
+        holder.price.setText(String.valueOf(item.getPrice()));
         holder.sellerName.setText(item.getSeller());
+
+        Glide.with(holder.itemView.getContext()).load(item.getThumbnailHd()).asBitmap()
+                .placeholder(R.drawable.item_placeholder)
+                .fallback(R.drawable.item_placeholder)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE).into(holder.image);
     }
 
     @Override

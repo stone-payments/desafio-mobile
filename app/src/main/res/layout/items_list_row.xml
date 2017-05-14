@@ -8,12 +8,14 @@
         android:id="@+id/items_list_item_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        android:src="@drawable/item_placeholder"/>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/items_list_item_name"
