@@ -13,6 +13,10 @@ public class Item implements Parcelable {
     private String thumbnailHd;
     private String date;
 
+    public Item() {
+
+    }
+
     public static final Creator<Item> CREATOR = new Creator<Item>() {
         @Override
         public Item createFromParcel(Parcel in) {
