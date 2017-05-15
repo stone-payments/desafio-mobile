@@ -1,11 +1,18 @@
 package com.jademcosta.starstore.itemsList;
 
 
+import android.content.Context;
+
+import com.jademcosta.starstore.database.ItemsRepository;
 import com.jademcosta.starstore.network.ItemsApi;
 
 public class ItemsListInjector {
 
-    public void inject(ItemsListActivity view) {
+    private Context context;
+
+    public void inject(ItemsListActivity view, Context context) {
+        this.context = context.getApplicationContext();
+
         ItemsListModel model = buildModel();
         ItemsListPresenter presenter = new ItemsListPresenter();
 
@@ -16,6 +23,6 @@ public class ItemsListInjector {
     }
 
     private ItemsListModel buildModel() {
-        return new ItemsListModel(new ItemsApi());
+        return new ItemsListModel(new ItemsApi(), new ItemsRepository(context));
     }
 }

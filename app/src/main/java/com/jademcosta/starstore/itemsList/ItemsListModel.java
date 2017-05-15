@@ -1,6 +1,7 @@
 package com.jademcosta.starstore.itemsList;
 
 
+import com.jademcosta.starstore.database.ItemsRepository;
 import com.jademcosta.starstore.entity.Item;
 import com.jademcosta.starstore.network.ItemsApi;
 
@@ -15,9 +16,11 @@ public class ItemsListModel implements ItemsListContract.Model {
     private Presenter presenter;
 
     private ItemsApi api;
+    private ItemsRepository repository;
 
-    public ItemsListModel(ItemsApi api) {
+    public ItemsListModel(ItemsApi api, ItemsRepository repository) {
         this.api = api;
+        this.repository = repository;
     }
 
     public void setPresenter(Presenter presenter) {
@@ -41,6 +44,6 @@ public class ItemsListModel implements ItemsListContract.Model {
 
     @Override
     public void addItemToCart(Item item) {
-        //TODO: jade: add item to cart
+        repository.add(item);
     }
 }

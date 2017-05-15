@@ -28,7 +28,7 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         setContentView(R.layout.activity_items_list);
 
         ItemsListInjector injector = new ItemsListInjector();
-        injector.inject(this);
+        injector.inject(this, getApplicationContext());
 
         initializeViews();
         initializeListeners();
