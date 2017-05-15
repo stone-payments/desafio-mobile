@@ -76,7 +76,7 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.goToCartButtonClicked();
+                presenter.goToCartButtonClicked(ItemsListActivity.this);
             }
         });
     }

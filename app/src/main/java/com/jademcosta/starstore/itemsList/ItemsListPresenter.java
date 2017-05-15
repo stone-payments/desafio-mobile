@@ -1,6 +1,10 @@
 package com.jademcosta.starstore.itemsList;
 
 
+import android.content.Context;
+import android.content.Intent;
+
+import com.jademcosta.starstore.cart.CartActivity;
 import com.jademcosta.starstore.entity.Item;
 
 import java.util.List;
@@ -44,7 +48,8 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
         view.hideLoading();
     }
 
-    public void goToCartButtonClicked() {
-        //TODO: jade: navigate to cart
+    public void goToCartButtonClicked(Context context) {
+        Intent intent = CartActivity.newIntent(context);
+        context.startActivity(intent);
     }
 }

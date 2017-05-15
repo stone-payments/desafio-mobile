@@ -1,6 +1,8 @@
 package com.jademcosta.starstore.itemsList;
 
 
+import android.content.Context;
+
 import com.jademcosta.starstore.entity.Item;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public interface ItemsListContract {
         interface Presenter {
             void onCreate();
             void itemClicked(Item item);
-            void goToCartButtonClicked();
+            void goToCartButtonClicked(Context context);
         }
     }
 
