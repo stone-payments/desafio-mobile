@@ -92,4 +92,8 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
     }
+
+    public void informItemAddedToCart() {
+        Snackbar.make(recyclerView, getString(R.string.items_list_added_to_cart), Snackbar.LENGTH_LONG).show();
+    }
 }

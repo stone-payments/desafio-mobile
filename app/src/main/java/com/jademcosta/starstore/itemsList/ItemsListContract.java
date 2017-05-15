@@ -14,6 +14,7 @@ public interface ItemsListContract {
         void hideList();
         void showList();
         void setListItems(List<Item> items);
+        void informItemAddedToCart();
 
         interface Presenter {
             void onCreate();
