@@ -12,6 +12,7 @@
     <string name="credit_card_label_expiration_date">Data de validade</string>
     <string name="credit_card_label_cvv">CVV</string>
     <string name="activity_credit_card_button_send">Enviar</string>
-
+    <string name="credit_card_payment_error">Um erro ocorreu, tente novamente mais tarde.</string>
+    <string name="credit_card_screen_title">Pagamento</string>
 </resources>
 

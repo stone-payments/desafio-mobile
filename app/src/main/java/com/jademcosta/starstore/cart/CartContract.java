@@ -1,6 +1,8 @@
 package com.jademcosta.starstore.cart;
 
 
+import android.content.Context;
+
 import com.jademcosta.starstore.entity.Item;
 
 import java.util.List;
@@ -14,6 +16,7 @@ public interface CartContract {
 
         interface Presenter {
             void onCreate();
+            void checkoutClicked(Context context);
         }
     }
 

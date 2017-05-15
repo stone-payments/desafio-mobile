@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +25,10 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
     private FloatingActionButton fab;
     private TextView totalPriceTextView;
 
+    public static Intent newIntent(Context context) {
+        return new Intent(context.getApplicationContext(), CartActivity.class);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +41,6 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
         injector.inject(this, getApplicationContext());
 
         presenter.onCreate();
-    }
-
-    public static Intent newIntent(Context context) {
-        return new Intent(context.getApplicationContext(), CartActivity.class);
     }
 
     private void initializeViews() {
@@ -62,7 +61,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(recyclerView, "Do something with me!", Snackbar.LENGTH_LONG).show();
+                presenter.checkoutClicked(CartActivity.this);
             }
         });
     }

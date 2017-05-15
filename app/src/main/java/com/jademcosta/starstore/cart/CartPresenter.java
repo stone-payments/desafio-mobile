@@ -1,6 +1,10 @@
 package com.jademcosta.starstore.cart;
 
 
+import android.content.Context;
+import android.content.Intent;
+
+import com.jademcosta.starstore.creditCard.CreditCardActivity;
 import com.jademcosta.starstore.entity.Item;
 
 import java.util.List;
@@ -29,5 +33,11 @@ public class CartPresenter implements CartContract.Model.Presenter, CartContract
         }
 
         view.setCartItemsTotalPrice(String.valueOf(total));
+    }
+
+    @Override
+    public void checkoutClicked(Context context) {
+        Intent intent = CreditCardActivity.newIntent(context);
+        context.startActivity(intent);
     }
 }

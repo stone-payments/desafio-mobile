@@ -1,17 +1,33 @@
 package com.jademcosta.starstore.creditCard;
 
 
+import com.jademcosta.starstore.entity.CreditCard;
+import com.jademcosta.starstore.entity.Payment;
+
 public interface CreditCardContract {
 
     interface View {
-        interface Presenter {
 
+        String getCreditCardNumber();
+        String getCreditCardOwnerName();
+        String getCreditCardExpirationDate();
+        String getCreditCardCvv();
+        void showError();
+        void hideLoading();
+        void showLoading();
+
+        interface Presenter {
+            void sendButtonClicked();
         }
     }
 
     interface Model {
-        interface Presenter {
 
+        void payWithCreditCard(CreditCard creditCard);
+
+        interface Presenter {
+            void paymentSuccessful(Payment payment);
+            void paymentFailed();
         }
     }
 }
