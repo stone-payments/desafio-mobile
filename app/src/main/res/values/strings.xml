@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="items_list_added_to_cart">Added to your cart</string>
+    <string name="items_list_screen_title">Loja</string>
+    <string name="cart_screen_title">Carrinho</string>
 </resources>

@@ -83,7 +83,9 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
 
     private void initializeViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.items_list_screen_title));
         setSupportActionBar(toolbar);
+
         fab = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = (RecyclerView) findViewById(R.id.activity_items_list_recyclerview);
         loadingView = (ProgressBar) findViewById(R.id.activity_items_list_loading_view);

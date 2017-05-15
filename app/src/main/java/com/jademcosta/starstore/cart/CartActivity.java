@@ -44,6 +44,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 
     private void initializeViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.cart_screen_title));
         setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
