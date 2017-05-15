@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.jademcosta.starstore.R;
 import com.jademcosta.starstore.entity.Item;
@@ -23,6 +24,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
     private Presenter presenter;
     private RecyclerView recyclerView;
     private FloatingActionButton fab;
+    private TextView totalPriceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = (RecyclerView) findViewById(R.id.activity_cart_recyclerview);
+        totalPriceTextView = (TextView) findViewById(R.id.activity_cart_total_price_text);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -78,5 +81,10 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 //            }
 //        });
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void setCartItemsTotalPrice(String total) {
+        totalPriceTextView.setText(total);
     }
 }

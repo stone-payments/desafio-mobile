@@ -1,6 +1,10 @@
 package com.jademcosta.starstore.cart;
 
 
+import com.jademcosta.starstore.entity.Item;
+
+import java.util.List;
+
 public class CartPresenter implements CartContract.Model.Presenter, CartContract.View.Presenter {
 
     private CartContract.View view;
@@ -16,6 +20,14 @@ public class CartPresenter implements CartContract.Model.Presenter, CartContract
 
     @Override
     public void onCreate() {
-        view.setCartItems(model.getCartItemsList());
+        List<Item> items = model.getCartItemsList();
+        view.setCartItems(items);
+
+        long total = 0;
+        for(Item item : items) {
+            total += item.getPrice();
+        }
+
+        view.setCartItemsTotalPrice(String.valueOf(total));
     }
 }

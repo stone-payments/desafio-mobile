@@ -10,6 +10,7 @@ public interface CartContract {
     interface View {
 
         void setCartItems(List<Item> items);
+        void setCartItemsTotalPrice(String sum);
 
         interface Presenter {
             void onCreate();
