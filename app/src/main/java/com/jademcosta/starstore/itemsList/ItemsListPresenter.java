@@ -43,4 +43,8 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
         view.showList();
         view.hideLoading();
     }
+
+    public void goToCartButtonClicked() {
+        //TODO: jade: navigate to cart
+    }
 }

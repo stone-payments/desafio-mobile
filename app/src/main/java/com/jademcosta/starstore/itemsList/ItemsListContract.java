@@ -19,6 +19,7 @@ public interface ItemsListContract {
         interface Presenter {
             void onCreate();
             void itemClicked(Item item);
+            void goToCartButtonClicked();
         }
     }
 
