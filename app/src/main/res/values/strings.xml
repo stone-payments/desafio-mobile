@@ -4,5 +4,14 @@
 
     <string name="items_list_added_to_cart">Added to your cart</string>
     <string name="items_list_screen_title">Loja</string>
+
     <string name="cart_screen_title">Carrinho</string>
+
+    <string name="credit_card_label_credit_card_number">Número do cartão</string>
+    <string name="credit_card_label_name">Nome do titular</string>
+    <string name="credit_card_label_expiration_date">Data de validade</string>
+    <string name="credit_card_label_cvv">CVV</string>
+    <string name="activity_credit_card_button_send">Enviar</string>
+
 </resources>
+
