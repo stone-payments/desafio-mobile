@@ -13,4 +13,9 @@ public class CartPresenter implements CartContract.Model.Presenter, CartContract
     public void setView(CartContract.View view) {
         this.view = view;
     }
+
+    @Override
+    public void onCreate() {
+        view.setCartItems(model.getCartItemsList());
+    }
 }

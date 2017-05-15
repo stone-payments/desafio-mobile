@@ -2,6 +2,9 @@ package com.jademcosta.starstore.cart;
 
 
 import com.jademcosta.starstore.database.ItemsRepository;
+import com.jademcosta.starstore.entity.Item;
+
+import java.util.List;
 
 public class CartModel implements CartContract.Model {
 
@@ -14,5 +17,10 @@ public class CartModel implements CartContract.Model {
 
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public List<Item> getCartItemsList() {
+        return repository.getItems();
     }
 }
