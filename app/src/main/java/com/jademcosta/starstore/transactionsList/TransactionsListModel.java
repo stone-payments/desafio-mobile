@@ -2,6 +2,9 @@ package com.jademcosta.starstore.transactionsList;
 
 
 import com.jademcosta.starstore.database.TransactionsRepository;
+import com.jademcosta.starstore.entity.Transaction;
+
+import java.util.List;
 
 public class TransactionsListModel implements TransactionsListContract.Model {
 
@@ -14,5 +17,10 @@ public class TransactionsListModel implements TransactionsListContract.Model {
 
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public List<Transaction> getTransactionsList() {
+        return transactionsRepository.getTransactions();
     }
 }

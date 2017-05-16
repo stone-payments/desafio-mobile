@@ -8,6 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.jademcosta.starstore.R;
+import com.jademcosta.starstore.entity.Transaction;
+
+import java.util.List;
 
 public class TransactionsListActivity extends AppCompatActivity
         implements TransactionsListContract.View {
@@ -24,6 +27,18 @@ public class TransactionsListActivity extends AppCompatActivity
      
         TransactionsListInjector injector = new TransactionsListInjector();
         injector.inject(this, getApplicationContext());
+
+        presenter.onCreate();
+    }
+
+    @Override
+    public void setTransactionsList(List<Transaction> transactions) {
+        TransactionsListAdapter adapter = new TransactionsListAdapter(transactions);
+        recyclerView.setAdapter(adapter);
+    }
+
+    public void setPresenter(Presenter presenter) {
+        this.presenter = presenter;
     }
 
     private void initializeViews() {
@@ -35,10 +50,5 @@ public class TransactionsListActivity extends AppCompatActivity
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-    }
-
-
-    public void setPresenter(Presenter presenter) {
-        this.presenter = presenter;
     }
 }
