@@ -78,7 +78,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 
     @Override
     public void setCartItemsTotalPrice(String total) {
-        totalPriceTextView.setText(total);
+        totalPriceTextView.setText(String.format(getString(R.string.cart_total_price), total));
     }
 
     @Override

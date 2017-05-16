@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:textSize="24sp"
-            android:background="#cccccc"/>
+            android:background="@color/light_gray"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/activity_cart_recyclerview"
