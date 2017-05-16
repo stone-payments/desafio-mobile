@@ -20,5 +20,6 @@
     <string name="transactions_list_screen_title">Transações</string>
     <string name="transactions_list_price">Valor: %1$s</string>
     <string name="transactions_list_obfuscated_card_number">Cartão: **** **** **** %1$s</string>
+    <string name="transactions_list_empty_view_text">Você ainda não fez nenhuma compra. Vá para tela principal para gastar sua grana!</string>
 </resources>
 

@@ -12,6 +12,8 @@ public interface TransactionsListContract {
     interface View {
 
         void setTransactionsList(List<Transaction> transactions);
+        void showList();
+        void hideEmptyView();
 
         interface Presenter {
             void onCreate();

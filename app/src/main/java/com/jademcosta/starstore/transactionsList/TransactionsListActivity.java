@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.jademcosta.starstore.R;
 import com.jademcosta.starstore.entity.Transaction;
@@ -23,6 +24,7 @@ public class TransactionsListActivity extends AppCompatActivity
     private Presenter presenter;
     private RecyclerView recyclerView;
     private BottomNavigationView bottomNavigationView;
+    private View emptyList;
 
     public static Intent newIntent(Context context) {
         Intent intent = new Intent(context.getApplicationContext(), TransactionsListActivity.class);
@@ -50,6 +52,16 @@ public class TransactionsListActivity extends AppCompatActivity
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void showList() {
+        recyclerView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideEmptyView() {
+        emptyList.setVisibility(View.GONE);
+    }
+
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }
@@ -61,6 +73,7 @@ public class TransactionsListActivity extends AppCompatActivity
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         recyclerView = (RecyclerView) findViewById(R.id.activity_transactions_list_recyclerview);
+        emptyList = findViewById(R.id.activity_transactions_list_empty_list);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

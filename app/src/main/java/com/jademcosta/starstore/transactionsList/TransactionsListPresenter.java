@@ -26,7 +26,13 @@ public class TransactionsListPresenter implements TransactionsListContract.View.
     @Override
     public void onCreate() {
         List<Transaction> transactions = model.getTransactionsList();
+        if(transactions.isEmpty()) {
+            return;
+        }
+
         view.setTransactionsList(transactions);
+        view.hideEmptyView();
+        view.showList();
     }
 
     @Override

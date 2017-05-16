@@ -29,7 +29,16 @@
             android:id="@+id/activity_transactions_list_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottom_navigation"/>
+            android:layout_above="@+id/bottom_navigation"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/activity_transactions_list_empty_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/transactions_list_empty_view_text"/>
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/bottom_navigation"
