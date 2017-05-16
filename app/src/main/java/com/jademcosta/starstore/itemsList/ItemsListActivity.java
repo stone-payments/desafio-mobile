@@ -123,6 +123,21 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
                 return false;
             }
         });
+
+        initializeFabVisibilityBehavior();
+    }
+
+    private void initializeFabVisibilityBehavior() {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy){
+                if (dy < 0 && !fab.isShown())
+                    fab.show();
+                if(dy > 0 && fab.isShown()) {
+                    fab.hide();
+                }
+            }
+        });
     }
 
     private void initializeViews() {
