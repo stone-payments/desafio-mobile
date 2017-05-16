@@ -1,6 +1,8 @@
 package com.jademcosta.starstore.creditCard;
 
 
+import android.content.Context;
+
 import com.jademcosta.starstore.entity.CreditCard;
 import com.jademcosta.starstore.entity.Payment;
 
@@ -15,9 +17,11 @@ public interface CreditCardContract {
         void showError();
         void hideLoading();
         void showLoading();
+        void showSuccessfulPayment();
 
         interface Presenter {
             void sendButtonClicked();
+            void okButtonClicked(Context context);
         }
     }
 

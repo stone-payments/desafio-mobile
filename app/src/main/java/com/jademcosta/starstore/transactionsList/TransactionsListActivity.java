@@ -1,6 +1,8 @@
 package com.jademcosta.starstore.transactionsList;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,10 +20,14 @@ public class TransactionsListActivity extends AppCompatActivity
     private Presenter presenter;
     private RecyclerView recyclerView;
 
+    public static Intent newIntent(Context context) {
+        return new Intent(context.getApplicationContext(), TransactionsListActivity.class);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credit_card);
+        setContentView(R.layout.activity_transactions_list);
 
         initializeViews();
      

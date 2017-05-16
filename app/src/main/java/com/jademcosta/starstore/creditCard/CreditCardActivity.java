@@ -3,9 +3,11 @@ package com.jademcosta.starstore.creditCard;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -91,6 +93,20 @@ public class CreditCardActivity extends AppCompatActivity implements CreditCardC
     public void showLoading() {
         dialog = ProgressDialog.show(this, "",
                 "Loading. Please wait...", true);
+    }
+
+    @Override
+    public void showSuccessfulPayment() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Pagamento aceito")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        presenter.okButtonClicked(CreditCardActivity.this);
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override

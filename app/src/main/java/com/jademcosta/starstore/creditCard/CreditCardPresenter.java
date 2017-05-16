@@ -1,8 +1,11 @@
 package com.jademcosta.starstore.creditCard;
 
 
+import android.content.Context;
+
 import com.jademcosta.starstore.entity.CreditCard;
 import com.jademcosta.starstore.entity.Payment;
+import com.jademcosta.starstore.transactionsList.TransactionsListActivity;
 
 public class CreditCardPresenter implements CreditCardContract.View.Presenter,
         CreditCardContract.Model.Presenter {
@@ -31,10 +34,16 @@ public class CreditCardPresenter implements CreditCardContract.View.Presenter,
     }
 
     @Override
+    public void okButtonClicked(Context context) {
+        context.startActivity(TransactionsListActivity.newIntent(context));
+    }
+
+    @Override
     public void paymentSuccessful(Payment payment) {
-        view.hideLoading();
         model.emptyCart();
         model.saveTransaction(payment);
+        view.hideLoading();
+        view.showSuccessfulPayment();
     }
 
     @Override
