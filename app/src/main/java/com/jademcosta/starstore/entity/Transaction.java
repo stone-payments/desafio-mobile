@@ -10,6 +10,10 @@ public class Transaction {
     private String value;
     private String dateTime;
 
+    public Transaction() {
+
+    }
+
     public Transaction(String name, String creditCardLastFourDigits, String value, String dateTime) {
         this.name = name;
         this.creditCardLastFourDigits = creditCardLastFourDigits;
