@@ -17,6 +17,15 @@ public class Item implements Parcelable {
 
     }
 
+    public Item(String title, int price, String zipcode, String seller, String thumbnailHd, String date) {
+        this.title = title;
+        this.price = price;
+        this.zipcode = zipcode;
+        this.seller = seller;
+        this.thumbnailHd = thumbnailHd;
+        this.date = date;
+    }
+
     public static final Creator<Item> CREATOR = new Creator<Item>() {
         @Override
         public Item createFromParcel(Parcel in) {
