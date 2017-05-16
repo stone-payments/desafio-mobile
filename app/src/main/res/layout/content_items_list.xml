@@ -26,6 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
+        <TextView
+            android:id="@+id/activity_items_list_error_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/items_list_fetch_error"/>
+
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView

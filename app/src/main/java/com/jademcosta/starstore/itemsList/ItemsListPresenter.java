@@ -20,6 +20,7 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
     public void onCreate() {
         view.showLoading();
         view.hideList();
+        view.hideErrorView();
         model.getItemsList();
     }
 
@@ -39,7 +40,9 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
 
     @Override
     public void onItemsListFetchFailure() {
-        //TODO: jade: show error view
+        view.hideLoading();
+        view.hideList();
+        view.showErrorView();
     }
 
     @Override
@@ -47,6 +50,7 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
         view.setListItems(items);
         view.showList();
         view.hideLoading();
+        view.hideErrorView();
     }
 
     public void goToCartButtonClicked(Context context) {

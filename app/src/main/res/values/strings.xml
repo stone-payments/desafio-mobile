@@ -4,6 +4,7 @@
 
     <string name="items_list_added_to_cart">Added to your cart</string>
     <string name="items_list_screen_title">Loja</string>
+    <string name="items_list_fetch_error">Ocorreu um erro ao buscar os itens da loja.</string>
 
     <string name="cart_screen_title">Carrinho</string>
     <string name="cart_empty_view_text">Você não possui nenhum item no seu carrinho.</string>

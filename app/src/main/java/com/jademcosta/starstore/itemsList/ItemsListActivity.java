@@ -27,6 +27,7 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
     private RecyclerView recyclerView;
     private ProgressBar loadingView;
     private BottomNavigationView bottomNavigationView;
+    private View errorView;
 
     public static Intent newIntent(Context context) {
         Intent intent = new Intent(context.getApplicationContext(), ItemsListActivity.class);
@@ -84,6 +85,21 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void informItemAddedToCart() {
+        Snackbar.make(recyclerView, getString(R.string.items_list_added_to_cart), Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showErrorView() {
+        errorView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideErrorView() {
+        errorView.setVisibility(View.GONE);
+    }
+
     private void initializeListeners() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,12 +134,9 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         recyclerView = (RecyclerView) findViewById(R.id.activity_items_list_recyclerview);
         loadingView = (ProgressBar) findViewById(R.id.activity_items_list_loading_view);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        errorView = findViewById(R.id.activity_items_list_error_view);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-    }
-
-    public void informItemAddedToCart() {
-        Snackbar.make(recyclerView, getString(R.string.items_list_added_to_cart), Snackbar.LENGTH_LONG).show();
     }
 }
