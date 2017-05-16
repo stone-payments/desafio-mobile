@@ -32,7 +32,11 @@ public class ItemsListModel implements ItemsListContract.Model {
         api.fetchItems(new Callback<List<Item>>() {
             @Override
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
-                presenter.onItemsListFetched(response.body());
+                if(response.isSuccessful()) {
+                    presenter.onItemsListFetched(response.body());
+                } else {
+                    presenter.onItemsListFetchFailure();
+                }
             }
 
             @Override
