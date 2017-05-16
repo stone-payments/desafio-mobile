@@ -1,6 +1,7 @@
 package com.jademcosta.starstore.transactionsList;
 
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,11 @@ public class TransactionsListAdapter extends
         RecyclerView.Adapter<TransactionsListAdapter.TransactionsViewHolder> {
 
     private List<Transaction> transactions;
+    private Context context;
 
-    public TransactionsListAdapter(List<Transaction> transactions) {
+    public TransactionsListAdapter(List<Transaction> transactions, Context context) {
         this.transactions = transactions;
+        this.context = context;
     }
 
     @Override
@@ -32,8 +35,13 @@ public class TransactionsListAdapter extends
     public void onBindViewHolder(TransactionsViewHolder holder, int position) {
         Transaction transaction = transactions.get(position);
 
-        holder.creditCardNumber.setText(transaction.getCreditCardLastFourDigits());
-        holder.value.setText(transaction.getValue());
+        holder.creditCardNumber.setText(String.format(
+                context.getString(R.string.transactions_list_obfuscated_card_number),
+                transaction.getCreditCardLastFourDigits()));
+
+        holder.value.setText(String.format(context.getString(R.string.transactions_list_price),
+                transaction.getValue()));
+
         holder.cardOwnerName.setText(transaction.getName());
         holder.dateTime.setText(transaction.getDateTime());
     }

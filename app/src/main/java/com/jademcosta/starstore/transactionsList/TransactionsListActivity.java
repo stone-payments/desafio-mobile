@@ -46,7 +46,7 @@ public class TransactionsListActivity extends AppCompatActivity
 
     @Override
     public void setTransactionsList(List<Transaction> transactions) {
-        TransactionsListAdapter adapter = new TransactionsListAdapter(transactions);
+        TransactionsListAdapter adapter = new TransactionsListAdapter(transactions, this);
         recyclerView.setAdapter(adapter);
     }
 

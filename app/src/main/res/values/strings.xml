@@ -18,5 +18,7 @@
     <string name="credit_card_screen_title">Pagamento</string>
 
     <string name="transactions_list_screen_title">Transações</string>
+    <string name="transactions_list_price">Valor: %1$s</string>
+    <string name="transactions_list_obfuscated_card_number">Cartão: **** **** **** %1$s</string>
 </resources>
 
