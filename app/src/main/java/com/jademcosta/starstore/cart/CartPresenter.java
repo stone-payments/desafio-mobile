@@ -25,14 +25,18 @@ public class CartPresenter implements CartContract.Model.Presenter, CartContract
     @Override
     public void onCreate() {
         List<Item> items = model.getCartItemsList();
-        view.setCartItems(items);
+        if(items.isEmpty()) {
+            view.showEmptyState();
+        } else {
+            view.setCartItems(items);
 
-        long total = 0;
-        for(Item item : items) {
-            total += item.getPrice();
+            long total = 0;
+            for(Item item : items) {
+                total += item.getPrice();
+            }
+
+            view.setCartItemsTotalPrice(String.valueOf(total));
         }
-
-        view.setCartItemsTotalPrice(String.valueOf(total));
     }
 
     @Override

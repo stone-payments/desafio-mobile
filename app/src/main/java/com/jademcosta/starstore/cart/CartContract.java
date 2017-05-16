@@ -13,6 +13,7 @@ public interface CartContract {
 
         void setCartItems(List<Item> items);
         void setCartItemsTotalPrice(String sum);
+        void showEmptyState();
 
         interface Presenter {
             void onCreate();

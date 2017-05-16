@@ -23,6 +23,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
     private RecyclerView recyclerView;
     private FloatingActionButton fab;
     private TextView totalPriceTextView;
+    private TextView emptyViewText;
 
     public static Intent newIntent(Context context) {
         return new Intent(context.getApplicationContext(), CartActivity.class);
@@ -50,13 +51,13 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
         fab = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = (RecyclerView) findViewById(R.id.activity_cart_recyclerview);
         totalPriceTextView = (TextView) findViewById(R.id.activity_cart_total_price_text);
+        emptyViewText = (TextView) findViewById(R.id.activity_cart_empty_view);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
     }
 
     private void initializeListeners() {
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,5 +79,13 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
     @Override
     public void setCartItemsTotalPrice(String total) {
         totalPriceTextView.setText(total);
+    }
+
+    @Override
+    public void showEmptyState() {
+        fab.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.GONE);
+        totalPriceTextView.setVisibility(View.GONE);
+        emptyViewText.setVisibility(View.VISIBLE);
     }
 }

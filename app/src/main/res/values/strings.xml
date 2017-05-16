@@ -6,6 +6,7 @@
     <string name="items_list_screen_title">Loja</string>
 
     <string name="cart_screen_title">Carrinho</string>
+    <string name="cart_empty_view_text">Você não possui nenhum item no seu carrinho.</string>
 
     <string name="credit_card_label_credit_card_number">Número do cartão</string>
     <string name="credit_card_label_name">Nome do titular</string>
