@@ -25,6 +25,7 @@ public interface CreditCardContract {
 
         void payWithCreditCard(CreditCard creditCard);
         void emptyCart();
+        void saveTransaction(Payment payment);
 
         interface Presenter {
             void paymentSuccessful(Payment payment);

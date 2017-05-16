@@ -64,4 +64,8 @@ public class Payment {
     public void setValue(String value) {
         this.value = value;
     }
+
+    public String getLastDigitsFromCardNumber(int amount) {
+        return cardNumber.substring(cardNumber.length() - amount, cardNumber.length());
+    }
 }

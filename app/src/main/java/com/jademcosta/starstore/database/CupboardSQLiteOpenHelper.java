@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.jademcosta.starstore.entity.Item;
+import com.jademcosta.starstore.entity.Transaction;
 
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
@@ -18,6 +19,7 @@ public class CupboardSQLiteOpenHelper extends SQLiteOpenHelper {
 
     static {
         cupboard().register(Item.class);
+        cupboard().register(Transaction.class);
     }
 
     private CupboardSQLiteOpenHelper(Context context) {

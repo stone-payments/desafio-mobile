@@ -34,6 +34,7 @@ public class CreditCardPresenter implements CreditCardContract.View.Presenter,
     public void paymentSuccessful(Payment payment) {
         view.hideLoading();
         model.emptyCart();
+        model.saveTransaction(payment);
     }
 
     @Override

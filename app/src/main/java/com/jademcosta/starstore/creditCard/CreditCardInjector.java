@@ -4,6 +4,7 @@ package com.jademcosta.starstore.creditCard;
 import android.content.Context;
 
 import com.jademcosta.starstore.database.ItemsRepository;
+import com.jademcosta.starstore.database.TransactionsRepository;
 import com.jademcosta.starstore.network.CreditCardApi;
 
 public class CreditCardInjector {
@@ -23,6 +24,7 @@ public class CreditCardInjector {
     }
 
     private CreditCardModel buildModel() {
-        return new CreditCardModel(new CreditCardApi(), new ItemsRepository(context));
+        return new CreditCardModel(new CreditCardApi(), new ItemsRepository(context),
+                new TransactionsRepository(context));
     }
 }
