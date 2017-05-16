@@ -63,13 +63,13 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
         this.listener = listener;
     }
 
-    class ItemsViewHolder extends RecyclerView.ViewHolder {
+    public class ItemsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
-        TextView sellerName;
-        TextView price;
-        ImageView image;
-        View addToCartButton;
+        public TextView name;
+        public TextView sellerName;
+        public TextView price;
+        public ImageView image;
+        public View addToCartButton;
 
         public ItemsViewHolder(View itemView) {
             super(itemView);

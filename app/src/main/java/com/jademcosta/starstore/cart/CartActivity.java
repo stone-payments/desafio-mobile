@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.jademcosta.starstore.R;
 import com.jademcosta.starstore.entity.Item;
-import com.jademcosta.starstore.itemsList.ItemsListAdapter;
 
 import java.util.List;
 
@@ -72,13 +71,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.View
 
     @Override
     public void setCartItems(List<Item> items) {
-        ItemsListAdapter adapter = new ItemsListAdapter(items);
-//        adapter.setOnClickListener(new ItemsListAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClicked(Item item) {
-//                presenter.itemClicked(item);
-//            }
-//        });
+        CartAdapter adapter = new CartAdapter(items);
         recyclerView.setAdapter(adapter);
     }
 
