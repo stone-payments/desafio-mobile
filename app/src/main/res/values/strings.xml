@@ -14,5 +14,7 @@
     <string name="activity_credit_card_button_send">Enviar</string>
     <string name="credit_card_payment_error">Um erro ocorreu, tente novamente mais tarde.</string>
     <string name="credit_card_screen_title">Pagamento</string>
+
+    <string name="transactions_list_screen_title">Transações</string>
 </resources>
 
