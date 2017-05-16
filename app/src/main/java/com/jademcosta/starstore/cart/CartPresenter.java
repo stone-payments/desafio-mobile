@@ -37,6 +37,10 @@ public class CartPresenter implements CartContract.Model.Presenter, CartContract
 
     @Override
     public void checkoutClicked(Context context) {
+        if(model.getCartItemsList().isEmpty()) {
+            return;
+        }
+
         Intent intent = CreditCardActivity.newIntent(context);
         context.startActivity(intent);
     }
