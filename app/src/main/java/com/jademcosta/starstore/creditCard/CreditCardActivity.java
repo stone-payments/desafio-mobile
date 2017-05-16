@@ -92,15 +92,15 @@ public class CreditCardActivity extends AppCompatActivity implements CreditCardC
     @Override
     public void showLoading() {
         dialog = ProgressDialog.show(this, "",
-                "Loading. Please wait...", true);
+                getString(R.string.credit_card_loading_during_payment), true);
     }
 
     @Override
     public void showSuccessfulPayment() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Pagamento aceito")
+        builder.setMessage(getString(R.string.credit_card_payment_successful))
                 .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.credit_card_ack_payed), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         presenter.okButtonClicked(CreditCardActivity.this);
                     }

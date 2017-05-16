@@ -17,6 +17,9 @@
     <string name="activity_credit_card_button_send">Enviar</string>
     <string name="credit_card_payment_error">Um erro ocorreu, tente novamente mais tarde.</string>
     <string name="credit_card_screen_title">Pagamento</string>
+    <string name="credit_card_payment_successful">Pagamento bem sucedido</string>
+    <string name="credit_card_ack_payed">Ok</string>
+    <string name="credit_card_loading_during_payment">Por favor, aguarde...</string>
 
     <string name="transactions_list_screen_title">Transações</string>
     <string name="transactions_list_price">Valor: %1$s</string>
