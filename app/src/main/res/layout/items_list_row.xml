@@ -21,7 +21,9 @@
             android:id="@+id/items_list_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="1"
+            android:maxLines="2"
+            android:textSize="18sp"
+            android:textStyle="bold"
             android:ellipsize="end"/>
 
         <TextView
@@ -29,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lines="1"
+            android:textColor="@color/colorAccent"
             android:ellipsize="end" />
 
         <TextView
