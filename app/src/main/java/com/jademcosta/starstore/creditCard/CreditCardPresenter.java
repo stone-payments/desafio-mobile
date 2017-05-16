@@ -33,7 +33,7 @@ public class CreditCardPresenter implements CreditCardContract.View.Presenter,
     @Override
     public void paymentSuccessful(Payment payment) {
         view.hideLoading();
-        //TODO: jade: save transaction, show success modal
+        model.emptyCart();
     }
 
     @Override

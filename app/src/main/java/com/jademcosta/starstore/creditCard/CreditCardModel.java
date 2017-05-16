@@ -47,6 +47,11 @@ public class CreditCardModel implements CreditCardContract.Model {
         });
     }
 
+    @Override
+    public void emptyCart() {
+        itemsRepository.clearAll();
+    }
+
     private String getCartValue() {
         int total = 0;
         for(Item item : itemsRepository.getItems()) {

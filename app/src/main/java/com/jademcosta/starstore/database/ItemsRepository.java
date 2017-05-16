@@ -38,4 +38,8 @@ public class ItemsRepository {
         itr.close();
         return items;
     }
+
+    public void clearAll() {
+        cupboard().withDatabase(db).delete(Item.class, null);
+    }
 }
