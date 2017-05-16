@@ -9,11 +9,13 @@ import retrofit2.Callback;
 
 public class ItemsApi {
 
+    private static final String BASE_URL = "https://raw.githubusercontent.com";
+
     private ItemEndpoints endpoints;
 
     public ItemsApi() {
         endpoints =
-            NetworkStackBuilder.getInstance().getServiceGenerator().create(ItemEndpoints.class);
+            new NetworkStackBuilder(BASE_URL).getServiceGenerator().create(ItemEndpoints.class);
     }
 
     public void fetchItems(Callback<List<Item>> callback) {

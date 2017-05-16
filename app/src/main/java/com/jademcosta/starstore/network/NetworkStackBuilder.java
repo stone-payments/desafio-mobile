@@ -7,34 +7,32 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkStackBuilder {
 
-    private static NetworkStackBuilder instance;
+    private static OkHttpClient clientInstance;
 
     private Retrofit retrofitServiceGenerator;
+    private String baseUrl;
 
-    private NetworkStackBuilder(){
+    public NetworkStackBuilder(String baseUrl) {
+        this.baseUrl = baseUrl;
         retrofitServiceGenerator = buildRetrofitServiceGenerator();
-    }
-
-    public static NetworkStackBuilder getInstance() {
-        if(instance == null) {
-            instance = new NetworkStackBuilder();
-        }
-        return instance;
     }
 
     public Retrofit getServiceGenerator() {
         return retrofitServiceGenerator;
     }
 
-    private Retrofit buildRetrofitServiceGenerator(){
+    private Retrofit buildRetrofitServiceGenerator() {
         return new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com")
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(buildOkhttpClient())
                 .build();
     }
 
     private OkHttpClient buildOkhttpClient() {
-        return new OkHttpClient.Builder().build();
+        if(clientInstance == null) {
+            clientInstance = new OkHttpClient.Builder().build();
+        }
+        return clientInstance;
     }
 }
