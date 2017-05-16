@@ -22,6 +22,7 @@ public interface ItemsListContract {
             void onCreate();
             void itemClicked(Item item);
             void goToCartButtonClicked(Context context);
+            void navigateToTransactionsClicked(Context context);
         }
     }
 

@@ -1,6 +1,8 @@
 package com.jademcosta.starstore.transactionsList;
 
 
+import android.content.Context;
+
 import com.jademcosta.starstore.entity.Transaction;
 
 import java.util.List;
@@ -13,6 +15,7 @@ public interface TransactionsListContract {
 
         interface Presenter {
             void onCreate();
+            void navigateToHomeClicked(Context context);
         }
     }
 

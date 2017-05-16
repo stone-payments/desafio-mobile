@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import com.jademcosta.starstore.cart.CartActivity;
 import com.jademcosta.starstore.entity.Item;
+import com.jademcosta.starstore.transactionsList.TransactionsListActivity;
 
 import java.util.List;
 
@@ -51,5 +52,10 @@ public class ItemsListPresenter implements ItemsListContract.Model.Presenter,
     public void goToCartButtonClicked(Context context) {
         Intent intent = CartActivity.newIntent(context);
         context.startActivity(intent);
+    }
+
+    @Override
+    public void navigateToTransactionsClicked(Context context) {
+        context.startActivity(TransactionsListActivity.newIntent(context));
     }
 }

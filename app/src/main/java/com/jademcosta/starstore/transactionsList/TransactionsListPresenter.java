@@ -1,7 +1,10 @@
 package com.jademcosta.starstore.transactionsList;
 
 
+import android.content.Context;
+
 import com.jademcosta.starstore.entity.Transaction;
+import com.jademcosta.starstore.itemsList.ItemsListActivity;
 
 import java.util.List;
 
@@ -24,5 +27,10 @@ public class TransactionsListPresenter implements TransactionsListContract.View.
     public void onCreate() {
         List<Transaction> transactions = model.getTransactionsList();
         view.setTransactionsList(transactions);
+    }
+
+    @Override
+    public void navigateToHomeClicked(Context context) {
+        context.startActivity(ItemsListActivity.newIntent(context));
     }
 }

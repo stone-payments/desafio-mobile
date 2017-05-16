@@ -1,12 +1,17 @@
 package com.jademcosta.starstore.itemsList;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -21,6 +26,13 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
     private FloatingActionButton fab;
     private RecyclerView recyclerView;
     private ProgressBar loadingView;
+    private BottomNavigationView bottomNavigationView;
+
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context.getApplicationContext(), ItemsListActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +91,22 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
                 presenter.goToCartButtonClicked(ItemsListActivity.this);
             }
         });
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_main:
+                        return false;
+                    case R.id.action_transactions:
+                        presenter.navigateToTransactionsClicked(ItemsListActivity.this);
+                        return false;
+
+                }
+                return false;
+            }
+        });
     }
 
     private void initializeViews() {
@@ -89,6 +117,7 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         fab = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = (RecyclerView) findViewById(R.id.activity_items_list_recyclerview);
         loadingView = (ProgressBar) findViewById(R.id.activity_items_list_loading_view);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
