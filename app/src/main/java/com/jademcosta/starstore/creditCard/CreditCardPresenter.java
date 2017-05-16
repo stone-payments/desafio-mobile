@@ -2,6 +2,7 @@ package com.jademcosta.starstore.creditCard;
 
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.jademcosta.starstore.entity.CreditCard;
 import com.jademcosta.starstore.entity.Payment;
@@ -35,7 +36,10 @@ public class CreditCardPresenter implements CreditCardContract.View.Presenter,
 
     @Override
     public void okButtonClicked(Context context) {
-        context.startActivity(TransactionsListActivity.newIntent(context));
+        Intent intent = TransactionsListActivity.newIntent(context);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
     @Override
