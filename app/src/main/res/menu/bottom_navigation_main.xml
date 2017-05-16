@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_main"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_white"
+        android:title="Principal"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_transactions"
+        android:enabled="true"
+        android:icon="@drawable/ic_receipt_white"
+        android:title="Transações"
+        app:showAsAction="ifRoom" />
+</menu>

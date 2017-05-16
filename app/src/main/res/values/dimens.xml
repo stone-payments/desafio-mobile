@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_with_bottom_navigation_margin">60dp</dimen>
+</resources>

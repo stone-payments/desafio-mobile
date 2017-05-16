@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">StarStore</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="items_list_added_to_cart">Added to your cart</string>
+    <string name="items_list_screen_title">Loja</string>
+    <string name="items_list_fetch_error">Ocorreu um erro ao buscar os itens da loja.</string>
+
+    <string name="cart_screen_title">Carrinho</string>
+    <string name="cart_empty_view_text">Você não possui nenhum item no seu carrinho.</string>
+    <string name="cart_total_price">Total: %1$s</string>
+
+    <string name="credit_card_label_credit_card_number">Número do cartão</string>
+    <string name="credit_card_label_name">Nome do titular</string>
+    <string name="credit_card_label_expiration_date">Data de validade</string>
+    <string name="credit_card_label_cvv">CVV</string>
+    <string name="activity_credit_card_button_send">Enviar</string>
+    <string name="credit_card_payment_error">Um erro ocorreu, tente novamente mais tarde.</string>
+    <string name="credit_card_screen_title">Pagamento</string>
+    <string name="credit_card_payment_successful">Pagamento bem sucedido</string>
+    <string name="credit_card_ack_payed">Ok</string>
+    <string name="credit_card_loading_during_payment">Por favor, aguarde...</string>
+
+    <string name="transactions_list_screen_title">Transações</string>
+    <string name="transactions_list_price">Valor: %1$s</string>
+    <string name="transactions_list_obfuscated_card_number">Cartão: **** **** **** %1$s</string>
+    <string name="transactions_list_empty_view_text">Você ainda não fez nenhuma compra. Vá para tela principal para gastar sua grana!</string>
+</resources>
+
