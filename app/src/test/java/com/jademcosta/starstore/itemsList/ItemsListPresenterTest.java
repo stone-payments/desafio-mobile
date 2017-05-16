@@ -18,44 +18,44 @@ public class ItemsListPresenterTest {
     private ItemsListPresenter subject;
 
     @Mock
-    private ItemsListContract.Model model;
+    private ItemsListContract.Model modelMock;
 
     @Mock
-    private ItemsListContract.View view;
+    private ItemsListContract.View viewMock;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         subject = new ItemsListPresenter();
-        subject.setModel(model);
-        subject.setView(view);
+        subject.setModel(modelMock);
+        subject.setView(viewMock);
     }
 
     @Test
     public void whenOnCreateIsCalled_itShouldAskViewToShowTheLoading() {
          subject.onCreate();
-        verify(view).showLoading();
-        verify(view).hideList();
+        verify(viewMock).showLoading();
+        verify(viewMock).hideList();
     }
 
     @Test
     public void whenOnCreateIsCalled_itShouldAskModelToFetchItems() {
         subject.onCreate();
-        verify(model).getItemsList();
+        verify(modelMock).getItemsList();
     }
 
     @Test
     public void whenItemsListIsFetched_itShouldSetThemOnView() {
         List<Item> fakeItemsList = new ArrayList<>();
         subject.onItemsListFetched(fakeItemsList);
-        verify(view).setListItems(fakeItemsList);
+        verify(viewMock).setListItems(fakeItemsList);
     }
 
     @Test
     public void whenItemsListIsFetched_itShouldAskViewToShowTheList() {
         subject.onItemsListFetched(new ArrayList<Item>());
-        verify(view).hideLoading();
-        verify(view).showList();
+        verify(viewMock).hideLoading();
+        verify(viewMock).showList();
     }
 }
