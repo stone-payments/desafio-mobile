@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.stone.lfernandosantos.storewars.views.DetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:backgroundTint="#FFF"
+        android:id="@+id/appBarLayout"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            app:titleEnabled="false"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="10dp"
+            app:expandedTitleMarginEnd="10dp"
+            app:layout_scrollFlags="exitUntilCollapsed"
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:src="@drawable/no_image"
+                android:id="@+id/imgProductDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="parallax"/>
+
+            <android.support.v7.widget.Toolbar
+                app:layout_collapseMode="pin"
+                android:fitsSystemWindows="true"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_detail" />
+
+    <LinearLayout
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_gravity="bottom|center_horizontal"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Adcionar ao carrinho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddCarrinho" />
+
+        <Button
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Comprar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnComprar" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.core/jersey-common/2.24.1/77fcecb72ee3809dadbf4ff82c1ab56a1b32d537/jersey-common-2.24.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="77fcecb72ee3809dadbf4ff82c1ab56a1b32d537">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/jersey-common-2.24.1_a05f3da9f47512d9d3368ef1f423184621c7f21b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ed8d7e5d326208eca124890eb672c92b121c7820/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/javax.inject-1_a4a22f78588e92d7393eecd1284a45e64f3de375/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/javax.ws.rs/javax.ws.rs-api/2.0.1/104e9c2b5583cfcfeac0402316221648d6d8ea6b/javax.ws.rs-api-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="104e9c2b5583cfcfeac0402316221648d6d8ea6b">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/javax.ws.rs-api-2.0.1_83511912342b365c1c03e7547119cf11193e70b9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.20.0-GA/a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0/javassist-3.20.0-GA.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/javassist-3.20.0-GA_9349359b84122f2908ee63ef71f9109db884c77f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4abab883a6ab58ec87987c2ee2fcdcf0098538d">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_668bdf3f4067d974025f03b86d12d43177e5cb1e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/javax.inject/2.5.0-b05/aad1872e1bf5e573229b7ec143d6f83f33b753e4/javax.inject-2.5.0-b05.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aad1872e1bf5e573229b7ec143d6f83f33b753e4">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/javax.inject-2.5.0-b05_d882b25b6cf2efd0a0bd9e124d9ab3ae256a80f1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-api/2.5.0-b05/d54a52f5b869b247348cb0ec08edd432c22ef65f/hk2-api-2.5.0-b05.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d54a52f5b869b247348cb0ec08edd432c22ef65f">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/hk2-api-2.5.0-b05_3bb03547f2645ded165e94b32f2b578928fe4310/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-utils/2.5.0-b05/ede783b3e16339f83603e3293c83bda7a88526bc/hk2-utils-2.5.0-b05.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ede783b3e16339f83603e3293c83bda7a88526bc">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/hk2-utils-2.5.0-b05_705d151562aab4b1e0ebfb674aa50f4c3f4383fb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lf.fernandodossantos/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/aopalliance-repackaged/2.5.0-b05/51becf370a71dad73e6bcc554efb7246ad24c492/aopalliance-repackaged-2.5.0-b05.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="51becf370a71dad73e6bcc554efb7246ad24c492">
+        <dex dex="/Users/lf.fernandodossantos/AndroidStudioProjects/StoreWars/app/build/intermediates/transforms/dex/debug/folders/1000/10/aopalliance-repackaged-2.5.0-b05_e934bf985585a1733301d6713ca288df71a8a1d8/classes.dex" />
+    </item>
+
+</items>

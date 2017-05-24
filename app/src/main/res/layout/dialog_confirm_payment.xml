@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    >
+
+    <View
+        android:id="@+id/viewSeparator"
+        android:layout_margin="10dp"
+        android:background="#4b4b4b"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.9dp"/>
+    <TextView
+        android:layout_below="@+id/viewSeparator"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="35dp"
+        android:text="Valor:" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/txtTotalPaymentDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:text="R$ 800,00" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="15sp"
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="25sp"
+        android:layout_marginTop="19dp"
+        android:text="Cartão:"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="15sp"
+        android:id="@+id/txtCardNumPaymentDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="...1234"
+        android:layout_alignTop="@+id/imgBandeiraDialogPaymentConfirm"
+        android:layout_toRightOf="@+id/imgBandeiraDialogPaymentConfirm"
+        android:layout_toEndOf="@+id/imgBandeiraDialogPaymentConfirm"
+        android:layout_alignBottom="@+id/imgBandeiraDialogPaymentConfirm" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Endereço:"
+        android:layout_below="@+id/textView8"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/txtEndPaymentDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Casa"
+        android:layout_alignBaseline="@+id/textView10"
+        android:layout_alignBottom="@+id/textView10"
+        android:layout_alignLeft="@+id/imgBandeiraDialogPaymentConfirm"
+        android:layout_alignStart="@+id/imgBandeiraDialogPaymentConfirm"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
+
+    <ImageView
+        android:id="@+id/imgBandeiraDialogPaymentConfirm"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_toRightOf="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10" />
+</RelativeLayout>
