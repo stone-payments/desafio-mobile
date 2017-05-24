@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Store Wars</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_historico">HistoricoActivity</string>
+    <string name="title_activity_list_cards">ListCardsActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+</resources>

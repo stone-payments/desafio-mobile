@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.stone.lfernandosantos.storewars.views.CartActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <ListView
+            android:id="@+id/listaCompras"
+            android:layout_above="@+id/layoutCardSaved"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <RelativeLayout
+
+            android:id="@+id/layoutCardSaved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/buyBtn"
+            >
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/imgBandeiraCardSaved"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_bandeira_visa"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp"
+                android:id="@+id/txtNumCardSaved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imgBandeiraCardSaved"
+                android:layout_toEndOf="@+id/imgBandeiraCardSaved" />
+
+        </RelativeLayout>
+        <Button
+            android:backgroundTint="#302f2f"
+            android:textColor="#FFF"
+            android:id="@+id/buyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comprar"
+            tools:layout_editor_absoluteY="464dp"
+            tools:layout_editor_absoluteX="148dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
