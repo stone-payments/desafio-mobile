@@ -1,3 +1,47 @@
 <resources>
-    <string name="app_name">Mercado do Watto</string>
+    <string name="app_name">Mercadão do Imperador</string>
+    <string name="main_activity_label">Mercadão do Imperador</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="transition_photo">transition_photo</string>
+    <string name="arg_product_intent">ARG_PRODUCT_INTENT</string>
+    <string name="add_to_cart">Adicionar ao Carrinho</string>
+    <string name="quantity">Quantidade:</string>
+    <string name="ADD_CART_BUTTON_EXTRA">ADD_CART_BUTTON_EXTRA</string>
+    <string name="hint_cart">Começar</string>
+    <string name="checkout_cart">Realizar Compra</string>
+    <string name="empty_cart_hint">Seu carrinho intergalático está vazio!</string>
+    <string name="product_count_label_string">%d Items</string>
+    <string name="purchase_history_string">Histórico de Compras</string>
+    <string name="hello_there">Hello, there!</string>
+
+    <string-array name="quantity_string">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+
+
 </resources>
