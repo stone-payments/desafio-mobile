@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DesafioStone</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_to_cart">Adicionar ao Carrinho</string>
+    <string name="hint_card_number">Número do Cartão</string>
+    <string name="hint_card_holder">Nome Portador do Cartão</string>
+    <string name="hint_card_cvv">CVV</string>
+    <string name="hint_card_exp_date">Validade Cartão</string>
+    <string name="checkout">Finalizar Pedido</string>
+    <string name="action_checkout">Checkout</string>
+    <string name="cart_price">Total Pedido: %1$s</string>
+    <string name="item_added">Item adicionado!</string>
+    <string name="order_saved">Pedido concluido</string>
+    <string name="action_transactions">Transações</string>
+    <string name="problem">Ocorreu um problema!</string>
+    <string name="progress_registering_order">Registrando pedido...</string>
+    <string name="all_fields_required">Todos os campos são obrigatorios!</string>
+</resources>

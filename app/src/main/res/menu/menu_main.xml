@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="br.com.ygorcesar.desafiostone.view.MainActivity">
+
+    <item
+        android:id="@+id/action_checkout"
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="@string/action_checkout"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_transactions"
+        android:icon="@drawable/ic_transactions_history"
+        android:title="@string/action_transactions"
+        app:showAsAction="ifRoom"/>
+</menu>
