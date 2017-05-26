@@ -1,5 +1,6 @@
 package com.partiufast.mercadodoimperador.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -13,6 +14,7 @@ import android.widget.LinearLayout
 import com.partiufast.mercadodoimperador.Product
 import com.partiufast.mercadodoimperador.R
 import com.partiufast.mercadodoimperador.adapters.CartListAdapter
+import com.partiufast.mercadodoimperador.ui.activities.PaymentActivity
 
 
 class CartFragment : Fragment() {
@@ -21,7 +23,7 @@ class CartFragment : Fragment() {
         private var cartProducts: java.util.ArrayList<Product>? = null
         private var recyclerView: RecyclerView? = null
         private var recyclerViewLinearLayout: LinearLayout? = null
-        private var buttonLinearLayout: LinearLayout? = null
+        private var emptyCartLinearLayout: LinearLayout? = null
 
         fun newInstance(cartProducts: ArrayList<Product>): CartFragment {
             val fragment = CartFragment()
@@ -45,8 +47,9 @@ class CartFragment : Fragment() {
         val rootView = inflater!!.inflate(R.layout.cart_fragment, container, false)
         recyclerView = rootView.findViewById(R.id.cart_list_recycler_view) as RecyclerView
         recyclerViewLinearLayout = rootView.findViewById(R.id.recycler_view_layout) as LinearLayout
-        buttonLinearLayout = rootView.findViewById(R.id.button_layout) as LinearLayout
+        emptyCartLinearLayout = rootView.findViewById(R.id.button_layout) as LinearLayout
         val emptyCartButton = rootView.findViewById(R.id.empty_cart_button) as Button
+        val checkoutButton = rootView.findViewById(R.id.checkoutButton) as Button
 
         recyclerView!!.layoutManager = LinearLayoutManager(context)
         recyclerView!!.adapter = CartListAdapter(cartProducts!!)
@@ -54,6 +57,11 @@ class CartFragment : Fragment() {
         val tabLayout = activity.findViewById(R.id.tabs) as TabLayout
         emptyCartButton.setOnClickListener {
             tabLayout.getTabAt(0)?.select()
+        }
+
+        checkoutButton.setOnClickListener{
+            val intent = Intent(context, PaymentActivity::class.java)
+            startActivity(intent)
         }
 
         return rootView
@@ -67,12 +75,12 @@ class CartFragment : Fragment() {
         if (cartProducts?.size!! > 0) {
             if (recyclerViewLinearLayout?.visibility == View.INVISIBLE) {
                 recyclerViewLinearLayout?.visibility = View.VISIBLE
-                buttonLinearLayout?.visibility = View.INVISIBLE
+                emptyCartLinearLayout?.visibility = View.INVISIBLE
             }
         } else {
             if (recyclerViewLinearLayout?.visibility == View.VISIBLE) {
                 recyclerViewLinearLayout?.visibility = View.INVISIBLE
-                buttonLinearLayout?.visibility = View.VISIBLE
+                emptyCartLinearLayout?.visibility = View.VISIBLE
             }
         }
     }

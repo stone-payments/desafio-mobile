@@ -20,10 +20,11 @@
             android:layout_weight="0.05">
 
             <Button
+                android:id="@+id/checkoutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/holo_red_light"
-                android:text="@string/checkout_cart"/>
+                android:text="@string/checkout_cart" />
         </LinearLayout>
 
 

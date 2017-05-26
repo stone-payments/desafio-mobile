@@ -1,5 +1,6 @@
 package com.partiufast.mercadodoimperador.ui.activities
 
+import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Build
@@ -15,7 +16,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.view.Menu
+import android.util.Log
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.Toast
@@ -70,7 +71,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val list = request.run()
 
             uiThread {
-                // Log.d("tag ", "longTaskresult = " + result)
                 store.setAvailableProducts(list)
                 shopFragment?.refreshAdapter()
             }
@@ -105,7 +105,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 cartFragment?.refreshList()
                 cartFragment?.updateListVisibility()
                 tabs.getTabAt(1)?.select()
-
+            }
+            if (resultCode == Activity.RESULT_CANCELED){
+                Log.d("aaa", "aaaa")
             }
         }
     }
@@ -119,32 +121,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.nav_drawer, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
-
-
-        if (id == R.id.action_settings) {
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_history) {
+            // Handle the billing history activity
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout

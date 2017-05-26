@@ -35,5 +35,10 @@ class ProductActivity : AppCompatActivity() {
             finish()
         }
 
+
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 }

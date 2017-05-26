@@ -19,6 +19,8 @@
     <string name="product_count_label_string">%d Items</string>
     <string name="purchase_history_string">Histórico de Compras</string>
     <string name="hello_there">Hello, there!</string>
+    <string name="store_string">Loja</string>
+    <string name="payment_how_string">Forma de Pagamento</string>
 
     <string-array name="quantity_string">
         <item>1</item>
@@ -42,6 +44,20 @@
         <item>19</item>
         <item>20</item>
     </string-array>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 
 
 </resources>
