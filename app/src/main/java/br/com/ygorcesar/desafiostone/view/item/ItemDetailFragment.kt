@@ -26,6 +26,7 @@ class ItemDetailFragment : android.support.v4.app.Fragment() {
         binding.btnAddToCart.setOnClickListener {
            ShoppingCart.Companion.instance.addItem(binding.item?.getItem())
             toast(R.string.item_added)
+            activity.onBackPressed()
         }
         return binding.root
     }

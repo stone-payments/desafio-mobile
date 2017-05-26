@@ -29,4 +29,5 @@ class ShoppingCart private constructor() {
         return price
     }
 
+    fun clear() = items.clear()
 }

@@ -17,5 +17,5 @@ class TransactionViewModel(private var transaction: Transaction) : BaseObservabl
 
     fun getDate() = this.transaction.date
 
-    fun getCardLastDigits() = "CVV: ${this.transaction.ccLastDigits}"
+    fun getCardLastDigits() = "CC: ...${this.transaction.ccLastDigits}"
 }

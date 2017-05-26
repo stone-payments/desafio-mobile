@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import br.com.ygorcesar.desafiostone.R
+import br.com.ygorcesar.desafiostone.view.item.ItemsCartFragment
 import br.com.ygorcesar.desafiostone.view.item.MainFragment
-import br.com.ygorcesar.desafiostone.view.transaction.CheckoutFragment
 import br.com.ygorcesar.desafiostone.view.transaction.TransactionsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.action_checkout -> replaceMainFragment(CheckoutFragment())
+            R.id.action_checkout -> replaceMainFragment(ItemsCartFragment())
             R.id.action_transactions -> replaceMainFragment(TransactionsFragment())
         }
         return super.onOptionsItemSelected(item)

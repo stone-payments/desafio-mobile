@@ -15,4 +15,5 @@
     <string name="problem">Ocorreu um problema!</string>
     <string name="progress_registering_order">Registrando pedido...</string>
     <string name="all_fields_required">Todos os campos são obrigatorios!</string>
+    <string name="no_items_avaible">Nenhum item</string>
 </resources>

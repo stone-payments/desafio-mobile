@@ -10,7 +10,7 @@ import br.com.ygorcesar.desafiostone.R
 import br.com.ygorcesar.desafiostone.data.*
 import br.com.ygorcesar.desafiostone.model.CardInformation
 import br.com.ygorcesar.desafiostone.model.Transaction
-import com.vicpin.krealmextensions.queryFirst
+import com.vicpin.krealmextensions.queryLast
 import com.vicpin.krealmextensions.save
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -64,11 +64,12 @@ class CheckoutFragment : Fragment() {
                                 toast(R.string.problem)
                             },
                             {
-                                val t = Transaction().queryFirst()
+                                val t = Transaction().queryLast()
                                 val id = if (t != null) t.id + 1 else 1
                                 Transaction(id, cartPrice, Date().formatToBrasil(), it.card_number.lastFourDigits(), "Ygor").save()
                                 progressChechout.dismiss()
                                 activity.onBackPressed()
+                                ShoppingCart.Companion.instance.clear()
                             })
         }
     }
