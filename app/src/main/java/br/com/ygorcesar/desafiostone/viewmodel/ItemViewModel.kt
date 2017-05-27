@@ -43,7 +43,6 @@ class ItemViewModel(private var item: Item, val onItemClick: (item: Item) -> Uni
 
     fun removeItemFromCart(): View.OnClickListener {
         return View.OnClickListener {
-            removeItem()
             onItemClick(item)
         }
     }
