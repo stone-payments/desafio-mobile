@@ -16,4 +16,6 @@
     <string name="progress_registering_order">Registrando pedido...</string>
     <string name="all_fields_required">Todos os campos são obrigatorios!</string>
     <string name="no_items_avaible">Nenhum item</string>
+    <string name="remove_item">Remover o item?</string>
+    <string name="action_yes">Sim</string>
 </resources>

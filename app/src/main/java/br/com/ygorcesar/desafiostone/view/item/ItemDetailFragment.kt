@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.ygorcesar.desafiostone.R
-import br.com.ygorcesar.desafiostone.data.ShoppingCart
-import br.com.ygorcesar.desafiostone.data.toast
 import br.com.ygorcesar.desafiostone.databinding.FragmentDetailItemBinding
 import br.com.ygorcesar.desafiostone.model.Item
 import br.com.ygorcesar.desafiostone.viewmodel.ItemViewModel
@@ -20,13 +18,7 @@ class ItemDetailFragment : android.support.v4.app.Fragment() {
         arguments?.let {
             val item = Item(it.getString(MainFragment.ITEM_TITLE), it.getDouble(MainFragment.ITEM_PRICE),
                     "", it.getString(MainFragment.ITEM_SELLER), it.getString(MainFragment.ITEM_THUMB_URL), "")
-            binding.item = ItemViewModel(item)
-        }
-
-        binding.btnAddToCart.setOnClickListener {
-           ShoppingCart.Companion.instance.addItem(binding.item?.getItem())
-            toast(R.string.item_added)
-            activity.onBackPressed()
+            binding.item = ItemViewModel(item,{activity.onBackPressed()})
         }
         return binding.root
     }

@@ -64,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:onClick="@{item.addItemToCart()}"
             android:layout_marginStart="8dp"
             android:text="@string/add_to_cart"
             app:layout_constraintBottom_toBottomOf="parent"

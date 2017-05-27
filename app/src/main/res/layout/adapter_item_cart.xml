@@ -20,6 +20,7 @@
         android:elevation="2dp"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="@{item.removeItemFromCart()}"
         android:padding="@dimen/item_defautl_padding">
 
         <ImageView
@@ -44,22 +45,22 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{item.seller}"
-            tools:text="Seller"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+            android:text="@{item.seller}"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:text="Seller"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{item.price}"
-            tools:text="R$Price"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+            android:text="@{item.price}"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:text="R$Price"/>
 
     </android.support.constraint.ConstraintLayout>
 

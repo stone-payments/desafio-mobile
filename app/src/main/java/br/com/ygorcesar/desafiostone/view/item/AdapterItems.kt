@@ -26,14 +26,10 @@ class AdapterItems(private var mItems: ArrayList<Item>?, val onItemClick: (item:
 
     inner class ItemViewHolder constructor(private val mBinding: AdapterItemBinding) : RecyclerView.ViewHolder(mBinding.root) {
 
-        init {
-            this.mBinding.root.setOnClickListener { getItem(adapterPosition)?.let { onItemClick(it) } }
-        }
-
         fun bind(item: Item?) {
             item?.let {
                 if (mBinding.item == null) {
-                    mBinding.item = ItemViewModel(it)
+                    mBinding.item = ItemViewModel(it, onItemClick)
                 } else {
                     mBinding.item?.setItem(it)
                 }

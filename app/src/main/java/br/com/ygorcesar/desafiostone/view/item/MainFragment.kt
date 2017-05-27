@@ -2,12 +2,14 @@ package br.com.ygorcesar.desafiostone.view.item
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.ygorcesar.desafiostone.R
 import br.com.ygorcesar.desafiostone.data.ApiDesafioMobile
+import br.com.ygorcesar.desafiostone.data.hideProgress
+import br.com.ygorcesar.desafiostone.data.layoutGrid
+import br.com.ygorcesar.desafiostone.data.replaceToStack
 import br.com.ygorcesar.desafiostone.model.Item
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -24,28 +26,17 @@ class MainFragment : Fragment() {
         ApiDesafioMobile().api.getItems()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ it ->
-                    setupRecyclerView(it)
-                    it.forEach { println(it.title) }
-                },
+                .subscribe({ it -> setupRecyclerView(it) },
                         { error ->
                             error.printStackTrace()
-                            progress_container?.visibility = View.GONE
-                        },
-                        {
-                            println("Completed")
-                            progress_container?.visibility = View.GONE
-                        })
+                            hideProgress()
+                        }, { hideProgress() })
         return rootView
     }
 
     fun setupRecyclerView(items: ArrayList<Item>) {
-        rv_items.setHasFixedSize(true)
-        rv_items.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-        val adapter = AdapterItems(items, {
-            goToItemDetalFragment(it)
-        })
-        rv_items.adapter = adapter
+        rv_items.layoutGrid()
+        rv_items.adapter = AdapterItems(items, { goToItemDetalFragment(it) })
     }
 
     fun goToItemDetalFragment(item: Item) {
@@ -57,10 +48,7 @@ class MainFragment : Fragment() {
 
         val fragment = ItemDetailFragment()
         fragment.arguments = args
-        fragmentManager.beginTransaction()
-                .add(R.id.fragment, fragment)
-                .addToBackStack(null)
-                .commit()
+        replaceToStack(fragment,R.id.fragment)
     }
 
     companion object {

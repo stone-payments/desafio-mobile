@@ -10,7 +10,7 @@ import br.com.ygorcesar.desafiostone.model.Item
 import br.com.ygorcesar.desafiostone.viewmodel.ItemViewModel
 
 
-class AdapterItemCart (private var mItems: List<Item>?) : RecyclerView.Adapter<AdapterItemCart.ItemViewHolder>() {
+class AdapterItemCart(private var mItems: List<Item>?, val onItemClick: (item: Item) -> Unit) : RecyclerView.Adapter<AdapterItemCart.ItemViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ItemViewHolder {
         val binding = DataBindingUtil.inflate<AdapterItemCartBinding>(LayoutInflater.from(viewGroup.context),
@@ -29,7 +29,7 @@ class AdapterItemCart (private var mItems: List<Item>?) : RecyclerView.Adapter<A
         fun bind(item: Item?) {
             item?.let {
                 if (mBinding.item == null) {
-                    mBinding.item = ItemViewModel(it)
+                    mBinding.item = ItemViewModel(it, onItemClick)
                 } else {
                     mBinding.item?.setItem(it)
                 }
