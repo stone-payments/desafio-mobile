@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="item_defautl_padding">16dp</dimen>
+    <dimen name="item_defautl_margin">4dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+</resources>
