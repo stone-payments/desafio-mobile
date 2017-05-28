@@ -14,7 +14,7 @@ import retrofit2.http.POST
 
 class ApiDesafioMobile {
 
-    val api by lazy {
+    val api: DesafioMobileService by lazy {
         val retrofit: Retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

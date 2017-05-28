@@ -19,4 +19,6 @@
     <string name="remove_item">Remover o item?</string>
     <string name="action_yes">Sim</string>
     <string name="no_items_on_cart">Nenhum item adicionado!</string>
+    <string name="checkout_completed">Pedido registrado</string>
+    <string name="action_home">Home</string>
 </resources>

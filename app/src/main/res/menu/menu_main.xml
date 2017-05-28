@@ -4,10 +4,16 @@
       tools:context="br.com.ygorcesar.desafiostone.view.MainActivity">
 
     <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/action_home"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/action_checkout"
         android:icon="@drawable/ic_shopping_cart"
         android:title="@string/action_checkout"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_transactions"

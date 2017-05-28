@@ -15,22 +15,24 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class ItemsCartFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.fragment_main, container, false)
-        return rootView
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ShoppingCart.Companion.instance.items.let {
-            if (it.isEmpty()) {
+        ShoppingCart.Companion.instance.items.let { items ->
+            if (items.isEmpty()) {
                 showEmptyView()
             } else {
-                //                TODO adicionar lixeira ao item do carrinho
                 rv_items.layoutLinear()
-                rv_items.adapter = AdapterItemCart(it, { item ->
+                rv_items.adapter = AdapterItemCart(items, { item ->
                     main_container.snack(R.string.remove_item, R.string.action_yes, f = {
                         ItemViewModel(item).removeItem()
                         rv_items.adapter?.notifyDataSetChanged()
+                        if (items.isEmpty()) {
+                            showEmptyView()
+                            fab.hide()
+                        }
                     })
                 })
 
@@ -38,7 +40,7 @@ class ItemsCartFragment : Fragment() {
                     visibility = View.VISIBLE
                     setOnClickListener {
                         if (ShoppingCart.Companion.instance.items.isEmpty()) toast(R.string.no_items_on_cart)
-                        else replace(CheckoutFragment(), R.id.fragment)
+                        else replaceToStack(CheckoutFragment(), R.id.fragment)
                     }
                 }
             }

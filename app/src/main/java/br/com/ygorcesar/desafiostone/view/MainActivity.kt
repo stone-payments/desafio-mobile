@@ -1,12 +1,10 @@
 package br.com.ygorcesar.desafiostone.view
 
 import android.os.Bundle
+import android.support.annotation.IdRes
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import br.com.ygorcesar.desafiostone.R
 import br.com.ygorcesar.desafiostone.data.replace
-import br.com.ygorcesar.desafiostone.data.replaceToStack
 import br.com.ygorcesar.desafiostone.view.item.ItemsCartFragment
 import br.com.ygorcesar.desafiostone.view.item.MainFragment
 import br.com.ygorcesar.desafiostone.view.transaction.TransactionsFragment
@@ -18,19 +16,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        replace(MainFragment(), R.id.fragment)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.action_checkout -> replaceToStack(ItemsCartFragment(), R.id.fragment)
-            R.id.action_transactions -> replaceToStack(TransactionsFragment(), R.id.fragment)
+        bottom_nav.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.action_home -> replace(MainFragment(), R.id.fragment)
+                R.id.action_checkout -> replace(ItemsCartFragment(), R.id.fragment)
+                R.id.action_transactions -> replace(TransactionsFragment(), R.id.fragment)
+            }
+            true
         }
-        return super.onOptionsItemSelected(item)
+        bottom_nav.selectedItemId = R.id.action_home
+    }
+
+    fun selectItemMenu(@IdRes idRes:Int){
+        bottom_nav.selectedItemId = idRes
     }
 }

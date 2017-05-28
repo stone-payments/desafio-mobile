@@ -11,7 +11,6 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -23,18 +22,30 @@ import java.util.*
 
 fun AppCompatActivity.replace(fragment: Fragment, @IdRes id: Int) = this.supportFragmentManager.beginTransaction().replace(id, fragment).commit()
 
-fun AppCompatActivity.replaceToStack(fragment: Fragment, @IdRes id: Int) = this.supportFragmentManager.beginTransaction().replace(id, fragment).addToBackStack(null).commit()
-
-fun Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(context, message, duration).show()
-
-fun Fragment.toast(@StringRes idRes: Int, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(context, idRes, duration).show()
+fun Fragment.toast(@StringRes idRes: Int, duration: Int = Toast.LENGTH_SHORT) = context?.let { Toast.makeText(it, idRes, duration).show() }
 
 fun Fragment.showEmptyView() {
-    ln_empty_view?.visibility = View.VISIBLE
+    try {
+        ln_empty_view?.visibility = View.VISIBLE
+    } catch(e: NullPointerException) {
+        println("View not found")
+    }
+}
+
+fun Fragment.showProgress() {
+    try {
+        progress_container?.visibility = View.VISIBLE
+    } catch(e: NullPointerException) {
+        println("View not found")
+    }
 }
 
 fun Fragment.hideProgress() {
-    progress_container?.visibility = View.GONE
+    try {
+        progress_container?.visibility = View.GONE
+    } catch(e: NullPointerException) {
+        println("View not found")
+    }
 }
 
 fun Fragment.replace(fragment: Fragment, @IdRes id: Int) = this.fragmentManager.beginTransaction().replace(id, fragment).commit()
@@ -50,23 +61,14 @@ fun Fragment.progressDialog(@StringRes msgRes: Int): ProgressDialog {
     }
 }
 
-
 fun Context.toast(@StringRes idRes: Int, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, idRes, duration).show()
 
+fun Date.formatToBrasil(): String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
 
-fun EditText.getString() = this.text.toString()
+fun Double.toCurrencyBRL(): String = NumberFormat.getCurrencyInstance().format(this)
 
 
-fun Date.formatToBrasil(): String {
-    val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-    return sdf.format(this)
-}
-
-fun Double.toCurrencyBRL(): String {
-    return NumberFormat.getCurrencyInstance().format(this)
-}
-
-fun String.lastFourDigits() = this.substring(this.length - 4)
+fun String.lastFourDigits() = if (this.length > 4) this.substring(this.length - 4) else this
 
 fun View.snack(@StringRes msgRes: Int, @StringRes actionRes: Int, duration: Int = Snackbar.LENGTH_SHORT, f: (v: View) -> Unit = {}) {
     Snackbar.make(this, msgRes, duration)
@@ -75,13 +77,17 @@ fun View.snack(@StringRes msgRes: Int, @StringRes actionRes: Int, duration: Int 
 }
 
 fun RecyclerView.layoutGrid(isFixedSize: Boolean = true, spaceCount: Int = 2, orientation: Int = GridLayoutManager.VERTICAL, isReverse: Boolean = false) {
-    this.setHasFixedSize(isFixedSize)
-    this.layoutManager = GridLayoutManager(this.context, spaceCount, orientation, isReverse)
+    this.context?.let {
+        this.setHasFixedSize(isFixedSize)
+        this.layoutManager = GridLayoutManager(it, spaceCount, orientation, isReverse)
+    }
 }
 
 fun RecyclerView.layoutLinear(isFixedSize: Boolean = true, orientation: Int = GridLayoutManager.VERTICAL, isReverse: Boolean = false) {
-    this.setHasFixedSize(isFixedSize)
-    this.layoutManager = LinearLayoutManager(this.context, orientation, isReverse)
+    this.context?.let {
+        this.setHasFixedSize(isFixedSize)
+        this.layoutManager = LinearLayoutManager(it, orientation, isReverse)
+    }
 }
 
 fun ImageView.loadImage(url: String) {

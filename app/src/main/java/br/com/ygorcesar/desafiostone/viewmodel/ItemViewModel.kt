@@ -33,25 +33,19 @@ class ItemViewModel(private var item: Item, val onItemClick: (item: Item) -> Uni
 
     fun getThumbnailUrl() = item.thumbnailHd
 
-    fun bindViewClick(): View.OnClickListener {
-        return View.OnClickListener { onItemClick(item) }
-    }
+    fun bindViewClick() = View.OnClickListener { onItemClick(item) }
+
 
     fun addItem() = ShoppingCart.Companion.instance.addItem(item)
 
     fun removeItem() = ShoppingCart.Companion.instance.items.remove(item)
 
-    fun removeItemFromCart(): View.OnClickListener {
-        return View.OnClickListener {
-            onItemClick(item)
-        }
+    fun removeItemFromCart() = View.OnClickListener { onItemClick(item) }
+
+    fun addItemToCart() = View.OnClickListener { v ->
+        addItem()
+        v.context.toast(R.string.item_added)
+        onItemClick(item)
     }
 
-    fun addItemToCart(): View.OnClickListener {
-        return View.OnClickListener { v ->
-            addItem()
-            v.context.toast(R.string.item_added)
-            onItemClick(item)
-        }
-    }
 }
