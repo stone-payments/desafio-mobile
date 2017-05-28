@@ -1,6 +1,6 @@
 package br.com.ygorcesar.desafiostone.data
 
-import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Context
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
@@ -33,13 +33,22 @@ fun Fragment.showEmptyView() {
     ln_empty_view?.visibility = View.VISIBLE
 }
 
-fun Fragment.hideProgress(){
+fun Fragment.hideProgress() {
     progress_container?.visibility = View.GONE
 }
 
 fun Fragment.replace(fragment: Fragment, @IdRes id: Int) = this.fragmentManager.beginTransaction().replace(id, fragment).commit()
 
 fun Fragment.replaceToStack(fragment: Fragment, @IdRes id: Int) = this.fragmentManager.beginTransaction().replace(id, fragment).addToBackStack(null).commit()
+
+fun Fragment.progressDialog(@StringRes msgRes: Int): ProgressDialog {
+    val progress = ProgressDialog(context)
+    return progress.apply {
+        isIndeterminate = true
+        setMessage(getString(msgRes))
+        show()
+    }
+}
 
 
 fun Context.toast(@StringRes idRes: Int, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, idRes, duration).show()

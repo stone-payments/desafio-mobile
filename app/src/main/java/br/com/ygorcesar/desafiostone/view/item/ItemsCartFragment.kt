@@ -25,6 +25,7 @@ class ItemsCartFragment : Fragment() {
             if (it.isEmpty()) {
                 showEmptyView()
             } else {
+                //                TODO adicionar lixeira ao item do carrinho
                 rv_items.layoutLinear()
                 rv_items.adapter = AdapterItemCart(it, { item ->
                     main_container.snack(R.string.remove_item, R.string.action_yes, f = {
@@ -33,7 +34,13 @@ class ItemsCartFragment : Fragment() {
                     })
                 })
 
-                fab.apply { setOnClickListener { replace(CheckoutFragment(), R.id.fragment) } }
+                fab.apply {
+                    visibility = View.VISIBLE
+                    setOnClickListener {
+                        if (ShoppingCart.Companion.instance.items.isEmpty()) toast(R.string.no_items_on_cart)
+                        else replace(CheckoutFragment(), R.id.fragment)
+                    }
+                }
             }
         }
     }
