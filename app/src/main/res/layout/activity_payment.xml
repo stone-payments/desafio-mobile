@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:padding="@dimen/spacing_medium">
+
+    <ScrollView android:id="@+id/scrollViewPayment"  android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <include layout="@layout/toolbar_top" />
+            </android.support.design.widget.AppBarLayout>
+
+            <!-- Max size 19 devido a mascara. Sendo apenas 16 numeros de cartao suportados -->
+            <com.alihafizji.library.CreditCardEditText
+                android:maxLength="19"
+                android:id="@+id/etCartao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions"
+                android:hint="@string/numero_cartao" />
+
+            <EditText
+                android:id="@+id/etNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/nome"
+                android:inputType="textCapCharacters"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <EditText
+                    android:maxLength="2"
+                    android:id="@+id/etMesCartao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mes"
+                    android:inputType="number"/>
+
+                <TextView
+                    android:text="/"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:hint="@string/ano"
+                    android:id="@+id/etAnoCartao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etCvv"
+                android:textSize="20dp"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/cvv" />
+
+            <TextView
+                android:id="@+id/totalCompras"
+                android:textSize="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nao possui nada no carrinho." />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/fabPagar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/btn_pagar"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:textColor="@color/primary"
+                android:background="@color/gray"
+                app:backgroundTint="@color/accent_bright"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

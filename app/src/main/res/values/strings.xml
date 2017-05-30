@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Star Wars</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="transacoes">Histórico/Transações</string>
+    <string name="inicio">Início</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin ultrices non eget velit. Aliquam eu pulvinar enim. Praesent libero nisl, ultricies vel maximus eu, maximus et nisi. Phasellus pharetra nec ligula vitae mollis. Quisque porttitor ornare magna, quis dignissim libero aliquam id. Donec sollicitudin ultrices ante, a semper erat tristique in. Vivamus sodales in ligula at sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tempus bibendum nibh, ac tincidunt quam convallis non. Proin dolor nunc, egestas et tortor consequat, dignissim lacinia odio. Ut ut aliquet erat.  Ut non scelerisque elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet dictum mauris. Phasellus quis massa ut ligula feugiat congue a et dolor. Etiam a dui a sapien ornare accumsan ac ut lorem. Suspendisse vehicula lorem dapibus nibh rhoncus ultricies. Proin sem nulla, elementum quis pharetra quis, commodo vitae nisi. Donec urna orci, posuere et iaculis sit amet, fringilla quis sapien. Pellentesque nec posuere felis. Praesent malesuada tellus nisi, non dictum justo interdum eget. Quisque mollis euismod libero, non aliquam lorem interdum vitae. Aliquam vehicula efficitur purus eget rutrum. Sed pulvinar fermentum risus ac viverra. Cras laoreet ligula quam, ac lacinia nisl elementum in. Aenean velit arcu, euismod a venenatis non, pulvinar pulvinar massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin ultrices non eget velit. Aliquam eu pulvinar enim. Praesent libero nisl, ultricies vel maximus eu, maximus et nisi. Phasellus pharetra nec ligula vitae mollis. Quisque porttitor ornare magna, quis dignissim libero aliquam id. Donec sollicitudin ultrices ante, a semper erat tristique in. Vivamus sodales in ligula at sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tempus bibendum nibh, ac tincidunt quam convallis non. Proin dolor nunc, egestas et tortor consequat, dignissim lacinia odio. Ut ut aliquet erat.  Ut non scelerisque elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet dictum mauris. Phasellus quis massa ut ligula feugiat congue a et dolor. Etiam a dui a sapien ornare accumsan ac ut lorem. Suspendisse vehicula lorem dapibus nibh rhoncus ultricies. Proin sem nulla, elementum quis pharetra quis, commodo vitae nisi. Donec urna orci, posuere et iaculis sit amet, fringilla quis sapien. Pellentesque nec posuere felis. Praesent malesuada tellus nisi, non dictum justo interdum eget. Quisque mollis euismod libero, non aliquam lorem interdum vitae. Aliquam vehicula efficitur purus eget rutrum. Sed pulvinar fermentum risus ac viverra. Cras laoreet ligula quam, ac lacinia nisl elementum in. Aenean velit arcu, euismod a venenatis non, pulvinar pulvinar massa.</string>
+    <string name="usuario">User</string>
+    <string name="email">user@email.com</string>
+    <string name="finalizar_compra">Finalizar compra</string>
+    <string name="numero_cartao">Número do cartão.</string>
+    <string name="vencimento">Vencimento.</string>
+    <string name="mes">Mês Venc.</string>
+    <string name="ano">Ano Venc.</string>
+    <string name="cvv">CVV</string>
+    <string name="nome">Seu nome como consta no cartão</string>
+    <string name="dados_pagamento">Dados do Pagamento</string>
+    <string name="seu_carrinho">Seu Carrinho</string>
+    <string name="sem_produtos_carrinho">Sem produtos no carrinho.</string>
+    <string name="sem_transacoes_carrinho">Sem histórico de transações.</string>
+    <string name="carregando">Carregando...</string>
+    <string name="verifique_conexao_internet">Verifique sua conexão com a internet.</string>
+    <string name="adicionado_carrinho">Produto adicionado ao carrinho.</string>
+    <string name="sucesso_transacao">Transação realizada com sucesso!</string>
+    <string name="btn_ok">ok</string>
+    <string name="msg_erro_campo_obrigatorio">Campo obrigatório</string>
+    <string name="btn_pagar">Pagar</string>
+
+
+
+</resources>
