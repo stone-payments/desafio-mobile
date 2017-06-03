@@ -11,7 +11,7 @@ import com.github.kittinunf.fuel.httpPost
                 "cvv" to cvv,
                 "card_holder_name" to card_holder_name,
                 "exp_date" to exp_date)
-        val (request, response, result) = "http://private-c7b10-mercadaodoimperador.apiary-mock.com/payment"
+        val (_, response, _) = "http://private-c7b10-mercadaodoimperador.apiary-mock.com/payment"
                 .httpPost(parameters).timeout(timeout).responseString()
         return response.httpStatusCode
     }

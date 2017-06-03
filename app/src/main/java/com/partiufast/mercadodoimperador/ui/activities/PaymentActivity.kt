@@ -36,13 +36,13 @@ class PaymentActivity : AppCompatActivity() {
 
        val myCalendar = Calendar.getInstance()
         val pickerDialog = MonthYearPickerDialog()
-        pickerDialog.setListener { view, year, month, dayOfMonth ->
+        pickerDialog.setListener { _, year, month, _ ->
             myCalendar.set(Calendar.YEAR, year)
             myCalendar.set(Calendar.MONTH, month)
             updateLabel(myCalendar, input_date_edittext)
         }
         disableSoftInputFromAppearing(input_date_edittext)
-        input_date_edittext.setOnFocusChangeListener { v, hasFocus ->
+        input_date_edittext.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 pickerDialog.show(fragmentManager, "MonthYearPickerDialog")
                 input_date_edittext.error = null
