@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.partiufast.mercadodoimperador.Product
 import com.partiufast.mercadodoimperador.R
 import com.partiufast.mercadodoimperador.adapters.CartListAdapter
 import com.partiufast.mercadodoimperador.ui.activities.PaymentActivity
+import java.math.BigDecimal
 
 
 class CartFragment : Fragment() {
@@ -60,7 +62,15 @@ class CartFragment : Fragment() {
         }
 
         checkoutButton.setOnClickListener{
+            var total_value = BigDecimal(0)
+            for(index in 0..cartProducts!!.size-1) {
+                Log.d("item_value", cartProducts!!.get(index).price.toPlainString())
+                total_value = total_value.add(cartProducts!!.get(index).price.multiply(BigDecimal(cartProducts!!.get(index).productCount)))
+            }
+
             val intent = Intent(context, PaymentActivity::class.java)
+            intent.putExtra(getString(R.string.CART_VALUE_EXTRA), total_value.toString())
+                    .putExtra(getString(R.string.CART_VALUE_PLAIN_EXTRA), total_value.toPlainString())
             startActivity(intent)
         }
 

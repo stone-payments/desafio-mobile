@@ -11,10 +11,10 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/info_drawee_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:scaleType="centerCrop"
         android:transitionName="@string/transition_photo"
-        tools:background="@android:color/white"/>
+        tools:background="@android:color/white" />
 
     <LinearLayout
         android:id="@+id/linear_layout"

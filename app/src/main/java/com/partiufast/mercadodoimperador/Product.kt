@@ -5,7 +5,6 @@ import android.os.Parcelable
 import java.math.BigDecimal
 
 class Product(val title: String, val price: BigDecimal, val zipcode: String, val seller: String, val thumbnailHd: String, val date: String, var productCount: Int) : Parcelable {
-    //TODO: Formatar valor do Big Decimal
     fun copy(title: String = this.title, price: BigDecimal = this.price, seller: String = this.seller,
              thumbnailHd: String = this.thumbnailHd, date: String = this.date, productCount: Int = this.productCount) = Product(title, price, zipcode, seller, thumbnailHd, date, productCount)
 
