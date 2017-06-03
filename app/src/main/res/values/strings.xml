@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">Mercadão do Imperador</string>
+    <string name="main_activity_label">Mercadão do Imperador</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="transition_photo">transition_photo</string>
+    <string name="arg_product_intent">ARG_PRODUCT_INTENT</string>
+    <string name="add_to_cart">Adicionar ao Carrinho</string>
+    <string name="quantity">Quantidade:</string>
+    <string name="ADD_CART_BUTTON_EXTRA">ADD_CART_BUTTON_EXTRA</string>
+    <string name="hint_cart">Começar</string>
+    <string name="checkout_cart">Realizar Compra</string>
+    <string name="empty_cart_hint">Seu carrinho intergalático está vazio!</string>
+    <string name="product_count_label_string">%d Items</string>
+    <string name="purchase_history_string">Histórico de Compras</string>
+    <string name="hello_there">Hello, there!</string>
+    <string name="store_string">Loja</string>
+    <string name="payment_how_string">Forma de Pagamento</string>
+
+    <string-array name="quantity_string">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="error_invalid_fullname">Digite o seu nome completo</string>
+    <string name="error_invalid_credit_card_number">Digite um número de 16 dígitos</string>
+    <string name="error_invalid_verifier">Digite um verificador válido de 3 dígitos</string>
+    <string name="attempt_payment">Efetuar Transação</string>
+    <string name="error_invalid_date">Selecione uma data futura</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="update_button_text">Rede indisponível\nClique para atualizar</string>
+    <string name="CART_VALUE_EXTRA">CART_VALUE_EXTRA</string>
+    <string name="CART_VALUE_PLAIN_EXTRA">CART_VALUE_PLAIN_EXTRA</string>
+    <string name="BILL_EXTRA">BILL_EXTRA</string>
+    <string name="empty_history_hint">Não há compras no seu histórico.</string>
+    <string name="CLEAR_CART_EXTRA">CLEAR_CART_EXTRA</string>
+
+
+</resources>

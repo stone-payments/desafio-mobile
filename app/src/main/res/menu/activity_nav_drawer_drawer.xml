@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_store"
+            android:icon="@drawable/ic_local_grocery_store_grey_24dp"
+            android:title="@string/store_string"/>
+
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_credit_card_black_24dp"
+            android:title="@string/purchase_history_string"/>
+
+
+    </group>
+
+</menu>
