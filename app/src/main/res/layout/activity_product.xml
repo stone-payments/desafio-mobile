@@ -11,9 +11,9 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/info_drawee_view"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:layout_above="@+id/spinner_linear_layout"
+        android:layout_above="@+id/info_linear_layout"
         android:transitionName="@string/transition_photo"
         tools:background="@android:color/white"
         android:layout_alignParentTop="true" />
