@@ -58,6 +58,16 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="error_invalid_fullname">Digite o seu nome completo</string>
+    <string name="error_invalid_credit_card_number">Digite um número de 16 dígitos</string>
+    <string name="error_invalid_verifier">Digite um verificador válido de 3 dígitos</string>
+    <string name="attempt_payment">Efetuar Transação</string>
+    <string name="error_invalid_date">Selecione uma data futura</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancelar</string>
+    <string name="update_button_text">Rede indisponível\nClique para atualizar</string>
+    <string name="CART_VALUE_EXTRA">CART_VALUE_EXTRA</string>
+    <string name="CART_VALUE_PLAIN_EXTRA">CART_VALUE_PLAIN_EXTRA</string>
 
 
 </resources>

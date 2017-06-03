@@ -3,18 +3,19 @@
     package="com.partiufast.mercadodoimperador">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<!--
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />-->
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".ui.App">
         <activity
             android:name=".ui.activities.MainActivity"
             android:label="@string/main_activity_label"
@@ -31,7 +32,7 @@
             android:label="@string/purchase_history_string" />
         <activity
             android:name=".ui.activities.PaymentActivity"
-            android:label="@string/payment_how_string" /
+            android:label="@string/payment_how_string" />
     </application>
 
 </manifest>

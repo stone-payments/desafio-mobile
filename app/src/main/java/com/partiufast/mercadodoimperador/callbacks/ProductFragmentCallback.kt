@@ -1,4 +1,4 @@
-package com.partiufast.mercadodoimperador
+package com.partiufast.mercadodoimperador.callbacks
 
 import com.facebook.drawee.view.SimpleDraweeView
 

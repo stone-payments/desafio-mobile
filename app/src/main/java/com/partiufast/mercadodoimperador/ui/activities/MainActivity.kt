@@ -1,8 +1,11 @@
 package com.partiufast.mercadodoimperador.ui.activities
 
 import android.app.Activity
-import android.app.ActivityOptions
+import android.app.ActivityOptions.makeSceneTransitionAnimation
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -18,11 +21,13 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.view.SimpleDraweeView
 import com.partiufast.mercadodoimperador.*
+import com.partiufast.mercadodoimperador.callbacks.ProductFragmentCallback
 import com.partiufast.mercadodoimperador.ui.fragments.CartFragment
 import com.partiufast.mercadodoimperador.ui.fragments.ShopFragment
 import kotlinx.android.synthetic.main.app_bar_nav_drawer.*
@@ -30,7 +35,7 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, ProductFragmentCallback {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, ProductFragmentCallback, OnClickUpdateListCallback {
 
     private var sectionsPagerAdapter: SectionsPagerAdapter? = null
     private var viewPager: ViewPager? = null
@@ -49,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         viewPager = findViewById(R.id.container) as ViewPager
         viewPager!!.adapter = sectionsPagerAdapter
-        getJSONProducts()
+
         val tabLayout = findViewById(R.id.tabs) as TabLayout
         tabLayout.setupWithViewPager(viewPager)
         tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_local_grocery_store_grey_24dp)
@@ -63,29 +68,50 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+
+       updateDataOnNetworkAvailability()
+
+    }
+
+    private fun  isNetworkAvailable(): Boolean {
+        val connectivityManager = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+        return netInfo != null && netInfo.isConnected
     }
 
     private fun getJSONProducts() {
         doAsync {
-            val request = ProductRequest("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json")
+            val request = ProductGetRequest("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json")
             val list = request.run()
 
             uiThread {
                 store.setAvailableProducts(list)
                 shopFragment?.refreshAdapter()
+                shopFragment?.setVisibilityProgressBar(View.GONE)
+                Toast.makeText(applicationContext, "A força está presente em você!", Toast.LENGTH_SHORT ).show()
             }
         }
     }
 
-    private fun runLongTask(): Int {
-        return 420
+
+    private fun updateDataOnNetworkAvailability(){
+        if (isNetworkAvailable()) {
+            getJSONProducts()
+            Toast.makeText(applicationContext, "Rede Disponível", Toast.LENGTH_SHORT).show()
+
+        }
+        else {
+            Toast.makeText(applicationContext, "Rede Indisponível", Toast.LENGTH_SHORT).show()
+        }
+
     }
+
 
     override fun onClickProductCard(position: Int, thumbnail_drawee_view: SimpleDraweeView) {
         val intent = Intent(this, ProductActivity::class.java)
         intent.putExtra(getString(R.string.arg_product_intent), store.getAvailableProducts().get(position))
         if (Build.VERSION.SDK_INT >= 21) {
-            val options = ActivityOptions.makeSceneTransitionAnimation(
+            val options = makeSceneTransitionAnimation(
                     this,
                     thumbnail_drawee_view,
                     resources.getString(R.string.transition_photo))
@@ -93,6 +119,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             startActivityForResult(intent, 1)
         }
+    }
+
+    override fun onClickUpdateButton() {
+        updateDataOnNetworkAvailability()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -137,6 +167,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
+
+
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
@@ -170,6 +202,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             return null
         }
     }
+
+
+
 
 }
 

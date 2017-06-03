@@ -28,7 +28,6 @@ class ProductActivity : AppCompatActivity() {
         price_label.text = "R$ " + product.price.toString()
         button_add_cart.setOnClickListener {
             product.productCount = quantity_spinner.selectedItemPosition + 1
-            //TODO: Adicionar valor 0 no Spinner
             val intent = Intent()
             intent.putExtra(getString(R.string.ADD_CART_BUTTON_EXTRA), product)
             setResult(RESULT_OK, intent)

@@ -11,16 +11,18 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/info_drawee_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:scaleType="centerCrop"
+        android:layout_above="@+id/spinner_linear_layout"
         android:transitionName="@string/transition_photo"
-        tools:background="@android:color/white"/>
+        tools:background="@android:color/white"
+        android:layout_alignParentTop="true" />
 
     <LinearLayout
-        android:id="@+id/linear_layout"
+        android:id="@+id/info_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/info_drawee_view"
+        android:layout_above="@+id/spinner_linear_layout"
         android:background="@android:color/holo_red_dark"
         android:orientation="vertical"
         android:padding="16dp">
@@ -64,29 +66,34 @@
 
         />
 
-    <TextView
-        android:id="@+id/quantity_label"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/spinner_linear_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/button_add_cart"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/linear_layout"
-        android:gravity="center_vertical"
-        android:padding="16dp"
-        android:text="@string/quantity"
-        android:textSize="20sp"/>
+        android:orientation="horizontal">
 
-    <Spinner
-        android:id="@+id/quantity_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_add_cart"
-        android:layout_below="@+id/linear_layout"
-        android:layout_toEndOf="@+id/quantity_label"
-        android:layout_toRightOf="@+id/quantity_label"
-        android:entries="@array/quantity_string"
-        android:padding="16dp"/>
+        <TextView
+            android:id="@+id/quantity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/info_linear_layout"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/quantity"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/quantity_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button_add_cart"
+            android:entries="@array/quantity_string"
+            android:padding="16dp" />
+    </LinearLayout>
+
 </RelativeLayout>
 
 

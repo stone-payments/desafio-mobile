@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.facebook.drawee.view.SimpleDraweeView
 import com.partiufast.mercadodoimperador.Product
-import com.partiufast.mercadodoimperador.ProductFragmentCallback
+import com.partiufast.mercadodoimperador.callbacks.ProductFragmentCallback
 import com.partiufast.mercadodoimperador.R
 import kotlinx.android.synthetic.main.product_card.view.*
 import java.util.*
