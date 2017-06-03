@@ -1,4 +1,4 @@
-package com.partiufast.mercadodoimperador
+package com.partiufast.mercadodoimperador.model
 
 import android.os.Parcel
 import android.os.Parcelable

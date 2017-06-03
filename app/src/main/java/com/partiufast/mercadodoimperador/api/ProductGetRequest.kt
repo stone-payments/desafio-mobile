@@ -1,5 +1,6 @@
-package com.partiufast.mercadodoimperador
+package com.partiufast.mercadodoimperador.api
 
+import com.partiufast.mercadodoimperador.model.Product
 import org.json.JSONArray
 import java.math.BigDecimal
 import java.net.URL

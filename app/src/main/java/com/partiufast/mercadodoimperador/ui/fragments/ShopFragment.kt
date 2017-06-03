@@ -9,7 +9,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.partiufast.mercadodoimperador.Product
+import com.partiufast.mercadodoimperador.model.Product
 import com.partiufast.mercadodoimperador.R
 import com.partiufast.mercadodoimperador.adapters.AvailableListAdapter
 import com.partiufast.mercadodoimperador.ui.activities.OnClickUpdateListCallback

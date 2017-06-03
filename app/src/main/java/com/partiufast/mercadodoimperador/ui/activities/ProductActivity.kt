@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.facebook.drawee.drawable.ScalingUtils
 import com.facebook.drawee.view.DraweeTransition
-import com.partiufast.mercadodoimperador.Product
+import com.partiufast.mercadodoimperador.model.Product
 import com.partiufast.mercadodoimperador.R
 import kotlinx.android.synthetic.main.activity_product.*
 
@@ -15,6 +15,10 @@ class ProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
+
+        if (supportActionBar != null)
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
         val product = intent.getParcelableExtra<Product>(getString(R.string.arg_product_intent))
         info_drawee_view.setImageURI(product.thumbnailHd)
         if (Build.VERSION.SDK_INT >= 21) {
@@ -25,7 +29,7 @@ class ProductActivity : AppCompatActivity() {
 
         product_name_label.text = product.title
         seller_label.text = "Vendedor: " + product.seller
-        price_label.text = "R$ " + product.price.toString()
+        price_label.text = "R$ " + product.price.toString().replace('.', ',')
         button_add_cart.setOnClickListener {
             product.productCount = quantity_spinner.selectedItemPosition + 1
             val intent = Intent()

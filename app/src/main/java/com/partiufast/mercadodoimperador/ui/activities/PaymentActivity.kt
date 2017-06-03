@@ -11,15 +11,15 @@ import java.text.SimpleDateFormat
 import android.text.InputType
 import android.os.Build
 import android.text.TextUtils
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
-import com.partiufast.mercadodoimperador.CartPostRequest
+import com.partiufast.mercadodoimperador.api.CartPostRequest
 import com.partiufast.mercadodoimperador.ui.custom.MonthYearPickerDialog
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import android.app.ProgressDialog
-import org.jetbrains.anko.alert
+import android.content.Intent
+import com.partiufast.mercadodoimperador.model.BillHistory
 
 
 class PaymentActivity : AppCompatActivity() {
@@ -101,12 +101,14 @@ class PaymentActivity : AppCompatActivity() {
                     if (response == 200){
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
                         val currentDateandTime = sdf.format(Date())
-                        alert("R$$total_price às $currentDateandTime\n"+fullname+"\nCartão x"+cardnumber.substring(12), "Compra Efetuada") {
-                            positiveButton("Ok") {
-                                //processAnOrder()
-                            }
-                        }.show()
-
+                        val bill = BillHistory(currentDateandTime, fullname, cardnumber.substring(12).toInt(), "R$$total_price")
+                        val intentBillActivity = Intent(applicationContext, HistoryActivity::class.java)
+                        intentBillActivity.putExtra(getString(R.string.BILL_EXTRA), bill)
+                        startActivity(intentBillActivity)
+                        val intentClearCart = Intent()
+                        intentClearCart.putExtra(getString(R.string.CLEAR_CART_EXTRA), true)
+                        setResult(RESULT_OK, intentClearCart)
+                        finish()
                     }
                     else {
                         Toast.makeText(applicationContext, "Compra não efetuada :(", Toast.LENGTH_SHORT).show()
@@ -125,7 +127,7 @@ class PaymentActivity : AppCompatActivity() {
     }
 
     private fun  isCreditCardNumberValid(cardnumber: String): Boolean {
-        return (cardnumber.length == 16)
+        return ((cardnumber.length == 16)&&(cardnumber.matches(Regex("[0-9]+"))))
     }
 
 
@@ -162,3 +164,5 @@ class PaymentActivity : AppCompatActivity() {
         }
     }
 }
+
+

@@ -63,11 +63,14 @@
     <string name="error_invalid_verifier">Digite um verificador válido de 3 dígitos</string>
     <string name="attempt_payment">Efetuar Transação</string>
     <string name="error_invalid_date">Selecione uma data futura</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
     <string name="update_button_text">Rede indisponível\nClique para atualizar</string>
     <string name="CART_VALUE_EXTRA">CART_VALUE_EXTRA</string>
     <string name="CART_VALUE_PLAIN_EXTRA">CART_VALUE_PLAIN_EXTRA</string>
+    <string name="BILL_EXTRA">BILL_EXTRA</string>
+    <string name="empty_history_hint">Não há compras no seu histórico.</string>
+    <string name="CLEAR_CART_EXTRA">CLEAR_CART_EXTRA</string>
 
 
 </resources>

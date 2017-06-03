@@ -27,7 +27,10 @@ import android.widget.Toast
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.view.SimpleDraweeView
 import com.partiufast.mercadodoimperador.*
+import com.partiufast.mercadodoimperador.api.ProductGetRequest
 import com.partiufast.mercadodoimperador.callbacks.ProductFragmentCallback
+import com.partiufast.mercadodoimperador.model.Product
+import com.partiufast.mercadodoimperador.model.Store
 import com.partiufast.mercadodoimperador.ui.fragments.CartFragment
 import com.partiufast.mercadodoimperador.ui.fragments.ShopFragment
 import kotlinx.android.synthetic.main.app_bar_nav_drawer.*

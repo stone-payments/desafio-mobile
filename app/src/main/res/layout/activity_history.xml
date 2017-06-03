@@ -5,10 +5,17 @@
     android:layout_height="match_parent"
     tools:context="com.partiufast.mercadodoimperador.ui.activities.HistoryActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bill_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Historico de compras"
-        android:textSize="24dp"/>
+        android:id="@+id/empty_history_text_view"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:text="@string/empty_history_hint"/>
 </FrameLayout>

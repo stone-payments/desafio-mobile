@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -12,7 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
-import com.partiufast.mercadodoimperador.Product
+import com.partiufast.mercadodoimperador.model.Product
 import com.partiufast.mercadodoimperador.R
 import com.partiufast.mercadodoimperador.adapters.CartListAdapter
 import com.partiufast.mercadodoimperador.ui.activities.PaymentActivity
@@ -20,6 +21,7 @@ import java.math.BigDecimal
 
 
 class CartFragment : Fragment() {
+
     companion object {
         private val ARG_CART_LIST = "ARG_CART_LIST"
         private var cartProducts: java.util.ArrayList<Product>? = null
@@ -61,9 +63,9 @@ class CartFragment : Fragment() {
             tabLayout.getTabAt(0)?.select()
         }
 
-        checkoutButton.setOnClickListener{
+        checkoutButton.setOnClickListener {
             var total_value = BigDecimal(0)
-            for(index in 0..cartProducts!!.size-1) {
+            for (index in 0..cartProducts!!.size - 1) {
                 Log.d("item_value", cartProducts!!.get(index).price.toPlainString())
                 total_value = total_value.add(cartProducts!!.get(index).price.multiply(BigDecimal(cartProducts!!.get(index).productCount)))
             }
@@ -71,29 +73,41 @@ class CartFragment : Fragment() {
             val intent = Intent(context, PaymentActivity::class.java)
             intent.putExtra(getString(R.string.CART_VALUE_EXTRA), total_value.toString())
                     .putExtra(getString(R.string.CART_VALUE_PLAIN_EXTRA), total_value.toPlainString())
-            startActivity(intent)
+            startActivityForResult(intent, 2)
         }
 
         return rootView
     }
 
-    fun refreshList() {
-        recyclerView!!.adapter.notifyDataSetChanged()
-    }
-
-    fun updateListVisibility() {
-        if (cartProducts?.size!! > 0) {
-            if (recyclerViewLinearLayout?.visibility == View.INVISIBLE) {
-                recyclerViewLinearLayout?.visibility = View.VISIBLE
-                emptyCartLinearLayout?.visibility = View.INVISIBLE
-            }
-        } else {
-            if (recyclerViewLinearLayout?.visibility == View.VISIBLE) {
-                recyclerViewLinearLayout?.visibility = View.INVISIBLE
-                emptyCartLinearLayout?.visibility = View.VISIBLE
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 2) {
+            if (resultCode == AppCompatActivity.RESULT_OK) {
+                cartProducts?.clear()
+                refreshList()
+                updateListVisibility()
             }
         }
     }
 
+        fun refreshList() {
+            recyclerView!!.adapter.notifyDataSetChanged()
+        }
 
-}
+        fun updateListVisibility() {
+            if (cartProducts?.size!! > 0) {
+                if (recyclerViewLinearLayout?.visibility == View.INVISIBLE) {
+                    recyclerViewLinearLayout?.visibility = View.VISIBLE
+                    emptyCartLinearLayout?.visibility = View.INVISIBLE
+                }
+            } else {
+                if (recyclerViewLinearLayout?.visibility == View.VISIBLE) {
+                    recyclerViewLinearLayout?.visibility = View.INVISIBLE
+                    emptyCartLinearLayout?.visibility = View.VISIBLE
+                }
+            }
+        }
+
+
+    }
+

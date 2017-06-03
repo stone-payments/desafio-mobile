@@ -1,19 +1,17 @@
 package com.partiufast.mercadodoimperador.adapters
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.facebook.drawee.view.SimpleDraweeView
-import com.partiufast.mercadodoimperador.Product
+import com.partiufast.mercadodoimperador.model.Product
 import com.partiufast.mercadodoimperador.callbacks.ProductFragmentCallback
 import com.partiufast.mercadodoimperador.R
 import kotlinx.android.synthetic.main.product_card.view.*
 import java.util.*
 
 class AvailableListAdapter(private val products: ArrayList<Product>) : RecyclerView.Adapter<AvailableListAdapter.ProductViewHolder>() {
-    private var mContext: Context? = null
     private var productFragmentCallback: ProductFragmentCallback? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -34,7 +32,7 @@ class AvailableListAdapter(private val products: ArrayList<Product>) : RecyclerV
             with(product) {
                 onClickProductListener.updatePosition(position)
                 onClickProductListener.updateView(itemView.thumbnail_drawee_view)
-                itemView.product_price_text_view.text = "R$" + product.price.toString()
+                itemView.product_price_text_view.text = "R$ " + product.price.toString().replace('.', ',')
                 itemView.product_name_text_view.text = product.title
                 itemView.thumbnail_drawee_view.setImageURI(product.thumbnailHd)
                 itemView.setOnClickListener(onClickProductListener)
