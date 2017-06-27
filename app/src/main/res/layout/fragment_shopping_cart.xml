@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorBackground"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rv_shopping_cart_view" >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_total_text"
+            android:layout_width="142dp"
+            android:layout_height="18dp"
+            android:text="@string/purchase_total"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_clear_cart" />
+
+        <TextView
+            android:id="@+id/tv_cart_price"
+            android:layout_width="114dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="textEnd"
+            tools:text="R$ 300.000,00"
+            app:layout_constraintBottom_toTopOf="@+id/bt_buy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.819"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_text" />
+
+        <Button
+            android:id="@+id/bt_clear_cart"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_cart_shape"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="@string/clear_cart"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="4dp" />
+
+        <Button
+            android:id="@+id/bt_buy"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_cart_shape"
+            android:text="@string/checkout"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="8dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

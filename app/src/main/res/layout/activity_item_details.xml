@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pharol.temminstore.item.ItemDetailsActivity">
+
+    <ImageView
+        android:id="@+id/iv_item_details_photo"
+        android:layout_width="match_parent"
+        android:layout_height="331dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/bt_add_to_cart"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_cart_shape"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="Add to Cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="220dp" />
+
+    <TextView
+        android:id="@+id/tv_item_details_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical"
+        android:text="TextView"
+        android:textAlignment="gravity"
+        app:layout_constraintEnd_toStartOf="@+id/bt_item_details_plus"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_details_title" />
+
+    <Button
+        android:id="@+id/bt_item_details_minus"
+        android:layout_width="47dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_plus_shape"
+        android:backgroundTint="@color/colorAccent"
+        android:text="-"
+        app:layout_constraintEnd_toStartOf="@+id/tv_item_details_quantity"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_details_title" />
+
+    <Button
+        android:id="@+id/bt_item_details_plus"
+        android:layout_width="46dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_plus_shape"
+        android:backgroundTint="@color/colorAccent"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_details_title" />
+
+    <TextView
+        android:id="@+id/tv_item_details_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_item_details_photo" />
+
+    <TextView
+        android:id="@+id/tv_item_details_price"
+        android:layout_width="102dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical"
+
+        android:text="TextView"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/bt_item_details_minus"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_details_title" />
+
+    <TextView
+        android:id="@+id/tv_item_details_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_add_to_cart"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
