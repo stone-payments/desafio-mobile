@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+
+    app:cardBackgroundColor="@color/cardview_light_background"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="@dimen/cardview_default_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/iv_item_photo"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:textSize="18sp"
+            tools:text="texto do titulo do produto" />
+
+        <LinearLayout
+            android:id="@+id/ll_sellers"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="50dp">
+
+            <TextView
+                android:id="@+id/tv_text1"
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ems="3"
+                android:text="@string/seller" />
+
+            <TextView
+                android:id="@+id/tv_seller"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:minEms="4"
+                tools:text="Seller" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp">
+
+            <TextView
+                android:id="@+id/tv_text2"
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/price"
+                 />
+
+            <TextView
+                android:id="@+id/tv_item_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:minEms="4"
+                android:textColor="@android:color/holo_red_light"
+                android:textStyle="bold"
+                tools:text="7900" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/ib_add_to_cart"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:paddingEnd="2dp"
+        android:paddingStart="2dp"
+        android:baselineAlignBottom="true"
+        app:srcCompat="@drawable/ic_add_shopping_cart_black_48dp" />
+
+</android.support.v7.widget.CardView>
