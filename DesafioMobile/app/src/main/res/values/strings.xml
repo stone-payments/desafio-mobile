@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">DesafioMobile</string>
+    <string name="product_title">title</string>
+    <string name="product_price">price</string>
+    <string name="product_seller">seller</string>
+    <!--<string name="tab_products">Produtos</string>-->
+    <!--<string name="tab_cart">Carrinho</string>-->
+    <string name="toolbar_main_title">StarStore</string>
+    <string name="toolbar_main_subtitle">Clique no produto para adicionar ao carrinho</string>
+    <string name="toolbar_cart_subtitle">Clique no carrinho para finalizar</string>
+    <string name="toolbar_transaction_subtitle">Histórico de transações</string>
+    <string name="empty_cart">Carrinho vazio!</string>
+    <string name="transaction_card_number">Número do cartão: </string>
+    <string name="transaction_value">Total: </string>
+    <string name="transaction_cvv">CVV: </string>
+    <string name="transaction_card_holder_name">Nome impresso no cartão: </string>
+    <string name="transaction_exp_date">Data de validade: </string>
+    <string name="hint_card_name">nome</string>
+    <string name="hint_card_number">número do cartão</string>
+    <string name="hint_cvv">cvv</string>
+    <string name="hint_exp_date">mm/aa</string>
+
+    <string-array name="main_tabs">
+        <item>Produtos</item>
+        <item>Carrinho</item>
+        <item>Histórico</item>
+    </string-array>
+</resources>
