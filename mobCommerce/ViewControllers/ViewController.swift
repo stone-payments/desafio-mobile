@@ -13,6 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        ServiceManager.shared
+            .Get(url: "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/productsz.json",
+                        parameters: nil,
+                        success: {
+                            result in
+                            print(result) },
+                        failure: {
+                            failure in
+                            print(failure) })
     }
 
     override func didReceiveMemoryWarning() {

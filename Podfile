@@ -3,9 +3,10 @@ use_frameworks!
 inhibit_all_warnings!
 
 def available_pods
-
+    pod 'Alamofire', '~> 4.4'
+    pod 'SwiftyJSON'
 end
 
 target 'mobCommerce' do
-  available_pods
+    available_pods
 end

@@ -13,6 +13,9 @@
 		8D73BC801F4BD45000DEA234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D73BC7D1F4BD45000DEA234 /* Assets.xcassets */; };
 		8D73BC811F4BD45000DEA234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BC7E1F4BD45000DEA234 /* AppDelegate.swift */; };
 		8D73BC841F4BD45B00DEA234 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BC831F4BD45B00DEA234 /* ViewController.swift */; };
+		8D73BC891F4D1C6800DEA234 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BC881F4D1C6800DEA234 /* ServiceManager.swift */; };
+		8D73BC8B1F51ED2300DEA234 /* ServiceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BC8A1F51ED2300DEA234 /* ServiceManagerProtocol.swift */; };
+		8D73BC8D1F51ED7600DEA234 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BC8C1F51ED7600DEA234 /* ServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		8D73BC7E1F4BD45000DEA234 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D73BC7F1F4BD45000DEA234 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D73BC831F4BD45B00DEA234 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D73BC881F4D1C6800DEA234 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		8D73BC8A1F51ED2300DEA234 /* ServiceManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManagerProtocol.swift; sourceTree = "<group>"; };
+		8D73BC8C1F51ED7600DEA234 /* ServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		99D4179BF78E2E65C7CE0BDE /* Pods-mobCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce.release.xcconfig"; sourceTree = "<group>"; };
 		A7C68D6CED749176EA279765 /* Pods_mobCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,6 +99,7 @@
 		8D73BC711F4BD35700DEA234 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BC871F4D1C2D00DEA234 /* Service */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -150,6 +157,16 @@
 				8D73BC7A1F4BD43A00DEA234 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8D73BC871F4D1C2D00DEA234 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BC881F4D1C6800DEA234 /* ServiceManager.swift */,
+				8D73BC8A1F51ED2300DEA234 /* ServiceManagerProtocol.swift */,
+				8D73BC8C1F51ED7600DEA234 /* ServiceError.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,9 +247,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -280,7 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D73BC841F4BD45B00DEA234 /* ViewController.swift in Sources */,
+				8D73BC8D1F51ED7600DEA234 /* ServiceError.swift in Sources */,
 				8D73BC811F4BD45000DEA234 /* AppDelegate.swift in Sources */,
+				8D73BC891F4D1C6800DEA234 /* ServiceManager.swift in Sources */,
+				8D73BC8B1F51ED2300DEA234 /* ServiceManagerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
