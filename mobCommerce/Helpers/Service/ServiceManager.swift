@@ -28,7 +28,6 @@ final class ServiceManager: ServiceManagerProtocol {
         
                 success(response.result.value!)
         }
-
     }
 
     func Post(url: String, parameters: [String : Any]?, success: @escaping (Any) -> Void, failure: @escaping (ServiceError) -> Void) {
@@ -46,7 +45,6 @@ final class ServiceManager: ServiceManagerProtocol {
                 
                 success(response.result.value!)
         }
-        
     }
     
 }

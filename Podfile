@@ -4,6 +4,7 @@ inhibit_all_warnings!
 
 def available_pods
     pod 'Alamofire', '~> 4.4'
+    pod 'AlamofireImage', '~> 3.2'
     pod 'SwiftyJSON'
 end
 
