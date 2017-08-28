@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.germano.desafiostone.activities.CartCheckoutActivity">
+
+    <include layout="@layout/toolbar" android:id="@+id/toolbar"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview_checkout"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número de Items"/>
+
+            <TextView
+                android:id="@+id/textview_total_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textStyle="bold"
+                android:text="2 Produtos"/>
+
+            <TextView
+                android:layout_below="@id/textview_total_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:text="Subtotal"/>
+
+            <TextView
+                android:id="@+id/textview_total_value"
+                android:layout_below="@id/textview_total_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textStyle="bold"
+                android:layout_marginTop="5dip"
+                android:text="R$ 2.000,00"/>
+
+            <Button
+                android:id="@+id/textview_checkout"
+                android:layout_below="@id/textview_total_value"
+                android:layout_marginTop="5dip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:foreground="@drawable/ripple"
+                android:backgroundTint="@color/colorAccent"
+                android:text="Realizar pagamento"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:padding="16dp"
+        android:id="@+id/recyclerview_checkout"
+        android:layout_below="@id/cardview_checkout"
+        android:layout_marginTop="10dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
