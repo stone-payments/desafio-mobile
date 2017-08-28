@@ -6,6 +6,7 @@ def available_pods
     pod 'Alamofire', '~> 4.4'
     pod 'AlamofireImage', '~> 3.2'
     pod 'SwiftyJSON'
+    pod 'SVProgressHUD'
 end
 
 target 'mobCommerce' do

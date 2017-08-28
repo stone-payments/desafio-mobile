@@ -23,6 +23,9 @@
 		8D73BCB51F53870100DEA234 /* ProductsListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCB41F53870100DEA234 /* ProductsListViewProtocol.swift */; };
 		8D73BCB71F53875900DEA234 /* ProductsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCB61F53875900DEA234 /* ProductsListPresenter.swift */; };
 		8D73BCBA1F539F2E00DEA234 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCB91F539F2E00DEA234 /* IntExtension.swift */; };
+		8D73BCC01F53C99200DEA234 /* PurchaseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCBF1F53C99200DEA234 /* PurchaseListTableViewController.swift */; };
+		8D73BCC21F53CD1B00DEA234 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC11F53CD1B00DEA234 /* Purchase.swift */; };
+		8D73BCC41F53D11600DEA234 /* PurchaseItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC31F53D11600DEA234 /* PurchaseItemViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		8D73BCB41F53870100DEA234 /* ProductsListViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsListViewProtocol.swift; sourceTree = "<group>"; };
 		8D73BCB61F53875900DEA234 /* ProductsListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsListPresenter.swift; sourceTree = "<group>"; };
 		8D73BCB91F539F2E00DEA234 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		8D73BCBF1F53C99200DEA234 /* PurchaseListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseListTableViewController.swift; sourceTree = "<group>"; };
+		8D73BCC11F53CD1B00DEA234 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		8D73BCC31F53D11600DEA234 /* PurchaseItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseItemViewCell.swift; sourceTree = "<group>"; };
 		99D4179BF78E2E65C7CE0BDE /* Pods-mobCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce.release.xcconfig"; sourceTree = "<group>"; };
 		A7C68D6CED749176EA279765 /* Pods_mobCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,6 +163,7 @@
 		8D73BCA51F53836900DEA234 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCBB1F53C92C00DEA234 /* PurchaseList */,
 				8D73BCA61F53838200DEA234 /* ProductsList */,
 			);
 			path = Modules;
@@ -204,6 +211,40 @@
 				8D73BCB91F539F2E00DEA234 /* IntExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8D73BCBB1F53C92C00DEA234 /* PurchaseList */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BCBE1F53C94A00DEA234 /* Model */,
+				8D73BCBD1F53C94300DEA234 /* View */,
+				8D73BCBC1F53C93E00DEA234 /* Presenter */,
+			);
+			path = PurchaseList;
+			sourceTree = "<group>";
+		};
+		8D73BCBC1F53C93E00DEA234 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8D73BCBD1F53C94300DEA234 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BCBF1F53C99200DEA234 /* PurchaseListTableViewController.swift */,
+				8D73BCC31F53D11600DEA234 /* PurchaseItemViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D73BCBE1F53C94A00DEA234 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BCC11F53CD1B00DEA234 /* Purchase.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,12 +328,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,10 +389,13 @@
 				8D73BC8D1F51ED7600DEA234 /* ServiceError.swift in Sources */,
 				8D73BC811F4BD45000DEA234 /* AppDelegate.swift in Sources */,
 				8D73BCBA1F539F2E00DEA234 /* IntExtension.swift in Sources */,
+				8D73BCC21F53CD1B00DEA234 /* Purchase.swift in Sources */,
 				8D73BCAB1F5385A400DEA234 /* Product.swift in Sources */,
 				8D73BCAE1F5385AB00DEA234 /* ListItemViewCell.swift in Sources */,
+				8D73BCC41F53D11600DEA234 /* PurchaseItemViewCell.swift in Sources */,
 				8D73BC891F4D1C6800DEA234 /* ServiceManager.swift in Sources */,
 				8D73BC911F5305DA00DEA234 /* ProductService.swift in Sources */,
+				8D73BCC01F53C99200DEA234 /* PurchaseListTableViewController.swift in Sources */,
 				8D73BC8B1F51ED2300DEA234 /* ServiceManagerProtocol.swift in Sources */,
 				8D73BCB71F53875900DEA234 /* ProductsListPresenter.swift in Sources */,
 			);

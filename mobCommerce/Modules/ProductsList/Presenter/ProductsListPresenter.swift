@@ -6,6 +6,8 @@
 //  Copyright © 2017 Rafael de Paula. All rights reserved.
 //
 
+import UIKit
+
 final class ProductsListPresenter {
     
     fileprivate unowned let view: ProductsListViewProtocol
@@ -23,17 +25,23 @@ final class ProductsListPresenter {
 extension ProductsListPresenter {
     
     func showProductsList() {
-        
+        self.view.showLoading()
         self.service.getProducts(success: {
             result in
             self.products = result
-            self.view.reloadCollectionView()
+            self.showView()
         }, fail: {
             failure in
-            self.view.showAlertError(with: "Erro",
-                                     message: failure.description,
-                                     buttonTitle: "OK")
+            self.requestError(errorDescription: failure.description)
         })
+    }
+    
+    func buyItem(product: Product) {
+        
+        let item = Purchase(title: product.title, price: product.price, thumbnail: product.thumbnail,
+                            quantity: 1, total: (product.price * 1))
+        
+        (UIApplication.shared.delegate as! AppDelegate).purchaseItems.append(item)
     }
 }
 
@@ -41,5 +49,15 @@ extension ProductsListPresenter {
 
 extension ProductsListPresenter {
     
+    fileprivate func showView() {
+        self.view.hideLoading()
+        self.view.reloadCollectionView()
+    }
     
+    fileprivate func requestError(errorDescription: String) {
+        self.view.hideLoading()
+        self.view.showAlertError(with: "Erro",
+                                 message: errorDescription,
+                                 buttonTitle: "OK")
+    }
 }

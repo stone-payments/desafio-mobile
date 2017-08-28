@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import SVProgressHUD
 
 class ProductsListCollectionViewController: UICollectionViewController {
 
@@ -19,7 +20,7 @@ class ProductsListCollectionViewController: UICollectionViewController {
     }
 }
 
-// MARK: - CollectionView -
+// MARK: - UICollectionView -
 
 extension ProductsListCollectionViewController: UICollectionViewDelegateFlowLayout {
 
@@ -38,6 +39,9 @@ extension ProductsListCollectionViewController: UICollectionViewDelegateFlowLayo
         cell.itemImage.af_setImage(withURL: URL(string: item.thumbnail)!)
         cell.itemImage.backgroundColor = UIColor.clear
         
+        cell.actionButton.tag = indexPath.row
+        cell.actionButton.addTarget(self, action: #selector(addProductToCart), for: .touchUpInside)
+        
         cell.itemAdded(isAdded: false)
         
         return cell
@@ -55,16 +59,24 @@ extension ProductsListCollectionViewController: UICollectionViewDelegateFlowLayo
 
 extension ProductsListCollectionViewController: ProductsListViewProtocol {
     
-    func showLoading() {}
-    func hideLoading() {}
+    func showLoading() {
+        SVProgressHUD.show()
+    }
+    
+    func hideLoading() {
+        SVProgressHUD.dismiss()
+    }
     
     func reloadCollectionView() {
         UIView.transition(with: collectionView!, duration: 0.35, options: .transitionCrossDissolve, animations: {
             self.collectionView?.reloadData() })
     }
     
-    func addItem(at: IndexPath){}
-    func showAlertError(with title: String, message: String, buttonTitle: String){}
+    func showAlertError(with title: String, message: String, buttonTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Private methods -
@@ -75,4 +87,14 @@ extension ProductsListCollectionViewController {
         presenter = ProductsListPresenter(view: self)
         presenter.showProductsList()
     }
+}
+
+// MARK: - Action methods -
+
+extension ProductsListCollectionViewController {
+    
+    @IBAction func addProductToCart(_ sender: UIButton) {
+        presenter.buyItem(product: presenter.products[sender.tag])
+    }
+    
 }

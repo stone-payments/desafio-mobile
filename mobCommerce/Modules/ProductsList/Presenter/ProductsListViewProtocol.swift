@@ -13,6 +13,5 @@ protocol ProductsListViewProtocol : class {
     func showLoading()
     func hideLoading()
     func reloadCollectionView()
-    func addItem(at: IndexPath)
     func showAlertError(with title: String, message: String, buttonTitle: String)
 }
