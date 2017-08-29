@@ -117,7 +117,7 @@ public class CartCheckoutActivity extends AppCompatActivity implements CartCheck
     @Override
     public void deleteItemFromList(int position) {
         mProductList.remove(position);
-        Singleton.getInstance().setProductList(mProductList);
+        Singleton.getInstance().getProductList().remove(position);
         mAdapter.notifyItemRemoved(position);
         mEventHandler.updateView();
     }
