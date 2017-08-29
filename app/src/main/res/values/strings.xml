@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Desafio Stone</string>
+    <string name="title_product">Produtos</string>
+    <string name="title_checkout">Carrinho</string>
+    <string name="title_history">Histórico</string>
+    <string name="title_ad">Anúncio</string>
+    <string name="title_payment">Pagamento</string>
+
+
+    <string name="total_items">%d Produto(s)</string>
+    <string name="total_value">R$ %s</string>
+    <string name="error_empty_cart">Você não possui produtos no carrinho.</string>
+    <string name="wait">Por favor, aguarde...</string>
+    <string name="error">Ocorreu um erro inesperado.</string>
+
+
+    <string name="card_name_holder">Nome do Portador</string>
+    <string name="card_number">Número do Cartão</string>
+    <string name="card_expiration_date">Validade</string>
+    <string name="total_value_cart">Total da Compra: R$ %s</string>
+    <string name="cvv">CVV</string>
+
+    <string name="card_name">Nome no Cartão: %s</string>
+    <string name="timestamp">Data da Compra: %s</string>
+    <string name="final_card">Final do Cartão: %s</string>
+    <string name="value">Valor da Compra: R$ %s</string>
+
+
+
+
+    <string name="year">Ano</string>
+    <string name="month">Mês</string>
+    <string name="exp_date" formatted="false">%d/%d</string>
+
+
+    <string name="description"><b>Descrição:</b>\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis tortor leo, quis luctus sem ultricies eu. Morbi tortor mauris, pharetra a risus eget, ullamcorper pulvinar mi. Phasellus blandit, tellus in sollicitudin pretium, leo libero laoreet enim, sit amet varius eros sapien vel felis. Aenean at justo quis libero vulputate tincidunt. Vestibulum non tellus et justo venenatis tristique ut id nisi. Maecenas placerat ultricies semper. Maecenas rhoncus scelerisque quam molestie aliquet. Nunc id porttitor neque. Morbi molestie massa ut cursus luctus. Integer tempus euismod ex in consectetur.</string>
+</resources>
