@@ -33,6 +33,26 @@ extension PurchaseListTableViewController {
         return 80
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 80))
+        footerView.backgroundColor = UIColor.white
+        
+        let button = UIButton(frame: CGRect(x: 15, y: 15, width: tableView.frame.size.width - 30, height: 50))
+        button.backgroundColor = Colors.buttonAddItem.color
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 18)
+        button.titleLabel?.textColor = UIColor.white
+        button.setTitle("Finalizar Compra", for: .normal)
+        button.addTarget(self, action: #selector(finishCart(_:)), for: .touchUpInside)
+        
+        footerView.addSubview(button)
+        
+        return footerView
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
     
         var numberOfSections: Int = 0
@@ -72,6 +92,16 @@ extension PurchaseListTableViewController {
         cell.itemImage.af_setImage(withURL: URL(string: item.thumbnail)!)
         
         return cell
+    }
+    
+}
+
+// MARK: - Action methods -
+
+extension PurchaseListTableViewController {
+    
+    @IBAction func finishCart(_ sender: UIButton) {
+        //presenter.buyItem(with: presenter.products[sender.tag], at: sender.tag)
     }
     
 }

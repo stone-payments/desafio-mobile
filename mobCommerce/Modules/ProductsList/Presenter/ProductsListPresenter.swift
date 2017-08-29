@@ -36,13 +36,32 @@ extension ProductsListPresenter {
         })
     }
     
-    func buyItem(product: Product) {
+    func buyItem(with product: Product, at index: Int) {
         
-        let item = Purchase(title: product.title, price: product.price, thumbnail: product.thumbnail,
-                            quantity: 1, total: (product.price * 1))
+        if !itemPurchased(with: product.title) {
+            let item = Purchase(title: product.title, price: product.price,
+                                thumbnail: product.thumbnail,
+                                quantity: 1, total: (product.price * 1))
+            
+            (UIApplication.shared.delegate as! AppDelegate).purchaseItems.append(item)
+        }
+        else {
+            (UIApplication.shared.delegate as! AppDelegate).purchaseItems
+                .remove(at: self.indexItemPurchased(with: product.title))
+        }
         
-        (UIApplication.shared.delegate as! AppDelegate).purchaseItems.append(item)
+        self.view.updateBadgeToValue(with: "\(self.quantityItems())")
+        self.view.reloadCollectionViewCell(at: IndexPath.init(row: index, section: 0))
     }
+    
+    func itemPurchased(with product: String) -> Bool {
+        
+        if (UIApplication.shared.delegate as! AppDelegate).purchaseItems.contains(where: { $0.title == product }) {
+            return true
+        }
+        return false
+    }
+
 }
 
 // MARK: - Private methods -
@@ -59,5 +78,13 @@ extension ProductsListPresenter {
         self.view.showAlertError(with: "Erro",
                                  message: errorDescription,
                                  buttonTitle: "OK")
+    }
+    
+    fileprivate func quantityItems() -> Int {
+        return (UIApplication.shared.delegate as! AppDelegate).purchaseItems.count
+    }
+    
+    fileprivate func indexItemPurchased(with value: String) -> Int {
+        return (UIApplication.shared.delegate as! AppDelegate).purchaseItems.index(where: { $0.title == value})!
     }
 }

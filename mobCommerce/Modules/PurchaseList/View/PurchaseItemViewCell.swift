@@ -19,5 +19,6 @@ class PurchaseItemViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.deleteButton.tintColor = Colors.buttonRemoveItem.color
     }
 }

@@ -26,6 +26,8 @@
 		8D73BCC01F53C99200DEA234 /* PurchaseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCBF1F53C99200DEA234 /* PurchaseListTableViewController.swift */; };
 		8D73BCC21F53CD1B00DEA234 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC11F53CD1B00DEA234 /* Purchase.swift */; };
 		8D73BCC41F53D11600DEA234 /* PurchaseItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC31F53D11600DEA234 /* PurchaseItemViewCell.swift */; };
+		8D73BCC61F551FD700DEA234 /* PurchaseListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */; };
+		8D73BCC81F55201200DEA234 /* PurchaseListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		8D73BCBF1F53C99200DEA234 /* PurchaseListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseListTableViewController.swift; sourceTree = "<group>"; };
 		8D73BCC11F53CD1B00DEA234 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		8D73BCC31F53D11600DEA234 /* PurchaseItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseItemViewCell.swift; sourceTree = "<group>"; };
+		8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseListPresenter.swift; sourceTree = "<group>"; };
+		8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseListViewProtocol.swift; sourceTree = "<group>"; };
 		99D4179BF78E2E65C7CE0BDE /* Pods-mobCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce.release.xcconfig"; sourceTree = "<group>"; };
 		A7C68D6CED749176EA279765 /* Pods_mobCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -226,6 +230,8 @@
 		8D73BCBC1F53C93E00DEA234 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */,
+				8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -384,10 +390,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D73BCB51F53870100DEA234 /* ProductsListViewProtocol.swift in Sources */,
+				8D73BCC81F55201200DEA234 /* PurchaseListViewProtocol.swift in Sources */,
 				8D73BCA41F5370A800DEA234 /* Colors.swift in Sources */,
 				8D73BCAF1F5385AB00DEA234 /* ProductsListCollectionViewController.swift in Sources */,
 				8D73BC8D1F51ED7600DEA234 /* ServiceError.swift in Sources */,
 				8D73BC811F4BD45000DEA234 /* AppDelegate.swift in Sources */,
+				8D73BCC61F551FD700DEA234 /* PurchaseListPresenter.swift in Sources */,
 				8D73BCBA1F539F2E00DEA234 /* IntExtension.swift in Sources */,
 				8D73BCC21F53CD1B00DEA234 /* Purchase.swift in Sources */,
 				8D73BCAB1F5385A400DEA234 /* Product.swift in Sources */,

@@ -42,7 +42,7 @@ extension ProductsListCollectionViewController: UICollectionViewDelegateFlowLayo
         cell.actionButton.tag = indexPath.row
         cell.actionButton.addTarget(self, action: #selector(addProductToCart), for: .touchUpInside)
         
-        cell.itemAdded(isAdded: false)
+        cell.itemAdded(isAdded: presenter.itemPurchased(with: item.title))
         
         return cell
     }
@@ -72,6 +72,14 @@ extension ProductsListCollectionViewController: ProductsListViewProtocol {
             self.collectionView?.reloadData() })
     }
     
+    func reloadCollectionViewCell(at indexPath: IndexPath) {
+        self.collectionView?.reloadItems(at: [indexPath])
+    }
+    
+    func updateBadgeToValue(with value: String) {
+        self.navigationController?.tabBarController?.tabBar.items![1].badgeValue = value
+    }
+    
     func showAlertError(with title: String, message: String, buttonTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
@@ -94,7 +102,7 @@ extension ProductsListCollectionViewController {
 extension ProductsListCollectionViewController {
     
     @IBAction func addProductToCart(_ sender: UIButton) {
-        presenter.buyItem(product: presenter.products[sender.tag])
+        presenter.buyItem(with: presenter.products[sender.tag], at: sender.tag)
     }
     
 }
