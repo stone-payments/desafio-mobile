@@ -10,11 +10,8 @@ import UIKit
 
 protocol PurchaseListViewProtocol : class {
     
-    func showLoading()
-    func hideLoading()
     func reloadTableView()
     func reloadTableViewCell(at indexPath: IndexPath)
     func updateBadgeToValue(with value: String)
     func showAlertError(with title: String, message: String, buttonTitle: String)
 }
-

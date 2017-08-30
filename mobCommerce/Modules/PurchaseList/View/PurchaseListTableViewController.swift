@@ -8,20 +8,21 @@
 
 import UIKit
 import AlamofireImage
+import SVProgressHUD
 
 class PurchaseListTableViewController: UITableViewController {
     
     fileprivate var purchaseItems: [Purchase] = []
+    var presenter: PurchaseListPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initialize()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        purchaseItems = (UIApplication.shared.delegate as! AppDelegate).purchaseItems
-        self.tableView.reloadData()
+        self.reloadTableView()
     }
 }
 
@@ -90,10 +91,50 @@ extension PurchaseListTableViewController {
         cell.itemTotal.text = item.total.toCurrencyString
         cell.itemQuantity.text = "\(item.quantity)"
         cell.itemImage.af_setImage(withURL: URL(string: item.thumbnail)!)
+        cell.deleteButton.tag = indexPath.row
         
         return cell
     }
+}
+
+// MARK: - Protocol methods -
+
+extension PurchaseListTableViewController: PurchaseListViewProtocol {
     
+    func reloadTableView() {
+        self.loadData()
+        
+        UIView.transition(with: tableView!, duration: 0.35, options: .transitionCrossDissolve, animations: {
+            self.tableView?.reloadData() })
+    }
+    
+    func reloadTableViewCell(at indexPath: IndexPath) {
+        self.loadData()
+        self.tableView?.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func updateBadgeToValue(with value: String) {
+        self.navigationController?.tabBarController?.tabBar.items![1].badgeValue = value
+    }
+    
+    func showAlertError(with title: String, message: String, buttonTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Private methods -
+
+extension PurchaseListTableViewController {
+    
+    fileprivate func initialize() {
+        presenter = PurchaseListPresenter(view: self)
+    }
+    
+    fileprivate func loadData() {
+        purchaseItems = (UIApplication.shared.delegate as! AppDelegate).purchaseItems
+    }
 }
 
 // MARK: - Action methods -
@@ -101,7 +142,10 @@ extension PurchaseListTableViewController {
 extension PurchaseListTableViewController {
     
     @IBAction func finishCart(_ sender: UIButton) {
-        //presenter.buyItem(with: presenter.products[sender.tag], at: sender.tag)
+        performSegue(withIdentifier: "sgConfirmPurchase", sender: self)
     }
     
+    @IBAction func removeItem(_ sender: UIButton) {
+        presenter.removeItem(with: purchaseItems[sender.tag], at: sender.tag)
+    }
 }

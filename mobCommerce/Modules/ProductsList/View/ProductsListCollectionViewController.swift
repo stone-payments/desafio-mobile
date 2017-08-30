@@ -18,6 +18,12 @@ class ProductsListCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         self.initialize()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.showProductsList()
+        self.reloadCollectionView()
+    }
 }
 
 // MARK: - UICollectionView -
@@ -93,7 +99,6 @@ extension ProductsListCollectionViewController {
     
     fileprivate func initialize() {
         presenter = ProductsListPresenter(view: self)
-        presenter.showProductsList()
     }
 }
 

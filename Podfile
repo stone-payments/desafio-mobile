@@ -7,6 +7,7 @@ def available_pods
     pod 'AlamofireImage', '~> 3.2'
     pod 'SwiftyJSON'
     pod 'SVProgressHUD'
+    pod 'SkyFloatingLabelTextField', '~> 3.0'
 end
 
 target 'mobCommerce' do
