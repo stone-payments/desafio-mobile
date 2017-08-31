@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 import SVProgressHUD
 
-class PurchaseListTableViewController: UITableViewController {
+class PurchaseListTableViewController: UITableViewController, UITextFieldDelegate {
     
     fileprivate var purchaseItems: [Purchase] = []
     var presenter: PurchaseListPresenter!
@@ -84,17 +84,38 @@ extension PurchaseListTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! PurchaseItemViewCell
         
-        let item: Purchase = purchaseItems[indexPath.row]
+        let index: Int = indexPath.row
+        let item: Purchase = purchaseItems[index]
         
         cell.itemDescription.text = item.title
         cell.itemPrice.text = item.price.toCurrencyString
         cell.itemTotal.text = item.total.toCurrencyString
-        cell.itemQuantity.text = "\(item.quantity)"
         cell.itemImage.af_setImage(withURL: URL(string: item.thumbnail)!)
-        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.tag = index
+        cell.itemQuantity.tag = index
+        cell.itemQuantity.text = "\(item.quantity)"
+        cell.itemQuantity.delegate = self
         
         return cell
     }
+}
+
+// MARK: - UITexField -
+
+extension PurchaseListTableViewController {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        let isMax = newLength <= 2
+        return isMax
+    }
+   
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        presenter.calculateOrder(with: Int(textField.text!)!, at: textField.tag)
+    }
+    
 }
 
 // MARK: - Protocol methods -

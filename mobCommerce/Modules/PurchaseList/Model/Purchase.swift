@@ -13,8 +13,8 @@ struct Purchase {
     let title: String
     let price: Int
     let thumbnail: String
-    let quantity: Int
-    let total: Int
+    var quantity: Int
+    var total: Int
     
     init (title: String, price: Int, thumbnail: String, quantity: Int, total: Int) {
         self.title = title

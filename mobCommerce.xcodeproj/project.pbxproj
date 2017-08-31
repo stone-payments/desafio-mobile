@@ -29,6 +29,9 @@
 		8D73BCC61F551FD700DEA234 /* PurchaseListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */; };
 		8D73BCC81F55201200DEA234 /* PurchaseListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */; };
 		8D73BCCE1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCCD1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift */; };
+		8D73BCD01F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */; };
+		8D73BCD21F57C54700DEA234 /* ConfirmPurchasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */; };
+		8D73BCD41F57CB7000DEA234 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD31F57CB7000DEA234 /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseListPresenter.swift; sourceTree = "<group>"; };
 		8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseListViewProtocol.swift; sourceTree = "<group>"; };
 		8D73BCCD1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchaseTableViewController.swift; sourceTree = "<group>"; };
+		8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchaseViewProtocol.swift; sourceTree = "<group>"; };
+		8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchasePresenter.swift; sourceTree = "<group>"; };
+		8D73BCD31F57CB7000DEA234 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		99D4179BF78E2E65C7CE0BDE /* Pods-mobCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce.release.xcconfig"; sourceTree = "<group>"; };
 		A7C68D6CED749176EA279765 /* Pods_mobCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -235,6 +241,8 @@
 			children = (
 				8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */,
 				8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */,
+				8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */,
+				8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				8D73BCC11F53CD1B00DEA234 /* Purchase.swift */,
+				8D73BCD31F57CB7000DEA234 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,6 +378,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -377,6 +389,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -432,10 +447,13 @@
 				8D73BCAF1F5385AB00DEA234 /* ProductsListCollectionViewController.swift in Sources */,
 				8D73BC8D1F51ED7600DEA234 /* ServiceError.swift in Sources */,
 				8D73BCCE1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift in Sources */,
+				8D73BCD41F57CB7000DEA234 /* Order.swift in Sources */,
+				8D73BCD21F57C54700DEA234 /* ConfirmPurchasePresenter.swift in Sources */,
 				8D73BC811F4BD45000DEA234 /* AppDelegate.swift in Sources */,
 				8D73BCC61F551FD700DEA234 /* PurchaseListPresenter.swift in Sources */,
 				8D73BCBA1F539F2E00DEA234 /* IntExtension.swift in Sources */,
 				8D73BCC21F53CD1B00DEA234 /* Purchase.swift in Sources */,
+				8D73BCD01F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift in Sources */,
 				8D73BCAB1F5385A400DEA234 /* Product.swift in Sources */,
 				8D73BCAE1F5385AB00DEA234 /* ListItemViewCell.swift in Sources */,
 				8D73BCC41F53D11600DEA234 /* PurchaseItemViewCell.swift in Sources */,

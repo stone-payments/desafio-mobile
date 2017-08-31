@@ -8,6 +8,8 @@ def available_pods
     pod 'SwiftyJSON'
     pod 'SVProgressHUD'
     pod 'SkyFloatingLabelTextField', '~> 3.0'
+    pod 'IQKeyboardManager'
+    pod 'RealmSwift'
 end
 
 target 'mobCommerce' do

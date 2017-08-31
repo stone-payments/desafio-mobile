@@ -42,6 +42,17 @@ extension PurchaseListPresenter {
         return false
     }
     
+    func calculateOrder(with quantity: Int, at index: Int) {
+        
+        var item: Purchase = (UIApplication.shared.delegate as! AppDelegate).purchaseItems[index]
+        item.quantity = quantity
+        item.total = item.price * quantity
+        
+        (UIApplication.shared.delegate as! AppDelegate).purchaseItems[index] = item
+        
+        self.view.reloadTableView()
+    }
+    
 }
 
 // MARK: - Private methods -
