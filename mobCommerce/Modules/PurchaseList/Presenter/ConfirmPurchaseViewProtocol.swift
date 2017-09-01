@@ -10,6 +10,8 @@ import UIKit
 
 protocol ConfirmPurchaseViewProtocol : class {
     
+    func showLoading()
+    func hideLoading()
     func showTotalOrder(with value: Int)
     func showAlertError(with title: String, message: String, buttonTitle: String)
 }

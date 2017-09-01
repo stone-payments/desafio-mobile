@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ConfirmPurchaseTableViewController: UITableViewController, UITextFieldDelegate {
 
@@ -55,6 +56,14 @@ extension ConfirmPurchaseTableViewController {
 // MARK: - Protocol methods -
 
 extension ConfirmPurchaseTableViewController: ConfirmPurchaseViewProtocol {
+    
+    func showLoading() {
+        SVProgressHUD.show()
+    }
+    
+    func hideLoading() {
+        SVProgressHUD.dismiss()
+    }
     
     func showTotalOrder(with value: Int) {
         self.totalValue.text = value.toCurrencyString

@@ -11,9 +11,11 @@ import UIKit
 final class ConfirmPurchasePresenter {
     
     fileprivate unowned let view: ConfirmPurchaseViewProtocol
+    fileprivate let service: TransactionService
     
     init(view: ConfirmPurchaseViewProtocol) {
         self.view = view
+        self.service = TransactionService()
     }
 }
 
@@ -69,7 +71,43 @@ extension ConfirmPurchasePresenter {
         
         if validateMessage.characters.count > 0 {
             self.view.showAlertError(with: "Erro", message: validateMessage, buttonTitle: "OK")
+            return
         }
+
+        self.postOrder(with: order)
+    }
+}
+
+// MARK: - Private methods -
+
+extension ConfirmPurchasePresenter {
+
+    fileprivate func postOrder(with order: Order) {
+
+        self.view.showLoading()
+        
+        let parameters: [String: Any] = [
+            "card_number": order.cardNumber,
+            "value": order.orderValue,
+            "cvv": order.cardCVV,
+            "card_holder_name": order.holderName,
+            "exp_date": order.expireDate
+        ]
+        
+        self.service.postTransaction(with: parameters, success: {
+            result in
+            print(result)
+        }, fail: {
+            failure in
+            self.requestError(errorDescription: failure.description)
+        })
+    }
+    
+    fileprivate func requestError(errorDescription: String) {
+        self.view.hideLoading()
+        self.view.showAlertError(with: "Erro",
+                                 message: errorDescription,
+                                 buttonTitle: "OK")
     }
     
 }

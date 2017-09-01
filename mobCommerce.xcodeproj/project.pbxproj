@@ -32,6 +32,7 @@
 		8D73BCD01F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */; };
 		8D73BCD21F57C54700DEA234 /* ConfirmPurchasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */; };
 		8D73BCD41F57CB7000DEA234 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD31F57CB7000DEA234 /* Order.swift */; };
+		8D73BCD61F59019A00DEA234 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD51F59019A00DEA234 /* TransactionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchaseViewProtocol.swift; sourceTree = "<group>"; };
 		8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchasePresenter.swift; sourceTree = "<group>"; };
 		8D73BCD31F57CB7000DEA234 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		8D73BCD51F59019A00DEA234 /* TransactionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		99D4179BF78E2E65C7CE0BDE /* Pods-mobCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce.release.xcconfig"; sourceTree = "<group>"; };
 		A7C68D6CED749176EA279765 /* Pods_mobCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				8D73BC901F5305DA00DEA234 /* ProductService.swift */,
+				8D73BCD51F59019A00DEA234 /* TransactionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				8D73BCAF1F5385AB00DEA234 /* ProductsListCollectionViewController.swift in Sources */,
 				8D73BC8D1F51ED7600DEA234 /* ServiceError.swift in Sources */,
 				8D73BCCE1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift in Sources */,
+				8D73BCD61F59019A00DEA234 /* TransactionService.swift in Sources */,
 				8D73BCD41F57CB7000DEA234 /* Order.swift in Sources */,
 				8D73BCD21F57C54700DEA234 /* ConfirmPurchasePresenter.swift in Sources */,
 				8D73BC811F4BD45000DEA234 /* AppDelegate.swift in Sources */,
