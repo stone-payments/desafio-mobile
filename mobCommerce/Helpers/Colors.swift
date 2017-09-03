@@ -15,6 +15,7 @@ enum Colors {
     case itemPrice
     case buttonRemoveItem
     case buttonAddItem
+    case refreshControl
     
     enum tabBarState {
         case selected
@@ -35,6 +36,7 @@ enum Colors {
         case .itemPrice: return UIColor.orange
         case .buttonAddItem: return UIColor(red: 0.0/255.0, green: 202.0/255.0, blue: 145.0/255.0, alpha: 1)
         case .buttonRemoveItem: return UIColor(red: 215.0/255.0, green: 0.0/255.0, blue: 38.0/255.0, alpha: 1)
+        case .refreshControl: return UIColor(red: 50.0/255.0, green: 179.0/255.0, blue: 231.0/255.0, alpha: 0.35)
         }
     }
 }

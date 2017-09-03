@@ -11,16 +11,18 @@ import Foundation
 struct Order {
     
     let cardNumber: String
-    let orderValue: String
+    let orderValue: Int
     let cardCVV: String
     var holderName: String
     var expireDate: String
+    var orderDate: Date
     
-    init (cardNumber: String, orderValue: String, cardCVV: String, holderName: String, expireDate: String) {
+    init (cardNumber: String, orderValue: Int, cardCVV: String, holderName: String, expireDate: String, orderDate: Date) {
         self.cardNumber = cardNumber
         self.orderValue = orderValue
         self.cardCVV = cardCVV
         self.holderName = holderName
         self.expireDate = expireDate
+        self.orderDate = orderDate
     }
 }

@@ -19,6 +19,7 @@ class ConfirmPurchaseTableViewController: UITableViewController, UITextFieldDele
     @IBOutlet weak var confirmButton: UIButton!
     
     var presenter: ConfirmPurchasePresenter!
+    var orderValue: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +33,33 @@ extension ConfirmPurchaseTableViewController {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        guard let text = textField.text else { return true }
+        guard var text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
-        var maxLength = 50
+        var isMax = false
         
-        if textField == self.creditCardNumber {
-            maxLength = 16
-        } else if textField == self.expireCardNumber {
-            maxLength = 5
-        } else if textField == self.secureCodeNumber {
-            maxLength = 3
+        switch textField {
+        case self.creditCardNumber:
+            if newLength <= 16 {
+                isMax = true
+            }
+        case self.expireCardNumber:
+            if newLength <= 5 {
+                isMax = true
+                if range.location == 2 && newLength > 2 {
+                    text.append("/")
+                    textField.text = text
+                }
+            }
+        case self.secureCodeNumber:
+            if newLength <= 3 {
+                isMax = true
+            }
+        default:
+            if newLength <= 50 {
+                isMax = true
+            }
         }
-    
-        let isMax = newLength <= maxLength
+
         return isMax
     }
     
@@ -66,7 +81,13 @@ extension ConfirmPurchaseTableViewController: ConfirmPurchaseViewProtocol {
     }
     
     func showTotalOrder(with value: Int) {
+        orderValue = value
         self.totalValue.text = value.toCurrencyString
+    }
+    
+    func cleanBadge() {
+        self.navigationController?.tabBarController?.tabBar.items![1].badgeValue = nil
+        self.navigationController?.tabBarController?.selectedIndex = 2
     }
     
     func showAlertError(with title: String, message: String, buttonTitle: String) {
@@ -93,9 +114,10 @@ extension ConfirmPurchaseTableViewController {
     @IBAction func confirmTapped(_ sender: UIButton) {
         self.view.endEditing(true)
         presenter.validatePurchase(with: Order(cardNumber: self.creditCardNumber.text!,
-                                               orderValue: self.totalValue.text!,
+                                               orderValue: orderValue,
                                                cardCVV: self.secureCodeNumber.text!,
                                                holderName: self.holderName.text!,
-                                               expireDate: self.expireCardNumber.text!))
+                                               expireDate: self.expireCardNumber.text!,
+                                               orderDate: Date() ))
     }
 }

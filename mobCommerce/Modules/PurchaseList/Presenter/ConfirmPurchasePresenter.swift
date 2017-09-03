@@ -12,10 +12,12 @@ final class ConfirmPurchasePresenter {
     
     fileprivate unowned let view: ConfirmPurchaseViewProtocol
     fileprivate let service: TransactionService
+    fileprivate let db: TransactionDataManager
     
     init(view: ConfirmPurchaseViewProtocol) {
         self.view = view
         self.service = TransactionService()
+        self.db = TransactionDataManager()
     }
 }
 
@@ -96,7 +98,7 @@ extension ConfirmPurchasePresenter {
         
         self.service.postTransaction(with: parameters, success: {
             result in
-            print(result)
+            self.saveOrderInDatabase(with: order)
         }, fail: {
             failure in
             self.requestError(errorDescription: failure.description)
@@ -110,4 +112,14 @@ extension ConfirmPurchasePresenter {
                                  buttonTitle: "OK")
     }
     
+    fileprivate func saveOrderInDatabase(with order: Order) {
+        self.db.saveOrder(with: order)
+        self.cleanCart()
+        self.view.hideLoading()
+    }
+    
+    fileprivate func cleanCart() {
+        (UIApplication.shared.delegate as! AppDelegate).purchaseItems = []
+        self.view.cleanBadge()
+    }
 }

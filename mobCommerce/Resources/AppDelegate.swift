@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManager
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared().isEnabled = true
         self.setApperance()
+        self.setDefaultRealm()
         return true
     }
 
@@ -53,5 +55,13 @@ extension AppDelegate {
         if #available(iOS 10.0, *) {
             tabBarAppearance.unselectedItemTintColor = Colors.tabBar(type: .unselected).color
         }
+    }
+    
+    fileprivate func setDefaultRealm() {
+        var config = Realm.Configuration()
+        config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("mobCommerceData.realm")
+        Realm.Configuration.defaultConfiguration = config
+        
+        print(">>> REALM PATH: \(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
     }
 }

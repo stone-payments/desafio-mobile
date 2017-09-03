@@ -14,8 +14,7 @@ final class ProductService {
     func getProducts(success: @escaping (_ categories: [Product]) -> Void, fail: @escaping (_ error: String) -> Void) {
      
         ServiceManager.shared
-            .Get(url: "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json",
-                 parameters: nil,
+            .Get(url: ServiceURL.products.value, parameters: nil,
                  success: {
                     result in
                     success(self.parseProducts(json: JSON(result).arrayValue)) },

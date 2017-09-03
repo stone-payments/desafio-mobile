@@ -14,8 +14,7 @@ final class TransactionService {
     func postTransaction(with parameters: [String: Any], success: @escaping (_ categories: Bool) -> Void, fail: @escaping (_ error: String) -> Void) {
         
         ServiceManager.shared
-            .Post(url: "http://private-f17fa-mobcommerce.apiary-mock.com/transaction",
-                 parameters: parameters,
+            .Post(url: ServiceURL.transcations.value, parameters: parameters,
                  success: {
                     result in
                     success(true) },

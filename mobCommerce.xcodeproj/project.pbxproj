@@ -31,8 +31,16 @@
 		8D73BCCE1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCCD1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift */; };
 		8D73BCD01F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */; };
 		8D73BCD21F57C54700DEA234 /* ConfirmPurchasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */; };
-		8D73BCD41F57CB7000DEA234 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD31F57CB7000DEA234 /* Order.swift */; };
 		8D73BCD61F59019A00DEA234 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD51F59019A00DEA234 /* TransactionService.swift */; };
+		8D73BCD81F5C9B1F00DEA234 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCD71F5C9B1F00DEA234 /* Environment.swift */; };
+		8D73BCDC1F5CA4D000DEA234 /* TransactionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCDB1F5CA4D000DEA234 /* TransactionDataManager.swift */; };
+		8D73BCDE1F5CA56600DEA234 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCDD1F5CA56600DEA234 /* Order.swift */; };
+		8D73BCE01F5CA6A400DEA234 /* TransactionRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCDF1F5CA6A400DEA234 /* TransactionRealm.swift */; };
+		8D73BCE21F5CB74B00DEA234 /* OrdersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCE11F5CB74B00DEA234 /* OrdersListPresenter.swift */; };
+		8D73BCE41F5CB76300DEA234 /* OrdersListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCE31F5CB76300DEA234 /* OrdersListViewProtocol.swift */; };
+		8D73BCE61F5CB78400DEA234 /* OrdersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCE51F5CB78400DEA234 /* OrdersListTableViewController.swift */; };
+		8D73BCEA1F5CBAF500DEA234 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCE91F5CBAF500DEA234 /* TabBarController.swift */; };
+		8D73BCEC1F5CBE2500DEA234 /* OrderItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73BCEB1F5CBE2500DEA234 /* OrderItemViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,8 +70,16 @@
 		8D73BCCD1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchaseTableViewController.swift; sourceTree = "<group>"; };
 		8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchaseViewProtocol.swift; sourceTree = "<group>"; };
 		8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPurchasePresenter.swift; sourceTree = "<group>"; };
-		8D73BCD31F57CB7000DEA234 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		8D73BCD51F59019A00DEA234 /* TransactionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
+		8D73BCD71F5C9B1F00DEA234 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		8D73BCDB1F5CA4D000DEA234 /* TransactionDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataManager.swift; sourceTree = "<group>"; };
+		8D73BCDD1F5CA56600DEA234 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		8D73BCDF1F5CA6A400DEA234 /* TransactionRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionRealm.swift; sourceTree = "<group>"; };
+		8D73BCE11F5CB74B00DEA234 /* OrdersListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListPresenter.swift; sourceTree = "<group>"; };
+		8D73BCE31F5CB76300DEA234 /* OrdersListViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListViewProtocol.swift; sourceTree = "<group>"; };
+		8D73BCE51F5CB78400DEA234 /* OrdersListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListTableViewController.swift; sourceTree = "<group>"; };
+		8D73BCE91F5CBAF500DEA234 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		8D73BCEB1F5CBE2500DEA234 /* OrderItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItemViewCell.swift; sourceTree = "<group>"; };
 		99D4179BF78E2E65C7CE0BDE /* Pods-mobCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobCommerce/Pods-mobCommerce.release.xcconfig"; sourceTree = "<group>"; };
 		A7C68D6CED749176EA279765 /* Pods_mobCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,6 +134,7 @@
 		8D0BF0F31F4BCD83008DF53B /* mobCommerce */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCD91F5CA42E00DEA234 /* Realm */,
 				8D73BC711F4BD35700DEA234 /* Helpers */,
 				8D73BCA51F53836900DEA234 /* Modules */,
 				8D73BC771F4BD37E00DEA234 /* Resources */,
@@ -158,9 +175,10 @@
 		8D73BC771F4BD37E00DEA234 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8D73BC7D1F4BD45000DEA234 /* Assets.xcassets */,
-				8D73BC7E1F4BD45000DEA234 /* AppDelegate.swift */,
 				8D73BC7F1F4BD45000DEA234 /* Info.plist */,
+				8D73BC7E1F4BD45000DEA234 /* AppDelegate.swift */,
+				8D73BCD71F5C9B1F00DEA234 /* Environment.swift */,
+				8D73BC7D1F4BD45000DEA234 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -178,6 +196,7 @@
 		8D73BCA51F53836900DEA234 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCE71F5CBACD00DEA234 /* TabBar */,
 				8D73BCC91F56585600DEA234 /* OrdersList */,
 				8D73BCA61F53838200DEA234 /* ProductsList */,
 				8D73BCBB1F53C92C00DEA234 /* PurchaseList */,
@@ -242,10 +261,10 @@
 		8D73BCBC1F53C93E00DEA234 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */,
-				8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */,
 				8D73BCD11F57C54700DEA234 /* ConfirmPurchasePresenter.swift */,
 				8D73BCCF1F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift */,
+				8D73BCC51F551FD700DEA234 /* PurchaseListPresenter.swift */,
+				8D73BCC71F55201200DEA234 /* PurchaseListViewProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -253,9 +272,9 @@
 		8D73BCBD1F53C94300DEA234 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCCD1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift */,
 				8D73BCC31F53D11600DEA234 /* PurchaseItemViewCell.swift */,
 				8D73BCBF1F53C99200DEA234 /* PurchaseListTableViewController.swift */,
-				8D73BCCD1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,7 +283,6 @@
 			isa = PBXGroup;
 			children = (
 				8D73BCC11F53CD1B00DEA234 /* Purchase.swift */,
-				8D73BCD31F57CB7000DEA234 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +300,8 @@
 		8D73BCCA1F56586000DEA234 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCE11F5CB74B00DEA234 /* OrdersListPresenter.swift */,
+				8D73BCE31F5CB76300DEA234 /* OrdersListViewProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -289,6 +309,8 @@
 		8D73BCCB1F56586600DEA234 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCEB1F5CBE2500DEA234 /* OrderItemViewCell.swift */,
+				8D73BCE51F5CB78400DEA234 /* OrdersListTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,8 +318,42 @@
 		8D73BCCC1F56586B00DEA234 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8D73BCDD1F5CA56600DEA234 /* Order.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8D73BCD91F5CA42E00DEA234 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BCDA1F5CA43400DEA234 /* Parser */,
+				8D73BCDB1F5CA4D000DEA234 /* TransactionDataManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		8D73BCDA1F5CA43400DEA234 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BCDF1F5CA6A400DEA234 /* TransactionRealm.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		8D73BCE71F5CBACD00DEA234 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BCE81F5CBAE200DEA234 /* View */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		8D73BCE81F5CBAE200DEA234 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D73BCE91F5CBAF500DEA234 /* TabBarController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,19 +507,27 @@
 				8D73BC8D1F51ED7600DEA234 /* ServiceError.swift in Sources */,
 				8D73BCCE1F56685800DEA234 /* ConfirmPurchaseTableViewController.swift in Sources */,
 				8D73BCD61F59019A00DEA234 /* TransactionService.swift in Sources */,
-				8D73BCD41F57CB7000DEA234 /* Order.swift in Sources */,
 				8D73BCD21F57C54700DEA234 /* ConfirmPurchasePresenter.swift in Sources */,
+				8D73BCEC1F5CBE2500DEA234 /* OrderItemViewCell.swift in Sources */,
 				8D73BC811F4BD45000DEA234 /* AppDelegate.swift in Sources */,
+				8D73BCDC1F5CA4D000DEA234 /* TransactionDataManager.swift in Sources */,
 				8D73BCC61F551FD700DEA234 /* PurchaseListPresenter.swift in Sources */,
 				8D73BCBA1F539F2E00DEA234 /* IntExtension.swift in Sources */,
+				8D73BCE61F5CB78400DEA234 /* OrdersListTableViewController.swift in Sources */,
 				8D73BCC21F53CD1B00DEA234 /* Purchase.swift in Sources */,
+				8D73BCE01F5CA6A400DEA234 /* TransactionRealm.swift in Sources */,
+				8D73BCD81F5C9B1F00DEA234 /* Environment.swift in Sources */,
 				8D73BCD01F57C37800DEA234 /* ConfirmPurchaseViewProtocol.swift in Sources */,
 				8D73BCAB1F5385A400DEA234 /* Product.swift in Sources */,
 				8D73BCAE1F5385AB00DEA234 /* ListItemViewCell.swift in Sources */,
 				8D73BCC41F53D11600DEA234 /* PurchaseItemViewCell.swift in Sources */,
+				8D73BCDE1F5CA56600DEA234 /* Order.swift in Sources */,
+				8D73BCE41F5CB76300DEA234 /* OrdersListViewProtocol.swift in Sources */,
 				8D73BC891F4D1C6800DEA234 /* ServiceManager.swift in Sources */,
+				8D73BCEA1F5CBAF500DEA234 /* TabBarController.swift in Sources */,
 				8D73BC911F5305DA00DEA234 /* ProductService.swift in Sources */,
 				8D73BCC01F53C99200DEA234 /* PurchaseListTableViewController.swift in Sources */,
+				8D73BCE21F5CB74B00DEA234 /* OrdersListPresenter.swift in Sources */,
 				8D73BC8B1F51ED2300DEA234 /* ServiceManagerProtocol.swift in Sources */,
 				8D73BCB71F53875900DEA234 /* ProductsListPresenter.swift in Sources */,
 			);

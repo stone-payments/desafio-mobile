@@ -1,18 +1,17 @@
 //
-//  ConfirmPurchaseViewProtocol.swift
+//  OrdersListViewProtocol.swift
 //  mobCommerce
 //
-//  Created by Rafael de Paula on 31/08/17.
+//  Created by Rafael de Paula on 03/09/17.
 //  Copyright © 2017 Rafael de Paula. All rights reserved.
 //
 
 import UIKit
 
-protocol ConfirmPurchaseViewProtocol : class {
+protocol OrdersListViewProtocol : class {
     
     func showLoading()
     func hideLoading()
-    func cleanBadge()
-    func showTotalOrder(with value: Int)
+    func reloadTableView()
     func showAlertError(with title: String, message: String, buttonTitle: String)
 }
