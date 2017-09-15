@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/imagem"
+                android:layout_width="400px"
+                android:layout_height="400px"
+                android:gravity="center"
+                android:src="@mipmap/ic_launcher"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.00"
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
+
+
+                <TextView
+
+                    android:id="@+id/titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:textColor="@color/colorblue"
+
+
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/vendedor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore now!"
+                    android:textColor="@color/colorSub"
+                    android:textSize="12sp"
+                    />
+
+                <TextView
+                    android:id="@+id/preco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="Wrist Watches"
+
+                    android:textColor="@color/colorGrey"
+                    android:textSize="15sp"/>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="adicionarAoCarrinho"
+                    android:text="add to cart"/>
+
+                <!--
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:background="@drawable/ic_shopping_cart_black_24dp"
+                    /> -->
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
