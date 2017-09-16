@@ -1,13 +1,15 @@
 package victorcruz.dms;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,6 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -34,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private ExpandableHeightListView lojaListView;
     private ExpandableHeightListView carrinhoListView;
     private ExpandableHeightListView transacoesListView;
-    private Toolbar toolbar;
-    private LinearLayout valorTotalLinearLayout;
+    private LinearLayout finalizarCompraLinearLayout;
     private TextView valorTotalTextView;
+    private TextView tituloToolbarTextView;
+    private TextView valorFinalTextView;
 
     private DownloadJSON downloadJSON;
 
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Produto> produtosCarrinho;
     private ProdutoCarrinhoAdapter produtoCarrinhoAdapter;
+
+    private PagamentoDialogFragment pagamentoDialogFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,23 +59,49 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         lojaScrollView = (ScrollView) findViewById(R.id.lojaScrollView);
         carrinhoScrollView = (ScrollView) findViewById(R.id.carrinhoScrollView);;
         transacoesScrollView = (ScrollView) findViewById(R.id.transacoesScrollView);;
         lojaListView = (ExpandableHeightListView) findViewById(R.id.lojaListView);
         carrinhoListView = (ExpandableHeightListView) findViewById(R.id.carrinhoListView);
         transacoesListView = (ExpandableHeightListView) findViewById(R.id.transacoesListView);
-        valorTotalLinearLayout = (LinearLayout) findViewById(R.id.valorTotalLinearLayout);
-        valorTotalTextView = (TextView) findViewById(R.id.valortotalTextView);
+        finalizarCompraLinearLayout = (LinearLayout) findViewById(R.id.finalizarCompraLinearLayout);
+        valorTotalTextView = (TextView) findViewById(R.id.valorTotalTextView);
+        tituloToolbarTextView = (TextView) findViewById(R.id.tituloToolbarTextView);
+        valorFinalTextView = (TextView) findViewById(R.id.valorFinalTextView);
 
-        toolbar.setTitle("Loja");
         produtosLoja = new ArrayList<>();
         produtosCarrinho = new ArrayList<>();
 
         downloadJSON = new DownloadJSON();
         downloadJSON.execute("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json");
         show();
+
+        pagamentoDialogFragment = new PagamentoDialogFragment();
+    }
+
+    public void mostrarDialogPagamento(View view){
+        //DialogFragment dialog = new DialogFragment();
+        //dialog.show( , "DialogFragment");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        builder.setMessage(R.string.pagamento)
+                .setView(inflater.inflate(R.layout.input_cartao_dialog, null))
+                .setPositiveButton(R.string.confirmar_pagamento, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // FIRE ZE MISSILES!
+                    }
+                })
+                .setNegativeButton(R.string.cancelar_pagamento, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+
+        builder.show();
     }
 
     public void atualizarValorTotal(){
@@ -86,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         String valor = decimalFormat.format((double)valorTotal);
         valor = "R$ " + valor;
         valorTotalTextView.setText(valor);
+
 
     }
 
@@ -177,8 +208,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     public class DownloadJSON extends AsyncTask<String, Void, String> {
 
 
@@ -216,8 +245,8 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             } finally {
                 try {
-                    if(inputStream != null)inputStream.close();
-                } catch(Exception e){
+                    if (inputStream != null) inputStream.close();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -240,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     // baixa a imagem de cada item_loja
-                    DownloadImage downloadImage = new DownloadImage(i);
+                    MainActivity.DownloadImage downloadImage = new MainActivity.DownloadImage(i);
                     downloadImage.execute(jsonObject.getString("thumbnailHd"));
 
                     // cria cada item_loja
@@ -261,13 +290,11 @@ public class MainActivity extends AppCompatActivity {
                 show();
 
 
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
-
-
 
     public class DownloadImage extends AsyncTask<String, Void, Bitmap>{
 
@@ -311,25 +338,25 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    toolbar.setTitle("Loja");
+                    tituloToolbarTextView.setText("Loja");
                     lojaScrollView.setVisibility(View.VISIBLE);
                     carrinhoScrollView.setVisibility(View.INVISIBLE);
                     transacoesScrollView.setVisibility(View.INVISIBLE);
-                    valorTotalLinearLayout.setVisibility(View.INVISIBLE);
+                    finalizarCompraLinearLayout.setVisibility(View.INVISIBLE);
                     return true;
                 case R.id.navigation_dashboard:
-                    toolbar.setTitle("Carrinho");
+                    tituloToolbarTextView.setText("Carrinho");
                     lojaScrollView.setVisibility(View.INVISIBLE);
                     carrinhoScrollView.setVisibility(View.VISIBLE);
                     transacoesScrollView.setVisibility(View.INVISIBLE);
-                    valorTotalLinearLayout.setVisibility(View.VISIBLE);
+                    finalizarCompraLinearLayout.setVisibility(View.VISIBLE);
                     return true;
                 case R.id.navigation_notifications:
-                    toolbar.setTitle("Transacoes");
+                    tituloToolbarTextView.setText("Transações");
                     lojaScrollView.setVisibility(View.INVISIBLE);
                     carrinhoScrollView.setVisibility(View.INVISIBLE);
                     transacoesScrollView.setVisibility(View.VISIBLE);
-                    valorTotalLinearLayout.setVisibility(View.INVISIBLE);
+                    finalizarCompraLinearLayout.setVisibility(View.INVISIBLE);
                     return true;
             }
             return false;

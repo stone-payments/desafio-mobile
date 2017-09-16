@@ -3,4 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <!-- Dialog de pagamento -->
+    <string name="pagamento"><s>Finalizar pagamento</s></string>
+    <string name="numero_cartao">XXXX XXXX XXXX XXXX</string>
+    <string name="nome_cartao">Nome</string>
+    <string name="vencimento_cartao">Vencimento</string>
+    <string name="cvv_cartao">CVV</string>
+    <string name="valor_cartao">Valor</string>
+    <string name="confirmar_pagamento">Finalizar</string>
+    <string name="cancelar_pagamento">Cancelar</string>
 </resources>
