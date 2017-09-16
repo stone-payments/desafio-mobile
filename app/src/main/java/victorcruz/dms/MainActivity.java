@@ -11,16 +11,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private ExpandableHeightListView carrinhoListView;
     private ExpandableHeightListView transacoesListView;
     private Toolbar toolbar;
+    private LinearLayout valorTotalLinearLayout;
+    private TextView valorTotalTextView;
 
     private DownloadJSON downloadJSON;
-    private String result = "";
 
     private ArrayList<Produto> produtosLoja;
     private ProdutoLojaAdapter produtoLojaAdapter;
@@ -58,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         lojaListView = (ExpandableHeightListView) findViewById(R.id.lojaListView);
         carrinhoListView = (ExpandableHeightListView) findViewById(R.id.carrinhoListView);
         transacoesListView = (ExpandableHeightListView) findViewById(R.id.transacoesListView);
+        valorTotalLinearLayout = (LinearLayout) findViewById(R.id.valorTotalLinearLayout);
+        valorTotalTextView = (TextView) findViewById(R.id.valortotalTextView);
 
         toolbar.setTitle("Loja");
         produtosLoja = new ArrayList<>();
@@ -68,11 +74,65 @@ public class MainActivity extends AppCompatActivity {
         show();
     }
 
+    public void atualizarValorTotal(){
+
+        int valorTotal = 0;
+
+        for (int i = 0; i < produtosCarrinho.size(); i++){
+             valorTotal += produtosCarrinho.get(i).getPreco();
+        }
+
+        DecimalFormat decimalFormat = new DecimalFormat("#,#####,00");
+        String valor = decimalFormat.format((double)valorTotal);
+        valor = "R$ " + valor;
+        valorTotalTextView.setText(valor);
+
+    }
+
     public void show(){
         produtoLojaAdapter = new ProdutoLojaAdapter(produtosLoja, this);
         lojaListView.setAdapter(produtoLojaAdapter);
         produtoCarrinhoAdapter = new ProdutoCarrinhoAdapter(produtosCarrinho, this);
         carrinhoListView.setAdapter(produtoCarrinhoAdapter);
+        atualizarValorTotal();
+    }
+
+    public void removerDoCarrinho(View view){
+        String titulo = "";
+        int preco = -1;
+        String vendedor = "";
+
+        // registra o titulo, preco e vendedor do produto nos campos acima
+        TextView textView = null;
+        ViewGroup viewGroup = (ViewGroup) view.getParent();
+        for (int itemPos = 0; itemPos < viewGroup.getChildCount(); itemPos++){
+            View aux = viewGroup.getChildAt(itemPos);
+            if (aux.getId() == R.id.titulo){
+                textView = (TextView) aux;
+                titulo = textView.getText().toString();
+            } else
+            if (aux.getId() == R.id.preco){
+                textView = (TextView) aux;
+                preco = Integer.parseInt(textView.getText().toString().substring(3).replace(".",""));
+            } else
+            if (aux.getId() == R.id.vendedor){
+                textView = (TextView) aux;
+                vendedor = textView.getText().toString();
+            }
+        }
+
+        for (int i = 0; i < produtosCarrinho.size(); i++){
+            if (produtosCarrinho.get(i).getTitulo().equals(titulo) &&
+                    produtosCarrinho.get(i).getPreco() == preco &&
+                    produtosCarrinho.get(i).getVendedor().equals(vendedor.substring(3))){
+
+                System.out.println("Removido: " + produtosLoja.get(i).getTitulo());
+                produtosCarrinho.remove(i);
+                break;
+            }
+        }
+
+        show();
     }
 
     public void adicionarAoCarrinho(View view){
@@ -90,10 +150,10 @@ public class MainActivity extends AppCompatActivity {
                 textView = (TextView) aux;
                 titulo = textView.getText().toString();
             } else
-                //if (aux.getId() == R.id.preco){
-                //    textView = (TextView) aux;
-                //    preco = Integer.parseInt(textView.getText().toString());
-                //} else
+                if (aux.getId() == R.id.preco){
+                    textView = (TextView) aux;
+                    preco = Integer.parseInt(textView.getText().toString().substring(3).replace(".",""));
+                } else
                 if (aux.getId() == R.id.vendedor){
                     textView = (TextView) aux;
                     vendedor = textView.getText().toString();
@@ -102,8 +162,9 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < produtosLoja.size(); i++){
             if (produtosLoja.get(i).getTitulo().equals(titulo) &&
-                    //produtosLoja.get(i).getPreco() == preco &&
-                    produtosLoja.get(i).getVendedor().equals("de " + vendedor)){
+                    produtosLoja.get(i).getPreco() == preco &&
+                    produtosLoja.get(i).getVendedor().equals(vendedor.substring(3))){
+
                 produtosCarrinho.add(new Produto(produtosLoja.get(i)));
                 System.out.println(produtosLoja.get(i).getTitulo());
 
@@ -250,28 +311,25 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //getActionBar().setTitle("Loja");
-                    //getSupportActionBar().setTitle("Hello world App");
                     toolbar.setTitle("Loja");
                     lojaScrollView.setVisibility(View.VISIBLE);
                     carrinhoScrollView.setVisibility(View.INVISIBLE);
                     transacoesScrollView.setVisibility(View.INVISIBLE);
+                    valorTotalLinearLayout.setVisibility(View.INVISIBLE);
                     return true;
                 case R.id.navigation_dashboard:
-                    //getActionBar().setTitle("Carrinho");
-                    //getSupportActionBar().setTitle("Hello world App");
                     toolbar.setTitle("Carrinho");
                     lojaScrollView.setVisibility(View.INVISIBLE);
                     carrinhoScrollView.setVisibility(View.VISIBLE);
                     transacoesScrollView.setVisibility(View.INVISIBLE);
+                    valorTotalLinearLayout.setVisibility(View.VISIBLE);
                     return true;
                 case R.id.navigation_notifications:
-                    //getActionBar().setTitle("Transacoes");
-                    //getSupportActionBar().setTitle("Hello world App");
                     toolbar.setTitle("Transacoes");
                     lojaScrollView.setVisibility(View.INVISIBLE);
                     carrinhoScrollView.setVisibility(View.INVISIBLE);
                     transacoesScrollView.setVisibility(View.VISIBLE);
+                    valorTotalLinearLayout.setVisibility(View.INVISIBLE);
                     return true;
             }
             return false;

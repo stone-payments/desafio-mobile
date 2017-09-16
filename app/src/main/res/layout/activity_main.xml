@@ -12,18 +12,47 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:visibility="visible">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorControlHighlight"
-            android:textAlignment="center"
+            android:visibility="visible"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="Loja"/>
 
     </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/valorTotalLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Valor total "
+            android:textColor="@color/colorblack"/>
+
+        <TextView
+            android:id="@+id/valortotalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="R$ 00.00"
+            android:textColor="@color/colorblack"/>
+
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/content"
