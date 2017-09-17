@@ -1,0 +1,24 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# desafiomobile
+
+API criada rapidamente para o DesafioMobileStone.
+
+## Transactions Collection [/transactions]
+
+
+### Make a new transaction [POST]
+
+
++ Request (application/json)
+
+        {  
+            "card_number":"1234123412341234",
+            "value":7990,
+            "cvv":789,
+            "card_holder_name":"Luke Skywalker",
+            "exp_date":"12/24"
+        }
+        
++ Response 201
