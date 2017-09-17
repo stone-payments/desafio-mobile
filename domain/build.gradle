@@ -1,0 +1,19 @@
+apply plugin: 'kotlin'
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}
+
+
+dependencies {
+    def deps = rootProject.ext.deps
+    compile deps.kotlinStd
+    compile deps.rxJava
+}

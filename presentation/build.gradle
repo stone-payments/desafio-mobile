@@ -1,19 +1,16 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
     def config = rootProject.ext.androidConfig
     compileSdkVersion config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion
     defaultConfig {
-        applicationId config.applicationId
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
         testInstrumentationRunner config.testInstrumentationRunner
-
         multiDexEnabled config.multidexEnabled
     }
     buildTypes {
@@ -27,31 +24,23 @@ android {
 dependencies {
     def deps = rootProject.ext.deps
 
-    compile project(':presentation')
-    compile project(':data')
-
-    compile deps.supportAppCompat
-    compile deps.supportConstraintLayout
-    compile deps.supportDesign
-    compile deps.supportRecyclerView
-    compile deps.supportCardView
-    compile deps.multidex
-    compile deps.conductor
-    compile deps.mosbyConductor
-    compile deps.dagger2
+    compile project(':domain')
+    compile deps.rxJava
     compile deps.rxAndroid
-    compile deps.rxBinding
-    compile deps.rxBindingSupport
-
-    kapt deps.dagger2Compiler
+    compile deps.mosby
 
     testCompile deps.junit
+    testCompile deps.mockitoCore
+    testCompile(deps.mockitoKotlin, {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+    })
 
+    androidTestCompile deps.junit
     androidTestCompile(deps.espressoCore, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-}
-
-kapt {
-    generateStubs = true
+    androidTestCompile deps.mockitoAndroid
+    androidTestCompile(deps.mockitoKotlin, {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+    })
 }

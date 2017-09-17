@@ -1,0 +1,85 @@
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+}
+
+
+
+ext {
+    androidConfig = [
+            compileSdkVersion        : 25,
+            buildToolsVersion        : "26.0.1",
+            // defaultConfig
+            applicationId            : "io.hasegawa.stonesafio",
+            minSdkVersion            : 19,
+            targetSdkVersion         : 25,
+            versionCode              : 1,
+            versionName              : "1.0",
+            testInstrumentationRunner: "android.support.test.runner.AndroidJUnitRunner",
+            multidexEnabled          : true,
+    ]
+
+    versions = [
+            // Libraries
+            rxJava                 : '2.1.3',
+            kotlin                 : ext.kotlin_version,
+            dagger2                : '2.11',
+
+            // Android Libraries
+            supportLib             : '25.3.1',
+            supportConstraintLayout: '1.0.2',
+            mosby                  : '3.0.0',
+            conductor              : '2.1.4',
+            rxAndroid              : '2.0.1',
+            rxBinding              : '2.0.0',
+            multidex               : '1.0.1',
+
+            // Testing
+            junit                  : '4.12',
+            mockito                : '2.+',
+            mockitoKotlin          : '1.5.0',
+
+            // Android Testing
+            espresso               : '2.2.2',
+    ]
+
+    deps = [
+            // Libraries
+            rxJava                 : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+            kotlinStd              : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin",
+            dagger2                : "com.google.dagger:dagger:$versions.dagger2",
+            dagger2Compiler        : "com.google.dagger:dagger-compiler:$versions.dagger2",
+
+            // Android Libraries
+            supportAppCompat       : "com.android.support:appcompat-v7:$versions.supportLib",
+            supportConstraintLayout: "com.android.support.constraint:constraint-layout:$versions.supportConstraintLayout",
+            supportCardView        : "com.android.support:cardview-v7:$versions.supportLib",
+            supportRecyclerView    : "com.android.support:recyclerview-v7:$versions.supportLib",
+            supportDesign          : "com.android.support:design:$versions.supportLib",
+            multidex               : "com.android.support:multidex:$versions.multidex",
+            conductor              : "com.bluelinelabs:conductor:$versions.conductor",
+            mosby                  : "com.hannesdorfmann.mosby3:mvi:$versions.mosby",
+            mosbyConductor         : "com.hannesdorfmann.mosby3:mvi-conductor:$versions.mosby",
+            rxAndroid              : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+            rxBinding              : "com.jakewharton.rxbinding2:rxbinding-kotlin:$versions.rxBinding",
+            rxBindingSupport       : "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:$versions.rxBinding",
+            rxBindingAppCompat     : "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:$versions.rxBinding",
+            rxBindingDesign        : "com.jakewharton.rxbinding2:rxbinding-design-kotlin:$versions.rxBinding",
+            rxBindingRecyclerView  : "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7-kotlin:$versions.rxBinding",
+
+            // Testing
+            junit                  : "junit:junit:$versions.junit",
+            mockitoCore            : "org.mockito:mockito-core:$versions.mockito",
+            mockitoKotlin          : "com.nhaarman:mockito-kotlin:$versions.mockitoKotlin",
+
+            // Android Testing
+            espressoCore           : "com.android.support.test.espresso:espresso-core:$versions.espresso",
+            mockitoAndroid         : "org.mockito:mockito-android:$versions.mockito",
+
+    ]
+}
