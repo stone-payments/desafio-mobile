@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorgrey2"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
@@ -20,7 +21,7 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/imagem"
+                android:id="@+id/image"
                 android:layout_width="400px"
                 android:layout_height="400px"
                 android:gravity="center"
@@ -37,7 +38,7 @@
 
                 <TextView
 
-                    android:id="@+id/titulo"
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
@@ -48,38 +49,27 @@
                     />
 
                 <TextView
-                    android:id="@+id/vendedor"
+                    android:id="@+id/seller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Explore now!"
-                    android:textColor="@color/colorSub"
-                    android:textSize="12sp"
-                    />
+                    android:textColor="@color/colorgrey4"
+                    android:textSize="12sp"/>
 
                 <TextView
-                    android:id="@+id/preco"
+                    android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:text="Wrist Watches"
 
-                    android:textColor="@color/colorGrey"
+                    android:textColor="@color/colorgrey5"
                     android:textSize="15sp"/>
 
                 <Button
                     android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="adicionarAoCarrinho"
-                    android:text="add to cart"/>
-
-                <!--
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="40sp"
-                    android:layout_height="40sp"
-                    android:background="@drawable/ic_shopping_cart_black_24dp"
-                    /> -->
+                    android:onClick="addToCart"
+                    android:text="adicionar ao carrinho"/>
 
 
             </LinearLayout>

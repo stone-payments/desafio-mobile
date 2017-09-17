@@ -9,36 +9,37 @@
         android:layout_height="match_parent">
 
         <ScrollView
-            android:id="@+id/lojaScrollView"
+            android:id="@+id/storeScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible">
-            <victorcruz.dms.ExpandableHeightListView
-                android:id="@+id/lojaListView"
+
+            <victorcruz.dms.UI.ExpandableHeightListView
+                android:id="@+id/storeListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </ScrollView>
 
         <ScrollView
-            android:id="@+id/carrinhoScrollView"
+            android:id="@+id/cartScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible">
 
-            <victorcruz.dms.ExpandableHeightListView
-                android:id="@+id/carrinhoListView"
+            <victorcruz.dms.UI.ExpandableHeightListView
+                android:id="@+id/cartListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </ScrollView>
 
         <ScrollView
-            android:id="@+id/transacoesScrollView"
+            android:id="@+id/transactionScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible">
 
-            <victorcruz.dms.ExpandableHeightListView
-                android:id="@+id/transacoesListView"
+            <victorcruz.dms.UI.ExpandableHeightListView
+                android:id="@+id/transactionListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </ScrollView>

@@ -3,11 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorSub">#b0afaf</color>
-    <color name="colorGrey">#111111</color>
-    <color name="colordevider">#64dad8d8</color>
+
     <color name="colorblue">#4c71f5</color>
     <color name="colorblack">#000000</color>
-    <color name="colorgreyy">#888888</color>
     <color name="colorwhite">#ffffff</color>
+    <color name="colorgrey5">#111111</color>
+    <color name="colorgrey4">#424242</color>
+    <color name="colorgrey3">#888888</color>
+    <color name="colorgrey2">#b1b1b1</color>
+    <color name="colorgrey1">#e0e0e0</color>
+    <color name="colorToolbar">#2c3039</color>
+
 </resources>

@@ -24,7 +24,7 @@
 
 
             <TextView
-                android:id="@+id/tituloToolbarTextView"
+                android:id="@+id/toolbarTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -37,7 +37,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/finalizarCompraLinearLayout"
+            android:id="@+id/cartToolbarLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="16dp"
@@ -47,13 +47,13 @@
             android:visibility="invisible">
 
             <TextView
-                android:id="@+id/valorTotalTextView"
+                android:id="@+id/cartTotalValueTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
                 android:layout_weight="1"
-                android:text="R$ 00"
+                android:text="R$ 0"
                 android:textColor="#fff"
                 android:textSize="18sp"/>
 
@@ -61,7 +61,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="mostrarDialogPagamento"
+                android:onClick="showPaymentDialog"
 
 
                 app:srcCompat="@mipmap/ic_shopping_cart"/>
