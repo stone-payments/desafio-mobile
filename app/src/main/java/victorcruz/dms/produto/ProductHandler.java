@@ -16,10 +16,12 @@ import victorcruz.dms.UI.ExpandableHeightListView;
 public class ProductHandler {
 
     private ArrayList<Product> productsStore;
+    private ProductSoreAdapter productsStoreAdapter;
 
     private ArrayList<Product> productsCart;
     private ProductCartAdapter productsCartAdapter;
 
+    private ExpandableHeightListView storeListView;
     private ExpandableHeightListView cartListView;
 
     private TextView cartTotalValueTextView;
@@ -28,15 +30,17 @@ public class ProductHandler {
     // for Toast
     private Activity act;
 
-    public ProductHandler(ArrayList<Product> productsStore, ArrayList<Product> productsCart,
-                          ProductCartAdapter productsCartAdapter, ExpandableHeightListView cartListView,
+    public ProductHandler(ExpandableHeightListView storeListView, ExpandableHeightListView cartListView,
                           TextView cartTotalValueTextView, Activity act){
-        this.productsStore = productsStore;
-        this.productsCart = productsCart;
-        this.productsCartAdapter = productsCartAdapter;
+        this.storeListView = storeListView;
         this.cartListView = cartListView;
         this.cartTotalValueTextView = cartTotalValueTextView;
         this.act = act;
+
+        productsStore = new ArrayList<>();
+        productsCart = new ArrayList<>();
+        productsStoreAdapter = new ProductSoreAdapter(productsStore, act);
+        productsCartAdapter = new ProductCartAdapter(productsCart, act);
     }
 
     public void addToCart(View view){
@@ -91,7 +95,7 @@ public class ProductHandler {
         String seller = "";
 
         // registra o titulo, preco e vendedor do produto nos campos acima
-        TextView textView = null;
+        TextView textView;
         ViewGroup viewGroup = (ViewGroup) view.getParent();
         for (int itemPos = 0; itemPos < viewGroup.getChildCount(); itemPos++){
             View childView = viewGroup.getChildAt(itemPos);
@@ -147,8 +151,29 @@ public class ProductHandler {
         }
     }
 
+    public void resetCart(){
+
+        while ( productsCart.size() > 0){
+            productsCart.remove(0);
+        }
+
+        refreshCartView();
+        refreshCartTotalValue();
+        Toast.makeText(act, "Compra efetuada!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void refreshStoreView(){
+        storeListView.setAdapter(productsStoreAdapter);
+    }
+
+    public void refreshCartView(){ cartListView.setAdapter(productsCartAdapter);}
+
     public int getCartTotalValue(){
         return cartTotalValue;
+    }
+
+    public ArrayList<Product> getProductsStore() {
+        return productsStore;
     }
 
 }

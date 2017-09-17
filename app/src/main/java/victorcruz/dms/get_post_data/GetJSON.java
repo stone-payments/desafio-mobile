@@ -1,4 +1,4 @@
-package victorcruz.dms.get_data;
+package victorcruz.dms.get_post_data;
 
 import android.os.AsyncTask;
 
@@ -9,47 +9,33 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
-import victorcruz.dms.UI.ExpandableHeightListView;
 import victorcruz.dms.produto.Product;
-import victorcruz.dms.produto.ProductSoreAdapter;
+import victorcruz.dms.produto.ProductHandler;
 
 public class GetJSON extends AsyncTask<String, Void, String> {
 
     private GetImage getImage;
-    private ArrayList<Product> productsStore;
 
-    private ExpandableHeightListView StoreListView;
-    private ProductSoreAdapter productSoreAdapter;
+    private ProductHandler productHandler;
 
 
-    public GetJSON(ArrayList<Product> productsStore, ExpandableHeightListView StoreListView,
-                   ProductSoreAdapter productSoreAdapter){
-        this.productsStore = productsStore;
-
-        this.StoreListView = StoreListView;
-        this.productSoreAdapter = productSoreAdapter;
+    public GetJSON(ProductHandler productHandler){
+        this.productHandler = productHandler;
     }
 
     @Override
     protected String doInBackground(String... params) {
 
-        URL url;
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
-
-        // Vai receber byte streams e decodificar em char
-        InputStreamReader inputStreamReader;
-
         String result = "";
 
         try {
 
-            url = new URL(params[0]);
-            httpURLConnection = (HttpURLConnection) url.openConnection();
-            inputStream = httpURLConnection.getInputStream();
-            inputStreamReader = new InputStreamReader(inputStream);
+            // InputStream vai receber os bytes e decodificar em char e salvar em result
+            URL url = new URL("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json");
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            InputStream inputStream = httpURLConnection.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             int data = inputStreamReader.read();
 
             // registra char por char em result
@@ -61,18 +47,16 @@ public class GetJSON extends AsyncTask<String, Void, String> {
                 data = inputStreamReader.read();
             }
 
+            inputStreamReader.close();
+            inputStream.close();
+            httpURLConnection.disconnect();
+
             return result;
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (inputStream != null) inputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -84,18 +68,18 @@ public class GetJSON extends AsyncTask<String, Void, String> {
         try {
             JSONArray jsonArray = new JSONArray(result);
 
-            System.out.println(productsStore.size());
+            System.out.println(productHandler.getProductsStore().size());
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 // separa o json em partes por item_store
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                 // baixa a imagem de cada item_store
-                getImage = new GetImage(productsStore, i, StoreListView, productSoreAdapter);
+                getImage = new GetImage( i, productHandler);
                 getImage.execute(jsonObject.getString("thumbnailHd"));
 
                 // cria cada item_store
-                productsStore.add(new Product(
+                productHandler.getProductsStore().add(new Product(
                         jsonObject.getString("title"),
                         jsonObject.getInt("price"),
                         jsonObject.getString("zipcode"),
@@ -104,13 +88,13 @@ public class GetJSON extends AsyncTask<String, Void, String> {
                         jsonObject.getString("date")));
 
 
-                System.out.println("Product eh: " + i + " " + productsStore.get(i).getTitle());
+                System.out.println("Product eh: " + i + " " + productHandler.getProductsStore().get(i).getTitle());
             }
 
-            System.out.println(productsStore.size());
+            System.out.println(productHandler.getProductsStore().size());
 
-            // atualiza a view
-            StoreListView.setAdapter(productSoreAdapter);
+            productHandler.refreshStoreView();
+
 
         } catch (Exception e) {
             e.printStackTrace();

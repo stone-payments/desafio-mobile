@@ -6,20 +6,16 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import victorcruz.dms.UI.ExpandableHeightListView;
 import victorcruz.dms.UI.PaymentDialogFragment;
-import victorcruz.dms.get_data.GetJSON;
-import victorcruz.dms.produto.Product;
-import victorcruz.dms.produto.ProductCartAdapter;
+import victorcruz.dms.get_post_data.GetJSON;
 import victorcruz.dms.produto.ProductHandler;
-import victorcruz.dms.produto.ProductSoreAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ScrollView transactionScrollView;
     private LinearLayout cartToolbarLinearLayout;
     private TextView ToolbarTitleTextView;
+    private EditText cardNumberEditText, cardNameEditText, cardCVVEditText, cardExpDateEditText;
 
     private ProductHandler productHandler;
 
@@ -50,19 +47,17 @@ public class MainActivity extends AppCompatActivity {
         cartToolbarLinearLayout = (LinearLayout) findViewById(R.id.cartToolbarLinearLayout);
         ToolbarTitleTextView = (TextView) findViewById(R.id.toolbarTitleTextView);
         TextView cartTotalValueTextView = (TextView) findViewById(R.id.cartTotalValueTextView);
+        cardNumberEditText = (EditText) findViewById(R.id.cardNumberEditText);
+        cardNameEditText = (EditText) findViewById(R.id.cardNameEditText);
+        cardCVVEditText = (EditText) findViewById(R.id.cardCVVEditText);
+        cardExpDateEditText = (EditText) findViewById(R.id.cardExpDateEditText);
 
         // mantém controle dos produtos
-        ArrayList<Product> productsStore = new ArrayList<>();
-        ArrayList<Product> productsCart = new ArrayList<>();
-        ProductSoreAdapter productsStoreAdapter = new ProductSoreAdapter(productsStore, this);
-        ProductCartAdapter productsCartAdapter = new ProductCartAdapter(productsCart, this);
-        productHandler = new ProductHandler(productsStore, productsCart,
-                productsCartAdapter, cartListView, cartTotalValueTextView, this);
+        productHandler = new ProductHandler(storeListView, cartListView, cartTotalValueTextView, this);
 
 
-
-        GetJSON getJSON = new GetJSON(productsStore, storeListView, productsStoreAdapter);
-        getJSON.execute("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json");
+        GetJSON getJSON = new GetJSON(productHandler);
+        getJSON.execute();
 
     }
 
@@ -71,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
         if(productHandler.getCartTotalValue() == 0){
             Toast.makeText(this, "O seu carrinho está vazio!", Toast.LENGTH_SHORT).show();
         } else {
-            PaymentDialogFragment paymentDialogFragment = PaymentDialogFragment.newInstance(null);
+            //PaymentDialogFragment paymentDialogFragment = PaymentDialogFragment.newInstance(null);
+            PaymentDialogFragment paymentDialogFragment = new PaymentDialogFragment();
+            paymentDialogFragment.setArguments(productHandler);
             paymentDialogFragment.show(getSupportFragmentManager(), null);
         }
 
