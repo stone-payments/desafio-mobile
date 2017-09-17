@@ -10,8 +10,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import victorcruz.dms.produto.Product;
-import victorcruz.dms.produto.ProductHandler;
+import victorcruz.dms.product.Product;
+import victorcruz.dms.product.ProductHandler;
 
 public class GetJSON extends AsyncTask<String, Void, String> {
 

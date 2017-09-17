@@ -1,4 +1,4 @@
-package victorcruz.dms.produto;
+package victorcruz.dms.product;
 
 import android.app.Activity;
 import android.view.View;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import victorcruz.dms.R;
 
 
-public class ProductSoreAdapter extends BaseAdapter {
+public class ProductStoreAdapter extends BaseAdapter {
 
     private final ArrayList<Product> products;
     private final Activity act;
 
-    public ProductSoreAdapter(ArrayList<Product> products, Activity act){
+    public ProductStoreAdapter(ArrayList<Product> products, Activity act){
         this.products = products;
         this.act = act;
     }

@@ -1,4 +1,4 @@
-package victorcruz.dms.produto;
+package victorcruz.dms.product;
 
 import android.app.Activity;
 import android.view.View;

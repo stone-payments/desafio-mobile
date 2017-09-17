@@ -15,15 +15,18 @@ import org.json.JSONObject;
 
 import victorcruz.dms.R;
 import victorcruz.dms.get_post_data.PostCardInformation;
-import victorcruz.dms.produto.ProductHandler;
+import victorcruz.dms.product.ProductHandler;
+import victorcruz.dms.transaction.TransactionsHandler;
 
 public class PaymentDialogFragment extends DialogFragment {
 
     private EditText cardNumberEditText, cardNameEditText, cardCVVEditText, cardExpDateEditText;
     private ProductHandler productHandler;
+    private TransactionsHandler transactionsHandler;
 
-    public void setArguments(ProductHandler productHandler){
+    public void setArguments(ProductHandler productHandler, TransactionsHandler transactionsHandler){
         this.productHandler = productHandler;
+        this.transactionsHandler = transactionsHandler;
     }
 
 
@@ -43,11 +46,16 @@ public class PaymentDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.confirm_payment, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-
+                        // post
                         PostCardInformation postCardInformation = new PostCardInformation();
                         postCardInformation.execute(jsonObject.toString());
+
                         System.out.println("O cartao eh: " + cardNumberEditText.getText());
+
                         productHandler.resetCart();
+
+                        transactionsHandler.newTransaction(jsonObject);
+
                     }
                 })
                 .setNegativeButton(R.string.cancel_payment, new DialogInterface.OnClickListener() {

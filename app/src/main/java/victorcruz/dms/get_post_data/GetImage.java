@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 
 import java.net.URL;
 
-import victorcruz.dms.produto.ProductHandler;
+import victorcruz.dms.product.ProductHandler;
 
 public class GetImage extends AsyncTask<String, Void, Bitmap> {
 

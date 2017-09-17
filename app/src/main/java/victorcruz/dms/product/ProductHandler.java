@@ -1,4 +1,4 @@
-package victorcruz.dms.produto;
+package victorcruz.dms.product;
 
 import android.app.Activity;
 import android.view.View;
@@ -16,7 +16,7 @@ import victorcruz.dms.UI.ExpandableHeightListView;
 public class ProductHandler {
 
     private ArrayList<Product> productsStore;
-    private ProductSoreAdapter productsStoreAdapter;
+    private ProductStoreAdapter productsStoreAdapter;
 
     private ArrayList<Product> productsCart;
     private ProductCartAdapter productsCartAdapter;
@@ -39,7 +39,7 @@ public class ProductHandler {
 
         productsStore = new ArrayList<>();
         productsCart = new ArrayList<>();
-        productsStoreAdapter = new ProductSoreAdapter(productsStore, act);
+        productsStoreAdapter = new ProductStoreAdapter(productsStore, act);
         productsCartAdapter = new ProductCartAdapter(productsCart, act);
     }
 
@@ -83,8 +83,7 @@ public class ProductHandler {
 
         Toast.makeText(act, "Produto adicionado ao carrinho!", Toast.LENGTH_SHORT).show();
 
-        // atualiza as views
-        cartListView.setAdapter(productsCartAdapter);
+        refreshCartView();
         refreshCartTotalValue();
 
     }
@@ -127,8 +126,7 @@ public class ProductHandler {
 
         Toast.makeText(act, "Produto removido do carrinho!", Toast.LENGTH_SHORT).show();
 
-        // atualiza a view
-        cartListView.setAdapter(productsCartAdapter);
+        refreshCartView();
         refreshCartTotalValue();
 
     }

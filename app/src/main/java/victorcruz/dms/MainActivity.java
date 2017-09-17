@@ -15,7 +15,8 @@ import android.widget.Toast;
 import victorcruz.dms.UI.ExpandableHeightListView;
 import victorcruz.dms.UI.PaymentDialogFragment;
 import victorcruz.dms.get_post_data.GetJSON;
-import victorcruz.dms.produto.ProductHandler;
+import victorcruz.dms.product.ProductHandler;
+import victorcruz.dms.transaction.TransactionsHandler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private ScrollView transactionScrollView;
     private LinearLayout cartToolbarLinearLayout;
     private TextView ToolbarTitleTextView;
-    private EditText cardNumberEditText, cardNameEditText, cardCVVEditText, cardExpDateEditText;
 
     private ProductHandler productHandler;
+    private TransactionsHandler transactionsHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +48,14 @@ public class MainActivity extends AppCompatActivity {
         cartToolbarLinearLayout = (LinearLayout) findViewById(R.id.cartToolbarLinearLayout);
         ToolbarTitleTextView = (TextView) findViewById(R.id.toolbarTitleTextView);
         TextView cartTotalValueTextView = (TextView) findViewById(R.id.cartTotalValueTextView);
-        cardNumberEditText = (EditText) findViewById(R.id.cardNumberEditText);
-        cardNameEditText = (EditText) findViewById(R.id.cardNameEditText);
-        cardCVVEditText = (EditText) findViewById(R.id.cardCVVEditText);
-        cardExpDateEditText = (EditText) findViewById(R.id.cardExpDateEditText);
+        EditText cardNumberEditText = (EditText) findViewById(R.id.cardNumberEditText);
+        EditText cardNameEditText = (EditText) findViewById(R.id.cardNameEditText);
+        EditText cardCVVEditText = (EditText) findViewById(R.id.cardCVVEditText);
+        EditText cardExpDateEditText = (EditText) findViewById(R.id.cardExpDateEditText);
 
-        // mantém controle dos produtos
+        // mantem controle dos produtos e transacoes
         productHandler = new ProductHandler(storeListView, cartListView, cartTotalValueTextView, this);
+        transactionsHandler = new TransactionsHandler(this, transactionListView);
 
 
         GetJSON getJSON = new GetJSON(productHandler);
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             //PaymentDialogFragment paymentDialogFragment = PaymentDialogFragment.newInstance(null);
             PaymentDialogFragment paymentDialogFragment = new PaymentDialogFragment();
-            paymentDialogFragment.setArguments(productHandler);
+            paymentDialogFragment.setArguments(productHandler, transactionsHandler);
             paymentDialogFragment.show(getSupportFragmentManager(), null);
         }
 
