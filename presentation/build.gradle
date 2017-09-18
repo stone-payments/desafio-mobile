@@ -34,6 +34,7 @@ dependencies {
     testCompile(deps.mockitoKotlin, {
         exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
     })
+    testCompile deps.hamkrest
 
     androidTestCompile deps.junit
     androidTestCompile(deps.espressoCore, {

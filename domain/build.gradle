@@ -16,4 +16,5 @@ dependencies {
     def deps = rootProject.ext.deps
     compile deps.kotlinStd
     compile deps.rxJava
+    compile deps.guavaAndroid
 }

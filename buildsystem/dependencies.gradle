@@ -38,11 +38,15 @@ ext {
             rxAndroid              : '2.0.1',
             rxBinding              : '2.0.0',
             multidex               : '1.0.1',
+            epoxy                  : '2.5.0',
+            picasso                : '2.5.2',
+            guavaAndroid           : '23.0-android',
 
             // Testing
             junit                  : '4.12',
             mockito                : '2.+',
             mockitoKotlin          : '1.5.0',
+            hamkrest               : '1.4.2.0',
 
             // Android Testing
             espresso               : '2.2.2',
@@ -71,11 +75,16 @@ ext {
             rxBindingAppCompat     : "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:$versions.rxBinding",
             rxBindingDesign        : "com.jakewharton.rxbinding2:rxbinding-design-kotlin:$versions.rxBinding",
             rxBindingRecyclerView  : "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7-kotlin:$versions.rxBinding",
+            epoxy                  : "com.airbnb.android:epoxy:$versions.epoxy",
+            epoxyProcessor         : "com.airbnb.android:epoxy-processor:$versions.epoxy",
+            picasso                : "com.squareup.picasso:picasso:$versions.picasso",
+            guavaAndroid           : "com.google.guava:guava:$versions.guavaAndroid",
 
             // Testing
             junit                  : "junit:junit:$versions.junit",
             mockitoCore            : "org.mockito:mockito-core:$versions.mockito",
             mockitoKotlin          : "com.nhaarman:mockito-kotlin:$versions.mockitoKotlin",
+            hamkrest               : "com.natpryce:hamkrest:$versions.hamkrest",
 
             // Android Testing
             espressoCore           : "com.android.support.test.espresso:espresso-core:$versions.espresso",

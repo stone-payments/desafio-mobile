@@ -19,7 +19,8 @@ abstract class BaseController<ViewT : BaseMvpView<ViewStateT>, ViewStateT, Event
 
     override var kotterView: WeakReference<View>? = null
 
-    private var restoringViewState = false
+    var baseRestoringViewState = false
+        private set
     private val fullDisposables = CompositeDisposable()
     private val viewDisposables = CompositeDisposable()
     private val attachDisposables = CompositeDisposable()
@@ -57,7 +58,7 @@ abstract class BaseController<ViewT : BaseMvpView<ViewStateT>, ViewStateT, Event
 
     override final fun setRestoringViewState(restoringViewState: Boolean) {
         onRestoringViewStateChange(restoringViewState)
-        this.restoringViewState = restoringViewState
+        this.baseRestoringViewState = restoringViewState
     }
 
 }

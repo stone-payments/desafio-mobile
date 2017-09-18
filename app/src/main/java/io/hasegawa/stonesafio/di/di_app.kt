@@ -3,14 +3,18 @@ package io.hasegawa.stonesafio.di
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import io.hasegawa.data.cart.InMemCartRepository
+import io.hasegawa.data.listing.InMemListingService
 import io.hasegawa.data.test.InMemTestRepository
 import io.hasegawa.stonesafio.StonesafioApp
 import io.hasegawa.stonesafio.common.log.AndroidLogDevice
 import io.hasegawa.stonesafio.common.log.NoOpCrashReportDevice
+import io.hasegawa.stonesafio.domain.cart.CartRepository
 import io.hasegawa.stonesafio.domain.common.log.CrashReportDevice
 import io.hasegawa.stonesafio.domain.common.log.LogDevice
 import io.hasegawa.stonesafio.domain.common.log.setAsDefaultForCrashReport
 import io.hasegawa.stonesafio.domain.common.log.setAsDefaultForLog
+import io.hasegawa.stonesafio.domain.listing.ListingService
 import io.hasegawa.stonesafio.domain.test.TestRepository
 import javax.inject.Scope
 
@@ -31,6 +35,14 @@ open class AppDIModule(private val app: StonesafioApp) {
     @Provides
     @AppScope
     open fun provideCrashReportDevice(): CrashReportDevice = NoOpCrashReportDevice()
+
+    @Provides
+    @AppScope
+    open fun provideListingService(): ListingService = InMemListingService()
+
+    @Provides
+    @AppScope
+    open fun provideCartRepository(): CartRepository = InMemCartRepository()
 }
 
 @Module
@@ -68,4 +80,6 @@ interface AppDIComponent {
     fun provideLogDevice(): LogDevice
     fun provideCrashReportDevice(): CrashReportDevice
     fun provideTestRepository(): TestRepository
+    fun provideListingService(): ListingService
+    fun provideCartRepository(): CartRepository
 }

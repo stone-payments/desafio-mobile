@@ -22,6 +22,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
 }
 
 dependencies {
@@ -42,6 +45,8 @@ dependencies {
     compile deps.rxAndroid
     compile deps.rxBinding
     compile deps.rxBindingSupport
+    compile deps.epoxy
+    compile deps.picasso
 
     kapt deps.dagger2Compiler
 

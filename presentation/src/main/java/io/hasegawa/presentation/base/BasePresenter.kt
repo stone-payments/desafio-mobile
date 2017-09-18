@@ -16,10 +16,23 @@ abstract class BasePresenter<ViewT : BaseMvpView<ViewStateT>, ViewStateT, StateE
 
     abstract fun initialViewState(): ViewStateT
 
+    /**
+     * Use this function to handle all navigation intents.
+     * The stream should never end, nor emit any item.
+     */
     open fun handleNavigationIntents(): Completable = Completable.complete()
 
+    /**
+     * Use this function to handle all view intents that are not for navigation.
+     * The stream should never end.
+     */
     abstract fun bindViewIntents(): Observable<StateEventsT>
 
+    /**
+     * This is a reducer. It takes the current view state and apply a state event, creating
+     * a new view state or null. If null is returned, then the new state will be ignored. If not,
+     * then the state will be updated.
+     */
     abstract operator fun ViewStateT.plus(event: StateEventsT): ViewStateT?
 
     fun observeViewStates(): Observable<ViewStateT> = viewStateSubject
