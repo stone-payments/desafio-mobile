@@ -10,8 +10,8 @@ Para obter os itens da loja, sua aplicação deverá realizar uma chamada `GET` 
 
 A lista de itens deve exibir as seguintes informações:
 + Nome [title]
-+ Preço [price]
-+ Vendedor [seller]
++ Preço [value]
++ Vendedor [cardNumber]
 + Foto do item [thumbnailHd]
 
 Após o usuário adicionar todos os itens no carrinho, ele deverá finalizar a compra.
