@@ -24,8 +24,9 @@ public class GetImage extends AsyncTask<String, Void, Bitmap> {
 
         try{
             URL url_value = new URL(params[0]);
-            Bitmap image = BitmapFactory.decodeStream(url_value.openConnection().getInputStream());
-            return image;
+            return BitmapFactory.decodeStream(url_value.openConnection().getInputStream());
+
+
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -40,7 +41,6 @@ public class GetImage extends AsyncTask<String, Void, Bitmap> {
         productHandler.getProductsStore().get(index).setImage(image);
         productHandler.refreshStoreView();
 
-        System.out.println("Download de imagem com sucesso!");
-
     }
+
 }

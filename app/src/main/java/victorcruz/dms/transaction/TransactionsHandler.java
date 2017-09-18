@@ -16,7 +16,6 @@ import java.util.Date;
 public class TransactionsHandler {
 
     private ListView transactionsListView;
-    private Activity act;
 
     private ArrayList<Transaction> transactionsArrayList;
     private TransactionAdapter transactionAdapter;
@@ -24,7 +23,6 @@ public class TransactionsHandler {
 
     public TransactionsHandler(Activity act, ListView transactionsListView){
         this.transactionsListView = transactionsListView;
-        this.act = act;
 
         transactionsArrayList = new ArrayList<>();
 
@@ -91,17 +89,11 @@ public class TransactionsHandler {
 
             }
         }
-
-        System.out.println("BD SIZE EH " + c.getCount());
-
     }
 
     public void refreshTransactionsView(){
-        transactionsListView.setAdapter(transactionAdapter);;
-        System.out.println("ARRAY LIST SIZE EH " + transactionsArrayList.size());
-        System.out.println("REFRESHADO!!");
+        transactionsListView.setAdapter(transactionAdapter);
     }
-
 
 
 }

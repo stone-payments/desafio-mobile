@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorgrey2"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,6 +21,7 @@
                 android:id="@+id/transactionValueTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:text="Valor"
                 android:textSize="18sp"/>
@@ -28,7 +29,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -36,6 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:text="Nome"
                     android:textSize="14sp"/>
 
@@ -44,6 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:text="Numero do Cartao"
                     android:textSize="14sp"/>
             </LinearLayout>
@@ -51,7 +56,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:orientation="vertical">
 
                 <TextView
@@ -59,6 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="right"
                     android:text="TextView"
                     android:textSize="12sp"/>
 
@@ -67,6 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="right"
                     android:text="Data"
                     android:textSize="12sp"/>
             </LinearLayout>

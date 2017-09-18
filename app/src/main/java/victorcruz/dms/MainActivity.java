@@ -6,7 +6,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -43,15 +42,11 @@ public class MainActivity extends AppCompatActivity {
         ExpandableHeightListView cartListView = (ExpandableHeightListView) findViewById(R.id.cartListView);
         ExpandableHeightListView transactionListView = (ExpandableHeightListView) findViewById(R.id.transactionListView);
         storeScrollView = (ScrollView) findViewById(R.id.storeScrollView);
-        cartScrollView = (ScrollView) findViewById(R.id.cartScrollView);;
-        transactionScrollView = (ScrollView) findViewById(R.id.transactionScrollView);;
+        cartScrollView = (ScrollView) findViewById(R.id.cartScrollView);
+        transactionScrollView = (ScrollView) findViewById(R.id.transactionScrollView);
         cartToolbarLinearLayout = (LinearLayout) findViewById(R.id.cartToolbarLinearLayout);
         ToolbarTitleTextView = (TextView) findViewById(R.id.toolbarTitleTextView);
         TextView cartTotalValueTextView = (TextView) findViewById(R.id.cartTotalValueTextView);
-        EditText cardNumberEditText = (EditText) findViewById(R.id.cardNumberEditText);
-        EditText cardNameEditText = (EditText) findViewById(R.id.cardNameEditText);
-        EditText cardCVVEditText = (EditText) findViewById(R.id.cardCVVEditText);
-        EditText cardExpDateEditText = (EditText) findViewById(R.id.cardExpDateEditText);
 
         // mantem controle dos produtos e transacoes
         productHandler = new ProductHandler(storeListView, cartListView, cartTotalValueTextView, this);

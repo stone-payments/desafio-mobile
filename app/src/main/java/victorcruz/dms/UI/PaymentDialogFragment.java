@@ -50,8 +50,6 @@ public class PaymentDialogFragment extends DialogFragment {
                         PostCardInformation postCardInformation = new PostCardInformation();
                         postCardInformation.execute(jsonObject.toString());
 
-                        System.out.println("O cartao eh: " + cardNumberEditText.getText());
-
                         productHandler.resetCart();
 
                         transactionsHandler.newTransaction(jsonObject);
@@ -63,7 +61,7 @@ public class PaymentDialogFragment extends DialogFragment {
 
                     }
                 });
-        // Create the AlertDialog object and return it
+
         return builder.create();
     }
 

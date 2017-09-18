@@ -63,12 +63,8 @@ public class GetJSON extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        System.out.print("Resultado: " + result);
-
         try {
             JSONArray jsonArray = new JSONArray(result);
-
-            System.out.println(productHandler.getProductsStore().size());
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 // separa o json em partes por item_store
@@ -87,11 +83,7 @@ public class GetJSON extends AsyncTask<String, Void, String> {
                         null,
                         jsonObject.getString("date")));
 
-
-                System.out.println("Product eh: " + i + " " + productHandler.getProductsStore().get(i).getTitle());
             }
-
-            System.out.println(productHandler.getProductsStore().size());
 
             productHandler.refreshStoreView();
 

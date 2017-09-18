@@ -75,7 +75,6 @@ public class ProductHandler {
                     productsStore.get(i).getSeller().equals(seller.substring(3))){
 
                 productsCart.add(new Product(productsStore.get(i)));
-                System.out.println(productsStore.get(i).getTitle());
 
                 break;
             }
@@ -118,7 +117,6 @@ public class ProductHandler {
                     productsCart.get(i).getPrice() == price &&
                     productsCart.get(i).getSeller().equals(seller.substring(3))){
 
-                System.out.println("Removido: " + productsStore.get(i).getTitle());
                 productsCart.remove(i);
                 break;
             }

@@ -29,8 +29,6 @@ public class PostCardInformation extends AsyncTask<String, Void, String>{
             dataOutputStream.flush();
             dataOutputStream.close();
 
-            System.out.println("posted... " + httpURLConnection.getResponseCode());
-
             httpURLConnection.disconnect();
 
 
