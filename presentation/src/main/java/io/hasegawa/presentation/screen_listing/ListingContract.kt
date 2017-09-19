@@ -15,7 +15,7 @@ object ListingContract {
             val id: String,
             val thumbnailUrl: String,
             val title: String,
-            val price: String,
+            val price: Long,
             val seller: String,
             val inCart: Boolean) : Serializable
 

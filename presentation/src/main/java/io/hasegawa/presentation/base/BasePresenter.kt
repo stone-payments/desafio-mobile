@@ -5,14 +5,14 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.subjects.BehaviorSubject
 
 
 abstract class BasePresenter<ViewT : BaseMvpView<ViewStateT>, ViewStateT, StateEventsT>
     : MviBasePresenter<ViewT, ViewStateT>() {
 
     private var navigationDisposable: Disposable? = null
-    private val viewStateSubject = PublishSubject.create<ViewStateT>()
+    private val viewStateSubject = BehaviorSubject.create<ViewStateT>()
 
     abstract fun initialViewState(): ViewStateT
 

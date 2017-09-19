@@ -5,16 +5,22 @@ import dagger.Module
 import dagger.Provides
 import io.hasegawa.data.cart.InMemCartRepository
 import io.hasegawa.data.listing.InMemListingService
+import io.hasegawa.data.payment.InMemPaymentService
+import io.hasegawa.data.payment.InMemTransactionRepository
 import io.hasegawa.data.test.InMemTestRepository
 import io.hasegawa.stonesafio.StonesafioApp
 import io.hasegawa.stonesafio.common.log.AndroidLogDevice
 import io.hasegawa.stonesafio.common.log.NoOpCrashReportDevice
 import io.hasegawa.stonesafio.domain.cart.CartRepository
+import io.hasegawa.stonesafio.domain.cc.CCValidatorDevice
+import io.hasegawa.stonesafio.domain.cc.SimpleCCValidatorDevice
 import io.hasegawa.stonesafio.domain.common.log.CrashReportDevice
 import io.hasegawa.stonesafio.domain.common.log.LogDevice
 import io.hasegawa.stonesafio.domain.common.log.setAsDefaultForCrashReport
 import io.hasegawa.stonesafio.domain.common.log.setAsDefaultForLog
 import io.hasegawa.stonesafio.domain.listing.ListingService
+import io.hasegawa.stonesafio.domain.payment.PaymentService
+import io.hasegawa.stonesafio.domain.payment.TransactionRepository
 import io.hasegawa.stonesafio.domain.test.TestRepository
 import javax.inject.Scope
 
@@ -43,6 +49,18 @@ open class AppDIModule(private val app: StonesafioApp) {
     @Provides
     @AppScope
     open fun provideCartRepository(): CartRepository = InMemCartRepository()
+
+    @Provides
+    @AppScope
+    open fun provideCCValidator(): CCValidatorDevice = SimpleCCValidatorDevice()
+
+    @Provides
+    @AppScope
+    open fun providePaymentService(): PaymentService = InMemPaymentService()
+
+    @Provides
+    @AppScope
+    open fun provideTransactionRepository(): TransactionRepository = InMemTransactionRepository()
 }
 
 @Module
@@ -68,18 +86,21 @@ interface AppDIComponent {
                         .appDIModule(AppDIModule(app))
                         .build()
                         .apply {
-                            provideLogDevice().setAsDefaultForLog()
-                            provideCrashReportDevice().setAsDefaultForCrashReport()
+                            getLogDevice().setAsDefaultForLog()
+                            getCrashReportDevice().setAsDefaultForCrashReport()
                         }
                         .also { BaseDIComponent.initialize(it) }
             }
         }
     }
 
-    fun provideAppContext(): StonesafioApp
-    fun provideLogDevice(): LogDevice
-    fun provideCrashReportDevice(): CrashReportDevice
-    fun provideTestRepository(): TestRepository
-    fun provideListingService(): ListingService
-    fun provideCartRepository(): CartRepository
+    fun getAppContext(): StonesafioApp
+    fun getLogDevice(): LogDevice
+    fun getCrashReportDevice(): CrashReportDevice
+    fun getTestRepository(): TestRepository
+    fun getListingService(): ListingService
+    fun getCartRepository(): CartRepository
+    fun getCCValidator(): CCValidatorDevice
+    fun getPaymentService(): PaymentService
+    fun getTransactionRepository(): TransactionRepository
 }

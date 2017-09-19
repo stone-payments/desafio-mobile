@@ -50,7 +50,7 @@ open class ListingFetcherUC(val listItemsUC: ListItemsUC, val cartGetListUC: Car
                                             id = it.id,
                                             thumbnailUrl = it.thumbnailHd,
                                             title = it.title,
-                                            price = "R$${it.price}",
+                                            price = it.price,
                                             seller = it.seller,
                                             inCart = false)
                                 }

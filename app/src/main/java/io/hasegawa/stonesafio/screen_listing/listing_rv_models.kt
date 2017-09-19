@@ -11,7 +11,6 @@ import io.hasegawa.stonesafio.R
 import io.hasegawa.stonesafio.common.EpoxyKotterHolder
 import io.hasegawa.stonesafio.common.EpoxyModelWithHolderKt
 import io.hasegawa.stonesafio.common.bindView
-import io.hasegawa.stonesafio.domain.common.log.logi
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
@@ -22,6 +21,8 @@ class ListingRvProductModel(val product: Product, private val buyClicksCb: (Prod
     override fun equals(other: Any?): Boolean =
             product == (other as? ListingRvProductModel)?.product
 
+    override fun hashCode(): Int = product.id.hashCode()
+
     override fun bind(holder: Holder?) {
         holder?.apply {
             product.run {
@@ -30,7 +31,7 @@ class ListingRvProductModel(val product: Product, private val buyClicksCb: (Prod
                         .into(thumbnailIv)
 
                 titleTv.text = title
-                priceTv.text = price
+                priceTv.text = "R$ $price" // TODO[hase] proper price formatting
                 sellerTv.text = seller
 
                 val showBuyBt = !inCart

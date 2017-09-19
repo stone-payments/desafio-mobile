@@ -18,4 +18,14 @@ class InMemCartRepository : CartRepository {
             productsSubj.onNext(products + emptyList())
         }
     }
+
+    override fun removeFromCart(id: String): Completable = Completable.fromCallable {
+        if (products.removeAll { it.id == id })
+            productsSubj.onNext(products + emptyList())
+    }
+
+    override fun clear(): Completable = Completable.fromCallable {
+        products.clear()
+        productsSubj.onNext(products + emptyList())
+    }
 }
