@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Shopit!</string>
     <string name="action_add_favourite">Add to Cart</string>
-    <string name="action_play_next">Play Next</string>
+    <string name="action_show_cart">Show Cart</string>
     <string name="backdrop_title">STAR WARS</string>
     <string name="backdrop_subtitle">Many great jedi products</string>
+
+    <string name="dummy_content">Shopit</string>
 </resources>

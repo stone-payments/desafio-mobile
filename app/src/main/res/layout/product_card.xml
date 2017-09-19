@@ -24,19 +24,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/album_cover_height"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
                 android:scaleType="fitXY" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:layout_alignBottom="@+id/thumbnail"
-                android:background="#66000000">
+                android:layout_below="@id/thumbnail">
 
                 <TextView
                     android:id="@+id/title"
-                    style="@style/TextAppearance.AppCompat.Title"
+                    style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
@@ -44,8 +41,7 @@
                     android:paddingLeft="@dimen/album_title_padding"
                     android:paddingRight="@dimen/album_title_padding"
                     android:paddingTop="@dimen/album_title_padding"
-                    android:textColor="@color/product_name"
-                    android:textSize="@dimen/album_title" />
+                     />
 
                 <TextView
                     android:id="@+id/count"
@@ -55,13 +51,11 @@
                     android:layout_alignLeft="@+id/title"
                     android:layout_alignParentBottom="true"
                     android:layout_below="@+id/title"
+                    android:textColor="@color/colorPrimary"
                     android:paddingBottom="@dimen/songs_count_padding_bottom"
                     android:paddingLeft="@dimen/album_title_padding"
                     android:paddingRight="@dimen/album_title_padding"
-                    android:paddingTop="@dimen/activity_vertical_margin"
-                    android:textColor="@color/product_price"
-                    android:textSize="@dimen/songs_count"
-                    android:textStyle="bold" />
+                    />
 
 
                 <ImageView
@@ -69,7 +63,9 @@
                     android:layout_width="@dimen/ic_album_overflow_width"
                     android:layout_height="@dimen/ic_album_overflow_height"
                     android:layout_alignParentRight="true"
+                    android:visibility="gone"
                     android:layout_alignTop="@+id/title"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
                     android:scaleType="centerCrop"
