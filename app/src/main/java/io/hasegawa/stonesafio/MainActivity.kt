@@ -7,6 +7,7 @@ import com.bluelinelabs.conductor.Conductor
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import io.hasegawa.stonesafio.screen_listing.ListingController
+import io.hasegawa.stonesafio.screen_navdrawer.NavDrawerController
 
 class MainActivity : AppCompatActivity() {
     private lateinit var router: Router
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         router = Conductor.attachRouter(this, containerFl, savedInstanceState)
         if (!router.hasRootController()) {
-            router.setRoot(RouterTransaction.with(ListingController()))
+            router.setRoot(RouterTransaction.with(NavDrawerController()))
         }
     }
 

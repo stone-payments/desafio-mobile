@@ -3,6 +3,7 @@ package io.hasegawa.stonesafio.screen_transactions
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import io.hasegawa.presentation.screen_transactions.TransactionsContract.StateEvent
@@ -19,6 +20,7 @@ class TransactionsController
     : BaseController<View, ViewState, StateEvent, TransactionsPresenter>(), View {
     private val backSubj = PublishSubject.create<Unit>()
 
+    private val toolbar: Toolbar by bindView(R.id.transactions_toolbar)
     private val recyclerView: RecyclerView by bindView(R.id.transactions_rv)
     private var rvController: TransactionsRvController? = null
 
@@ -27,6 +29,8 @@ class TransactionsController
             inflater.inflate(R.layout.screen_transactions, container, false)
 
     override fun onViewBound() {
+        activityCompat?.setSupportActionBar(toolbar)
+
         recyclerView.layoutManager = LinearLayoutManager(activity)
         rvController = TransactionsRvController()
         recyclerView.adapter = rvController!!.adapter

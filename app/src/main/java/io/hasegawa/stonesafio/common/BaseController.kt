@@ -1,6 +1,7 @@
 package io.hasegawa.stonesafio.common
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,10 @@ abstract class BaseController<ViewT : BaseMvpView<ViewStateT>, ViewStateT, Event
 
     var baseRestoringViewState = false
         private set
+
+    val activityCompat: AppCompatActivity?
+        get() = activity as? AppCompatActivity
+
     private val fullDisposables = CompositeDisposable()
     private val viewDisposables = CompositeDisposable()
     private val attachDisposables = CompositeDisposable()

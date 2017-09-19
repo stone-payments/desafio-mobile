@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class CartController
     : BaseController<CartContract.View, CartContract.ViewState, CartContract.StateEvent, CartPresenter>(),
         CartContract.View {
 
+    private val toolbar: Toolbar by bindView(R.id.cart_toolbar)
     private val pageTv: TextView by bindView(R.id.cart_page_tv)
     private val pageFlipper: ViewFlipper by bindView(R.id.cart_flipper)
 
@@ -54,6 +56,8 @@ class CartController
             inflater.inflate(R.layout.screen_cart, container, false)
 
     override fun onViewBound() {
+        activityCompat?.setSupportActionBar(toolbar)
+
         productsRv.layoutManager = LinearLayoutManager(activity)
         rvController = CartRvController().also {
             productsRv.adapter = it.adapter

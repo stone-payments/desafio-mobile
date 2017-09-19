@@ -3,6 +3,7 @@ package io.hasegawa.stonesafio.screen_listing
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class ListingController
     : BaseController<ListingContract.View, ViewState,
         ListingContract.StateEvent, ListingPresenter>(), ListingContract.View {
 
+    private val toolbar: Toolbar by bindView(R.id.listing_toolbar)
     private val goToCartBt: Button by bindView(R.id.listing_go_to_cart_bt)
     private val goToTransactionsBt: Button by bindView(R.id.listing_go_to_transactions_bt)
     private val numInCartTv: TextView by bindView(R.id.listing_num_in_cart_tv)
@@ -39,6 +41,7 @@ class ListingController
 
     override fun onViewBound() {
         super.onViewBound()
+        activityCompat?.setSupportActionBar(toolbar)
 
         productsRv.layoutManager = LinearLayoutManager(activity)
         rvController = ListingRvController()

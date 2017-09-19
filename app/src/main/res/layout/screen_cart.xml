@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="io.hasegawa.stonesafio.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Page:"/>
-
-    <TextView
-        android:id="@+id/cart_page_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <ViewFlipper
-        android:id="@+id/cart_flipper"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <include layout="@layout/layout_cart_list"/>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/cart_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-        <include layout="@layout/layout_cart_payment"/>
+    </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/layout_cart_summary"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </ViewFlipper>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Page:"/>
+
+        <TextView
+            android:id="@+id/cart_page_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ViewFlipper
+            android:id="@+id/cart_flipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/layout_cart_list"/>
+
+            <include layout="@layout/layout_cart_payment"/>
+
+            <include layout="@layout/layout_cart_summary"/>
+
+        </ViewFlipper>
 
 
-</LinearLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
