@@ -13,6 +13,7 @@ import android.widget.ViewFlipper
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.textChanges
 import io.hasegawa.presentation.screen_cart.CartContract
+import io.hasegawa.presentation.screen_cart.CartContract.SummaryViewState
 import io.hasegawa.presentation.screen_cart.CartPresenter
 import io.hasegawa.stonesafio.R
 import io.hasegawa.stonesafio.common.BaseController
@@ -42,7 +43,7 @@ class CartController
     private val paymentConfirmBt: Button by bindView(R.id.cart_payment_confirm_bt)
 
     // Summary page
-    private val summaryStateTv: TextView by bindView(R.id.cart_summary_state_tv)
+    private val summaryFlipper: ViewFlipper by bindView(R.id.cart_summary_flipper)
 
     private val backButtonSubj = PublishSubject.create<Unit>()
     private var rvController: CartRvController? = null
@@ -100,7 +101,12 @@ class CartController
         }
 
         // Summary page
-        summaryStateTv.text = state.summaryViewState.toString()
+        val summaryPageId = when (state.summaryViewState) {
+            is SummaryViewState.Loading -> R.id.cart_summary_loading_ll
+            is SummaryViewState.Success -> R.id.cart_summary_success_ll
+            is SummaryViewState.Error -> R.id.cart_summary_error_ll
+        }
+        summaryFlipper.showNextUntilViewId(summaryPageId)
     }
 
     override fun handleBack(): Boolean {

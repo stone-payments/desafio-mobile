@@ -61,6 +61,7 @@ class CartPayUC(val paymentPayUC: PaymentPayUC, val cartClearUC: CartClearUC)
                 }
                 .startWith(StateEvent.ShowLoadingSummary)
                 .doOnNext { logd { "Payment results: $it" } }
+                .onErrorReturnItem(StateEvent.ShowSummaryError)
                 .observeOn(AndroidSchedulers.mainThread())
     }
 }

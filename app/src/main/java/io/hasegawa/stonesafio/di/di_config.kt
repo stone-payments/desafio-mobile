@@ -7,6 +7,7 @@ import javax.inject.Singleton
 
 sealed class ConfigDI {
     data class ListingBaseURL(val value: String) : ConfigDI()
+    data class PaymentBaseURL(val value: String) : ConfigDI()
 }
 
 @Module
@@ -15,6 +16,11 @@ class ConfigDIModule {
     @Singleton
     fun provideListingBaseURL() = ConfigDI.ListingBaseURL(
             "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/")
+
+    @Provides
+    @Singleton
+    fun providePaymentBaseURL() = ConfigDI.PaymentBaseURL(
+            "https://private-80fe34-hasegawastonesafio.apiary-mock.com/")
 }
 
 @Component(modules = arrayOf(ConfigDIModule::class))
@@ -27,4 +33,5 @@ interface ConfigDIComponent {
     }
 
     fun getListingBaseURL(): ConfigDI.ListingBaseURL
+    fun getPaymentBaseURL(): ConfigDI.PaymentBaseURL
 }

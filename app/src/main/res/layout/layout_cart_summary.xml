@@ -6,16 +6,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Summary"/>
+    <ViewFlipper
+        android:id="@+id/cart_summary_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/cart_summary_state_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="State"/>
+        <LinearLayout
+            android:id="@+id/cart_summary_loading_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cart_summary_success_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Success"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cart_summary_error_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Error"/>
+
+        </LinearLayout>
+
+    </ViewFlipper>
 
 </LinearLayout>

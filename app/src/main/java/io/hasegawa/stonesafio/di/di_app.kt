@@ -5,8 +5,8 @@ import dagger.Module
 import dagger.Provides
 import io.hasegawa.data.cart.InMemCartRepository
 import io.hasegawa.data.listing.RetrofitListingService
-import io.hasegawa.data.payment.InMemPaymentService
 import io.hasegawa.data.payment.InMemTransactionRepository
+import io.hasegawa.data.payment.RetrofitPaymentService
 import io.hasegawa.data.test.InMemTestRepository
 import io.hasegawa.stonesafio.StonesafioApp
 import io.hasegawa.stonesafio.common.log.AndroidLogDevice
@@ -57,7 +57,8 @@ open class AppDIModule(private val app: StonesafioApp) {
 
     @Provides
     @AppScope
-    open fun providePaymentService(): PaymentService = InMemPaymentService()
+    open fun providePaymentService(baseURL: ConfigDI.PaymentBaseURL): PaymentService =
+            RetrofitPaymentService(baseURL.value)
 
     @Provides
     @AppScope
