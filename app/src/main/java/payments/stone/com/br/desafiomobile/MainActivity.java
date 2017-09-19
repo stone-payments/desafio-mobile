@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showProducts(List<Product> productList) {
         mAdapter = new ProductsAdapter(this, productList);
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
