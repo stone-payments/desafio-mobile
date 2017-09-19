@@ -4,8 +4,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.airbnb.epoxy.TypedEpoxyController
+import com.airbnb.epoxy.Typed3EpoxyController
 import com.squareup.picasso.Picasso
+import io.hasegawa.presentation.screen_listing.ListingContract.ListingErrorType
 import io.hasegawa.presentation.screen_listing.ListingContract.Product
 import io.hasegawa.stonesafio.R
 import io.hasegawa.stonesafio.common.EpoxyKotterHolder
@@ -62,14 +63,41 @@ class ListingRvProductModel(val product: Product, private val buyClicksCb: (Prod
     override fun createNewHolder(): Holder = Holder()
 }
 
+class ListingRvConnIssueModel : EpoxyModelWithHolderKt<ListingRvConnIssueModel.Holder>(
+        R.layout.item_listing_conn_issue, "conn-issue-id") {
+    override fun createNewHolder(): Holder = Holder()
 
-class ListingRvController : TypedEpoxyController<List<Product>>() {
+    class Holder : EpoxyKotterHolder()
+}
+
+
+class ListingRvUnknownIssueModel : EpoxyModelWithHolderKt<ListingRvUnknownIssueModel.Holder>(
+        R.layout.item_listing_unknown_issue, "unknown-issue-id") {
+    override fun createNewHolder(): Holder = Holder()
+
+    class Holder : EpoxyKotterHolder()
+}
+
+class ListingRvLoadingModel : EpoxyModelWithHolderKt<ListingRvLoadingModel.Holder>(
+        R.layout.item_listing_loading, "loading-id") {
+    override fun createNewHolder(): Holder = Holder()
+
+    class Holder : EpoxyKotterHolder()
+}
+
+
+class ListingRvController : Typed3EpoxyController<Boolean, ListingErrorType, List<Product>>() {
     private val buyClicksSubject = PublishSubject.create<Product>()
 
-    override fun buildModels(data: List<Product>?) {
-        data
-                ?.map { product -> ListingRvProductModel(product) { buyClicksSubject.onNext(it) } }
-                ?.onEach { add(it) }
+    override fun buildModels(loading: Boolean?, errorType: ListingErrorType?, list: List<Product>?) {
+        when {
+            loading == true -> add(ListingRvLoadingModel())
+            errorType == ListingErrorType.ConnectionIssue -> add(ListingRvConnIssueModel())
+            errorType == ListingErrorType.Unknown -> add(ListingRvUnknownIssueModel())
+            else -> list
+                    ?.map { product -> ListingRvProductModel(product) { buyClicksSubject.onNext(it) } }
+                    ?.onEach { add(it) }
+        }
     }
 
     fun observeBuyClicks(): Observable<Product> = buyClicksSubject

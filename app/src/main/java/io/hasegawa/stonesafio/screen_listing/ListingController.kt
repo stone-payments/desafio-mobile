@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.textChanges
 import io.hasegawa.presentation.screen_listing.ListingContract
+import io.hasegawa.presentation.screen_listing.ListingContract.ViewState
 import io.hasegawa.presentation.screen_listing.ListingPresenter
 import io.hasegawa.stonesafio.R
 import io.hasegawa.stonesafio.common.BaseController
@@ -20,7 +21,7 @@ import io.reactivex.Observable
 
 
 class ListingController
-    : BaseController<ListingContract.View, ListingContract.ViewState,
+    : BaseController<ListingContract.View, ViewState,
         ListingContract.StateEvent, ListingPresenter>(), ListingContract.View {
 
     private val goToCartBt: Button by bindView(R.id.listing_go_to_cart_bt)
@@ -50,16 +51,16 @@ class ListingController
         super.onDestroyView(view)
     }
 
-    override fun render(state: ListingContract.ViewState) {
+    override fun render(state: ViewState) {
         numInCartTv.text = state.numberInCart.toString()
         if (baseRestoringViewState) {
             searchBarEt.setText(state.filter, TextView.BufferType.EDITABLE)
         }
 
         when (state) {
-            is ListingContract.ViewState.Okay -> {
-                rvController?.setData(state.products)
-            }
+            is ViewState.Okay -> rvController?.setData(null, null, state.products)
+            is ViewState.Loading -> rvController?.setData(true, null, null)
+            is ViewState.Error -> rvController?.setData(null, state.type, null)
         }
     }
 
