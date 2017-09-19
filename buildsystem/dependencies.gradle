@@ -41,6 +41,7 @@ ext {
             epoxy                  : '2.5.0',
             picasso                : '2.5.2',
             guavaAndroid           : '23.0-android',
+            retrofit               : '2.3.0',
 
             // Testing
             junit                  : '4.12',
@@ -79,6 +80,9 @@ ext {
             epoxyProcessor         : "com.airbnb.android:epoxy-processor:$versions.epoxy",
             picasso                : "com.squareup.picasso:picasso:$versions.picasso",
             guavaAndroid           : "com.google.guava:guava:$versions.guavaAndroid",
+            retrofit               : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+            retrofitMoshi          : "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
+            retrofitRxJava2        : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
 
             // Testing
             junit                  : "junit:junit:$versions.junit",

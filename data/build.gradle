@@ -22,4 +22,7 @@ android {
 
 dependencies {
     compile project(":domain")
+    compile deps.retrofit
+    compile deps.retrofitMoshi
+    compile deps.retrofitRxJava2
 }

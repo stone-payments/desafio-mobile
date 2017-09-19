@@ -1,6 +1,7 @@
 package io.hasegawa.stonesafio.domain.listing
 
 import io.hasegawa.stonesafio.domain.common.interactors.UseCase
+import io.hasegawa.stonesafio.domain.common.log.logd
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
@@ -17,7 +18,7 @@ class ListItemsUC(private val service: ListingService)
 
     override fun buildObservable(params: None?): Observable<Result> {
         return service.fetchItems()
-                .subscribeOn(Schedulers.computation())
+                .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.computation())
                 .map { Result.Success(it) as Result }
                 .onErrorReturn {
@@ -26,5 +27,6 @@ class ListItemsUC(private val service: ListingService)
                         else -> Result.Error(it)
                     }
                 }
+                .doOnNext { logd { "ListingResult: $it" } }
     }
 }

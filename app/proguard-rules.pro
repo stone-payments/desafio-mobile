@@ -27,3 +27,7 @@
 
 # Picasso
 -dontwarn com.squareup.okhttp.**
+
+# Retrofit
+-dontwarn okio.**
+-dontwarn javax.annotation.**

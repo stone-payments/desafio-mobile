@@ -4,7 +4,7 @@ import dagger.Component
 import dagger.Module
 import dagger.Provides
 import io.hasegawa.data.cart.InMemCartRepository
-import io.hasegawa.data.listing.InMemListingService
+import io.hasegawa.data.listing.RetrofitListingService
 import io.hasegawa.data.payment.InMemPaymentService
 import io.hasegawa.data.payment.InMemTransactionRepository
 import io.hasegawa.data.test.InMemTestRepository
@@ -44,7 +44,8 @@ open class AppDIModule(private val app: StonesafioApp) {
 
     @Provides
     @AppScope
-    open fun provideListingService(): ListingService = InMemListingService()
+    open fun provideListingService(baseURL: ConfigDI.ListingBaseURL): ListingService =
+            RetrofitListingService(baseURL.value)
 
     @Provides
     @AppScope
@@ -71,7 +72,8 @@ class TestModule {
 }
 
 @AppScope
-@Component(modules = arrayOf(AppDIModule::class, TestModule::class))
+@Component(modules = arrayOf(AppDIModule::class, TestModule::class),
+        dependencies = arrayOf(ConfigDIComponent::class))
 interface AppDIComponent {
     companion object {
         lateinit var instance: AppDIComponent
@@ -84,6 +86,7 @@ interface AppDIComponent {
                 instance = DaggerAppDIComponent
                         .builder()
                         .appDIModule(AppDIModule(app))
+                        .configDIComponent(ConfigDIComponent.build())
                         .build()
                         .apply {
                             getLogDevice().setAsDefaultForLog()
