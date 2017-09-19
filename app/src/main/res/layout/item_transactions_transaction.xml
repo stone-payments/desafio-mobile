@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/transaction_value_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1999"/>
+
+    <TextView
+        android:id="@+id/transaction_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[time]"/>
+
+    <TextView
+        android:id="@+id/transaction_cc_4_digits_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1234"/>
+
+    <TextView
+        android:id="@+id/transaction_cc_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Someone Here"/>
+
+</LinearLayout>

@@ -2,8 +2,8 @@ package io.hasegawa.stonesafio.screen_listing
 
 import com.bluelinelabs.conductor.RouterTransaction
 import io.hasegawa.presentation.screen_listing.ListingContract
-import io.hasegawa.stonesafio.domain.common.log.logi
 import io.hasegawa.stonesafio.screen_cart.CartController
+import io.hasegawa.stonesafio.screen_transactions.TransactionsController
 
 class ListingNavigator(val controller: ListingController) : ListingContract.Navigator {
     override fun goToCart() {
@@ -13,6 +13,8 @@ class ListingNavigator(val controller: ListingController) : ListingContract.Navi
     }
 
     override fun goToTransactions() {
-        logi { "GoToTransactions NoOp" }
+        val router = controller.router
+        val transactionsController = TransactionsController()
+        router.pushController(RouterTransaction.with(transactionsController))
     }
 }
