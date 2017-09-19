@@ -5,8 +5,8 @@ import dagger.Module
 import dagger.Provides
 import io.hasegawa.data.cart.InMemCartRepository
 import io.hasegawa.data.listing.RetrofitListingService
-import io.hasegawa.data.payment.InMemTransactionRepository
 import io.hasegawa.data.payment.RetrofitPaymentService
+import io.hasegawa.data.payment.StorIoTransactionRepository
 import io.hasegawa.data.test.InMemTestRepository
 import io.hasegawa.stonesafio.StonesafioApp
 import io.hasegawa.stonesafio.common.log.AndroidLogDevice
@@ -62,7 +62,8 @@ open class AppDIModule(private val app: StonesafioApp) {
 
     @Provides
     @AppScope
-    open fun provideTransactionRepository(): TransactionRepository = InMemTransactionRepository()
+    open fun provideTransactionRepository(app: StonesafioApp): TransactionRepository =
+            StorIoTransactionRepository(app)
 }
 
 @Module

@@ -25,4 +25,6 @@ dependencies {
     compile deps.retrofit
     compile deps.retrofitMoshi
     compile deps.retrofitRxJava2
+    compile deps.storIo
+    compile deps.rxJava2Interop
 }
