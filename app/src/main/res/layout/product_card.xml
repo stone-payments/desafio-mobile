@@ -9,9 +9,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
-        android:elevation="3dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
+        android:elevation="3dp"
         android:focusable="true"
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
@@ -40,12 +40,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:textColor="@color/product_name"
-                    android:textSize="@dimen/album_title"
                     android:maxLines="1"
                     android:paddingLeft="@dimen/album_title_padding"
                     android:paddingRight="@dimen/album_title_padding"
-                    android:paddingTop="@dimen/album_title_padding" />
+                    android:paddingTop="@dimen/album_title_padding"
+                    android:textColor="@color/product_name"
+                    android:textSize="@dimen/album_title" />
 
                 <TextView
                     android:id="@+id/count"
