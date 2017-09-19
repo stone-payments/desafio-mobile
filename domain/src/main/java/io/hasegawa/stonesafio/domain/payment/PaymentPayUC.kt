@@ -5,6 +5,7 @@ import io.hasegawa.stonesafio.domain.common.interactors.UseCase
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import java.util.*
 
 /**
  * Takes a [PaymentPayUC.Params.value] and a credit card and make a payment request.
@@ -32,6 +33,7 @@ class PaymentPayUC(val paymentService: PaymentService, val transactionRepository
                     when (result.success) {
                         true ->
                             TransactionModel(
+                                    id = UUID.randomUUID().toString(),
                                     value = result.value,
                                     instant = result.instant,
                                     ccLast4Digits = result.ccLast4Digits,

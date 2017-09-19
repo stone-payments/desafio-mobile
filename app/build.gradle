@@ -50,6 +50,8 @@ dependencies {
     compile deps.rxBindingSupport
     compile deps.epoxy
     compile deps.picasso
+    compile deps.materialValues
+    compile deps.actionItemBadge
 
     kapt deps.dagger2Compiler
 

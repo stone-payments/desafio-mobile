@@ -26,9 +26,9 @@ abstract class BaseController<ViewT : BaseMvpView<ViewStateT>, ViewStateT, Event
     val activityCompat: AppCompatActivity?
         get() = activity as? AppCompatActivity
 
-    private val fullDisposables = CompositeDisposable()
-    private val viewDisposables = CompositeDisposable()
-    private val attachDisposables = CompositeDisposable()
+    protected val fullDisposables = CompositeDisposable()
+    protected val viewDisposables = CompositeDisposable()
+    protected val attachDisposables = CompositeDisposable()
 
     abstract fun inflateView(inflater: LayoutInflater, container: ViewGroup,
                              savedViewState: Bundle?): View

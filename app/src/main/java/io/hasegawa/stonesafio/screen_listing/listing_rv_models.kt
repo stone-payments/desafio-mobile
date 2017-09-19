@@ -1,9 +1,9 @@
 package io.hasegawa.stonesafio.screen_listing
 
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.ViewFlipper
 import com.airbnb.epoxy.Typed3EpoxyController
 import com.squareup.picasso.Picasso
 import io.hasegawa.presentation.screen_listing.ListingContract.ListingErrorType
@@ -12,6 +12,7 @@ import io.hasegawa.stonesafio.R
 import io.hasegawa.stonesafio.common.EpoxyKotterHolder
 import io.hasegawa.stonesafio.common.EpoxyModelWithHolderKt
 import io.hasegawa.stonesafio.common.bindView
+import io.hasegawa.stonesafio.common.showNextUntilViewId
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
@@ -35,13 +36,12 @@ class ListingRvProductModel(val product: Product, private val buyClicksCb: (Prod
                 priceTv.text = "R$ $price" // TODO[hase] proper price formatting
                 sellerTv.text = seller
 
-                val showBuyBt = !inCart
-
-                buyBt.isEnabled = showBuyBt
-                buyBt.visibility = when (showBuyBt) {
-                    true -> View.VISIBLE
-                    else -> View.INVISIBLE
+                val flipperId = when (inCart) {
+                    true -> R.id.listing_product_incart_iv
+                    else -> R.id.listing_product_buy_bt
                 }
+                buyFlipper.showNextUntilViewId(flipperId)
+                buyBt.isEnabled = !inCart
 
                 buyBt.setOnClickListener { buyClicksCb(product) }
             }
@@ -58,6 +58,7 @@ class ListingRvProductModel(val product: Product, private val buyClicksCb: (Prod
         val priceTv: TextView by bindView(R.id.listing_product_price_tv)
         val sellerTv: TextView by bindView(R.id.listing_product_seller_tv)
         val buyBt: Button by bindView(R.id.listing_product_buy_bt)
+        val buyFlipper: ViewFlipper by bindView(R.id.listing_buy_flipper)
     }
 
     override fun createNewHolder(): Holder = Holder()

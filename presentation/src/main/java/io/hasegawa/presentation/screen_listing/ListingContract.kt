@@ -22,7 +22,6 @@ object ListingContract {
 
     interface View : BaseMvpView<ViewState> {
         fun goToCartScreen(): Observable<Unit>
-        fun goToTransactionsScreen(): Observable<Unit>
 
         fun addToCart(): Observable<Product>
         fun changedFilter(): Observable<String>
@@ -59,6 +58,5 @@ object ListingContract {
 
     interface Navigator {
         fun goToCart()
-        fun goToTransactions()
     }
 }

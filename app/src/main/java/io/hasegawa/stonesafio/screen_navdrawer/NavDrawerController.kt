@@ -20,7 +20,7 @@ import java.lang.ref.WeakReference
 class NavDrawerController : Controller(), KotterKnife {
     override var kotterView: WeakReference<View>? = null
 
-    private val drawerLayout: DrawerLayout by bindView(R.id.navdrawer_drawerlayout)
+    val drawerLayout: DrawerLayout by bindView(R.id.navdrawer_drawerlayout)
     private val navView: NavigationView by bindView(R.id.navdrawer_navigation)
     private val mainContainerCl: CoordinatorLayout by bindView(R.id.navdrawer_main_container_cl)
 

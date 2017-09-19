@@ -19,8 +19,7 @@ class ListingPresenter(val navigator: ListingContract.Navigator,
 
     override fun handleNavigationIntents(): Completable {
         val goToCart = intent { it.goToCartScreen() }.doOnNext { navigator.goToCart() }
-        val goToTransactions = intent { it.goToTransactionsScreen() }.doOnNext { navigator.goToTransactions() }
-        return Observable.merge(goToCart, goToTransactions).ignoreElements()
+        return goToCart.ignoreElements()
     }
 
     override fun bindViewIntents(): Observable<StateEvent> {

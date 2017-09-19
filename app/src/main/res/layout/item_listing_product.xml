@@ -1,39 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/listing_product_thumbnail_iv"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitStart"/>
+        android:layout_margin="@dimen/listing_card_margin"
+        app:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/listing_product_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Title goes here"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/listing_product_seller_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Seller goes here"/>
+            <ImageView
+                android:id="@+id/listing_product_thumbnail_iv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="@dimen/listing_thumbnail_max_height"
+                android:scaleType="centerCrop"
+                tools:src="@mipmap/mock_item_thumbnail"/>
 
-    <TextView
-        android:id="@+id/listing_product_price_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="R$30000,00"/>
+            <TextView
+                android:id="@+id/listing_product_title_tv"
+                style="@style/listing_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/listing_card_padding"
+                android:paddingStart="@dimen/listing_card_padding"
+                tools:text="Title goes here"/>
 
-    <Button
-        android:id="@+id/listing_product_buy_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buy"/>
+            <TextView
+                android:id="@+id/listing_product_seller_tv"
+                style="@style/listing_seller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/listing_card_padding"
+                android:paddingStart="@dimen/listing_card_padding"
+                tools:text="Seller goes here"/>
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/listing_product_price_tv"
+                style="@style/listing_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/listing_card_padding"
+                android:paddingStart="@dimen/listing_card_padding"
+                tools:text="R$30000,00"/>
+
+            <ViewFlipper
+                android:id="@+id/listing_buy_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/listing_card_padding"
+                android:inAnimation="@android:anim/slide_in_left"
+                android:measureAllChildren="true"
+                android:outAnimation="@android:anim/slide_out_right">
+
+                <ImageView
+                    android:id="@+id/listing_product_incart_iv"
+                    style="@style/listing_in_cart_ic"
+                    android:src="@drawable/ic_cart_outline"/>
+
+                <Button
+                    android:id="@+id/listing_product_buy_bt"
+                    style="@style/listing_buy_bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/listing_buy_bt"/>
+            </ViewFlipper>
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</FrameLayout>

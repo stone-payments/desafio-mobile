@@ -20,7 +20,6 @@ import io.hasegawa.stonesafio.domain.payment.TransactionRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
-import java.util.*
 
 class StorIoTransactionRepository(context: Context) : TransactionRepository {
     private val db: StorIOSQLite
@@ -80,7 +79,7 @@ private object TransactionsTable {
 
         override fun mapToContentValues(o: TransactionModel): ContentValues {
             val c = ContentValues(COL.values().size)
-            c.put(COL.Id.column, UUID.randomUUID().toString())
+            c.put(COL.Id.column, o.id)
             c.put(COL.Value.column, o.value)
             c.put(COL.Instant.column, o.instant)
             c.put(COL.CC4LastDigits.column, o.ccLast4Digits)
@@ -90,13 +89,14 @@ private object TransactionsTable {
 
         override fun mapToUpdateQuery(o: TransactionModel): UpdateQuery =
                 UpdateQuery.builder().table(NAME).where("${COL.Id}=?")
-                        .whereArgs(UUID.randomUUID().toString()) // Never update
+                        .whereArgs(o.id)
                         .build()
     }
 
     val getResolver = object : DefaultGetResolver<TransactionModel>() {
         override fun mapFromCursor(c: Cursor): TransactionModel {
             return TransactionModel(
+                    id = c.getString(COL.Id.ordinal),
                     value = c.getLong(COL.Value.ordinal),
                     instant = c.getLong(COL.Instant.ordinal),
                     ccLast4Digits = c.getString(COL.CC4LastDigits.ordinal),

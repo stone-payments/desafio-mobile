@@ -16,7 +16,7 @@ ext {
             buildToolsVersion        : "26.0.1",
             // defaultConfig
             applicationId            : "io.hasegawa.stonesafio",
-            minSdkVersion            : 19,
+            minSdkVersion            : 21,
             targetSdkVersion         : 25,
             versionCode              : 1,
             versionName              : "1.0",
@@ -44,6 +44,8 @@ ext {
             guavaAndroid           : '23.0-android',
             retrofit               : '2.3.0',
             storIo                 : '1.13.0',
+            materialValues         : '1.1.1',
+            actionItemBadge        : '3.3.1@aar',
 
             // Testing
             junit                  : '4.12',
@@ -87,6 +89,8 @@ ext {
             retrofitMoshi          : "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
             retrofitRxJava2        : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
             storIo                 : "com.pushtorefresh.storio:sqlite:$versions.storIo",
+            materialValues         : "blue.aodev:material-values:$versions.materialValues",
+            actionItemBadge        : "com.mikepenz:actionitembadge:$versions.actionItemBadge",
 
             // Testing
             junit                  : "junit:junit:$versions.junit",

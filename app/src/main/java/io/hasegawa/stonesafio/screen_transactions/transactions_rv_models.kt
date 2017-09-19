@@ -10,7 +10,7 @@ import io.hasegawa.stonesafio.common.bindView
 
 class ListingRvTransactionModel(val transaction: Transaction)
     : EpoxyModelWithHolderKt<ListingRvTransactionModel.Holder>(
-        R.layout.item_transactions_transaction, transaction.toString()) {
+        R.layout.item_transactions_transaction, transaction.id) {
 
     override fun equals(other: Any?): Boolean =
             transaction == (other as? ListingRvTransactionModel)?.transaction

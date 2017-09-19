@@ -17,6 +17,7 @@ class TransactionsGetUC(val transactionRepository: TransactionRepository)
                 .map {
                     it.map {
                         Transaction(
+                                id = it.id,
                                 instant = it.instant,
                                 value = it.value,
                                 ccLast4Digits = it.ccLast4Digits,

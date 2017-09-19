@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="listing_menu_cart">Carrinho</string>
+    <string name="listing_buy_bt">Comprar</string>
+    <string name="listing_search_hint">Filtro</string>
+</resources>
