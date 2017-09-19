@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Shopit!</string>
-    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_add_favourite">Add to Cart</string>
     <string name="action_play_next">Play Next</string>
-    <string name="backdrop_title">LOVE MUSIC</string>
-    <string name="backdrop_subtitle">This season top 20 albums</string>
+    <string name="backdrop_title">STAR WARS</string>
+    <string name="backdrop_subtitle">Many great jedi products</string>
 </resources>

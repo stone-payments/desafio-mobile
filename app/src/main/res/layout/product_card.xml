@@ -10,6 +10,9 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
         android:elevation="3dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
         <RelativeLayout
@@ -22,45 +25,57 @@
                 android:layout_height="@dimen/album_cover_height"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:focusable="true"
                 android:scaleType="fitXY" />
 
-            <TextView
-                android:id="@+id/title"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/thumbnail"
-                android:paddingLeft="@dimen/album_title_padding"
-                android:paddingRight="@dimen/album_title_padding"
-                android:paddingTop="@dimen/album_title_padding"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:textColor="@color/album_title"
-                android:textSize="@dimen/album_title" />
+                android:layout_height="68dp"
+                android:layout_alignBottom="@+id/thumbnail"
+                android:background="#66000000">
 
-            <TextView
-                android:id="@+id/count"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/songs_count_padding_bottom"
-                android:paddingLeft="@dimen/album_title_padding"
-                android:layout_below="@+id/title"
-                android:layout_alignLeft="@+id/title"
-                android:paddingRight="@dimen/album_title_padding"
-                android:layout_alignParentBottom="true"
-                android:textStyle="bold"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/songs_count" />
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/product_name"
+                    android:textSize="@dimen/album_title"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/album_title_padding"
+                    android:paddingRight="@dimen/album_title_padding"
+                    android:paddingTop="@dimen/album_title_padding" />
 
-            <ImageView
-                android:id="@+id/overflow"
-                android:layout_width="@dimen/ic_album_overflow_width"
-                android:layout_height="@dimen/ic_album_overflow_height"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/thumbnail"
-                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_more_vert_black_24px" />
+                <TextView
+                    android:id="@+id/count"
+                    style="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/title"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/title"
+                    android:paddingBottom="@dimen/songs_count_padding_bottom"
+                    android:paddingLeft="@dimen/album_title_padding"
+                    android:paddingRight="@dimen/album_title_padding"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:textColor="@color/product_price"
+                    android:textSize="@dimen/songs_count"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/overflow"
+                    android:layout_width="@dimen/ic_album_overflow_width"
+                    android:layout_height="@dimen/ic_album_overflow_height"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/title"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_more_vert_white_24px" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
