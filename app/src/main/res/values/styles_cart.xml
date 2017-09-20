@@ -14,4 +14,8 @@
 
     <style name="cart_payment_title" parent="MaterialTypography.Dense.Title">
     </style>
+
+    <style name="cart_summary_message" parent="MaterialTypography.Dense.Title">
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>

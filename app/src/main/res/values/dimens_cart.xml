@@ -2,4 +2,7 @@
 <resources>
     <dimen name="cart_img_size">72dp</dimen>
     <dimen name="cart_card_padding">8dp</dimen>
+
+    <dimen name="cart_summary_img_size">64dp</dimen>
+    <dimen name="cart_summary_margin_top">32dp</dimen>
 </resources>

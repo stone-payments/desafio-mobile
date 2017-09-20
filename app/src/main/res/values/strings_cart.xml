@@ -19,4 +19,7 @@
 
     <string name="cart_payment_confirm_bt">Confirmar pagamento</string>
 
+    <string name="cart_summary_success">Sua compra foi realizada com sucesso!</string>
+    <string name="cart_summary_error">Ops! Ocorreu um erro :(</string>
+
 </resources>
