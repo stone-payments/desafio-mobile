@@ -82,18 +82,6 @@ class ListingPresenterTest {
     }
 
     @Test
-    fun testNavigationTransaction() {
-        val navigator: ListingContract.Navigator = mock()
-        val fetcherUC: ListingFetcherUC = mock()
-        fetcherUC.setFetcherProducts(emptyList(), TestScheduler())
-
-        val robot = ListingViewRobot(ListingPresenter(navigator, fetcherUC, defaultAddToCartUC()))
-        robot.fireGoToTransactionsIntent()
-
-        verify(navigator).goToTransactions()
-    }
-
-    @Test
     fun testNavigationCart() {
         val navigator: ListingContract.Navigator = mock()
         val fetcherUC: ListingFetcherUC = mock()
@@ -147,14 +135,14 @@ private object Mother {
             ListingContract.Product(
                     id = "0",
                     title = "Sabre de luz",
-                    price = "R$150000",
+                    price = 150000,
                     seller = "Mario Mota",
                     thumbnailUrl = "http://www.obrigadopelospeixes.com/wp-content/uploads/2015/12/kalippe_lightsaber_by_jnetrocks-d4dyzpo1-1024x600.jpg",
                     inCart = false),
             ListingContract.Product(
                     id = "1",
                     title = "Capacete de StormTrooper",
-                    price = "R$30000",
+                    price = 30000,
                     seller = "Edu Guimar\u00e3es",
                     thumbnailUrl = "https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/760104/300/200/m1/fpnw/wm0/clean_tt_v001.0001-.png?1446786887&s=dcba72825ebb6982f69cd9aeeddcf9ca",
                     inCart = false)

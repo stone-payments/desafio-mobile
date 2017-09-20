@@ -17,7 +17,6 @@ class ListingViewRobot(val presenter: ListingPresenter) {
         override fun render(state: ViewState) = renderEvents.onNext(state)
 
         override fun goToCartScreen(): Observable<Unit> = goToCartSubject
-        override fun goToTransactionsScreen(): Observable<Unit> = goToTransactionsSubject
         override fun addToCart(): Observable<ListingContract.Product> = addToCartSubject
         override fun changedFilter(): Observable<String> = filterChangeSubject
     }
