@@ -57,7 +57,10 @@ class CartController
             inflater.inflate(R.layout.screen_cart, container, false)
 
     override fun onViewBound() {
-        activityCompat?.setSupportActionBar(toolbar)
+        with(activityCompat!!) {
+            setSupportActionBar(toolbar)
+            supportActionBar?.title = getString(R.string.cart_screen_title)
+        }
 
         productsRv.layoutManager = LinearLayoutManager(activity)
         rvController = CartRvController().also {

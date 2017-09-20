@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transactions_screen_title">Transações</string>
+    <string name="transactions_cc_number_label">Cartão usado</string>
+    <string name="transactions_cc_name_label">Comprador</string>
+    <string name="transactions_value_label">Valor</string>
+</resources>

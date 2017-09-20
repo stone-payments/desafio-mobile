@@ -29,7 +29,10 @@ class TransactionsController
             inflater.inflate(R.layout.screen_transactions, container, false)
 
     override fun onViewBound() {
-        activityCompat?.setSupportActionBar(toolbar)
+        with(activityCompat!!) {
+            setSupportActionBar(toolbar)
+            supportActionBar?.title = getString(R.string.transactions_screen_title)
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(activity)
         rvController = TransactionsRvController()
