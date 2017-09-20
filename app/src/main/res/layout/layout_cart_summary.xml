@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cart_summary_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ViewFlipper
+        android:id="@+id/cart_summary_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right">
+
+        <LinearLayout
+            android:id="@+id/cart_summary_loading_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cart_summary_margin_top"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:layout_width="@dimen/cart_summary_img_size"
+                android:layout_height="@dimen/cart_summary_img_size"
+                android:layout_gravity="center_horizontal"
+                android:indeterminate="true"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/cart_summary_success_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cart_summary_margin_top"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/cart_summary_img_size"
+                android:layout_height="@dimen/cart_summary_img_size"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_check"
+                android:tint="@color/colorAccent"/>
+
+            <TextView
+                style="@style/CommonErrorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/cart_summary_success"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cart_summary_error_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cart_summary_margin_top"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/cart_summary_img_size"
+                android:layout_height="@dimen/cart_summary_img_size"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_close"/>
+
+            <TextView
+                style="@style/CommonErrorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/cart_summary_error"/>
+
+        </LinearLayout>
+
+
+    </ViewFlipper>
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/transaction_time_tv"
+            style="@style/transactions_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="September 19, 9:30 AM"/>
+
+        <TextView
+            style="@style/transactions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transactions_cc_number_label"/>
+
+        <TextView
+            android:id="@+id/transaction_cc_4_digits_tv"
+            style="@style/transactions_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1234"/>
+
+        <TextView
+            style="@style/transactions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transactions_cc_name_label"/>
+
+        <TextView
+            android:id="@+id/transaction_cc_name_tv"
+            style="@style/transactions_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Alberto Maria"/>
+
+        <TextView
+            style="@style/transactions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transactions_value_label"/>
+
+        <TextView
+            android:id="@+id/transaction_value_tv"
+            style="@style/transactions_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="R$1999"/>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

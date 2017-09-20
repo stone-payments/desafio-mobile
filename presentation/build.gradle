@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    def config = rootProject.ext.androidConfig
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+        testInstrumentationRunner config.testInstrumentationRunner
+        multiDexEnabled config.multidexEnabled
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def deps = rootProject.ext.deps
+
+    compile project(':domain')
+    compile deps.rxJava
+    compile deps.rxAndroid
+    compile deps.mosby
+
+    testCompile deps.junit
+    testCompile deps.mockitoCore
+    testCompile(deps.mockitoKotlin, {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+    })
+    testCompile deps.hamkrest
+
+    androidTestCompile deps.junit
+    androidTestCompile(deps.espressoCore, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile deps.mockitoAndroid
+    androidTestCompile(deps.mockitoKotlin, {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+    })
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="transactions_date" parent="MaterialTypography.Regular.Title">
+    </style>
+
+    <style name="transactions_label" parent="MaterialTypography.Regular.Caption">
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="transactions_content" parent="MaterialTypography.Regular.Body1">
+
+    </style>
+</resources>
