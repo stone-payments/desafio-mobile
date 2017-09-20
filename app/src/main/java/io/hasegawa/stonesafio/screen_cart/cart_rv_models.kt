@@ -51,6 +51,13 @@ class CartRvBottomModel(val total: String, val canConfirm: Boolean, private val 
     : EpoxyModelWithHolderKt<CartRvBottomModel.Holder>(
         R.layout.item_cart_bottom, "cart-bottom") {
 
+    override fun equals(other: Any?): Boolean {
+        val otherM = other as? CartRvBottomModel
+        return otherM?.total == total && otherM.canConfirm == canConfirm
+    }
+
+    override fun hashCode(): Int = total.hashCode()
+
     override fun bind(holder: Holder?) {
         holder?.apply {
             totalTv.text = total
