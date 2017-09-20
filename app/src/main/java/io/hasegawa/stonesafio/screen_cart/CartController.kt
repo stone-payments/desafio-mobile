@@ -96,17 +96,17 @@ class CartController
         // Payment page
         paymentConfirmBt.isEnabled = state.canConfirmPayment
         state.ccInfo.run {
-            fun TextInputEditText.check(b: Boolean, msg: () -> String) {
+            fun TextInputEditText.check(b: Boolean, msgId: () -> Int) {
                 this.error = when (b) {
                     true -> null
-                    else -> msg() // TODO[hase] proper string resources
+                    else -> activity?.getString(msgId())
                 }
             }
-            cardNumberTiet.check(numberValid) { "Number invalid" }
-            cardNameTiet.check(nameValid) { "Name invalid" }
-            cardCVVTiet.check(cvvValid) { "CVV invalid" }
-            cardExpMonthTiet.check(expDateMonthValid) { "Month invalid" }
-            cardExpYearTiet.check(expDateYearValid) { "Year invalid" }
+            cardNumberTiet.check(numberValid) { R.string.cart_payment_cc_number_error }
+            cardNameTiet.check(nameValid) { R.string.cart_payment_cc_name_error }
+            cardCVVTiet.check(cvvValid) { R.string.cart_payment_cc_cvv_error }
+            cardExpMonthTiet.check(expDateMonthValid) { R.string.cart_payment_cc_exp_month_error }
+            cardExpYearTiet.check(expDateYearValid) { R.string.cart_payment_cc_exp_year_error }
         }
 
         // Summary page

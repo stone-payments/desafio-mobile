@@ -3,4 +3,20 @@
     <string name="cart_empty">Seu carrinho está vazio</string>
     <string name="cart_total">Total: %1$s</string>
     <string name="cart_confirm_cart_bt">Confirmar</string>
+
+    <string name="cart_payment_title">Informações de pagamento</string>
+    <string name="cart_payment_cc_number_hint">Número do cartão</string>
+    <string name="cart_payment_cc_name_hint">Nome que está no cartão</string>
+    <string name="cart_payment_cc_cvv_hint">Código de verificação</string>
+    <string name="cart_payment_cc_exp_month_hint">Mês de expiração</string>
+    <string name="cart_payment_cc_exp_year_hint">Ano de expiração</string>
+
+    <string name="cart_payment_cc_number_error">Digite um número de 16 digitos</string>
+    <string name="cart_payment_cc_name_error">Nome inválido</string>
+    <string name="cart_payment_cc_cvv_error">Insira o código de 3 digitos</string>
+    <string name="cart_payment_cc_exp_month_error">Insira um número entre 1 e 12</string>
+    <string name="cart_payment_cc_exp_year_error">Insira um número entre 0 e 99</string>
+
+    <string name="cart_payment_confirm_bt">Confirmar pagamento</string>
+
 </resources>
