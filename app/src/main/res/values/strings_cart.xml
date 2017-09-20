@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cart_empty">Seu carrinho está vazio</string>
+    <string name="cart_total">Total: %1$s</string>
+    <string name="cart_confirm_cart_bt">Confirmar</string>
+</resources>

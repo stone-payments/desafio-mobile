@@ -22,35 +22,42 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/cart_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Page:"/>
-
-        <TextView
-            android:id="@+id/cart_page_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <ViewFlipper
-            android:id="@+id/cart_flipper"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <include layout="@layout/layout_cart_list"/>
+            <com.layer_net.stepindicator.StepIndicator
+                android:id="@+id/cart_stepindicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:siStepCount="3"/>
 
-            <include layout="@layout/layout_cart_payment"/>
+            <ViewFlipper
+                android:id="@+id/cart_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:measureAllChildren="true">
 
-            <include layout="@layout/layout_cart_summary"/>
+                <include layout="@layout/layout_cart_list"/>
 
-        </ViewFlipper>
+                <include layout="@layout/layout_cart_payment"/>
+
+                <include layout="@layout/layout_cart_summary"/>
+
+            </ViewFlipper>
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
 </android.support.design.widget.CoordinatorLayout>

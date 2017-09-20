@@ -40,6 +40,9 @@ class ListingController
 
     private var actionBarToggler: ActionBarDrawerToggle? = null
 
+    // Save a copy because the menu inflation may happens after the view has restored state
+    private var lastNumberInCart: Int = 0
+
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View =
             inflater.inflate(R.layout.screen_listing, container, false)
                     .also { setHasOptionsMenu(true) }
@@ -74,7 +77,7 @@ class ListingController
 
         val drawable = activityCompat?.getDrawable(R.drawable.ic_cart_outline)
         ActionItemBadge.update(activity, menuCart, drawable,
-                ActionItemBadge.BadgeStyles.BLUE, 0)
+                ActionItemBadge.BadgeStyles.BLUE, lastNumberInCart)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -97,6 +100,7 @@ class ListingController
     }
 
     override fun render(state: ViewState) {
+        lastNumberInCart = state.numberInCart
         menuCart?.also { ActionItemBadge.update(it, state.numberInCart) }
 
         if (baseRestoringViewState) {

@@ -2,6 +2,7 @@ package io.hasegawa.stonesafio.screen_cart
 
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
+import android.support.v4.widget.NestedScrollView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
@@ -13,6 +14,7 @@ import android.widget.TextView
 import android.widget.ViewFlipper
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.textChanges
+import com.layer_net.stepindicator.StepIndicator
 import io.hasegawa.presentation.screen_cart.CartContract
 import io.hasegawa.presentation.screen_cart.CartContract.SummaryViewState
 import io.hasegawa.presentation.screen_cart.CartPresenter
@@ -28,12 +30,11 @@ class CartController
         CartContract.View {
 
     private val toolbar: Toolbar by bindView(R.id.cart_toolbar)
-    private val pageTv: TextView by bindView(R.id.cart_page_tv)
+    private val stepIndicator: StepIndicator by bindView(R.id.cart_stepindicator)
     private val pageFlipper: ViewFlipper by bindView(R.id.cart_flipper)
+    private val scrollView: NestedScrollView by bindView(R.id.cart_scrollview)
 
     // Cart list page
-    private val totalTv: TextView by bindView(R.id.cart_total_tv)
-    private val confirmCartBt: Button by bindView(R.id.cart_confirm_cart_bt)
     private val productsRv: RecyclerView by bindView(R.id.cart_products_rv)
 
     // Payment page
@@ -65,18 +66,22 @@ class CartController
     }
 
     override fun render(state: CartContract.ViewState) {
-        pageTv.text = state.currentPage.toString()
         val pageId = when (state.currentPage) {
-            CartContract.Page.Cart -> R.id.cart_list_ll
+            CartContract.Page.Cart -> R.id.cart_products_rv
             CartContract.Page.Payment -> R.id.cart_payment_ll
             CartContract.Page.Summary -> R.id.cart_summary_ll
         }
-        pageFlipper.showNextUntilViewId(pageId)
+        if (pageFlipper.currentView.id != pageId) {
+            pageFlipper.showNextUntilViewId(pageId)
+            scrollView.scrollTo(0, 0)
+        }
+        stepIndicator.currentStepPosition = state.currentPage.ordinal
 
         // Cart page
-        totalTv.text = "R\$${state.productsTotal}" // TODO[hase] proper price formatting
-        confirmCartBt.isEnabled = state.canProceedToPaymentScreen
-        rvController!!.setData(state.products)
+        val totalPrice = "R\$${state.productsTotal}" // TODO[hase] proper price formatting
+        val total = activityCompat?.getString(R.string.cart_total, totalPrice)
+        val canConfirm = state.canProceedToPaymentScreen
+        rvController!!.setData(state.products, total, canConfirm)
 
         if (baseRestoringViewState) {
             state.ccInfo.run {
@@ -118,7 +123,7 @@ class CartController
         return true
     }
 
-    override fun confirmCartList(): Observable<Unit> = confirmCartBt.clicks()
+    override fun confirmCartList(): Observable<Unit> = rvController!!.observeConfirmClicks()
     override fun confirmPayment(): Observable<Unit> = paymentConfirmBt.clicks()
     override fun back(): Observable<Unit> = backButtonSubj
     override fun removeItemFromCart(): Observable<String> = rvController!!.observeRemoveClicks().map { it.id }

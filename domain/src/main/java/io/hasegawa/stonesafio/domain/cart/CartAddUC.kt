@@ -43,6 +43,7 @@ class CartAddUC(val listItemsUC: ListItemsUC, val cartRepository: CartRepository
                                                 CartProduct(
                                                         id = id,
                                                         title = title,
+                                                        seller = seller,
                                                         thumbnailUrl = thumbnailHd,
                                                         price = price,
                                                         instantAdded = System.currentTimeMillis()

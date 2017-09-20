@@ -52,6 +52,7 @@ dependencies {
     compile deps.picasso
     compile deps.materialValues
     compile deps.actionItemBadge
+    compile deps.stepIndicator
 
     kapt deps.dagger2Compiler
 

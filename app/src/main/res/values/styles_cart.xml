@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="cart_product_title" parent="MaterialTypography.Regular.Body1">
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="cart_product_seller" parent="MaterialTypography.Regular.Body2">
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="cart_product_price" parent="MaterialTypography.Dense.Body2">
+    </style>
+    <style name="cart_bottom_total" parent="MaterialTypography.Dense.Title">
+    </style>
+</resources>
