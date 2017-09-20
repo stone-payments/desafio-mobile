@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
-        android:text="@string/cart_confirm_cart_bt"/>
+        android:text="@string/cart_confirm_cart_bt"
+        android:theme="@style/cart_bt"/>
 
 </LinearLayout>

@@ -20,6 +20,7 @@ import io.hasegawa.presentation.screen_listing.ListingContract.ViewState
 import io.hasegawa.presentation.screen_listing.ListingPresenter
 import io.hasegawa.stonesafio.R
 import io.hasegawa.stonesafio.common.BaseController
+import io.hasegawa.stonesafio.common.FontCache
 import io.hasegawa.stonesafio.common.bindView
 import io.hasegawa.stonesafio.screen_navdrawer.NavDrawerController
 import io.reactivex.Observable
@@ -31,6 +32,7 @@ class ListingController
         ListingContract.StateEvent, ListingPresenter>(), ListingContract.View {
 
     private val toolbar: Toolbar by bindView(R.id.listing_toolbar)
+    private val toolbarTitleTv: TextView by bindView(R.id.listing_toolbar_title_tv)
     private val searchBarEt: EditText by bindView(R.id.listing_search_et)
     private val productsRv: RecyclerView by bindView(R.id.listing_products_rv)
 
@@ -61,8 +63,12 @@ class ListingController
                         R.string.app_name, R.string.app_name)
             }
 
-            actionBar?.setDisplayHomeAsUpEnabled(true)
-            actionBar?.setHomeButtonEnabled(true)
+            with(supportActionBar!!) {
+                setDisplayHomeAsUpEnabled(true)
+                setHomeButtonEnabled(true)
+                setDisplayShowTitleEnabled(false)
+            }
+            FontCache.brandFont(this, toolbarTitleTv)
         }
 
         productsRv.layoutManager = LinearLayoutManager(activity)

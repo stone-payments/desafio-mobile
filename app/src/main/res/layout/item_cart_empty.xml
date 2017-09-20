@@ -9,13 +9,14 @@
         android:layout_height="64dp"
         android:layout_gravity="center"
         android:layout_marginTop="64dp"
-        android:src="@drawable/ic_circle_outline"/>
+        android:src="@drawable/ic_circle_outline"
+        android:tint="@color/colorAccent"/>
 
     <TextView
+        style="@style/CommonErrorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/cart_empty"
-        android:textSize="@dimen/material_typography_regular_title_text_size"/>
+        android:text="@string/cart_empty"/>
 
 </LinearLayout>

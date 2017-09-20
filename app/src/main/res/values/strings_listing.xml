@@ -3,4 +3,6 @@
     <string name="listing_menu_cart">Carrinho</string>
     <string name="listing_buy_bt">Comprar</string>
     <string name="listing_search_hint">Filtro</string>
+    <string name="listing_conn_issue">Ops! Sem internet? :(</string>
+    <string name="listing_unknown_issue">Ops! Quebrou algo aqui :(</string>
 </resources>

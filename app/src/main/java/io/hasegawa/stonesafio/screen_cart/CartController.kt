@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.ViewFlipper
+import com.airbnb.epoxy.EpoxyTouchHelper
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.textChanges
 import com.layer_net.stepindicator.StepIndicator
@@ -22,6 +23,7 @@ import io.hasegawa.stonesafio.R
 import io.hasegawa.stonesafio.common.BaseController
 import io.hasegawa.stonesafio.common.bindView
 import io.hasegawa.stonesafio.common.showNextUntilViewId
+import io.hasegawa.stonesafio.domain.cart.CartProduct
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
@@ -49,6 +51,7 @@ class CartController
     private val summaryFlipper: ViewFlipper by bindView(R.id.cart_summary_flipper)
 
     private val backButtonSubj = PublishSubject.create<Unit>()
+    private val productSwipedSub = PublishSubject.create<CartProduct>()
     private var rvController: CartRvController? = null
 
     override fun createPresenter(): CartPresenter = CartDIComponent.initialize(this).getPresenter()
@@ -66,6 +69,16 @@ class CartController
         rvController = CartRvController().also {
             productsRv.adapter = it.adapter
         }
+
+        EpoxyTouchHelper.initSwiping(productsRv)
+                .leftAndRight()
+                .withTarget(CartRvProductModel::class.java)
+                .andCallbacks(object : EpoxyTouchHelper.SwipeCallbacks<CartRvProductModel>() {
+                    override fun onSwipeCompleted(model: CartRvProductModel?, itemView: View?,
+                                                  position: Int, direction: Int) {
+                        model?.product?.also { productSwipedSub.onNext(it) }
+                    }
+                })
     }
 
     override fun render(state: CartContract.ViewState) {
@@ -129,7 +142,7 @@ class CartController
     override fun confirmCartList(): Observable<Unit> = rvController!!.observeConfirmClicks()
     override fun confirmPayment(): Observable<Unit> = paymentConfirmBt.clicks()
     override fun back(): Observable<Unit> = backButtonSubj
-    override fun removeItemFromCart(): Observable<String> = rvController!!.observeRemoveClicks().map { it.id }
+    override fun removeItemFromCart(): Observable<String> = productSwipedSub.map { it.id }
     override fun changesCCNumber(): Observable<String> = cardNumberTiet.textChanges().map { it.toString() }
     override fun changesCCName(): Observable<String> = cardNameTiet.textChanges().map { it.toString() }
     override fun changesCCVerificationNumber(): Observable<String> = cardCVVTiet.textChanges().map { it.toString() }

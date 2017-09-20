@@ -40,10 +40,11 @@
                 android:layout_width="@dimen/cart_summary_img_size"
                 android:layout_height="@dimen/cart_summary_img_size"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_check"/>
+                android:src="@drawable/ic_check"
+                android:tint="@color/colorAccent"/>
 
             <TextView
-                style="@style/cart_summary_message"
+                style="@style/CommonErrorTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -65,7 +66,7 @@
                 android:src="@drawable/ic_close"/>
 
             <TextView
-                style="@style/cart_summary_message"
+                style="@style/CommonErrorTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

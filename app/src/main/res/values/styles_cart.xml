@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="cart_product_title" parent="MaterialTypography.Regular.Body1">
         <item name="android:singleLine">true</item>
     </style>
+
     <style name="cart_product_seller" parent="MaterialTypography.Regular.Body2">
         <item name="android:singleLine">true</item>
     </style>
+
     <style name="cart_product_price" parent="MaterialTypography.Dense.Body2">
     </style>
 
     <style name="cart_bottom_total" parent="MaterialTypography.Dense.Title">
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <style name="cart_payment_title" parent="MaterialTypography.Dense.Title">
@@ -17,5 +21,10 @@
 
     <style name="cart_summary_message" parent="MaterialTypography.Dense.Title">
         <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="cart_bt" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColor">@color/material_typography_primary_text_color_light</item>
     </style>
 </resources>

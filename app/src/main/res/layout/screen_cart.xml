@@ -38,6 +38,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                app:siBackgroundColor="@color/colorAccent"
+                app:siCurrentStepColor="@android:color/white"
+                app:siStepColor="@color/colorAccent"
                 app:siStepCount="3"/>
 
             <ViewFlipper

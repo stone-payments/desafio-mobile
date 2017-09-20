@@ -65,12 +65,5 @@
             android:layout_weight="0"
             android:gravity="end"
             tools:text="R$30000,00"/>
-
-        <Button
-            android:id="@+id/cart_product_remove_bt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="X"
-            android:visibility="gone"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

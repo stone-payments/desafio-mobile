@@ -62,17 +62,21 @@
                 android:measureAllChildren="true"
                 android:outAnimation="@android:anim/slide_out_right">
 
+                <Button
+                    android:id="@+id/listing_product_buy_bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:text="@string/listing_buy_bt"
+                    android:theme="@style/listing_buy_bt"/>
+
                 <ImageView
                     android:id="@+id/listing_product_incart_iv"
                     style="@style/listing_in_cart_ic"
                     android:src="@drawable/ic_cart_outline"/>
 
-                <Button
-                    android:id="@+id/listing_product_buy_bt"
-                    style="@style/listing_buy_bt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/listing_buy_bt"/>
             </ViewFlipper>
 
         </LinearLayout>

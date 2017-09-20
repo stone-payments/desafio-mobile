@@ -3,4 +3,6 @@
     <dimen name="listing_card_margin">16dp</dimen>
     <dimen name="listing_card_padding">8dp</dimen>
     <dimen name="listing_thumbnail_max_height">160dp</dimen>
+
+    <dimen name="listing_loading_error_margin_top">64dp</dimen>
 </resources>

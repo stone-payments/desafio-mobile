@@ -13,7 +13,7 @@ import io.hasegawa.stonesafio.domain.cart.CartProduct
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
-class CartRvProductModel(val product: CartProduct, private val removeClicksCb: (CartProduct) -> Unit)
+class CartRvProductModel(val product: CartProduct)
     : EpoxyModelWithHolderKt<CartRvProductModel.Holder>(
         R.layout.item_cart_product, product.id) {
 
@@ -32,15 +32,9 @@ class CartRvProductModel(val product: CartProduct, private val removeClicksCb: (
 
                 titleTv.text = title
                 sellerTv.text = seller
-                priceTv.text = "R$ $price" // TODO[hase] proper price formatting
-
-                removeBt.setOnClickListener { removeClicksCb(product) }
+                priceTv.text = "R\$$price" // TODO[hase] proper price formatting
             }
         }
-    }
-
-    override fun unbind(holder: Holder?) {
-        holder?.removeBt?.setOnClickListener(null)
     }
 
     class Holder : EpoxyKotterHolder() {
@@ -48,7 +42,6 @@ class CartRvProductModel(val product: CartProduct, private val removeClicksCb: (
         val titleTv: TextView by bindView(R.id.cart_product_title_tv)
         val sellerTv: TextView by bindView(R.id.cart_product_seller_tv)
         val priceTv: TextView by bindView(R.id.cart_product_price_tv)
-        val removeBt: Button by bindView(R.id.cart_product_remove_bt)
     }
 
     override fun createNewHolder(): Holder = Holder()
@@ -86,12 +79,11 @@ class CartRvEmptyModel : EpoxyModelWithHolderKt<CartRvEmptyModel.Holder>(
 }
 
 class CartRvController : Typed3EpoxyController<List<CartProduct>, String, Boolean>() {
-    private val removeClicksSubject = PublishSubject.create<CartProduct>()
     private val confirmClicksSubject = PublishSubject.create<Unit>()
 
     override fun buildModels(data: List<CartProduct>?, total: String, canConfirm: Boolean) {
         data
-                ?.map { product -> CartRvProductModel(product) { removeClicksSubject.onNext(it) } }
+                ?.map { product -> CartRvProductModel(product) }
                 ?.onEach { add(it) }
 
         if (data?.isEmpty() == true) {
@@ -101,6 +93,5 @@ class CartRvController : Typed3EpoxyController<List<CartProduct>, String, Boolea
         }
     }
 
-    fun observeRemoveClicks(): Observable<CartProduct> = removeClicksSubject
     fun observeConfirmClicks(): Observable<Unit> = confirmClicksSubject
 }
