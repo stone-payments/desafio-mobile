@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">Shopit!</string>
-    <string name="action_add_favourite">Add to Cart</string>
+    <string name="action_search">Search</string>
     <string name="action_show_cart">Show Cart</string>
     <string name="backdrop_title">STAR WARS</string>
-    <string name="backdrop_subtitle">Many great jedi products</string>
+    <string name="backdrop_subtitle">Best JEDI products on this galaxy</string>
 
     <string name="dummy_content">Shopit</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class FullscreenActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -92,6 +93,9 @@ public class FullscreenActivity extends AppCompatActivity {
 
         mVisible = true;
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
@@ -106,7 +110,7 @@ public class FullscreenActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
 //        delayedHide(100);
-        delayedHide(700);
+        delayedHide(2000);
     }
 
     private void toggle() {
@@ -153,7 +157,7 @@ public class FullscreenActivity extends AppCompatActivity {
         mHideHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(FullscreenActivity.this,MainActivity.class));
+                startActivity(new Intent(SplashActivity.this,HomeActivity.class));
                 finish();
             }
         }, delayMillis);
