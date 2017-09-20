@@ -27,6 +27,7 @@ class CartRvProductModel(val product: CartProduct, private val removeClicksCb: (
             product.run {
                 Picasso.with(holder.titleTv.context)
                         .load(thumbnailUrl)
+                        .fit()
                         .into(thumbnailIv)
 
                 titleTv.text = title

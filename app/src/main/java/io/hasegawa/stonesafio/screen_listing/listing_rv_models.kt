@@ -33,7 +33,7 @@ class ListingRvProductModel(val product: Product, private val buyClicksCb: (Prod
                         .into(thumbnailIv)
 
                 titleTv.text = title
-                priceTv.text = "R$ $price" // TODO[hase] proper price formatting
+                priceTv.text = "R\$$price" // TODO[hase] proper price formatting
                 sellerTv.text = seller
 
                 val flipperId = when (inCart) {
