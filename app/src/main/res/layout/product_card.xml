@@ -73,11 +73,10 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/title"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
                 android:scaleType="centerCrop"
                 android:visibility="visible"
-                app:srcCompat="@drawable/ic_more_vert_white_24px" />
+                app:srcCompat="@drawable/ic_more_vert_black_24px" />
 
 
             <TextView
