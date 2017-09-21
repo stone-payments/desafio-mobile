@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -23,11 +22,12 @@ import java.util.List;
 class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder> {
     private Context mContext;
     private List<Product> productList;
+    private Navigation mNavigation;
 
-
-    public ProductsAdapter(Context mContext, List<Product> productList) {
+    public ProductsAdapter(Context mContext, List<Product> productList, Navigation mNavigation) {
         this.mContext = mContext;
         this.productList = productList;
+        this.mNavigation = mNavigation;
     }
 
     @Override
@@ -40,9 +40,17 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
 
     @Override
     public void onBindViewHolder(final ProductViewHolder holder, int position) {
-        Product product = productList.get(position);
+        final Product product = productList.get(position);
         holder.title.setText(product.getTitle());
-        holder.count.setText("$" + product.getPrice() / 1000.0);
+        holder.seller.setText(product.getSeller());
+        holder.date.setText(product.getDate());
+        holder.price.setText("R$" + product.getPrice() / 1000.0);
+        holder.mRoot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mNavigation.whenGoToDetails(product);
+            }
+        });
 
         // loading album cover using Glide library
         Glide
@@ -50,12 +58,12 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
                 .load(product.getThumbnailHd())
                 .into(holder.thumbnail);
 
-        holder.overflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopupMenu(holder.overflow);
-            }
-        });
+//        holder.overflow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showPopupMenu(holder.overflow);
+//            }
+//        });
     }
 
     /**
@@ -100,15 +108,20 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
 
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, count;
+        public TextView title, seller, date, price;
         public ImageView thumbnail, overflow;
+        public View mRoot;
+
 
         public ProductViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            count = (TextView) view.findViewById(R.id.count);
-            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-            overflow = (ImageView) view.findViewById(R.id.overflow);
+            mRoot = view;
+            title = (TextView) mRoot.findViewById(R.id.title);
+            seller = (TextView) mRoot.findViewById(R.id.seller);
+            date = (TextView) mRoot.findViewById(R.id.date);
+            price = (TextView) mRoot.findViewById(R.id.count);
+            thumbnail = (ImageView) mRoot.findViewById(R.id.thumbnail);
+            overflow = (ImageView) mRoot.findViewById(R.id.overflow);
         }
     }
 }

@@ -18,6 +18,7 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 
 import com.google.gson.Gson;
@@ -29,7 +30,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+import static payments.stone.com.br.desafiomobile.DetailsActivity.KEY_DETAILS_PRODUCT_BUNDLE;
+
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Navigation {
     private List<Product> productList = new ArrayList<>();
     private RecyclerView recyclerView;
     private ImageView mBackdrop;
@@ -74,6 +77,7 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
             super.onBackPressed();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -85,7 +89,7 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_show_cart:
-                startActivity(new Intent(this,CartActivity.class));
+                startActivity(new Intent(this, CartActivity.class));
                 return true;
 
             default:
@@ -94,10 +98,10 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void showProducts(List<Product> productList) {
-        mAdapter = new ProductsAdapter(this, productList);
+        mAdapter = new ProductsAdapter(this, productList, this);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(2), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
     }
@@ -158,6 +162,13 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void whenGoToDetails(Product product) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra(KEY_DETAILS_PRODUCT_BUNDLE, product);
+        startActivity(intent);
     }
 
     public class ProductAsyncTask extends AsyncTask<Void, Void, List<Product>> {
