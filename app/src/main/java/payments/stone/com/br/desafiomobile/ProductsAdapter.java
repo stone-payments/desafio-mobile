@@ -58,12 +58,12 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
                 .load(product.getThumbnailHd())
                 .into(holder.thumbnail);
 
-//        holder.overflow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showPopupMenu(holder.overflow);
-//            }
-//        });
+        holder.overflow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopupMenu(holder.overflow);
+            }
+        });
     }
 
     /**
@@ -73,7 +73,7 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
         // inflate menu
         PopupMenu popup = new PopupMenu(mContext, view);
         MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.menu_product, popup.getMenu());
+        inflater.inflate(R.menu.menu_product_card, popup.getMenu());
         popup.setOnMenuItemClickListener(new ProductOverflowMenuItemClickListener());
         popup.show();
     }
@@ -89,12 +89,10 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             switch (menuItem.getItemId()) {
-//                case R.id.action_add_favourite:
+                case R.id.action_add_cart:
 //                    Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show();
-//                    return true;
-//                case R.id.action_play_next:
-//                    Toast.makeText(mContext, "Play next", Toast.LENGTH_SHORT).show();
-//                    return true;
+                    return true;
+
                 default:
             }
             return false;

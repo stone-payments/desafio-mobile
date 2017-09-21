@@ -4,8 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +22,7 @@ import org.w3c.dom.Text;
 public class DetailsActivity extends AppCompatActivity {
 
     public static final String KEY_DETAILS_PRODUCT_BUNDLE = "DETAILS_PRODUCT_BUNDLE";
-    private  Product product;
+    private Product product;
 
     private TextView mTitle;
     private TextView mSeller;
@@ -32,10 +38,10 @@ public class DetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
 
-        if(intent!=null &&
-                intent.getExtras()!= null){
+        if (intent != null &&
+                intent.getExtras() != null) {
 
-            if(intent.getExtras().containsKey(KEY_DETAILS_PRODUCT_BUNDLE)){
+            if (intent.getExtras().containsKey(KEY_DETAILS_PRODUCT_BUNDLE)) {
                 product = intent.getExtras().getParcelable(KEY_DETAILS_PRODUCT_BUNDLE);
             }
         }
@@ -55,7 +61,7 @@ public class DetailsActivity extends AppCompatActivity {
         ImageView expandedImage = (ImageView) findViewById(R.id.expandedImage);
         mTitle = (TextView) findViewById(R.id.title);
         mSeller = (TextView) findViewById(R.id.seller);
-        mPrice = (TextView)findViewById(R.id.price);
+        mPrice = (TextView) findViewById(R.id.price);
         mZipCode = (TextView) findViewById(R.id.zipcode);
         mDate = (TextView) findViewById(R.id.date);
 
@@ -65,10 +71,9 @@ public class DetailsActivity extends AppCompatActivity {
 
         mTitle.setText(product.getTitle());
         mSeller.setText("By " + product.getSeller());
-        mPrice.setText("R$" + Math.round( product.getPrice() /1000));
+        mPrice.setText("R$" + Math.round(product.getPrice() / 1000));
         mZipCode.setText("Zipcode  " + product.getZipCode());
         mDate.setText("Published Date  " + product.getDate());
-
 
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -101,5 +106,44 @@ public class DetailsActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_product, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_show_cart:
+                startActivity(new Intent(this, CartActivity.class));
+                return true;
+
+
+            case android.R.id.home:
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        if (menuItem != null) {
+            menuItem.setVisible(false);
+        }
+
+        return true;
     }
 }
