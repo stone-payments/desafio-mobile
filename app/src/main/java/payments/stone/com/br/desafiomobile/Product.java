@@ -1,14 +1,20 @@
 package payments.stone.com.br.desafiomobile;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by william.gouvea on 9/19/17.
  */
 
-class Product {
+class Product implements Parcelable {
     private String title;
 
     private long price;
 
+    @SerializedName("zipcode")
     private String zipCode;
 
     private String seller;
@@ -65,4 +71,43 @@ class Product {
     public void setDate(String date) {
         this.date = date;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.title);
+        dest.writeLong(this.price);
+        dest.writeString(this.zipCode);
+        dest.writeString(this.seller);
+        dest.writeString(this.thumbnailHd);
+        dest.writeString(this.date);
+    }
+
+    public Product() {
+    }
+
+    protected Product(Parcel in) {
+        this.title = in.readString();
+        this.price = in.readLong();
+        this.zipCode = in.readString();
+        this.seller = in.readString();
+        this.thumbnailHd = in.readString();
+        this.date = in.readString();
+    }
+
+    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel source) {
+            return new Product(source);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 }

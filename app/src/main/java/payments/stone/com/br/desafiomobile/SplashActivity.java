@@ -89,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fullscreen_activity);
+        setContentView(R.layout.spalsh_activity);
 
         mVisible = true;
 

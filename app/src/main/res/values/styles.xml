@@ -8,10 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="buttonStyle">@style/AppTheme.Button</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
+        <item name= "windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
@@ -31,5 +33,10 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
 
+    </style>
 </resources>

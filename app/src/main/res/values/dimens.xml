@@ -8,8 +8,8 @@
     <dimen name="backdrop_title">30dp</dimen>
     <dimen name="backdrop_subtitle">18dp</dimen>
     <dimen name="card_margin">5dp</dimen>
-    <dimen name="card_album_radius">0dp</dimen>
-    <dimen name="album_cover_height">160dp</dimen>
+    <dimen name="card_album_radius">2dp</dimen>
+    <dimen name="album_cover_height">140dp</dimen>
     <dimen name="album_title_padding">10dp</dimen>
     <dimen name="album_title">16dp</dimen>
     <dimen name="songs_count_padding_bottom">4dp</dimen>
@@ -19,4 +19,6 @@
     <dimen name="ic_album_overflow_margin_top">10dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="app_bar_height">240dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
