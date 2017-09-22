@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by william.gouvea on 9/19/17.
  */
 
-class Product implements Parcelable {
+public class Product implements Parcelable {
     private String title;
 
     private long price;
@@ -35,6 +35,10 @@ class Product implements Parcelable {
 
     public long getPrice() {
         return price;
+    }
+    public String getPriceFormatted(){
+        return "R$ " + String.format("%.2f", price / 1000.0);
+
     }
 
     public Product price(long price) {

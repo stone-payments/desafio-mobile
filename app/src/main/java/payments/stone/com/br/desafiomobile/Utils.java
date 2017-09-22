@@ -15,7 +15,7 @@ public class Utils {
     /**
      * Converting dp to pixel
      */
-    static int dpToPx(int dp, Context context) {
+    public static int dpToPx(int dp, Context context) {
         Resources r = context.getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
@@ -36,7 +36,7 @@ public class Utils {
         return json;
     }
 
-    public static String getPriceFormatted(long price){
+    public static String getPriceFormatted(long price) {
         return "R$ " + String.format("%.2f", price / 1000.0);
     }
 }

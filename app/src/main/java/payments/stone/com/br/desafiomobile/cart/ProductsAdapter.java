@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.cart;
 
 import android.content.Context;
 import android.support.v7.widget.PopupMenu;
@@ -10,16 +10,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import payments.stone.com.br.desafiomobile.Navigation;
+import payments.stone.com.br.desafiomobile.Product;
+import payments.stone.com.br.desafiomobile.R;
+import payments.stone.com.br.desafiomobile.Utils;
+
 /**
  * Created by william.gouvea on 9/19/17.
  */
 
-class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder> {
+public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder> {
     private Context mContext;
     private List<Product> productList;
     private Navigation mNavigation;
@@ -90,7 +96,7 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
         public boolean onMenuItemClick(MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.action_add_cart:
-//                    Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Added", Toast.LENGTH_SHORT).show();
                     return true;
 
                 default:

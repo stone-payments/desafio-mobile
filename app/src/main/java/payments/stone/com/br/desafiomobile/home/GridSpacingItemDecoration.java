@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.home;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
