@@ -1,7 +1,7 @@
 package payments.stone.com.br.desafiomobile;
 
+import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -14,35 +14,42 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 import static payments.stone.com.br.desafiomobile.DetailsActivity.KEY_DETAILS_PRODUCT_BUNDLE;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Navigation {
-    private List<Product> productList = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private ImageView mBackdrop;
+public class HomeActivity extends AppCompatActivity implements HomeView,NavigationView.OnNavigationItemSelectedListener, Navigation {
+    private List<Product> mProductList = new ArrayList<>();
+    private RecyclerView mProductsRecyclerView;
     private ProductsAdapter mAdapter;
+
+    private HomePresenter mPresenter;
+
+    private ImageView mBackdrop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
 
+        mPresenter = new HomePresenter(this);
+
+        loadViews();
+        loadProducts();
+    }
+
+    private void loadViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,16 +62,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 //        mBackdrop = (ImageView) findViewById(R.id.backdrop);
-        productList = new ArrayList<>();
-
-        prepareAlbums();
-
-//        Glide
-//                .with(this)
-//                .load(R.drawable.yoda_cover)
-//                .into(mBackdrop);
+        mProductsRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
     }
 
@@ -97,66 +96,57 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private void showProducts(List<Product> productList) {
+    @Override
+    public void showProducts(List<Product> productList) {
+//                Glide
+//                .with(this)
+//                .load(R.drawable.yoda_cover)
+//                .into(mBackdrop);
+
         mAdapter = new ProductsAdapter(this, productList, this);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(2), true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+        mProductsRecyclerView.setLayoutManager(mLayoutManager);
+        mProductsRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, Utils.dpToPx(2, getApplicationContext()), true));
+        mProductsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mProductsRecyclerView.setAdapter(mAdapter);
+
+//        mAdapter.notifyDataSetChanged();
+
     }
 
+    @Override
+    public void showLoading() {
 
-    /**
-     * Adding few albums for testing
-     */
-    private void prepareAlbums() {
-        new ProductAsyncTask().execute();
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void showError(String error) {
+
+    }
+
+    @Override
+    public void hideError() {
+
+    }
+
+    private void loadProducts() {
+        new ProductAsyncTask(mPresenter, getApplicationContext()).execute();
 //        adapter.notifyDataSetChanged();
     }
 
-
-    /**
-     * Converting dp to pixel
-     */
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
-
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getAssets().open("products.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_order) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -171,22 +161,28 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
-    public class ProductAsyncTask extends AsyncTask<Void, Void, List<Product>> {
-        private List<Product> productList;
+    public static class ProductAsyncTask extends AsyncTask<Void, Void, List<Product>> {
+        private HomePresenter presenter;
+        private List<Product> products;
+        private Context context;
+
+        public ProductAsyncTask(HomePresenter presenter, Context context) {
+            this.presenter = presenter;
+            this.context = context;
+        }
 
         @Override
         protected List<Product> doInBackground(Void... params) {
             Type productListType = new TypeToken<ArrayList<Product>>() {
             }.getType();
-            productList = new Gson().fromJson(loadJSONFromAsset(), productListType);
-            return productList;
+            products = new Gson().fromJson(Utils.loadJSONFromAsset(context), productListType);
+            return products;
         }
 
         @Override
         protected void onPostExecute(List<Product> products) {
             super.onPostExecute(products);
-            showProducts(products);
-            mAdapter.notifyDataSetChanged();
+            presenter.onProductsReceived(new ProductsResponse(products));
         }
     }
 }
