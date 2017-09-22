@@ -44,7 +44,7 @@ class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHo
         holder.title.setText(product.getTitle());
         holder.seller.setText(product.getSeller());
         holder.date.setText(product.getDate());
-        holder.price.setText("R$ " + String.format("%.2f", product.getPrice() / 1000.0));
+        holder.price.setText(Utils.getPriceFormatted(product.getPrice()));
         holder.mRoot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

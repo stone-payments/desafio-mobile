@@ -3,12 +3,24 @@ package payments.stone.com.br.desafiomobile;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class CartActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CartActivity extends AppCompatActivity implements Navigation {
+    private RecyclerView mCartRecyclerView;
+    private CartAdapter mCartAdapter;
+    private TextView mTotalPrice;
+    private long totalAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +31,44 @@ public class CartActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mCartRecyclerView = (RecyclerView) findViewById(R.id.cart_items);
+        mTotalPrice = (TextView) findViewById(R.id.total_value);
+
+        List<CartItem> items = new ArrayList<>();
+        items.add(
+                new CartItem(
+                        new Product()
+                                .title("Yoda Poster")
+                                .seller("Lucas Arts")
+                                .price(90000)).increment(2));
+
+        items.add(
+                new CartItem(
+                        new Product()
+                                .title("Camisa StormTrooper")
+                                .seller("Lucas Arts")
+                                .thumb("http://mlb-s1-p.mlstatic.com/moletom-star-wars-stormtrooper-12754-MLB20066273702_032014-F.jpg")
+                                .price(725000))
+                                .increment(1));
+
+        showCartItems(items);
+
+        for (CartItem cartItem : items) {
+            totalAmount += cartItem.getCount() * cartItem.getProduct().getPrice();
+        }
+
+        mTotalPrice.setText(Utils.getPriceFormatted(totalAmount));
+
+    }
+
+    public void showCartItems(List<CartItem> items) {
+        mCartAdapter = new CartAdapter(this, items, this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mCartRecyclerView.setLayoutManager(mLayoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mCartRecyclerView.getContext(), LinearLayoutManager.VERTICAL);
+        mCartRecyclerView.addItemDecoration(dividerItemDecoration);
+        mCartRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mCartRecyclerView.setAdapter(mCartAdapter);
     }
 
 
@@ -64,5 +114,10 @@ public class CartActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    public void whenGoToDetails(Product product) {
+
     }
 }

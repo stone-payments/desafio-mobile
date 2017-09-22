@@ -28,16 +28,18 @@ class Product implements Parcelable {
         return title;
     }
 
-    public void setTitle(String title) {
+    public Product title(String title) {
         this.title = title;
+        return this;
     }
 
     public long getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public Product price(long price) {
         this.price = price;
+        return this;
     }
 
     public String getZipCode() {
@@ -52,16 +54,18 @@ class Product implements Parcelable {
         return seller;
     }
 
-    public void setSeller(String seller) {
+    public Product seller(String seller) {
         this.seller = seller;
+        return this;
     }
 
     public String getThumbnailHd() {
         return thumbnailHd;
     }
 
-    public void setThumbnailHd(String thumbnailHd) {
+    public Product thumb(String thumbnailHd) {
         this.thumbnailHd = thumbnailHd;
+        return this;
     }
 
     public String getDate() {

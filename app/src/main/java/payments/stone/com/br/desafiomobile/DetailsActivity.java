@@ -55,7 +55,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 //        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent)); // transperent color = #00000000
 //        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(0, 0, 0));
-//        collapsingToolbarLayout.setTitle(product.getTitle());
+//        collapsingToolbarLayout.title(product.getTitle());
 
 
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
@@ -88,10 +88,10 @@ public class DetailsActivity extends AppCompatActivity {
 //                    scrollRange = appBarLayout.getTotalScrollRange();
 //                }
 //                if (scrollRange + verticalOffset == 0) {
-//                    collapsingToolbarLayout.setTitle("Jedi Details");
+//                    collapsingToolbarLayout.title("Jedi Details");
 //                    isShow = true;
 //                } else if (isShow) {
-//                    collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
+//                    collapsingToolbarLayout.title(" ");//carefull there should a space between double quote otherwise it wont work
 //                    isShow = false;
 //                }
 //            }
