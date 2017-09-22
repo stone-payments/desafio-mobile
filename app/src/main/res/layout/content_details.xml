@@ -7,7 +7,7 @@
     android:background="@color/viewBg"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="payments.stone.com.br.desafiomobile.DetailsActivity"
+    tools:context="payments.stone.com.br.desafiomobile.details.DetailsActivity"
     tools:showIn="@layout/details_activity">
 
     <LinearLayout

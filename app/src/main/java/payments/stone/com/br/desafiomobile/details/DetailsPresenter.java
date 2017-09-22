@@ -1,4 +1,6 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.details;
+
+import payments.stone.com.br.desafiomobile.Product;
 
 /**
  * Created by william.gouvea on 9/22/17.
@@ -11,8 +13,8 @@ public class DetailsPresenter {
         this.mView = mView;
     }
 
-    public DetailsPresenter loadProduct(Product product){
-        if(product != null) {
+    public DetailsPresenter loadProduct(Product product) {
+        if (product != null) {
             this.mView.showDetails(product);
         }
         return this;

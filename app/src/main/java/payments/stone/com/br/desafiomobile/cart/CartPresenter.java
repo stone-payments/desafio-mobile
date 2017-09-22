@@ -6,17 +6,19 @@ import android.os.Looper;
 import java.util.ArrayList;
 import java.util.List;
 
+import payments.stone.com.br.desafiomobile.BasePresenter;
 import payments.stone.com.br.desafiomobile.Product;
 
 /**
  * Created by william.gouvea on 9/22/17.
  */
 
-public class CartPresenter {
+public class CartPresenter extends BasePresenter {
     private CartView mView;
 
     public CartPresenter(CartView mView) {
         this.mView = mView;
+        create();
     }
 
     public CartPresenter loadCart() {
@@ -45,24 +47,13 @@ public class CartPresenter {
                 mView.showTotalPrice(items);
                 mView.showCartItems(items);
             }
-        }, 3000);
+        }, 1200);
 
         return this;
     }
 
-    public void resume() {
-
-    }
-
-    public void pause() {
-
-    }
-
+    @Override
     public void create() {
-
-    }
-
-    public void destroy() {
 
     }
 }

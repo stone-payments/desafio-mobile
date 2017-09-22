@@ -1,22 +1,18 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.details;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.bumptech.glide.Glide;
 
-import payments.stone.com.br.desafiomobile.cart.CartActivity;
+import payments.stone.com.br.desafiomobile.BaseActivity;
+import payments.stone.com.br.desafiomobile.Product;
+import payments.stone.com.br.desafiomobile.R;
 
-public class DetailsActivity extends AppCompatActivity implements DetailsView {
-
+public class DetailsActivity extends BaseActivity implements DetailsView {
     public static final String KEY_DETAILS_PRODUCT_BUNDLE = "DETAILS_PRODUCT_BUNDLE";
     private Product mProduct;
 
@@ -28,7 +24,6 @@ public class DetailsActivity extends AppCompatActivity implements DetailsView {
 
     ImageView mExpandedImage;
 
-
     private DetailsPresenter mPresenter;
 
     @Override
@@ -38,6 +33,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsView {
 
         handleIntent();
         loadViews();
+
         mPresenter = new DetailsPresenter(this).loadProduct(mProduct);
 
     }
@@ -52,6 +48,20 @@ public class DetailsActivity extends AppCompatActivity implements DetailsView {
                 mProduct = intent.getExtras().getParcelable(KEY_DETAILS_PRODUCT_BUNDLE);
             }
         }
+    }
+
+    @Override
+    public void loadViews() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mTitle = (TextView) findViewById(R.id.title);
+        mSeller = (TextView) findViewById(R.id.seller);
+        mPrice = (TextView) findViewById(R.id.price);
+        mZipCode = (TextView) findViewById(R.id.zipcode);
+        mDate = (TextView) findViewById(R.id.date);
+        mExpandedImage = (ImageView) findViewById(R.id.expandedImage);
     }
 
     @Override
@@ -85,58 +95,5 @@ public class DetailsActivity extends AppCompatActivity implements DetailsView {
     @Override
     public void hideError() {
 
-    }
-
-    private void loadViews() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        mTitle = (TextView) findViewById(R.id.title);
-        mSeller = (TextView) findViewById(R.id.seller);
-        mPrice = (TextView) findViewById(R.id.price);
-        mZipCode = (TextView) findViewById(R.id.zipcode);
-        mDate = (TextView) findViewById(R.id.date);
-        mExpandedImage = (ImageView) findViewById(R.id.expandedImage);
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_product, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_show_cart:
-                startActivity(new Intent(this, CartActivity.class));
-                return true;
-
-
-            case android.R.id.home:
-                finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem menuItem = menu.findItem(R.id.action_search);
-        if (menuItem != null) {
-            menuItem.setVisible(false);
-        }
-
-        return true;
     }
 }

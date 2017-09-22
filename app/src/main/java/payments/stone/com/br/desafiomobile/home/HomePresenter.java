@@ -16,8 +16,10 @@ public class HomePresenter {
         this.mView = mView;
     }
 
-    public void loadProducts() {
+    public HomePresenter loadProducts() {
         mView.showLoading();
+        new HomeActivity.ProductAsyncTask(this, mView.context().getApplicationContext()).execute();
+        return this;
     }
 
     public void resume() {
