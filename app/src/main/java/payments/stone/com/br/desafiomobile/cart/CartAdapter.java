@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.cart;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,11 +13,15 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import payments.stone.com.br.desafiomobile.Navigation;
+import payments.stone.com.br.desafiomobile.R;
+import payments.stone.com.br.desafiomobile.Utils;
+
 /**
  * Created by william.gouvea on 9/21/17.
  */
 
-class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHolder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHolder> {
     private Context mContext;
     private List<CartItem> items;
     private Navigation mNavigation;
@@ -43,7 +47,7 @@ class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHolder> {
         holder.seller.setText(item.getProduct().getSeller());
         holder.price.setText(item.getCount() + " x " + Utils.getPriceFormatted(item.getProduct().getPrice()));
 
-        if(!TextUtils.isEmpty(item.getProduct().getThumbnailHd())) {
+        if (!TextUtils.isEmpty(item.getProduct().getThumbnailHd())) {
             Glide
                     .with(mContext)
                     .load(item.getProduct().getThumbnailHd())

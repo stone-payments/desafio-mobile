@@ -2,11 +2,6 @@ package payments.stone.com.br.desafiomobile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -15,14 +10,15 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
+import payments.stone.com.br.desafiomobile.cart.CartActivity;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity implements DetailsView {
 
     public static final String KEY_DETAILS_PRODUCT_BUNDLE = "DETAILS_PRODUCT_BUNDLE";
-    private Product product;
+    private Product mProduct;
 
     private TextView mTitle;
     private TextView mSeller;
@@ -30,82 +26,79 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView mZipCode;
     private TextView mDate;
 
+    ImageView mExpandedImage;
+
+
+    private DetailsPresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_activity);
 
-        Intent intent = getIntent();
+        handleIntent();
+        loadViews();
+        mPresenter = new DetailsPresenter(this).loadProduct(mProduct);
 
+    }
+
+    private void handleIntent() {
+        Intent intent = getIntent();
 
         if (intent != null &&
                 intent.getExtras() != null) {
 
             if (intent.getExtras().containsKey(KEY_DETAILS_PRODUCT_BUNDLE)) {
-                product = intent.getExtras().getParcelable(KEY_DETAILS_PRODUCT_BUNDLE);
+                mProduct = intent.getExtras().getParcelable(KEY_DETAILS_PRODUCT_BUNDLE);
             }
         }
+    }
 
+    @Override
+    public void showDetails(Product product) {
+        Glide.with(this)
+                .load(product.getThumbnailHd())
+                .into(mExpandedImage);
+
+        mTitle.setText(product.getTitle());
+        mSeller.setText("By " + product.getSeller());
+        mPrice.setText(product.getPriceFormatted());
+        mZipCode.setText("Zipcode  " + product.getZipCode());
+        mDate.setText("Published Date  " + product.getDate());
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void showError(String error) {
+
+    }
+
+    @Override
+    public void hideError() {
+
+    }
+
+    private void loadViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-//        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
-
-//        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent)); // transperent color = #00000000
-//        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(0, 0, 0));
-//        collapsingToolbarLayout.title(product.getTitle());
-
-
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-
-        ImageView expandedImage = (ImageView) findViewById(R.id.expandedImage);
         mTitle = (TextView) findViewById(R.id.title);
         mSeller = (TextView) findViewById(R.id.seller);
         mPrice = (TextView) findViewById(R.id.price);
         mZipCode = (TextView) findViewById(R.id.zipcode);
         mDate = (TextView) findViewById(R.id.date);
+        mExpandedImage = (ImageView) findViewById(R.id.expandedImage);
 
-        Glide.with(this)
-                .load(product.getThumbnailHd())
-                .into(expandedImage);
-
-        mTitle.setText(product.getTitle());
-        mSeller.setText("By " + product.getSeller());
-        mPrice.setText("R$" + String.format("%.2f", product.getPrice() / 1000.0));
-        mZipCode.setText("Zipcode  " + product.getZipCode());
-        mDate.setText("Published Date  " + product.getDate());
-
-
-//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-//            boolean isShow = false;
-//            int scrollRange = -1;
-//
-//            @Override
-//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-//                if (scrollRange == -1) {
-//                    scrollRange = appBarLayout.getTotalScrollRange();
-//                }
-//                if (scrollRange + verticalOffset == 0) {
-//                    collapsingToolbarLayout.title("Jedi Details");
-//                    isShow = true;
-//                } else if (isShow) {
-//                    collapsingToolbarLayout.title(" ");//carefull there should a space between double quote otherwise it wont work
-//                    isShow = false;
-//                }
-//            }
-//        });
-
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
     @Override

@@ -1,15 +1,15 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.home;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +19,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -27,9 +26,18 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import payments.stone.com.br.desafiomobile.DetailsActivity;
+import payments.stone.com.br.desafiomobile.Navigation;
+import payments.stone.com.br.desafiomobile.Product;
+import payments.stone.com.br.desafiomobile.R;
+import payments.stone.com.br.desafiomobile.Utils;
+import payments.stone.com.br.desafiomobile.cart.CartActivity;
+import payments.stone.com.br.desafiomobile.cart.ProductsAdapter;
+import payments.stone.com.br.desafiomobile.cart.ProductsResponse;
+
 import static payments.stone.com.br.desafiomobile.DetailsActivity.KEY_DETAILS_PRODUCT_BUNDLE;
 
-public class HomeActivity extends AppCompatActivity implements HomeView,NavigationView.OnNavigationItemSelectedListener, Navigation {
+public class HomeActivity extends AppCompatActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener, Navigation {
     private List<Product> mProductList = new ArrayList<>();
     private RecyclerView mProductsRecyclerView;
     private ProductsAdapter mAdapter;

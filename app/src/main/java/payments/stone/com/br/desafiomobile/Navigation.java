@@ -4,7 +4,7 @@ package payments.stone.com.br.desafiomobile;
  * Created by william.gouvea on 9/20/17.
  */
 
-interface Navigation {
+public interface Navigation {
 
-   void  whenGoToDetails(Product product);
+    void whenGoToDetails(Product product);
 }

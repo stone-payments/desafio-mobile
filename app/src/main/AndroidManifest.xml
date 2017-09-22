@@ -15,7 +15,7 @@
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullscreenTheme">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,13 +23,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".CartActivity" />
+        <activity android:name=".home.HomeActivity" />
+        <activity
+            android:name=".cart.CartActivity"
+            android:label="@string/title_activity_cart"
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".DetailsActivity"
             android:label="@string/title_activity_details"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".CreditCardActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.cooltechworks.creditcarddesign.CardEditActivity">
 
         </activity>
     </application>

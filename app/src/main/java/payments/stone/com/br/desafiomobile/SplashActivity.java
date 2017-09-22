@@ -2,13 +2,15 @@ package payments.stone.com.br.desafiomobile;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+
+import payments.stone.com.br.desafiomobile.home.HomeActivity;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -96,7 +98,6 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
@@ -157,7 +158,7 @@ public class SplashActivity extends AppCompatActivity {
         mHideHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this,HomeActivity.class));
+                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
                 finish();
             }
         }, delayMillis);

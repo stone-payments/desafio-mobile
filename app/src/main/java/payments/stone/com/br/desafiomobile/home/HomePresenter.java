@@ -1,4 +1,7 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.home;
+
+
+import payments.stone.com.br.desafiomobile.cart.ProductsResponse;
 
 /**
  * Created by william.gouvea on 9/21/17.
@@ -13,27 +16,27 @@ public class HomePresenter {
         this.mView = mView;
     }
 
-    public void loadProducts(){
+    public void loadProducts() {
         mView.showLoading();
     }
 
-    public void resume(){
+    public void resume() {
 
     }
 
-    public void pause(){
+    public void pause() {
 
     }
 
-    public void create(){
+    public void create() {
 
     }
 
-    public void destroy(){
+    public void destroy() {
 
     }
 
-    public void onProductsReceived(ProductsResponse response){
+    public void onProductsReceived(ProductsResponse response) {
         mView.hideLoading();
         mView.showProducts(response.productList);
     }
