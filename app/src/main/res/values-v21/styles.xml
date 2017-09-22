@@ -8,7 +8,6 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-
         <item name="buttonStyle">@style/AppTheme.Button</item>
     </style>
 
@@ -21,8 +20,11 @@
     </style>
 
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:colorButtonNormal">@color/colorPrimaryDark</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:borderlessButtonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
+
     </style>
 </resources>

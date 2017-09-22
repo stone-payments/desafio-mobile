@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignBaseline="@+id/date"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 android:paddingRight="@dimen/album_title_padding" />
 
