@@ -48,12 +48,14 @@ public class DetailsActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+
+//        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
 
 //        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent)); // transperent color = #00000000
 //        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(0, 0, 0));
-        collapsingToolbarLayout.setTitle(product.getTitle());
+//        collapsingToolbarLayout.setTitle(product.getTitle());
 
 
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
@@ -71,32 +73,30 @@ public class DetailsActivity extends AppCompatActivity {
 
         mTitle.setText(product.getTitle());
         mSeller.setText("By " + product.getSeller());
-        mPrice.setText("R$" + Math.round(product.getPrice() / 1000));
+        mPrice.setText("R$" + String.format("%.2f", product.getPrice() / 1000.0));
         mZipCode.setText("Zipcode  " + product.getZipCode());
         mDate.setText("Published Date  " + product.getDate());
 
 
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
+//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+//            boolean isShow = false;
+//            int scrollRange = -1;
+//
+//            @Override
+//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+//                if (scrollRange == -1) {
+//                    scrollRange = appBarLayout.getTotalScrollRange();
+//                }
+//                if (scrollRange + verticalOffset == 0) {
 //                    collapsingToolbarLayout.setTitle("Jedi Details");
 //                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
-                    isShow = false;
-                }
-            }
-        });
+//                } else if (isShow) {
+//                    collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
+//                    isShow = false;
+//                }
+//            }
+//        });
 
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
