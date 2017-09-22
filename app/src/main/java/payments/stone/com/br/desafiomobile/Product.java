@@ -36,7 +36,8 @@ public class Product implements Parcelable {
     public long getPrice() {
         return price;
     }
-    public String getPriceFormatted(){
+
+    public String getPriceFormatted() {
         return "R$ " + String.format("%.2f", price / 1000.0);
 
     }

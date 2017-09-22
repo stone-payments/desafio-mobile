@@ -84,7 +84,7 @@ public class CreditCardActivity extends AppCompatActivity implements Navigation 
     }
 
     private void populate() {
-        if(new Random().nextBoolean()){
+        if (new Random().nextBoolean()) {
             CreditCardView sampleCreditCardView = new CreditCardView(this);
 
             String name = "Glarence Zhao";
