@@ -14,7 +14,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -23,13 +25,13 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import payments.stone.com.br.desafiomobile.BaseActivity;
-import payments.stone.com.br.desafiomobile.Navigation;
-import payments.stone.com.br.desafiomobile.Product;
 import payments.stone.com.br.desafiomobile.R;
-import payments.stone.com.br.desafiomobile.Utils;
-import payments.stone.com.br.desafiomobile.cart.ProductsAdapter;
-import payments.stone.com.br.desafiomobile.cart.ProductsResponse;
+import payments.stone.com.br.desafiomobile.commons.Navigation;
+import payments.stone.com.br.desafiomobile.commons.Utils;
+import payments.stone.com.br.desafiomobile.model.Product;
+import payments.stone.com.br.desafiomobile.model.ProductsResponse;
+import payments.stone.com.br.desafiomobile.views.BaseActivity;
+import payments.stone.com.br.desafiomobile.views.GridSpacingItemDecoration;
 
 public class HomeActivity extends BaseActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener, Navigation {
     private List<Product> mProductList = new ArrayList<>();
@@ -39,6 +41,7 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
     private HomePresenter mPresenter;
 
     private ImageView mBackdrop;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
 
 //        mBackdrop = (ImageView) findViewById(R.id.backdrop);
         mProductsRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
     }
 
@@ -97,18 +101,20 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
         mProductsRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mProductsRecyclerView.setAdapter(mAdapter);
 
+        mProductsRecyclerView.setVisibility(View.VISIBLE);
+
 //        mAdapter.notifyDataSetChanged();
 
     }
 
     @Override
     public void showLoading() {
-
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -119,6 +125,11 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
     @Override
     public void hideError() {
 
+    }
+
+    @Override
+    public Object handleIntent() {
+        return null;
     }
 
 

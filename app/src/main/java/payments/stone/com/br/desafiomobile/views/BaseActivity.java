@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.views;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,8 +7,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import payments.stone.com.br.desafiomobile.cart.CartActivity;
+import payments.stone.com.br.desafiomobile.commons.Navigation;
+import payments.stone.com.br.desafiomobile.R;
+import payments.stone.com.br.desafiomobile.checkout.CreditCardActivity;
 import payments.stone.com.br.desafiomobile.details.DetailsActivity;
+import payments.stone.com.br.desafiomobile.home.HomeActivity;
+import payments.stone.com.br.desafiomobile.model.Product;
 
 import static payments.stone.com.br.desafiomobile.details.DetailsActivity.KEY_DETAILS_PRODUCT_BUNDLE;
 
@@ -34,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_show_cart:
-                startActivity(new Intent(this, CartActivity.class));
+                startActivity(new Intent(this, CreditCardActivity.class));
                 return true;
 
 
@@ -61,6 +65,13 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     public void whenGoToDetails(Product product) {
         Intent intent = new Intent(this, DetailsActivity.class);
         intent.putExtra(KEY_DETAILS_PRODUCT_BUNDLE, product);
+        startActivity(intent);
+    }
+
+    @Override
+    public void whenGoToHome() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 

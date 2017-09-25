@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile.cart;
+package payments.stone.com.br.desafiomobile.home;
 
 import android.content.Context;
 import android.support.v7.widget.PopupMenu;
@@ -16,10 +16,10 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import payments.stone.com.br.desafiomobile.Navigation;
-import payments.stone.com.br.desafiomobile.Product;
+import payments.stone.com.br.desafiomobile.commons.Navigation;
+import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.R;
-import payments.stone.com.br.desafiomobile.Utils;
+import payments.stone.com.br.desafiomobile.commons.Utils;
 
 /**
  * Created by william.gouvea on 9/19/17.

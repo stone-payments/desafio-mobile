@@ -1,7 +1,7 @@
 package payments.stone.com.br.desafiomobile.details;
 
-import payments.stone.com.br.desafiomobile.BaseView;
-import payments.stone.com.br.desafiomobile.Product;
+import payments.stone.com.br.desafiomobile.views.BaseView;
+import payments.stone.com.br.desafiomobile.model.Product;
 
 /**
  * Created by william.gouvea on 9/22/17.

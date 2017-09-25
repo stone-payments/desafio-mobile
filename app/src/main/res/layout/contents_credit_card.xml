@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".CreditCardActivity"
+    tools:context=".checkout.CreditCardActivity"
     tools:showIn="@layout/activity_credit_card">
 
 

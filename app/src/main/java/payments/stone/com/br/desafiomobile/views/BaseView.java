@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.views;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by william.gouvea on 9/22/17.
  */
 
-public interface BaseView {
+public interface BaseView<T> {
     void showLoading();
 
     void hideLoading();
@@ -14,6 +14,8 @@ public interface BaseView {
     void showError(String error);
 
     void hideError();
+
+    T handleIntent();
 
     void loadViews();
 

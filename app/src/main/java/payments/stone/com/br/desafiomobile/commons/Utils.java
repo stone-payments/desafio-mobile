@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.commons;
 
 import android.content.Context;
 import android.content.res.Resources;
