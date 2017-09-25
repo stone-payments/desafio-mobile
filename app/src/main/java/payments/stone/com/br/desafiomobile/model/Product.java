@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

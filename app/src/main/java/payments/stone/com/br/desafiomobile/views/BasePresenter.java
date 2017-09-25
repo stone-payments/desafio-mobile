@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile;
+package payments.stone.com.br.desafiomobile.views;
 
 /**
  * Created by william.gouvea on 9/22/17.

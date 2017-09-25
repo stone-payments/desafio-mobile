@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".cart.CartActivity"
+    tools:context=".checkout.CartActivity"
     tools:showIn="@layout/cart_activity">
 
     <RelativeLayout

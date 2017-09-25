@@ -8,9 +8,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import payments.stone.com.br.desafiomobile.BaseActivity;
-import payments.stone.com.br.desafiomobile.Product;
+import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.R;
+import payments.stone.com.br.desafiomobile.details.DetailsPresenter;
+import payments.stone.com.br.desafiomobile.details.DetailsView;
+import payments.stone.com.br.desafiomobile.views.BaseActivity;
 
 public class DetailsActivity extends BaseActivity implements DetailsView {
     public static final String KEY_DETAILS_PRODUCT_BUNDLE = "DETAILS_PRODUCT_BUNDLE";
@@ -38,7 +40,8 @@ public class DetailsActivity extends BaseActivity implements DetailsView {
 
     }
 
-    private void handleIntent() {
+    @Override
+    public Product handleIntent() {
         Intent intent = getIntent();
 
         if (intent != null &&
@@ -48,6 +51,8 @@ public class DetailsActivity extends BaseActivity implements DetailsView {
                 mProduct = intent.getExtras().getParcelable(KEY_DETAILS_PRODUCT_BUNDLE);
             }
         }
+
+        return mProduct;
     }
 
     @Override

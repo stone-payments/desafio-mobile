@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile.home;
+package payments.stone.com.br.desafiomobile.views;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.View;
  * Created by william.gouvea on 9/19/17.
  */
 
-class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
     private int spanCount;
     private int spacing;

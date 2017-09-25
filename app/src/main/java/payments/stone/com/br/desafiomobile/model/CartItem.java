@@ -1,10 +1,8 @@
-package payments.stone.com.br.desafiomobile.cart;
+package payments.stone.com.br.desafiomobile.model;
 
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import payments.stone.com.br.desafiomobile.Product;
 
 /**
  * Created by william.gouvea on 9/21/17.
