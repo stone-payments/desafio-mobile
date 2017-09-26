@@ -1,6 +1,7 @@
 package payments.stone.com.br.desafiomobile.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -30,11 +31,11 @@ import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.commons.Utils;
 import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.model.ProductsResponse;
+import payments.stone.com.br.desafiomobile.order.OrderActivity;
 import payments.stone.com.br.desafiomobile.views.BaseActivity;
 import payments.stone.com.br.desafiomobile.views.GridSpacingItemDecoration;
 
 public class HomeActivity extends BaseActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener, Navigation {
-    private List<Product> mProductList = new ArrayList<>();
     private RecyclerView mProductsRecyclerView;
     private ProductsAdapter mAdapter;
 
@@ -140,6 +141,8 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
 
         if (id == R.id.nav_order) {
             // Handle the camera action
+            Intent showOrders = new Intent(this, OrderActivity.class);
+            startActivity(showOrders);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

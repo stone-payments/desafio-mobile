@@ -2,10 +2,13 @@ package payments.stone.com.br.desafiomobile.checkout;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.commons.ShopApi;
+import payments.stone.com.br.desafiomobile.commons.Utils;
+import payments.stone.com.br.desafiomobile.data.ProductRepositoryImpl;
 import payments.stone.com.br.desafiomobile.model.Order;
 import payments.stone.com.br.desafiomobile.views.BasePresenter;
 import payments.stone.com.br.desafiomobile.model.CartItem;
@@ -36,11 +39,10 @@ public class CreditCardPresenter extends BasePresenter {
         if(mItems == null) {
             mItems = new ArrayList<>();
         }
-
     }
 
     public CreditCardPresenter checkout(){
-        Order order = mView.filledOrder();
+        final Order order = mView.filledOrder();
         ShopApi shopApi = ShopitApplication.getInstance().provideApi();
 
         Call<Order> call =  shopApi.checkout(order);
@@ -48,20 +50,22 @@ public class CreditCardPresenter extends BasePresenter {
         call.enqueue(new Callback<Order>() {
             @Override
             public void onResponse(Call<Order> call, Response<Order> response) {
-                //Save order in Realm datastore
                 //Show SnackBar
+                ProductRepositoryImpl productRepository = ShopitApplication.getInstance().provideRepository();
+                Order processed = response.body();
+                processed.transactionDate(Utils.dateToIso(new Date()));
+                productRepository.save(processed);
                 mView
                         .navigation()
                         .whenGoToHome();
-
             }
 
             @Override
             public void onFailure(Call<Order> call, Throwable t) {
                 //Show SnackBar
+                mView.showError("");
             }
         });
-
 
         return this;
     }

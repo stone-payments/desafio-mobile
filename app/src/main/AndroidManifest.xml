@@ -5,14 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="payments.stone.com.br.desafiomobile.ShopitApplication"
+        android:name=".ShopitApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".views.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -23,21 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".home.HomeActivity" />
-
         <activity
             android:name=".details.DetailsActivity"
             android:label="@string/title_activity_details"
-            android:theme="@style/AppTheme"></activity>
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".checkout.CreditCardActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name="com.cooltechworks.creditcarddesign.CardEditActivity">
-
-        </activity>
+        <activity android:name=".order.OrderActivity"
+            android:label="@string/title_activity_orders"></activity>
     </application>
 
 </manifest>

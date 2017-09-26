@@ -31,4 +31,6 @@
 
     </string>
     <string name="title_activity_cart">Cart</string>
+    <string name="title_activity_orders">Orders</string>
+
 </resources>

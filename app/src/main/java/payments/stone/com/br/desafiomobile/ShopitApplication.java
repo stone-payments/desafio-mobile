@@ -2,13 +2,19 @@ package payments.stone.com.br.desafiomobile;
 
 import android.app.Application;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import payments.stone.com.br.desafiomobile.commons.ShopApi;
+import payments.stone.com.br.desafiomobile.data.ProductRepositoryImpl;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -23,7 +29,7 @@ public class ShopitApplication extends Application {
     private static ShopApi shopApi = null;
 
 
-    public static ShopitApplication getInstance(){
+    public static ShopitApplication getInstance() {
         return instance;
     }
 
@@ -31,14 +37,15 @@ public class ShopitApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        if(instance == null){
+        if (instance == null) {
             instance = this;
         }
 
+        Realm.init(this);
     }
 
-    public Retrofit getClient(){
-        if(retrofit == null) {
+    public Retrofit getClient() {
+        if (retrofit == null) {
 
             // Define the interceptor, add authentication headers
             Interceptor interceptor = new Interceptor() {
@@ -60,6 +67,8 @@ public class ShopitApplication extends Application {
             OkHttpClient client = builder.build();
 
             // Set the custom client when building adapter
+//            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
@@ -70,8 +79,8 @@ public class ShopitApplication extends Application {
         return retrofit;
     }
 
-    public ShopApi provideApi(){
-        if(shopApi == null) {
+    public ShopApi provideApi() {
+        if (shopApi == null) {
             shopApi = ShopitApplication
                     .getInstance()
                     .getClient()
@@ -79,5 +88,21 @@ public class ShopitApplication extends Application {
         }
 
         return shopApi;
+    }
+
+    public RealmConfiguration provideRealmConfig() {
+        RealmConfiguration.Builder builder = new RealmConfiguration.Builder();
+        if (BuildConfig.DEBUG) {
+            builder = builder.deleteRealmIfMigrationNeeded();
+        }
+        return builder.build();
+    }
+
+    public Realm provideRealm(RealmConfiguration configuration){
+        return Realm.getInstance(configuration);
+    }
+
+    public ProductRepositoryImpl provideRepository(){
+        return new ProductRepositoryImpl(provideRealm(provideRealmConfig()));
     }
 }
