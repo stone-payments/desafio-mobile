@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4112E6851F7AD41D0073F8E1 /* Starjhol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4112E6841F7AD4160073F8E1 /* Starjhol.ttf */; };
 		412C6AC41F7AB62500646B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6AC31F7AB62500646B0D /* AppDelegate.swift */; };
-		412C6AC61F7AB62500646B0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6AC51F7AB62500646B0D /* ViewController.swift */; };
+		412C6AC61F7AB62500646B0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6AC51F7AB62500646B0D /* HomeViewController.swift */; };
 		412C6AC91F7AB62500646B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 412C6AC71F7AB62500646B0D /* Main.storyboard */; };
 		412C6ACC1F7AB62500646B0D /* DesafioStone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 412C6ACA1F7AB62500646B0D /* DesafioStone.xcdatamodeld */; };
 		412C6ACE1F7AB62500646B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412C6ACD1F7AB62500646B0D /* Assets.xcassets */; };
 		412C6AD11F7AB62500646B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 412C6ACF1F7AB62500646B0D /* LaunchScreen.storyboard */; };
+		412C6ADB1F7AC82900646B0D /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6ADA1F7AC82900646B0D /* StoreViewController.swift */; };
+		412C6ADD1F7AC87B00646B0D /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4112E6841F7AD4160073F8E1 /* Starjhol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjhol.ttf; sourceTree = "<group>"; };
 		412C6AC01F7AB62500646B0D /* DesafioStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412C6AC31F7AB62500646B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		412C6AC51F7AB62500646B0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		412C6AC51F7AB62500646B0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		412C6AC81F7AB62500646B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		412C6ACB1F7AB62500646B0D /* DesafioStone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DesafioStone.xcdatamodel; sourceTree = "<group>"; };
 		412C6ACD1F7AB62500646B0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		412C6AD01F7AB62500646B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		412C6AD21F7AB62500646B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		412C6ADA1F7AC82900646B0D /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4112E6811F7AD37E0073F8E1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4112E6831F7AD3B00073F8E1 /* Fonts */,
+				412C6ACD1F7AB62500646B0D /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		4112E6821F7AD39E0073F8E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				412C6ACF1F7AB62500646B0D /* LaunchScreen.storyboard */,
+				412C6AC71F7AB62500646B0D /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4112E6831F7AD3B00073F8E1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4112E6841F7AD4160073F8E1 /* Starjhol.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		412C6AB71F7AB62500646B0D = {
 			isa = PBXGroup;
 			children = (
@@ -57,14 +89,31 @@
 			isa = PBXGroup;
 			children = (
 				412C6AC31F7AB62500646B0D /* AppDelegate.swift */,
-				412C6AC51F7AB62500646B0D /* ViewController.swift */,
-				412C6AC71F7AB62500646B0D /* Main.storyboard */,
-				412C6ACD1F7AB62500646B0D /* Assets.xcassets */,
-				412C6ACF1F7AB62500646B0D /* LaunchScreen.storyboard */,
+				412C6AD81F7AC76100646B0D /* Controllers */,
+				412C6AD91F7AC76C00646B0D /* Models */,
+				4112E6821F7AD39E0073F8E1 /* Views */,
+				4112E6811F7AD37E0073F8E1 /* Assets */,
 				412C6AD21F7AB62500646B0D /* Info.plist */,
 				412C6ACA1F7AB62500646B0D /* DesafioStone.xcdatamodeld */,
 			);
 			path = DesafioStone;
+			sourceTree = "<group>";
+		};
+		412C6AD81F7AC76100646B0D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				412C6AC51F7AB62500646B0D /* HomeViewController.swift */,
+				412C6ADA1F7AC82900646B0D /* StoreViewController.swift */,
+				412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		412C6AD91F7AC76C00646B0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +178,7 @@
 				412C6AD11F7AB62500646B0D /* LaunchScreen.storyboard in Resources */,
 				412C6ACE1F7AB62500646B0D /* Assets.xcassets in Resources */,
 				412C6AC91F7AB62500646B0D /* Main.storyboard in Resources */,
+				4112E6851F7AD41D0073F8E1 /* Starjhol.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,9 +189,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412C6AC61F7AB62500646B0D /* ViewController.swift in Sources */,
+				412C6ADB1F7AC82900646B0D /* StoreViewController.swift in Sources */,
+				412C6AC61F7AB62500646B0D /* HomeViewController.swift in Sources */,
 				412C6AC41F7AB62500646B0D /* AppDelegate.swift in Sources */,
 				412C6ACC1F7AB62500646B0D /* DesafioStone.xcdatamodeld in Sources */,
+				412C6ADD1F7AC87B00646B0D /* TransactionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Luan.DesafioStone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -300,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Luan.DesafioStone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

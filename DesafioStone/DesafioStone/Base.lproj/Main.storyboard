@@ -1,24 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Starjhol.ttf">
+            <string>StarJediHollow</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="DesafioStone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarWarsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8oM-Ug-R9s" userLabel="BackgroundImageView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0b-kV-qzH" userLabel="ShopButton">
+                                <rect key="frame" x="20" y="444" width="280" height="44"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.69411764710000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ftB-Xk-MVe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Loja">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="qHF-1x-0Ab" kind="presentation" id="brl-uO-xwW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlt-NX-XDG" userLabel="TransactionsButton">
+                                <rect key="frame" x="20" y="360" width="280" height="44"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="0.91764705879999997" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5Ef-G7-1cD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Histórico">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="jyI-h9-x8u" kind="presentation" modalTransitionStyle="coverVertical" id="5Mz-jU-aez"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tY5-DM-QE8" userLabel="HomeLogoContainerView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="340"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="star store" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTL-wc-aWo" userLabel="HomeLabel">
+                                        <rect key="frame" x="75" y="90" width="171" height="160"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5632864932885906" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="StarJediHollow" family="Star Jedi Hollow" pointSize="50"/>
+                                        <color key="textColor" red="0.8980392157" green="0.69411764710000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QTL-wc-aWo" firstAttribute="centerY" secondItem="tY5-DM-QE8" secondAttribute="centerY" id="fgu-4X-Ohj"/>
+                                    <constraint firstItem="QTL-wc-aWo" firstAttribute="centerX" secondItem="tY5-DM-QE8" secondAttribute="centerX" id="ibJ-aV-Ia7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dlt-NX-XDG" firstAttribute="top" secondItem="tY5-DM-QE8" secondAttribute="bottom" id="8tu-sm-UkW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h0b-kV-qzH" secondAttribute="trailing" constant="20" id="Bng-74-2KC"/>
+                            <constraint firstItem="h0b-kV-qzH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FOb-7c-v56"/>
+                            <constraint firstItem="tY5-DM-QE8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H25-ka-w1e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8oM-Ug-R9s" secondAttribute="trailing" id="OhY-ZK-HkI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h0b-kV-qzH" secondAttribute="bottom" constant="80" id="PwS-pD-TTs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tY5-DM-QE8" secondAttribute="trailing" id="WzK-WV-q1b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dlt-NX-XDG" secondAttribute="trailing" constant="20" id="XOg-8W-Fwo"/>
+                            <constraint firstItem="dlt-NX-XDG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bM6-ak-E9g"/>
+                            <constraint firstItem="dlt-NX-XDG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dWA-l7-woD"/>
+                            <constraint firstItem="h0b-kV-qzH" firstAttribute="top" secondItem="dlt-NX-XDG" secondAttribute="bottom" constant="40" id="dYA-uW-jLU"/>
+                            <constraint firstItem="8oM-Ug-R9s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ewo-jK-Mpj"/>
+                            <constraint firstItem="h0b-kV-qzH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lvw-O7-lJt"/>
+                            <constraint firstItem="tY5-DM-QE8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mRY-Jh-xW1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8oM-Ug-R9s" secondAttribute="bottom" id="w9b-ok-7a6"/>
+                            <constraint firstItem="8oM-Ug-R9s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xBu-IF-olx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="homeLabel" destination="QTL-wc-aWo" id="wcE-ZS-xHd"/>
+                        <outlet property="shopButton" destination="h0b-kV-qzH" id="vr1-XM-8fy"/>
+                        <outlet property="transactionsButton" destination="dlt-NX-XDG" id="gPx-PV-ksc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Transactions View Controller-->
+        <scene sceneID="K1h-xq-xKW">
+            <objects>
+                <viewController id="jyI-h9-x8u" customClass="TransactionsViewController" customModule="DesafioStone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VJY-Ui-m2V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFI-Jz-3v1" userLabel="ReturnButtonContainerView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYS-ah-UvN" userLabel="ReturnButton">
+                                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="5Kv-Az-3cb"/>
+                                            <constraint firstAttribute="height" constant="44" id="lh0-Qc-q21"/>
+                                        </constraints>
+                                        <state key="normal" image="CloseButton"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9U2-l5-7Rp" userLabel="TransactionsLabel">
+                                        <rect key="frame" x="116" y="12" width="88" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="9U2-l5-7Rp" firstAttribute="centerY" secondItem="nFI-Jz-3v1" secondAttribute="centerY" id="6T0-Gq-QLI"/>
+                                    <constraint firstItem="9U2-l5-7Rp" firstAttribute="centerX" secondItem="nFI-Jz-3v1" secondAttribute="centerX" id="6oD-Qr-Z2B"/>
+                                    <constraint firstItem="tYS-ah-UvN" firstAttribute="centerY" secondItem="nFI-Jz-3v1" secondAttribute="centerY" id="Ft0-Iw-E8h"/>
+                                    <constraint firstAttribute="trailing" secondItem="tYS-ah-UvN" secondAttribute="trailing" id="cCs-CV-5FO"/>
+                                    <constraint firstAttribute="height" constant="44" id="qaW-Zl-3sC"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yec-Lp-Ctm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nFI-Jz-3v1" firstAttribute="top" secondItem="YLz-Yc-2N1" secondAttribute="top" id="4YN-mw-E4w"/>
+                            <constraint firstItem="nFI-Jz-3v1" firstAttribute="leading" secondItem="YLz-Yc-2N1" secondAttribute="leading" id="8zg-PN-Cnv"/>
+                            <constraint firstItem="YLz-Yc-2N1" firstAttribute="trailing" secondItem="yec-Lp-Ctm" secondAttribute="trailing" id="LWu-e9-QSH"/>
+                            <constraint firstItem="YLz-Yc-2N1" firstAttribute="bottom" secondItem="yec-Lp-Ctm" secondAttribute="bottom" id="LcB-C4-dA3"/>
+                            <constraint firstItem="yec-Lp-Ctm" firstAttribute="leading" secondItem="YLz-Yc-2N1" secondAttribute="leading" id="RJ9-zI-NJH"/>
+                            <constraint firstItem="YLz-Yc-2N1" firstAttribute="trailing" secondItem="nFI-Jz-3v1" secondAttribute="trailing" id="nrS-7T-gg4"/>
+                            <constraint firstItem="yec-Lp-Ctm" firstAttribute="top" secondItem="nFI-Jz-3v1" secondAttribute="bottom" id="rIQ-1j-yLd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YLz-Yc-2N1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Y0-Kv-tU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="907"/>
+        </scene>
+        <!--Store View Controller-->
+        <scene sceneID="AQS-VQ-Psa">
+            <objects>
+                <viewController id="qHF-1x-0Ab" customClass="StoreViewController" customModule="DesafioStone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MiS-rA-cth">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="hQu-qC-tlE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Gy-KQ-hK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="136"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fPu-b5-ghZ">
+            <objects>
+                <viewController id="BdS-wA-nrl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a1C-Gy-LOi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="3vd-Qe-8iP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNl-I6-BIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="136"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CloseButton" width="50" height="50"/>
+        <image name="StarWarsBackground" width="1280" height="720"/>
+    </resources>
 </document>
