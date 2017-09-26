@@ -10,6 +10,7 @@ import java.util.List;
 import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.data.ShopApi;
 import payments.stone.com.br.desafiomobile.commons.Utils;
+import payments.stone.com.br.desafiomobile.model.Cart;
 import payments.stone.com.br.desafiomobile.model.CartItem;
 import payments.stone.com.br.desafiomobile.model.Order;
 import payments.stone.com.br.desafiomobile.views.BasePresenter;
@@ -94,11 +95,17 @@ public class CreditCardPresenter extends BasePresenter {
     }
 
     public CreditCardPresenter loadCart(){
-        mView.showLoading();
-        Cart cart = ShopitApplication.getInstance().provideCart();
-        mView.hideLoading();
-        mView.showTotalPrice(cart.total());
-        mView.showCartItems(cart.getItems());
+//        mView.showLoading();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Cart cart = ShopitApplication.getInstance().provideCart();
+                mView.hideLoading();
+                mView.showTotalPrice(cart.total());
+                mView.showCartItems(cart.getItems());
+            }
+        }, 500);
 
         return this;
     }

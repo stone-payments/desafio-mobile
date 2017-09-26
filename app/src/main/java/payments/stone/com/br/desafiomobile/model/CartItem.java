@@ -25,6 +25,11 @@ public class CartItem implements Parcelable {
         return "R$ " + String.format("%.2f", (product.getPrice() * count) / 1000.0);
     }
 
+    public CartItem setCount(int count) {
+        this.count = count;
+        return this;
+    }
+
     public Product getProduct() {
         return product;
     }

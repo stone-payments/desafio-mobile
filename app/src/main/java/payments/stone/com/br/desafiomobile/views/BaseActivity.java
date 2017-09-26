@@ -2,18 +2,24 @@ package payments.stone.com.br.desafiomobile.views;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import payments.stone.com.br.desafiomobile.ShopitApplication;
+import payments.stone.com.br.desafiomobile.checkout.AddCartItemDialog;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.R;
 import payments.stone.com.br.desafiomobile.checkout.CreditCardActivity;
 import payments.stone.com.br.desafiomobile.details.DetailsActivity;
 import payments.stone.com.br.desafiomobile.home.HomeActivity;
+import payments.stone.com.br.desafiomobile.model.CartItem;
 import payments.stone.com.br.desafiomobile.model.Product;
 
 import static payments.stone.com.br.desafiomobile.details.DetailsActivity.KEY_DETAILS_PRODUCT_BUNDLE;
@@ -43,14 +49,8 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 startActivity(new Intent(this, CreditCardActivity.class));
                 return true;
 
-
             case android.R.id.home:
                 finish();
-                return true;
-
-
-            case R.id.action_reset_cart:
-                ShopitApplication.getInstance().provideCart().reset();
                 return true;
 
             default:
@@ -90,6 +90,18 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         Intent intent = new Intent(this, HomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    @Override
+    public void showQuantityDialog(CartItem current, AddCartItemDialog.AddCartItemDialogListener listener){
+        FragmentManager fm = getSupportFragmentManager();
+        AddCartItemDialog addCartItemDialog = AddCartItemDialog.newInstance("Pick Quantity", current,listener);
+        addCartItemDialog.show(fm, "fragment_add_cart_item_quantity");
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.add_cart_item_dialog, null);
+        dialogBuilder.setView(dialogView);
     }
 
     @Override
