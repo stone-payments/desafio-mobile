@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -84,9 +85,23 @@ public class OrderActivity extends BaseActivity implements OrderView {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_show_cart).setVisible(false);
-        menu.findItem(R.id.action_search).setVisible(false);
+        MenuItem search = menu.findItem(R.id.action_search);
+        if (search != null) {
+            search.setVisible(false);
+        }
+
+
+        MenuItem reset =  menu.findItem(R.id.action_reset_cart);
+        if(reset!=null){
+            reset.setVisible(false);
+        }
+
+        MenuItem cart =  menu.findItem(R.id.action_show_cart);
+        if(cart!=null){
+            cart.setVisible(false);
+        }
 
         return true;
     }
+
 }

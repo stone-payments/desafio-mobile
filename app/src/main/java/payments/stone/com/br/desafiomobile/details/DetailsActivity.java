@@ -3,11 +3,14 @@ package payments.stone.com.br.desafiomobile.details;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.R;
 import payments.stone.com.br.desafiomobile.details.DetailsPresenter;
@@ -25,6 +28,8 @@ public class DetailsActivity extends BaseActivity implements DetailsView {
     private TextView mDate;
 
     ImageView mExpandedImage;
+
+    private Button mAddCartButton;
 
     private DetailsPresenter mPresenter;
 
@@ -67,6 +72,14 @@ public class DetailsActivity extends BaseActivity implements DetailsView {
         mZipCode = (TextView) findViewById(R.id.zipcode);
         mDate = (TextView) findViewById(R.id.date);
         mExpandedImage = (ImageView) findViewById(R.id.expandedImage);
+        mAddCartButton = (Button) findViewById(R.id.add_to_cart);
+
+        mAddCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShopitApplication.getInstance().provideCart().addItem(mProduct);
+            }
+        });
     }
 
     @Override

@@ -73,6 +73,35 @@ public class Product implements Parcelable {
         return this;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        if (price != product.price) return false;
+        if (title != null ? !title.equals(product.title) : product.title != null) return false;
+        if (zipCode != null ? !zipCode.equals(product.zipCode) : product.zipCode != null)
+            return false;
+        if (seller != null ? !seller.equals(product.seller) : product.seller != null) return false;
+        if (thumbnailHd != null ? !thumbnailHd.equals(product.thumbnailHd) : product.thumbnailHd != null)
+            return false;
+        return date != null ? date.equals(product.date) : product.date == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (int) (price ^ (price >>> 32));
+        result = 31 * result + (zipCode != null ? zipCode.hashCode() : 0);
+        result = 31 * result + (seller != null ? seller.hashCode() : 0);
+        result = 31 * result + (thumbnailHd != null ? thumbnailHd.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        return result;
+    }
+
     public String getDate() {
         return date;
     }

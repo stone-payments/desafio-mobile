@@ -2,11 +2,13 @@ package payments.stone.com.br.desafiomobile.views;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.R;
 import payments.stone.com.br.desafiomobile.checkout.CreditCardActivity;
@@ -46,6 +48,11 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 finish();
                 return true;
 
+
+            case R.id.action_reset_cart:
+                ShopitApplication.getInstance().provideCart().reset();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -53,9 +60,19 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem menuItem = menu.findItem(R.id.action_search);
-        if (menuItem != null) {
-            menuItem.setVisible(false);
+        MenuItem search = menu.findItem(R.id.action_search);
+        if (search != null) {
+            search.setVisible(true);
+        }
+
+       MenuItem reset =  menu.findItem(R.id.action_reset_cart);
+        if(reset!=null){
+            reset.setVisible(false);
+        }
+
+        MenuItem cart =  menu.findItem(R.id.action_show_cart);
+        if(cart!=null){
+            cart.setVisible(true);
         }
 
         return true;

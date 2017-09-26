@@ -69,6 +69,17 @@ public class Utils {
         return  dateFormat.format(date);
     }
 
+    public static Date parseFromIso(String iso){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+        Date result = new Date();
+        try {
+            result = dateFormat.parse(iso);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public static String dateTo(String toFormat){
         SimpleDateFormat dfDateTime  = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault());
         int year = randBetween(2017, 2017);// Here you can set Range of years you need

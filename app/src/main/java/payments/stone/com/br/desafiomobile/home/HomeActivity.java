@@ -83,10 +83,6 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
         }
     }
 
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        return true;
-    }
 
     @Override
     public void showProducts(List<Product> productList) {
