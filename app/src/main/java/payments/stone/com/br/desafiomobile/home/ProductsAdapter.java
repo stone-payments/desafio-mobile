@@ -10,19 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import payments.stone.com.br.desafiomobile.ShopitApplication;
+import payments.stone.com.br.desafiomobile.R;
 import payments.stone.com.br.desafiomobile.checkout.AddCartItemDialog;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
+import payments.stone.com.br.desafiomobile.commons.Utils;
 import payments.stone.com.br.desafiomobile.model.CartItem;
 import payments.stone.com.br.desafiomobile.model.Product;
-import payments.stone.com.br.desafiomobile.R;
-import payments.stone.com.br.desafiomobile.commons.Utils;
 
 /**
  * Created by william.gouvea on 9/19/17.

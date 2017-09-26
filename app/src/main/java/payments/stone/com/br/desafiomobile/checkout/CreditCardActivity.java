@@ -23,12 +23,12 @@ import com.cooltechworks.creditcarddesign.CreditCardView;
 import java.util.List;
 import java.util.Random;
 
+import payments.stone.com.br.desafiomobile.R;
 import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
+import payments.stone.com.br.desafiomobile.model.CartItem;
 import payments.stone.com.br.desafiomobile.model.Order;
 import payments.stone.com.br.desafiomobile.views.BaseActivity;
-import payments.stone.com.br.desafiomobile.R;
-import payments.stone.com.br.desafiomobile.model.CartItem;
 
 /**
  * Created by glarencezhao on 10/23/16.
@@ -202,8 +202,8 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
 
     @Override
     public void showCartItems(List<CartItem> items) {
-        mCartItems = items;
-        mCartAdapter = new CartAdapter(this, items, this,this);
+        mCartItems =items;
+        mCartAdapter = new CartAdapter(this, mCartItems, this,this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mCartRecyclerView.setLayoutManager(mLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mCartRecyclerView.getContext(), LinearLayoutManager.VERTICAL);

@@ -2,8 +2,8 @@ package payments.stone.com.br.desafiomobile.checkout;
 
 import java.util.List;
 
-import payments.stone.com.br.desafiomobile.views.BaseView;
 import payments.stone.com.br.desafiomobile.model.CartItem;
+import payments.stone.com.br.desafiomobile.views.BaseView;
 
 /**
  * Created by william.gouvea on 9/22/17.

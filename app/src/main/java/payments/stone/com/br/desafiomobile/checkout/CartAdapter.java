@@ -13,8 +13,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.R;
+import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.commons.Utils;
 import payments.stone.com.br.desafiomobile.model.CartItem;
 

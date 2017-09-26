@@ -10,14 +10,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import payments.stone.com.br.desafiomobile.ShopitApplication;
-import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.R;
-import payments.stone.com.br.desafiomobile.details.DetailsPresenter;
-import payments.stone.com.br.desafiomobile.details.DetailsView;
+import payments.stone.com.br.desafiomobile.ShopitApplication;
+import payments.stone.com.br.desafiomobile.checkout.AddCartItemDialog;
+import payments.stone.com.br.desafiomobile.model.CartItem;
+import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.views.BaseActivity;
 
-public class DetailsActivity extends BaseActivity implements DetailsView {
+public class DetailsActivity extends BaseActivity implements DetailsView, AddCartItemDialog.AddCartItemDialogListener {
     public static final String KEY_DETAILS_PRODUCT_BUNDLE = "DETAILS_PRODUCT_BUNDLE";
     private Product mProduct;
 
@@ -77,7 +77,9 @@ public class DetailsActivity extends BaseActivity implements DetailsView {
         mAddCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShopitApplication.getInstance().provideCart().addItem(mProduct);
+//                ShopitApplication.getInstance().provideCart().addItem(mProduct);
+                showQuantityDialog(new CartItem(mProduct),DetailsActivity.this);
+
             }
         });
     }
@@ -113,5 +115,10 @@ public class DetailsActivity extends BaseActivity implements DetailsView {
     @Override
     public void hideError() {
 
+    }
+
+    @Override
+    public void onFinishAddCartItemDialog(CartItem item, int amount) {
+        ShopitApplication.getInstance().provideCart().addItem(mProduct,amount);
     }
 }

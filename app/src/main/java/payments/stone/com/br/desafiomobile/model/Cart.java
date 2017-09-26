@@ -41,16 +41,15 @@ public class Cart {
         return this;
     }
 
-    public Cart addItem(Product product, int quantity) {
+    public void addItem(Product product, int quantity) {
         for(CartItem item :items){
             if(item.getProduct().equals(product)){
                 item.setCount(quantity);
-                return this;
+                return;
             }
         }
         totalAmount = 0;
         items.add(new CartItem(product).setCount(quantity));
-        return this;
     }
 
     public List<CartItem> getItems() {

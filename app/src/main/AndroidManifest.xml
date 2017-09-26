@@ -30,10 +30,11 @@
         <activity
             android:name=".checkout.CreditCardActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".order.OrderActivity"
-            android:label="@string/title_activity_orders"/>
+        <activity
+            android:name=".order.OrderActivity"
+            android:label="@string/title_activity_orders" />
 
-        <activity android:name="com.cooltechworks.creditcarddesign.CardEditActivity"/>
+        <activity android:name="com.cooltechworks.creditcarddesign.CardEditActivity" />
 
     </application>
 

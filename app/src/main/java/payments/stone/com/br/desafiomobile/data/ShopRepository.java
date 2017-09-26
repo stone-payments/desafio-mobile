@@ -1,17 +1,11 @@
 package payments.stone.com.br.desafiomobile.data;
 
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.Sort;
-import payments.stone.com.br.desafiomobile.commons.Bus;
 import payments.stone.com.br.desafiomobile.model.Order;
-import payments.stone.com.br.desafiomobile.model.Product;
 
 /**
  * Created by william.gouvea on 9/25/17.
