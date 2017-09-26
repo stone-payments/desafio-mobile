@@ -1,16 +1,16 @@
 package payments.stone.com.br.desafiomobile.data;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import java.util.List;
 
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
+import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 import payments.stone.com.br.desafiomobile.commons.Bus;
+import payments.stone.com.br.desafiomobile.model.Order;
 import payments.stone.com.br.desafiomobile.model.Product;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by william.gouvea on 9/25/17.
@@ -18,23 +18,35 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProductRepositoryImpl implements ProductsRepository {
 
-    List<Product> localData;
+    private final Realm realm;
+
+    public ProductRepositoryImpl(Realm realm) {
+        this.realm = realm;
+    }
 
 
-    public ProductRepositoryImpl() {
-        this.localData = new ArrayList<>();
-
+    @Override
+    public void loadProducts() {
 
 
     }
 
-    @Override
-    public void loadProducts() {
-        if (localData != null && !localData.isEmpty()) {
-            Bus.getInstance().post();
-            return;
+    public void save(final Order order) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.copyToRealmOrUpdate(order);
+            }
+        });
+    }
+
+    public List<Order> findAllOrders(boolean detached){
+        RealmResults<Order> realmResults = realm.where(Order.class).findAll();
+
+        if(detached) {
+            return realm.copyFromRealm(realmResults);
+        } else {
+            return realmResults;
         }
-
-
     }
 }

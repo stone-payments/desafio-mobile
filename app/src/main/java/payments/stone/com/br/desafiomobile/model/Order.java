@@ -1,12 +1,27 @@
 package payments.stone.com.br.desafiomobile.model;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by william.gouvea on 9/25/17.
  */
 
-public class Order {
+public class Order extends RealmObject implements Comparable<String> {
+    private static int objId = 0;
+
+    @PrimaryKey
+    private int id;
+
     @SerializedName("card_number")
     private String cardNumber;
     private String value;
@@ -15,6 +30,13 @@ public class Order {
     private String cardHolder;
     @SerializedName("exp_date")
     private String expDate;
+
+    @SerializedName("transaction_date")
+    private String transactionDate;
+
+    public Order() {
+        id = objId++;
+    }
 
     public String getCardNumber() {
         return cardNumber;
@@ -59,5 +81,23 @@ public class Order {
     public Order expDate(String expDate) {
         this.expDate = expDate;
         return this;
+    }
+
+    public String formattedTransactionDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        return sdf.format(new Date(transactionDate));
+    }
+
+    public String getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void transactionDate(String transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    @Override
+    public int compareTo(@NonNull String o) {
+        return 0;
     }
 }
