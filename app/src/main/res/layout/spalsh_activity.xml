@@ -16,7 +16,6 @@
         android:layout_gravity="center"
         android:src="@drawable/ic_shopping_cart_white_24px"
         android:scaleType="centerCrop"
-        android:keepScreenOn="true"
-    />
+        android:keepScreenOn="true" />
 
 </FrameLayout>

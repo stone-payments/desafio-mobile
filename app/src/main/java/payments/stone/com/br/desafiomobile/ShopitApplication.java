@@ -10,9 +10,9 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
-import payments.stone.com.br.desafiomobile.model.Cart;
 import payments.stone.com.br.desafiomobile.data.ShopApi;
 import payments.stone.com.br.desafiomobile.data.ShopRepository;
+import payments.stone.com.br.desafiomobile.model.Cart;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
