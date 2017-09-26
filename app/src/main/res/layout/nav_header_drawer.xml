@@ -23,7 +23,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="android.studio@android.com"
-        android:visibility="gone"/>
+        android:text="Shopping on the go" />
 
 </LinearLayout>

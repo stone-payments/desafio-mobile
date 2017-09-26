@@ -6,6 +6,7 @@ import java.util.List;
 import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.data.ProductsResponse;
 import payments.stone.com.br.desafiomobile.data.ShopApi;
+import payments.stone.com.br.desafiomobile.data.ShopRepository;
 import payments.stone.com.br.desafiomobile.model.Product;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,13 +31,21 @@ public class HomePresenter {
     public HomePresenter loadProducts() {
         mView.showLoading();
 
+        final ShopRepository repository = ShopitApplication.getInstance().provideRepository();
+
+        final List<Product> products = repository.findAllProducts(false);
+
+        if(products!= null && !products.isEmpty()){
+            onProductsReceived(new ProductsResponse(products));
+            return this;
+        }
 
         Call<List<Product>> call =  mApi.getProducts();
-
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if(response.isSuccessful()){
+                    repository.save(response.body());
                     onProductsReceived(new ProductsResponse(response.body()));
                 }
             }
