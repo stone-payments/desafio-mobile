@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4112E6851F7AD41D0073F8E1 /* Starjhol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4112E6841F7AD4160073F8E1 /* Starjhol.ttf */; };
+		4112E6871F7ADF8F0073F8E1 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112E6861F7ADF8F0073F8E1 /* ProductModel.swift */; };
 		412C6AC41F7AB62500646B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6AC31F7AB62500646B0D /* AppDelegate.swift */; };
 		412C6AC61F7AB62500646B0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6AC51F7AB62500646B0D /* HomeViewController.swift */; };
 		412C6AC91F7AB62500646B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 412C6AC71F7AB62500646B0D /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		4112E6841F7AD4160073F8E1 /* Starjhol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjhol.ttf; sourceTree = "<group>"; };
+		4112E6861F7ADF8F0073F8E1 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		412C6AC01F7AB62500646B0D /* DesafioStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412C6AC31F7AB62500646B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		412C6AC51F7AB62500646B0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		412C6AD91F7AC76C00646B0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4112E6861F7ADF8F0073F8E1 /* ProductModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412C6ADB1F7AC82900646B0D /* StoreViewController.swift in Sources */,
+				4112E6871F7ADF8F0073F8E1 /* ProductModel.swift in Sources */,
 				412C6AC61F7AB62500646B0D /* HomeViewController.swift in Sources */,
 				412C6AC41F7AB62500646B0D /* AppDelegate.swift in Sources */,
 				412C6ACC1F7AB62500646B0D /* DesafioStone.xcdatamodeld in Sources */,
