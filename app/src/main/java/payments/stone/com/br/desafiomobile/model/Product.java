@@ -5,11 +5,19 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by william.gouvea on 9/19/17.
  */
 
-public class Product implements Parcelable {
+public class Product  extends RealmObject implements Parcelable {
+    private static int objId = 0;
+
+    @PrimaryKey
+    private int id;
+
     private String title;
 
     private long price;
@@ -126,6 +134,7 @@ public class Product implements Parcelable {
     }
 
     public Product() {
+        id = objId++;
     }
 
     protected Product(Parcel in) {

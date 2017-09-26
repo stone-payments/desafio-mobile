@@ -44,7 +44,14 @@ public class Cart {
     public void addItem(Product product, int quantity) {
         for(CartItem item :items){
             if(item.getProduct().equals(product)){
+                if(quantity == 0) {
+                    items.remove(item);
+                    totalAmount= 0;
+
+                }
+
                 item.setCount(quantity);
+                totalAmount = 0;
                 return;
             }
         }

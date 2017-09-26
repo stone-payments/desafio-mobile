@@ -30,9 +30,6 @@ import payments.stone.com.br.desafiomobile.model.CartItem;
 import payments.stone.com.br.desafiomobile.model.Order;
 import payments.stone.com.br.desafiomobile.views.BaseActivity;
 
-/**
- * Created by glarencezhao on 10/23/16.
- */
 
 public class CreditCardActivity extends BaseActivity implements payments.stone.com.br.desafiomobile.checkout.CreditCardView, AddCartItemDialog.AddCartItemDialogListener {
 
@@ -187,7 +184,7 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
 
             case R.id.action_reset_cart:
                 ShopitApplication.getInstance().provideCart().reset();
-//                mPresenter.loadCart();
+                mPresenter.loadCart();
                 return true;
 
         }
