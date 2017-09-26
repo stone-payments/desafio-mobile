@@ -10,7 +10,7 @@ import payments.stone.com.br.desafiomobile.model.CartItem;
  */
 
 public interface CartView extends BaseView {
-    void showTotalPrice(List<CartItem> cartItems);
+    void showTotalPrice(String totalPrice);
 
     void showCartItems(List<CartItem> items);
 

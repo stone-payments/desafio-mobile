@@ -1,5 +1,6 @@
 package payments.stone.com.br.desafiomobile.checkout;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,17 +24,10 @@ import java.util.Random;
 
 import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
-import payments.stone.com.br.desafiomobile.commons.ShopApi;
 import payments.stone.com.br.desafiomobile.model.Order;
-import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.views.BaseActivity;
 import payments.stone.com.br.desafiomobile.R;
-import payments.stone.com.br.desafiomobile.commons.Utils;
 import payments.stone.com.br.desafiomobile.model.CartItem;
-import payments.stone.com.br.desafiomobile.home.HomeActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by glarencezhao on 10/23/16.
@@ -56,12 +50,12 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
 
     private CreditCardPresenter mPresenter;
     private CreditCardView mCreditCardView;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_card);
-
 
         loadViews();
         loadListeners();
@@ -145,6 +139,8 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
         finishCheckoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 mPresenter.checkout();
 
 
@@ -185,23 +181,18 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_show_cart).setVisible(false);
         menu.findItem(R.id.action_search).setVisible(false);
-
+        menu.findItem(R.id.action_reset_cart).setVisible(true);
         return true;
     }
 
     @Override
-    public void showTotalPrice(List<CartItem> cartItems) {
-        mCartItems = cartItems;
-        int totalAmount = 0;
-        for (CartItem cartItem : mCartItems) {
-            totalAmount += cartItem.getCount() * cartItem.getProduct().getPrice();
-        }
-
-        mTotalPrice.setText(Utils.getPriceFormatted(totalAmount));
+    public void showTotalPrice(String price) {
+        mTotalPrice.setText(price);
     }
 
     @Override
     public void showCartItems(List<CartItem> items) {
+        mCartItems = items;
         mCartAdapter = new CartAdapter(this, items, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mCartRecyclerView.setLayoutManager(mLayoutManager);
@@ -214,12 +205,21 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
 
     @Override
     public void showLoading() {
-
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(CreditCardActivity.this);
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);// Setting Message
+            mProgressDialog.setMessage("Processing Order...");
+            mProgressDialog.setTitle("Checkout");
+            mProgressDialog.setCancelable(false);
+        }
+        mProgressDialog.show();
     }
 
     @Override
     public void hideLoading() {
-
+        if(mProgressDialog!=null) {
+            mProgressDialog.dismiss();
+        }
     }
 
     @Override
@@ -239,7 +239,7 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
                 .cardHolder(mCreditCardView.getCardHolderName())
                 .cvv(mCreditCardView.getCVV())
                 .expDate(mCreditCardView.getExpiry())
-                .value(mTotalPrice.getText().toString());
+                .value(Long.toString(ShopitApplication.getInstance().provideCart().getTotalAmount()));
     }
 
     @Override

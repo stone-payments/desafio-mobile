@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import payments.stone.com.br.desafiomobile.ShopitApplication;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.R;
@@ -67,7 +68,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         holder.overflow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showPopupMenu(holder.overflow);
+                showPopupMenu(holder.overflow, product);
             }
         });
     }
@@ -75,28 +76,30 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     /**
      * Showing popup menu when tapping on 3 dots
      */
-    private void showPopupMenu(View view) {
+    private void showPopupMenu(View view, Product product) {
         // inflate menu
         PopupMenu popup = new PopupMenu(mContext, view);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.menu_product_card, popup.getMenu());
-        popup.setOnMenuItemClickListener(new ProductOverflowMenuItemClickListener());
+        popup.setOnMenuItemClickListener(new ProductOverflowMenuItemClickListener(product));
         popup.show();
     }
 
     /**
      * Click listener for popup menu items
      */
-    class ProductOverflowMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
+    public class ProductOverflowMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
+        Product product;
 
-        public ProductOverflowMenuItemClickListener() {
+        public ProductOverflowMenuItemClickListener(Product product) {
+            this.product = product;
         }
 
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.action_add_cart:
-                    Toast.makeText(mContext, "Added", Toast.LENGTH_SHORT).show();
+                    ShopitApplication.getInstance().provideCart().addItem(this.product);
                     return true;
 
                 default:

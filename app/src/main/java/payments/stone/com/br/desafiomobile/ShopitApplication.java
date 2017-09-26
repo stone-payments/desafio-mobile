@@ -2,9 +2,6 @@ package payments.stone.com.br.desafiomobile;
 
 import android.app.Application;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.io.IOException;
 
 import io.realm.Realm;
@@ -13,8 +10,9 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
-import payments.stone.com.br.desafiomobile.commons.ShopApi;
-import payments.stone.com.br.desafiomobile.data.ProductRepositoryImpl;
+import payments.stone.com.br.desafiomobile.checkout.Cart;
+import payments.stone.com.br.desafiomobile.data.ShopApi;
+import payments.stone.com.br.desafiomobile.data.ShopRepository;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -27,6 +25,7 @@ public class ShopitApplication extends Application {
     public static ShopitApplication instance;
     private static Retrofit retrofit = null;
     private static ShopApi shopApi = null;
+    private static Cart cart;
 
 
     public static ShopitApplication getInstance() {
@@ -98,11 +97,19 @@ public class ShopitApplication extends Application {
         return builder.build();
     }
 
+    public Cart provideCart(){
+        if(cart == null) {
+            cart = new Cart();
+        }
+
+        return cart;
+    }
+
     public Realm provideRealm(RealmConfiguration configuration){
         return Realm.getInstance(configuration);
     }
 
-    public ProductRepositoryImpl provideRepository(){
-        return new ProductRepositoryImpl(provideRealm(provideRealmConfig()));
+    public ShopRepository provideRepository(){
+        return new ShopRepository(provideRealm(provideRealmConfig()));
     }
 }

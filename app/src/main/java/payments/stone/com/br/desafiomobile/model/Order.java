@@ -11,6 +11,7 @@ import java.util.Locale;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import payments.stone.com.br.desafiomobile.commons.Utils;
 
 /**
  * Created by william.gouvea on 9/25/17.
@@ -33,6 +34,9 @@ public class Order extends RealmObject implements Comparable<String> {
 
     @SerializedName("transaction_date")
     private String transactionDate;
+
+
+    private Date transactionDateObj;
 
     public Order() {
         id = objId++;
@@ -83,9 +87,12 @@ public class Order extends RealmObject implements Comparable<String> {
         return this;
     }
 
-    public String formattedTransactionDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        return sdf.format(new Date(transactionDate));
+    public Date getTransactionDateObj() {
+        return transactionDateObj;
+    }
+
+    public void transactionDateObj(Date transactionDateObj) {
+        this.transactionDateObj = transactionDateObj;
     }
 
     public String getTransactionDate() {
@@ -98,6 +105,8 @@ public class Order extends RealmObject implements Comparable<String> {
 
     @Override
     public int compareTo(@NonNull String o) {
-        return 0;
+        Date other = Utils.parseFromIso(o);
+        Date mine = Utils.parseFromIso(transactionDate);
+        return other.compareTo(mine);
     }
 }

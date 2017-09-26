@@ -35,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxEms="8"
+                android:textColor="@color/colorPrimary"
                 android:maxLines="2"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
@@ -86,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignBaseline="@+id/date"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 android:paddingRight="@dimen/album_title_padding" />
 

@@ -5,7 +5,7 @@ import android.os.Handler;
 import java.util.List;
 
 import payments.stone.com.br.desafiomobile.ShopitApplication;
-import payments.stone.com.br.desafiomobile.data.ProductRepositoryImpl;
+import payments.stone.com.br.desafiomobile.data.ShopRepository;
 import payments.stone.com.br.desafiomobile.model.Order;
 
 /**
@@ -25,8 +25,8 @@ public class OrderPresenter {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ProductRepositoryImpl productRepository = ShopitApplication.getInstance().provideRepository();
-                List<Order> orders = productRepository.findAllOrders(false);
+                ShopRepository shopRepository = ShopitApplication.getInstance().provideRepository();
+                List<Order> orders = shopRepository.findAllOrders(false);
                 mView.hideLoading();
                 mView.showOrders(orders);
             }

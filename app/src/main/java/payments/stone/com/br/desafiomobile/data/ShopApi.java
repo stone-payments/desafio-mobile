@@ -1,4 +1,4 @@
-package payments.stone.com.br.desafiomobile.commons;
+package payments.stone.com.br.desafiomobile.data;
 
 import java.util.List;
 

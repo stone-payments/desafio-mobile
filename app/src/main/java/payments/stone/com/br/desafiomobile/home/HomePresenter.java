@@ -4,7 +4,7 @@ package payments.stone.com.br.desafiomobile.home;
 import java.util.List;
 
 import payments.stone.com.br.desafiomobile.ShopitApplication;
-import payments.stone.com.br.desafiomobile.commons.ShopApi;
+import payments.stone.com.br.desafiomobile.data.ShopApi;
 import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.model.ProductsResponse;
 import retrofit2.Call;

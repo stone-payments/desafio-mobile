@@ -27,6 +27,7 @@
         android:layout_toRightOf="@+id/item_image"
         android:gravity="center_vertical"
         android:paddingLeft="6dp"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 
     <TextView
