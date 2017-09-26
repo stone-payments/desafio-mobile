@@ -26,11 +26,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
     private Context mContext;
     private List<CartItem> items;
     private Navigation mNavigation;
+    private AddCartItemDialog.AddCartItemDialogListener listener;
 
-    public CartAdapter(Context context, List<CartItem> items, Navigation navigation) {
-        this.mContext = context;
+    public CartAdapter(Context mContext, List<CartItem> items, Navigation mNavigation, AddCartItemDialog.AddCartItemDialogListener listener) {
+        this.mContext = mContext;
         this.items = items;
-        this.mNavigation = navigation;
+        this.mNavigation = mNavigation;
+        this.listener = listener;
     }
 
     @Override
@@ -43,7 +45,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
 
     @Override
     public void onBindViewHolder(CartItemViewHolder holder, int position) {
-        CartItem item = items.get(position);
+        final CartItem item = items.get(position);
         holder.title.setText(item.getProduct().getTitle());
         holder.seller.setText(item.getProduct().getSeller());
         holder.price.setText(item.getCount() + " x " + Utils.getPriceFormatted(item.getProduct().getPrice()));
@@ -54,6 +56,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
                     .load(item.getProduct().getThumbnailHd())
                     .into(holder.thumbnail);
         }
+
+        holder.mRoot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mNavigation.showQuantityDialog(item,listener);
+            }
+        });
     }
 
     @Override

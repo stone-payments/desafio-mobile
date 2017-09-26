@@ -17,7 +17,9 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import payments.stone.com.br.desafiomobile.ShopitApplication;
+import payments.stone.com.br.desafiomobile.checkout.AddCartItemDialog;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
+import payments.stone.com.br.desafiomobile.model.CartItem;
 import payments.stone.com.br.desafiomobile.model.Product;
 import payments.stone.com.br.desafiomobile.R;
 import payments.stone.com.br.desafiomobile.commons.Utils;
@@ -30,11 +32,13 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     private Context mContext;
     private List<Product> productList;
     private Navigation mNavigation;
+    private AddCartItemDialog.AddCartItemDialogListener listener;
 
-    public ProductsAdapter(Context mContext, List<Product> productList, Navigation mNavigation) {
+    public ProductsAdapter(Context mContext, List<Product> productList, Navigation mNavigation, AddCartItemDialog.AddCartItemDialogListener listener) {
         this.mContext = mContext;
         this.productList = productList;
         this.mNavigation = mNavigation;
+        this.listener = listener;
     }
 
     @Override
@@ -68,7 +72,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         holder.overflow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showPopupMenu(holder.overflow, product);
+                showPopupMenu(holder.overflow, product, listener);
             }
         });
     }
@@ -76,12 +80,12 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     /**
      * Showing popup menu when tapping on 3 dots
      */
-    private void showPopupMenu(View view, Product product) {
+    private void showPopupMenu(View view, Product product, AddCartItemDialog.AddCartItemDialogListener listener) {
         // inflate menu
         PopupMenu popup = new PopupMenu(mContext, view);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.menu_product_card, popup.getMenu());
-        popup.setOnMenuItemClickListener(new ProductOverflowMenuItemClickListener(product));
+        popup.setOnMenuItemClickListener(new ProductOverflowMenuItemClickListener(product,listener));
         popup.show();
     }
 
@@ -90,16 +94,19 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
      */
     public class ProductOverflowMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
         Product product;
+        AddCartItemDialog.AddCartItemDialogListener listener;
 
-        public ProductOverflowMenuItemClickListener(Product product) {
+        public ProductOverflowMenuItemClickListener(Product product, AddCartItemDialog.AddCartItemDialogListener listener) {
             this.product = product;
+            this.listener = listener;
         }
 
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.action_add_cart:
-                    ShopitApplication.getInstance().provideCart().addItem(this.product);
+                    mNavigation.showQuantityDialog(new CartItem(product),listener);
+
                     return true;
 
                 default:

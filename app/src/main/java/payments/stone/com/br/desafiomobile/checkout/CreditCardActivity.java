@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -33,7 +34,7 @@ import payments.stone.com.br.desafiomobile.model.CartItem;
  * Created by glarencezhao on 10/23/16.
  */
 
-public class CreditCardActivity extends BaseActivity implements payments.stone.com.br.desafiomobile.checkout.CreditCardView {
+public class CreditCardActivity extends BaseActivity implements payments.stone.com.br.desafiomobile.checkout.CreditCardView, AddCartItemDialog.AddCartItemDialogListener {
 
     public static final String KEY_FINISH_CHECKOUT_BUNDLE = "KEY_FINISH_CHECKOUT_BUNDLE";
     private final int CREATE_NEW_CARD = 0;
@@ -130,7 +131,6 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(CreditCardActivity.this, CardEditActivity.class);
                 startActivityForResult(intent, CREATE_NEW_CARD);
             }
@@ -139,11 +139,7 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
         finishCheckoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 mPresenter.checkout();
-
-
             }
         });
     }
@@ -186,6 +182,20 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.action_reset_cart:
+                ShopitApplication.getInstance().provideCart().reset();
+//                mPresenter.loadCart();
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void showTotalPrice(String price) {
         mTotalPrice.setText(price);
     }
@@ -193,7 +203,7 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
     @Override
     public void showCartItems(List<CartItem> items) {
         mCartItems = items;
-        mCartAdapter = new CartAdapter(this, items, this);
+        mCartAdapter = new CartAdapter(this, items, this,this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mCartRecyclerView.setLayoutManager(mLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mCartRecyclerView.getContext(), LinearLayoutManager.VERTICAL);
@@ -245,5 +255,15 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
     @Override
     public Navigation navigation() {
         return this;
+    }
+
+    @Override
+    public void onFinishAddCartItemDialog(CartItem item, int amount) {
+        ShopitApplication
+                .getInstance()
+                .provideCart()
+                .addItem(item.getProduct(),amount);
+
+        mPresenter.loadCart();
     }
 }

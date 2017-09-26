@@ -1,7 +1,9 @@
-package payments.stone.com.br.desafiomobile.model;
+package payments.stone.com.br.desafiomobile.data;
 
 import java.util.Collections;
 import java.util.List;
+
+import payments.stone.com.br.desafiomobile.model.Product;
 
 /**
  * Created by william.gouvea on 9/21/17.

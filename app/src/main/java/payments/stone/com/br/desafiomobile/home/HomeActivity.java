@@ -13,7 +13,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,15 +26,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import payments.stone.com.br.desafiomobile.R;
+import payments.stone.com.br.desafiomobile.ShopitApplication;
+import payments.stone.com.br.desafiomobile.checkout.AddCartItemDialog;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.commons.Utils;
+import payments.stone.com.br.desafiomobile.model.CartItem;
 import payments.stone.com.br.desafiomobile.model.Product;
-import payments.stone.com.br.desafiomobile.model.ProductsResponse;
+import payments.stone.com.br.desafiomobile.data.ProductsResponse;
 import payments.stone.com.br.desafiomobile.order.OrderActivity;
 import payments.stone.com.br.desafiomobile.views.BaseActivity;
 import payments.stone.com.br.desafiomobile.views.GridSpacingItemDecoration;
 
-public class HomeActivity extends BaseActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener, Navigation {
+public class HomeActivity extends BaseActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener, Navigation, AddCartItemDialog.AddCartItemDialogListener {
     private RecyclerView mProductsRecyclerView;
     private ProductsAdapter mAdapter;
 
@@ -90,8 +92,7 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
 //                .with(this)
 //                .load(R.drawable.yoda_cover)
 //                .into(mBackdrop);
-
-        mAdapter = new ProductsAdapter(this, productList, this);
+        mAdapter = new ProductsAdapter(this, productList, this,this);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         mProductsRecyclerView.setLayoutManager(mLayoutManager);
         mProductsRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, Utils.dpToPx(2, getApplicationContext()), true));
@@ -99,7 +100,6 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
         mProductsRecyclerView.setAdapter(mAdapter);
 
         mProductsRecyclerView.setVisibility(View.VISIBLE);
-
 //        mAdapter.notifyDataSetChanged();
 
     }
@@ -144,6 +144,14 @@ public class HomeActivity extends BaseActivity implements HomeView, NavigationVi
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFinishAddCartItemDialog(CartItem item, int amount) {
+        ShopitApplication
+                .getInstance()
+                .provideCart()
+                .addItem(item.getProduct(),amount);
     }
 
     public static class ProductAsyncTask extends AsyncTask<Void, Void, List<Product>> {

@@ -1,11 +1,9 @@
-package payments.stone.com.br.desafiomobile.checkout;
+package payments.stone.com.br.desafiomobile.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import payments.stone.com.br.desafiomobile.commons.Utils;
-import payments.stone.com.br.desafiomobile.model.CartItem;
-import payments.stone.com.br.desafiomobile.model.Product;
 
 /**
  * Created by william.gouvea on 9/25/17.
@@ -40,6 +38,18 @@ public class Cart {
         }
 
         items.add(new CartItem(product).increment(1));
+        return this;
+    }
+
+    public Cart addItem(Product product, int quantity) {
+        for(CartItem item :items){
+            if(item.getProduct().equals(product)){
+                item.setCount(quantity);
+                return this;
+            }
+        }
+        totalAmount = 0;
+        items.add(new CartItem(product).setCount(quantity));
         return this;
     }
 
