@@ -62,12 +62,15 @@
                                         <integer key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="jyI-h9-x8u" kind="presentation" modalTransitionStyle="coverVertical" id="sn6-zW-d2g"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tY5-DM-QE8" userLabel="HomeLogoContainerView">
                                 <rect key="frame" x="0.0" y="20" width="320" height="340"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="star store" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTL-wc-aWo" userLabel="HomeLabel">
-                                        <rect key="frame" x="104.5" y="112" width="112.5" height="116.5"/>
+                                        <rect key="frame" x="104" y="112.5" width="112.5" height="116.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5632864932885906" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="StarJediHollow" family="Star Jedi Hollow" pointSize="50"/>
                                         <color key="textColor" red="0.8980392157" green="0.69411764710000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,7 +131,10 @@
                                             <constraint firstAttribute="width" constant="44" id="5Kv-Az-3cb"/>
                                             <constraint firstAttribute="height" constant="44" id="lh0-Qc-q21"/>
                                         </constraints>
-                                        <state key="normal" image="CloseButton"/>
+                                        <state key="normal" image="CloseIconGold"/>
+                                        <connections>
+                                            <action selector="closeButtonTouched" destination="jyI-h9-x8u" eventType="touchUpInside" id="1Vp-Ay-90M"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9U2-l5-7Rp" userLabel="TransactionsLabel">
                                         <rect key="frame" x="116" y="12" width="88" height="21"/>
@@ -383,7 +389,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
                                         <connections>
                                             <outlet property="delegate" destination="BdS-wA-nrl" id="NTt-Un-6Kf"/>
                                         </connections>
@@ -392,7 +398,7 @@
                                         <rect key="frame" x="0.0" y="41" width="288" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" spellCheckingType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="BdS-wA-nrl" id="srr-tw-mQK"/>
                                         </connections>
@@ -404,7 +410,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="BdS-wA-nrl" id="vjB-Gl-pYH"/>
                                                 </connections>
@@ -413,7 +419,7 @@
                                                 <rect key="frame" x="154" y="0.0" width="134" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="BdS-wA-nrl" id="OCj-oj-2gC"/>
                                                 </connections>
@@ -475,7 +481,6 @@
     </scenes>
     <resources>
         <image name="CartIcon" width="100" height="100"/>
-        <image name="CloseButton" width="50" height="50"/>
         <image name="CloseIconGold" width="100" height="100"/>
         <image name="StarWarsBackground" width="1280" height="720"/>
     </resources>

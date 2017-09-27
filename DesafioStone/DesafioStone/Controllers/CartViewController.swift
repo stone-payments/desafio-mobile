@@ -42,4 +42,34 @@ class CartViewController: UIViewController {
 
 extension CartViewController: UITextFieldDelegate {
   
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    
+    if textField == self.cardNumberTextField {
+      if textField.text!.characters.count <= 19 && string == "" {
+        return true
+      } else if textField.text!.characters.count < 16 && string != "" {
+        return true
+      } else {
+        return false
+      }
+    } else if textField == self.cardCVVTextField {
+      if textField.text!.characters.count <= 3 && string == "" {
+        return true
+      } else if textField.text!.characters.count < 3 && string != "" {
+        return true
+      } else {
+        return false
+      }
+    } else if textField == self.cardExpireDateTextField {
+      if textField.text!.characters.count <= 5 && string == "" {
+        return true
+      } else if textField.text!.characters.count < 5 && string != "" {
+        return true
+      } else {
+        return false
+      }
+    }
+    
+    return true
+  }
 }

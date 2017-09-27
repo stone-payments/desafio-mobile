@@ -18,7 +18,6 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     UIApplication.shared.isStatusBarHidden = false
-    UIApplication.shared.statusBarStyle = .lightContent
     
     self.homeLabel.alpha = 0.0
     self.transactionsButton.alpha = 0.0
@@ -26,6 +25,7 @@ class HomeViewController: UIViewController {
   }
 
   override func viewWillAppear(_ animated: Bool) {
+    UIApplication.shared.statusBarStyle = .lightContent
     UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
       self.homeLabel.alpha = 1.0
       self.transactionsButton.alpha = 1.0

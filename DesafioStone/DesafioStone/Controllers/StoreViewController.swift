@@ -18,7 +18,6 @@ class StoreViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    UIApplication.shared.statusBarStyle = .default
     
     self.productCollectionView.layer.shadowColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0).cgColor
     self.productCollectionView.allowsMultipleSelection = true
@@ -26,6 +25,7 @@ class StoreViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    UIApplication.shared.statusBarStyle = .default
     self.refreshProductList()
   }
   
@@ -54,7 +54,6 @@ class StoreViewController: UIViewController {
   }
   
   func refreshProductList() {
-    
     StoreAPI.shared.getStoreProducts() {
       modelList in
       
