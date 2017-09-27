@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct ProductModel {
   
   let title: String
   let price: Double
   let zipcode: String
+  let seller: String
   let thumbnailHd: String
   let date: String
   
