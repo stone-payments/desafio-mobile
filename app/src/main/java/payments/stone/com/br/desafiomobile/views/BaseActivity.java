@@ -13,7 +13,7 @@ import android.view.View;
 
 import payments.stone.com.br.desafiomobile.R;
 import payments.stone.com.br.desafiomobile.checkout.AddCartItemDialog;
-import payments.stone.com.br.desafiomobile.checkout.CreditCardActivity;
+import payments.stone.com.br.desafiomobile.checkout.CreditCardCheckoutActivity;
 import payments.stone.com.br.desafiomobile.commons.Navigation;
 import payments.stone.com.br.desafiomobile.details.DetailsActivity;
 import payments.stone.com.br.desafiomobile.home.HomeActivity;
@@ -44,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_show_cart:
-                startActivity(new Intent(this, CreditCardActivity.class));
+                startActivity(new Intent(this, CreditCardCheckoutActivity.class));
                 return true;
 
             case android.R.id.home:

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".checkout.CreditCardActivity"
+    tools:context=".checkout.CreditCardCheckoutActivity"
     tools:showIn="@layout/activity_credit_card">
 
 
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--<com.cooltechworks.creditcarddesign.CreditCardView-->
+            <!--<com.cooltechworks.creditcarddesign.CreditCardCheckoutView-->
             <!--android:id="@+id/card_1"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
@@ -31,7 +31,7 @@
             <!--app:card_expiration="01/12"-->
             <!--/>-->
 
-            <!--<com.cooltechworks.creditcarddesign.CreditCardView-->
+            <!--<com.cooltechworks.creditcarddesign.CreditCardCheckoutView-->
             <!--android:id="@+id/card_2"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
@@ -41,7 +41,7 @@
             <!--app:card_expiration="01/12"-->
             <!--/>-->
 
-            <!--<com.cooltechworks.creditcarddesign.CreditCardView-->
+            <!--<com.cooltechworks.creditcarddesign.CreditCardCheckoutView-->
             <!--android:id="@+id/card_3"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
@@ -52,7 +52,7 @@
             <!--/>-->
 
 
-            <!--<com.cooltechworks.creditcarddesign.CreditCardView-->
+            <!--<com.cooltechworks.creditcarddesign.CreditCardCheckoutView-->
             <!--android:id="@+id/card_4"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
@@ -62,7 +62,7 @@
             <!--app:card_expiration="01/12"-->
             <!--/>-->
 
-            <!--<com.cooltechworks.creditcarddesign.CreditCardView-->
+            <!--<com.cooltechworks.creditcarddesign.CreditCardCheckoutView-->
             <!--android:id="@+id/card_5"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->

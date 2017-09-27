@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cooltechworks.creditcarddesign.CardEditActivity;
 import com.cooltechworks.creditcarddesign.CreditCardUtils;
 import com.cooltechworks.creditcarddesign.CreditCardView;
 
@@ -31,7 +30,7 @@ import payments.stone.com.br.desafiomobile.model.Order;
 import payments.stone.com.br.desafiomobile.views.BaseActivity;
 
 
-public class CreditCardActivity extends BaseActivity implements payments.stone.com.br.desafiomobile.checkout.CreditCardView, AddCartItemDialog.AddCartItemDialogListener {
+public class CreditCardCheckoutActivity extends BaseActivity implements CreditCardCheckoutView, AddCartItemDialog.AddCartItemDialogListener {
 
     public static final String KEY_FINISH_CHECKOUT_BUNDLE = "KEY_FINISH_CHECKOUT_BUNDLE";
     private final int CREATE_NEW_CARD = 0;
@@ -128,7 +127,7 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreditCardActivity.this, CardEditActivity.class);
+                Intent intent = new Intent(CreditCardCheckoutActivity.this, CardEditActivity.class);
                 startActivityForResult(intent, CREATE_NEW_CARD);
             }
         });
@@ -213,7 +212,7 @@ public class CreditCardActivity extends BaseActivity implements payments.stone.c
     @Override
     public void showLoading() {
         if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(CreditCardActivity.this);
+            mProgressDialog = new ProgressDialog(CreditCardCheckoutActivity.this);
             mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);// Setting Message
             mProgressDialog.setMessage("Processing Order...");
             mProgressDialog.setTitle("Checkout");

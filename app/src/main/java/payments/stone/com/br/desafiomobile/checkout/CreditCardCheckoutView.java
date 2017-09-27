@@ -7,7 +7,7 @@ import payments.stone.com.br.desafiomobile.model.Order;
  * Created by william.gouvea on 9/22/17.
  */
 
-public interface CreditCardView  extends CartView {
+public interface CreditCardCheckoutView extends CartView {
     Order filledOrder();
 
     Navigation navigation();

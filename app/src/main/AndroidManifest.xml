@@ -28,13 +28,13 @@
             android:label="@string/title_activity_details"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".checkout.CreditCardActivity"
+            android:name=".checkout.CreditCardCheckoutActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".order.OrderActivity"
             android:label="@string/title_activity_orders" />
 
-        <activity android:name="com.cooltechworks.creditcarddesign.CardEditActivity" />
+        <activity android:name=".checkout.CardEditActivity" />
 
     </application>
 

@@ -24,11 +24,11 @@ import retrofit2.Response;
 
 public class CreditCardPresenter extends BasePresenter {
 
-    private CreditCardView mView;
+    private CreditCardCheckoutView mView;
 
     private List<CartItem> mItems;
 
-    public CreditCardPresenter(CreditCardView mView) {
+    public CreditCardPresenter(CreditCardCheckoutView mView) {
         this.mView = mView;
         create();
     }
