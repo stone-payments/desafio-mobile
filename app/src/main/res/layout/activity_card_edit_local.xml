@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="payments.stone.com.br.desafiomobile.checkout.CreditCardCheckoutActivity">
+    tools:context="payments.stone.com.br.desafiomobile.checkout.CardEditActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -18,12 +18,12 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:layout_collapseMode="pin"
+            app:layout_collapseMode="parallax"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/contents_credit_card" />
+    <include layout="@layout/contents_credit_card_edit" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

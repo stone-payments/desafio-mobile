@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxEms="8"
-                android:textColor="@color/colorPrimary"
                 android:maxLines="2"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
