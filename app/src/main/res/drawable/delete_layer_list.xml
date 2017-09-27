@@ -2,8 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape
-            android:shape="oval"
-            android:padding="10dp">
+
+            android:shape="rectangle"
+            android:padding="20dp">
             <corners
                 android:bottomRightRadius="5dp"
                 android:bottomLeftRadius="5dp"

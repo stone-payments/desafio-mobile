@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -45,10 +46,14 @@ public class CardEditActivity extends BaseActivity {
     private CardFragmentAdapter mCardAdapter;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_edit);
+        setContentView(R.layout.activity_card_edit_local);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Card Info");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,11 +158,11 @@ public class CardEditActivity extends BaseActivity {
 
                 mCardAdapter.focus(position);
 
-                if ((mCreditCardView.getCardType() != CreditCardUtils.CardType.AMEX_CARD) && (position == 2)) {
-                    mCreditCardView.showBack();
-                } else if (((position == 1) || (position == 3)) && (mLastPageSelected == 2) && (mCreditCardView.getCardType() != CreditCardUtils.CardType.AMEX_CARD)) {
-                    mCreditCardView.showFront();
-                }
+//                if ((mCreditCardView.getCardType() != CreditCardUtils.CardType.AMEX_CARD) && (position == 2)) {
+//                    mCreditCardView.showBack();
+//                } else if (((position == 1) || (position == 3)) && (mLastPageSelected == 2) && (mCreditCardView.getCardType() != CreditCardUtils.CardType.AMEX_CARD)) {
+//                    mCreditCardView.showFront();
+//                }
 
                 mLastPageSelected = position;
 
