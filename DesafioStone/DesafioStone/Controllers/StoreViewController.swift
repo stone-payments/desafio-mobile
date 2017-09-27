@@ -21,6 +21,7 @@ class StoreViewController: UIViewController {
     UIApplication.shared.statusBarStyle = .default
     
     self.productCollectionView.layer.shadowColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0).cgColor
+    self.productCollectionView.allowsMultipleSelection = true
 
   }
   
@@ -35,7 +36,20 @@ class StoreViewController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Get the new view controller using segue.destinationViewController.
-    let nextController = segue.destination
+    let nextController = segue.destination as! CartViewController
+    
+    if let selectedItens = self.productCollectionView.indexPathsForSelectedItems,
+      let productList = self.productViewModel {
+      
+      var totalAmount: Double = 0.0
+      for index in selectedItens {
+        totalAmount += productList[index.item].model.price
+      }
+      
+      nextController.totalAmount = totalAmount.formatedAsCurreny()
+    }
+    
+    
     // Pass the selected object to the new view controller.
   }
   
@@ -67,11 +81,14 @@ extension StoreViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    print("bu")
+    let cell = collectionView.cellForItem(at: indexPath)
+    cell?.backgroundColor = UIColor(red: 229/255.0, green: 177/255.0, blue: 58/255.0, alpha: 0.5)
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    print("bua")
+    
+    let cell = collectionView.cellForItem(at: indexPath)
+    cell?.backgroundColor = UIColor(red: 225/255.0, green: 225/255.0, blue: 225/255.0, alpha: 1.0)
   }
 }
 
@@ -90,6 +107,12 @@ extension StoreViewController: UICollectionViewDataSource {
     cell.nameLabel.text = list[indexPath.item].name
     cell.priceLabel.text = list[indexPath.item].price
     cell.sellerLabel.text = list[indexPath.item].seller
+    
+    if collectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+      cell.backgroundColor = UIColor(red: 229/255.0, green: 177/255.0, blue: 58/255.0, alpha: 0.5)
+    } else {
+      cell.backgroundColor = UIColor(red: 225/255.0, green: 225/255.0, blue: 225/255.0, alpha: 1.0)
+    }
     
     return cell
   }

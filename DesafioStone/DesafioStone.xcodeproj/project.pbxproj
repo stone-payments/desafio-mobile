@@ -21,6 +21,7 @@
 		41B11A5D1F7B15320058AA92 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B11A5C1F7B15320058AA92 /* ProductViewModel.swift */; };
 		41B11A601F7B15E90058AA92 /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B11A5F1F7B15E90058AA92 /* ExtensionDouble.swift */; };
 		41B11A621F7B1E220058AA92 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B11A611F7B1E220058AA92 /* ProductCollectionViewCell.swift */; };
+		41B11A641F7B45260058AA92 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B11A631F7B45260058AA92 /* CartViewController.swift */; };
 		B7B0E71685E916CD96F915CA /* Pods_DesafioStone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C3D0831EBC212D1AF7F2BA /* Pods_DesafioStone.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		41B11A5C1F7B15320058AA92 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		41B11A5F1F7B15E90058AA92 /* ExtensionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDouble.swift; sourceTree = "<group>"; };
 		41B11A611F7B1E220058AA92 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		41B11A631F7B45260058AA92 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		9D11B02A1B3D7BCE04A3ABB0 /* Pods-DesafioStone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioStone.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioStone/Pods-DesafioStone.release.xcconfig"; sourceTree = "<group>"; };
 		D88DE5891F64670A82E133B1 /* Pods-DesafioStone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioStone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioStone/Pods-DesafioStone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				412C6AC51F7AB62500646B0D /* HomeViewController.swift */,
 				412C6ADA1F7AC82900646B0D /* StoreViewController.swift */,
 				412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */,
+				41B11A631F7B45260058AA92 /* CartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				412C6AC41F7AB62500646B0D /* AppDelegate.swift in Sources */,
 				412C6ACC1F7AB62500646B0D /* DesafioStone.xcdatamodeld in Sources */,
 				412C6ADD1F7AC87B00646B0D /* TransactionsViewController.swift in Sources */,
+				41B11A641F7B45260058AA92 /* CartViewController.swift in Sources */,
 				41B11A601F7B15E90058AA92 /* ExtensionDouble.swift in Sources */,
 				41B11A5D1F7B15320058AA92 /* ProductViewModel.swift in Sources */,
 				41B11A5B1F7B0EE80058AA92 /* StoreAPI.swift in Sources */,

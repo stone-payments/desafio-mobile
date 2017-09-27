@@ -11,7 +11,7 @@ import UIKit
 
 struct ProductViewModel {
   
-  private var model: ProductModel
+  var model: ProductModel
   
   var name: String {
     return model.title
