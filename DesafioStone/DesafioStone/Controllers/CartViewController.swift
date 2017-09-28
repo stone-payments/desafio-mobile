@@ -33,21 +33,32 @@ class CartViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  
   @IBAction func closeButtonTouched() {
     self.dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func confirmButtonTouched() {
+  }
+  
+  @IBAction func cardNumberTextChanged(_ sender: UITextField) {
+    guard let currentText = sender.text else { return }
+    sender.text = currentText.grouping(every: 4, with: " ")
+  }
+  
+  @IBAction func expireDateTextChanged(_ sender: UITextField) {
+    guard let currentText = sender.text else { return }
+    sender.text = currentText.grouping(every: 2, with: "/")
+  }
 }
 
 extension CartViewController: UITextFieldDelegate {
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    
+
     if textField == self.cardNumberTextField {
       if textField.text!.characters.count <= 19 && string == "" {
         return true
-      } else if textField.text!.characters.count < 16 && string != "" {
+      } else if textField.text!.characters.count < 19 && string != "" {
         return true
       } else {
         return false
@@ -69,7 +80,8 @@ extension CartViewController: UITextFieldDelegate {
         return false
       }
     }
-    
     return true
   }
+  
+  
 }

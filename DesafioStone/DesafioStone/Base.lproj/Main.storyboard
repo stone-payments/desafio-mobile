@@ -369,6 +369,9 @@
                                 <state key="normal" title="Confirmar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmButtonTouched" destination="BdS-wA-nrl" eventType="touchUpInside" id="y7l-ML-8vf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tC-NP-gUp">
                                 <rect key="frame" x="16" y="94" width="82" height="20.5"/>
@@ -391,6 +394,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
                                         <connections>
+                                            <action selector="cardNumberTextChanged:" destination="BdS-wA-nrl" eventType="editingChanged" id="IDZ-qn-CSf"/>
                                             <outlet property="delegate" destination="BdS-wA-nrl" id="NTt-Un-6Kf"/>
                                         </connections>
                                     </textField>
@@ -412,6 +416,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
+                                                    <action selector="expireDateTextChanged:" destination="BdS-wA-nrl" eventType="editingChanged" id="pzG-dY-5Tz"/>
                                                     <outlet property="delegate" destination="BdS-wA-nrl" id="vjB-Gl-pYH"/>
                                                 </connections>
                                             </textField>
