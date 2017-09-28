@@ -38,6 +38,26 @@ class CartViewController: UIViewController {
   }
   
   @IBAction func confirmButtonTouched() {
+    guard let cardNumber = self.cardNumberTextField.text,
+      let totalAmount = self.totalAmountLabel.text,
+      let cardHolder = self.cardNameTextField.text,
+      let cvv = self.cardCVVTextField.text,
+      let expDate = self.cardExpireDateTextField.text else {
+      return
+    }
+    
+    let transaction = PurchaseModel(cardNumber, totalAmount, cvv, cardHolder, expDate)
+    CartAPI.shared.chekoutPurchase(transaction) {
+      error in
+      guard error == nil else {
+        print("Requisição falhou")
+        let alertMessage = UIAlertController(title: "Erro", message: "Desculpe-nos pelo erro. Não foi possível completar a compra.", preferredStyle: .alert)
+        alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertMessage, animated: true, completion: nil)
+        return
+      }
+      
+    }
   }
   
   @IBAction func cardNumberTextChanged(_ sender: UITextField) {

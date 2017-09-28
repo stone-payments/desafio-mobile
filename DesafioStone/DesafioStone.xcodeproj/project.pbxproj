@@ -18,6 +18,9 @@
 		412C6ADB1F7AC82900646B0D /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6ADA1F7AC82900646B0D /* StoreViewController.swift */; };
 		412C6ADD1F7AC87B00646B0D /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */; };
 		41800B641F7D955500DE246E /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41800B631F7D955500DE246E /* ExtensionString.swift */; };
+		41800B661F7D989000DE246E /* CartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41800B651F7D989000DE246E /* CartAPI.swift */; };
+		41800B681F7D9CD700DE246E /* PurchaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41800B671F7D9CD700DE246E /* PurchaseModel.swift */; };
+		41800B6B1F7DBEE000DE246E /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41800B6A1F7DBEE000DE246E /* TransactionTableViewCell.swift */; };
 		41B11A5B1F7B0EE80058AA92 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B11A5A1F7B0EE80058AA92 /* StoreAPI.swift */; };
 		41B11A5D1F7B15320058AA92 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B11A5C1F7B15320058AA92 /* ProductViewModel.swift */; };
 		41B11A601F7B15E90058AA92 /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B11A5F1F7B15E90058AA92 /* ExtensionDouble.swift */; };
@@ -41,6 +44,9 @@
 		412C6ADA1F7AC82900646B0D /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		41800B631F7D955500DE246E /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		41800B651F7D989000DE246E /* CartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAPI.swift; sourceTree = "<group>"; };
+		41800B671F7D9CD700DE246E /* PurchaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseModel.swift; sourceTree = "<group>"; };
+		41800B6A1F7DBEE000DE246E /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		41B11A5A1F7B0EE80058AA92 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		41B11A5C1F7B15320058AA92 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		41B11A5F1F7B15E90058AA92 /* ExtensionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDouble.swift; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 				412C6ACF1F7AB62500646B0D /* LaunchScreen.storyboard */,
 				412C6AC71F7AB62500646B0D /* Main.storyboard */,
 				41B11A611F7B1E220058AA92 /* ProductCollectionViewCell.swift */,
+				41800B6A1F7DBEE000DE246E /* TransactionTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -147,6 +154,7 @@
 			children = (
 				4112E6861F7ADF8F0073F8E1 /* ProductModel.swift */,
 				41B11A5C1F7B15320058AA92 /* ProductViewModel.swift */,
+				41800B671F7D9CD700DE246E /* PurchaseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				41B11A5A1F7B0EE80058AA92 /* StoreAPI.swift */,
+				41800B651F7D989000DE246E /* CartAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -311,11 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41800B661F7D989000DE246E /* CartAPI.swift in Sources */,
+				41800B6B1F7DBEE000DE246E /* TransactionTableViewCell.swift in Sources */,
 				412C6ADB1F7AC82900646B0D /* StoreViewController.swift in Sources */,
 				4112E6871F7ADF8F0073F8E1 /* ProductModel.swift in Sources */,
 				41B11A621F7B1E220058AA92 /* ProductCollectionViewCell.swift in Sources */,
 				412C6AC61F7AB62500646B0D /* HomeViewController.swift in Sources */,
 				412C6AC41F7AB62500646B0D /* AppDelegate.swift in Sources */,
+				41800B681F7D9CD700DE246E /* PurchaseModel.swift in Sources */,
 				412C6ACC1F7AB62500646B0D /* DesafioStone.xcdatamodeld in Sources */,
 				412C6ADD1F7AC87B00646B0D /* TransactionsViewController.swift in Sources */,
 				41B11A641F7B45260058AA92 /* CartViewController.swift in Sources */,
