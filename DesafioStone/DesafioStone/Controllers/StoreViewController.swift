@@ -8,11 +8,13 @@
 
 import UIKit
 import AlamofireImage
+import NVActivityIndicatorView
 
 class StoreViewController: UIViewController {
   
   @IBOutlet weak var productCollectionView: UICollectionView!
   @IBOutlet weak var cartButton: UIButton!
+  @IBOutlet weak var spinner: NVActivityIndicatorView!
   
   private var productViewModel: [ProductViewModel]?
   
@@ -21,7 +23,7 @@ class StoreViewController: UIViewController {
     
     self.productCollectionView.layer.shadowColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0).cgColor
     self.productCollectionView.allowsMultipleSelection = true
-
+    self.spinner.color = UIColor(red: 229/255.0, green: 177/255.0, blue: 58/255.0, alpha: 1.0)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -31,11 +33,9 @@ class StoreViewController: UIViewController {
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destinationViewController.
     let nextController = segue.destination as! CartViewController
     
     if let selectedItens = self.productCollectionView.indexPathsForSelectedItems,
@@ -45,18 +45,16 @@ class StoreViewController: UIViewController {
       for index in selectedItens {
         totalAmount += productList[index.item].model.price
       }
-      
       nextController.totalAmount = totalAmount.formatedAsCurreny()
     }
-    
-    
-    // Pass the selected object to the new view controller.
   }
   
   func refreshProductList() {
+    self.spinner.startAnimating()
     StoreAPI.shared.getStoreProducts() {
       modelList in
       
+      self.spinner.stopAnimating()
       guard let list = modelList else {
         print("Error in request")
         return

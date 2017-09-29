@@ -145,8 +145,8 @@
 			children = (
 				412C6AC51F7AB62500646B0D /* HomeViewController.swift */,
 				412C6ADA1F7AC82900646B0D /* StoreViewController.swift */,
-				412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */,
 				41B11A631F7B45260058AA92 /* CartViewController.swift */,
+				412C6ADC1F7AC87B00646B0D /* TransactionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -270,12 +270,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DesafioStone/Pods-DesafioStone-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

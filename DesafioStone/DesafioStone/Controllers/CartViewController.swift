@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 import CoreData
 
 class CartViewController: UIViewController {
   
   @IBOutlet weak var totalAmountLabel: UILabel!
-  
   @IBOutlet weak var cardNumberTextField: UITextField!
   @IBOutlet weak var cardNameTextField: UITextField!
   @IBOutlet weak var cardExpireDateTextField: UITextField!
   @IBOutlet weak var cardCVVTextField: UITextField!
+  @IBOutlet weak var spinner: NVActivityIndicatorView!
   
   var totalAmount: String?
   
@@ -26,7 +27,7 @@ class CartViewController: UIViewController {
     if let totalAmountString = self.totalAmount {
       self.totalAmountLabel.text = totalAmountString
     }
-    // Do any additional setup after loading the view.
+    spinner.color = UIColor(red: 229/255.0, green: 177/255.0, blue: 58/255.0, alpha: 1.0)
   }
   
   override func didReceiveMemoryWarning() {
@@ -48,10 +49,11 @@ class CartViewController: UIViewController {
       let expDate = self.cardExpireDateTextField.text else {
       return
     }
-    
+    self.spinner.startAnimating()
     let transaction = PurchaseModel(cardNumber, totalAmount, cvv, cardHolder, expDate)
     CartAPI.shared.chekoutPurchase(transaction) {
       error in
+      self.spinner.stopAnimating()
       guard error == nil else {
         print("Requisição falhou")
         let alertMessage = UIAlertController(title: "Erro", message: "Desculpe-nos pelo erro. Não foi possível completar a compra.", preferredStyle: .alert)
