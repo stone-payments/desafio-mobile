@@ -1,0 +1,701 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		064C14A71F78583600111C2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C14A61F78583600111C2E /* AppDelegate.swift */; };
+		064C14A91F78583600111C2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C14A81F78583600111C2E /* ViewController.swift */; };
+		064C14AC1F78583600111C2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C14AA1F78583600111C2E /* Main.storyboard */; };
+		064C14AF1F78583600111C2E /* StoneDesafioMobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 064C14AD1F78583600111C2E /* StoneDesafioMobile.xcdatamodeld */; };
+		064C14B11F78583600111C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064C14B01F78583600111C2E /* Assets.xcassets */; };
+		064C14B41F78583600111C2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C14B21F78583600111C2E /* LaunchScreen.storyboard */; };
+		064C14BF1F78583600111C2E /* StoneDesafioMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C14BE1F78583600111C2E /* StoneDesafioMobileTests.swift */; };
+		064C14CA1F78583600111C2E /* StoneDesafioMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C14C91F78583600111C2E /* StoneDesafioMobileUITests.swift */; };
+		064C14DB1F7866A100111C2E /* CellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C14DA1F7866A100111C2E /* CellViewController.swift */; };
+		069E04CF1F7B417D009EE750 /* RegistrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E04CE1F7B417D009EE750 /* RegistrosViewController.swift */; };
+		069E04D11F7B435E009EE750 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E04D01F7B435E009EE750 /* DetailsViewController.swift */; };
+		06D069381F7BE81A00C0F25B /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D069371F7BE81A00C0F25B /* CheckoutViewController.swift */; };
+		06D0693A1F7BF33700C0F25B /* TableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D069391F7BF33700C0F25B /* TableSectionHeader.xib */; };
+		06D0693C1F7C01B400C0F25B /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0693B1F7C01B400C0F25B /* Extentions.swift */; };
+		06FE4BD91F7AD2020094F1F1 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4BD81F7AD2020094F1F1 /* CartViewController.swift */; };
+		06FE4BDB1F7AD2150094F1F1 /* SingleProdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4BDA1F7AD2150094F1F1 /* SingleProdViewController.swift */; };
+		06FE4BDD1F7AD2270094F1F1 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4BDC1F7AD2270094F1F1 /* ConfigViewController.swift */; };
+		31FD885734621F1EB8F264DA /* Pods_StoneDesafioMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEDF10306F506D2A284317C /* Pods_StoneDesafioMobile.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		064C14BB1F78583600111C2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 064C149B1F78583600111C2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 064C14A21F78583600111C2E;
+			remoteInfo = StoneDesafioMobile;
+		};
+		064C14C61F78583600111C2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 064C149B1F78583600111C2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 064C14A21F78583600111C2E;
+			remoteInfo = StoneDesafioMobile;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		064C14A31F78583600111C2E /* StoneDesafioMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneDesafioMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		064C14A61F78583600111C2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		064C14A81F78583600111C2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		064C14AB1F78583600111C2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		064C14AE1F78583600111C2E /* StoneDesafioMobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoneDesafioMobile.xcdatamodel; sourceTree = "<group>"; };
+		064C14B01F78583600111C2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		064C14B31F78583600111C2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		064C14B51F78583600111C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		064C14BA1F78583600111C2E /* StoneDesafioMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneDesafioMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		064C14BE1F78583600111C2E /* StoneDesafioMobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneDesafioMobileTests.swift; sourceTree = "<group>"; };
+		064C14C01F78583600111C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		064C14C51F78583600111C2E /* StoneDesafioMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneDesafioMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		064C14C91F78583600111C2E /* StoneDesafioMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneDesafioMobileUITests.swift; sourceTree = "<group>"; };
+		064C14CB1F78583600111C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		064C14DA1F7866A100111C2E /* CellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewController.swift; sourceTree = "<group>"; };
+		069E04CE1F7B417D009EE750 /* RegistrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosViewController.swift; sourceTree = "<group>"; };
+		069E04D01F7B435E009EE750 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		06D069371F7BE81A00C0F25B /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		06D069391F7BF33700C0F25B /* TableSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableSectionHeader.xib; sourceTree = "<group>"; };
+		06D0693B1F7C01B400C0F25B /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		06FE4BD81F7AD2020094F1F1 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		06FE4BDA1F7AD2150094F1F1 /* SingleProdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProdViewController.swift; sourceTree = "<group>"; };
+		06FE4BDC1F7AD2270094F1F1 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		9576A36A3EC2D535E371817E /* Pods-StoneDesafioMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoneDesafioMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoneDesafioMobile/Pods-StoneDesafioMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		DEEDF10306F506D2A284317C /* Pods_StoneDesafioMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoneDesafioMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13E6FF480BF3DD0D577685E /* Pods-StoneDesafioMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoneDesafioMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoneDesafioMobile/Pods-StoneDesafioMobile.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		064C14A01F78583600111C2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FD885734621F1EB8F264DA /* Pods_StoneDesafioMobile.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		064C14B71F78583600111C2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		064C14C21F78583600111C2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		064C149A1F78583600111C2E = {
+			isa = PBXGroup;
+			children = (
+				064C14A51F78583600111C2E /* StoneDesafioMobile */,
+				064C14BD1F78583600111C2E /* StoneDesafioMobileTests */,
+				064C14C81F78583600111C2E /* StoneDesafioMobileUITests */,
+				064C14A41F78583600111C2E /* Products */,
+				DF6EB9E4E6308768D2D5D237 /* Pods */,
+				C443B61F7370275D3FE2BB41 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		064C14A41F78583600111C2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				064C14A31F78583600111C2E /* StoneDesafioMobile.app */,
+				064C14BA1F78583600111C2E /* StoneDesafioMobileTests.xctest */,
+				064C14C51F78583600111C2E /* StoneDesafioMobileUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		064C14A51F78583600111C2E /* StoneDesafioMobile */ = {
+			isa = PBXGroup;
+			children = (
+				064C14A61F78583600111C2E /* AppDelegate.swift */,
+				064C14A81F78583600111C2E /* ViewController.swift */,
+				06FE4BD81F7AD2020094F1F1 /* CartViewController.swift */,
+				06FE4BDA1F7AD2150094F1F1 /* SingleProdViewController.swift */,
+				06FE4BDC1F7AD2270094F1F1 /* ConfigViewController.swift */,
+				064C14DA1F7866A100111C2E /* CellViewController.swift */,
+				06D069391F7BF33700C0F25B /* TableSectionHeader.xib */,
+				064C14AA1F78583600111C2E /* Main.storyboard */,
+				06D069371F7BE81A00C0F25B /* CheckoutViewController.swift */,
+				06D0693B1F7C01B400C0F25B /* Extentions.swift */,
+				069E04D01F7B435E009EE750 /* DetailsViewController.swift */,
+				069E04CE1F7B417D009EE750 /* RegistrosViewController.swift */,
+				064C14B01F78583600111C2E /* Assets.xcassets */,
+				064C14B21F78583600111C2E /* LaunchScreen.storyboard */,
+				064C14B51F78583600111C2E /* Info.plist */,
+				064C14AD1F78583600111C2E /* StoneDesafioMobile.xcdatamodeld */,
+			);
+			path = StoneDesafioMobile;
+			sourceTree = "<group>";
+		};
+		064C14BD1F78583600111C2E /* StoneDesafioMobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				064C14BE1F78583600111C2E /* StoneDesafioMobileTests.swift */,
+				064C14C01F78583600111C2E /* Info.plist */,
+			);
+			path = StoneDesafioMobileTests;
+			sourceTree = "<group>";
+		};
+		064C14C81F78583600111C2E /* StoneDesafioMobileUITests */ = {
+			isa = PBXGroup;
+			children = (
+				064C14C91F78583600111C2E /* StoneDesafioMobileUITests.swift */,
+				064C14CB1F78583600111C2E /* Info.plist */,
+			);
+			path = StoneDesafioMobileUITests;
+			sourceTree = "<group>";
+		};
+		C443B61F7370275D3FE2BB41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEEDF10306F506D2A284317C /* Pods_StoneDesafioMobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF6EB9E4E6308768D2D5D237 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9576A36A3EC2D535E371817E /* Pods-StoneDesafioMobile.debug.xcconfig */,
+				F13E6FF480BF3DD0D577685E /* Pods-StoneDesafioMobile.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		064C14A21F78583600111C2E /* StoneDesafioMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 064C14CE1F78583600111C2E /* Build configuration list for PBXNativeTarget "StoneDesafioMobile" */;
+			buildPhases = (
+				DFA6F445213B2FD736796AB1 /* [CP] Check Pods Manifest.lock */,
+				064C149F1F78583600111C2E /* Sources */,
+				064C14A01F78583600111C2E /* Frameworks */,
+				064C14A11F78583600111C2E /* Resources */,
+				1E62C083A2B07A15C8AC165C /* [CP] Embed Pods Frameworks */,
+				43DDC7DAB4E36E75A95854DA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StoneDesafioMobile;
+			productName = StoneDesafioMobile;
+			productReference = 064C14A31F78583600111C2E /* StoneDesafioMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		064C14B91F78583600111C2E /* StoneDesafioMobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 064C14D11F78583600111C2E /* Build configuration list for PBXNativeTarget "StoneDesafioMobileTests" */;
+			buildPhases = (
+				064C14B61F78583600111C2E /* Sources */,
+				064C14B71F78583600111C2E /* Frameworks */,
+				064C14B81F78583600111C2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				064C14BC1F78583600111C2E /* PBXTargetDependency */,
+			);
+			name = StoneDesafioMobileTests;
+			productName = StoneDesafioMobileTests;
+			productReference = 064C14BA1F78583600111C2E /* StoneDesafioMobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		064C14C41F78583600111C2E /* StoneDesafioMobileUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 064C14D41F78583600111C2E /* Build configuration list for PBXNativeTarget "StoneDesafioMobileUITests" */;
+			buildPhases = (
+				064C14C11F78583600111C2E /* Sources */,
+				064C14C21F78583600111C2E /* Frameworks */,
+				064C14C31F78583600111C2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				064C14C71F78583600111C2E /* PBXTargetDependency */,
+			);
+			name = StoneDesafioMobileUITests;
+			productName = StoneDesafioMobileUITests;
+			productReference = 064C14C51F78583600111C2E /* StoneDesafioMobileUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		064C149B1F78583600111C2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Gabriela Schirmer Mauricio";
+				TargetAttributes = {
+					064C14A21F78583600111C2E = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					064C14B91F78583600111C2E = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 064C14A21F78583600111C2E;
+					};
+					064C14C41F78583600111C2E = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 064C14A21F78583600111C2E;
+					};
+				};
+			};
+			buildConfigurationList = 064C149E1F78583600111C2E /* Build configuration list for PBXProject "StoneDesafioMobile" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 064C149A1F78583600111C2E;
+			productRefGroup = 064C14A41F78583600111C2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				064C14A21F78583600111C2E /* StoneDesafioMobile */,
+				064C14B91F78583600111C2E /* StoneDesafioMobileTests */,
+				064C14C41F78583600111C2E /* StoneDesafioMobileUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		064C14A11F78583600111C2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				064C14B41F78583600111C2E /* LaunchScreen.storyboard in Resources */,
+				06D0693A1F7BF33700C0F25B /* TableSectionHeader.xib in Resources */,
+				064C14B11F78583600111C2E /* Assets.xcassets in Resources */,
+				064C14AC1F78583600111C2E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		064C14B81F78583600111C2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		064C14C31F78583600111C2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E62C083A2B07A15C8AC165C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StoneDesafioMobile/Pods-StoneDesafioMobile-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StoneDesafioMobile/Pods-StoneDesafioMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43DDC7DAB4E36E75A95854DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StoneDesafioMobile/Pods-StoneDesafioMobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFA6F445213B2FD736796AB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StoneDesafioMobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		064C149F1F78583600111C2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				064C14AF1F78583600111C2E /* StoneDesafioMobile.xcdatamodeld in Sources */,
+				06D069381F7BE81A00C0F25B /* CheckoutViewController.swift in Sources */,
+				064C14A91F78583600111C2E /* ViewController.swift in Sources */,
+				069E04CF1F7B417D009EE750 /* RegistrosViewController.swift in Sources */,
+				06D0693C1F7C01B400C0F25B /* Extentions.swift in Sources */,
+				06FE4BD91F7AD2020094F1F1 /* CartViewController.swift in Sources */,
+				064C14DB1F7866A100111C2E /* CellViewController.swift in Sources */,
+				06FE4BDD1F7AD2270094F1F1 /* ConfigViewController.swift in Sources */,
+				064C14A71F78583600111C2E /* AppDelegate.swift in Sources */,
+				06FE4BDB1F7AD2150094F1F1 /* SingleProdViewController.swift in Sources */,
+				069E04D11F7B435E009EE750 /* DetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		064C14B61F78583600111C2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				064C14BF1F78583600111C2E /* StoneDesafioMobileTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		064C14C11F78583600111C2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				064C14CA1F78583600111C2E /* StoneDesafioMobileUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		064C14BC1F78583600111C2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 064C14A21F78583600111C2E /* StoneDesafioMobile */;
+			targetProxy = 064C14BB1F78583600111C2E /* PBXContainerItemProxy */;
+		};
+		064C14C71F78583600111C2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 064C14A21F78583600111C2E /* StoneDesafioMobile */;
+			targetProxy = 064C14C61F78583600111C2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		064C14AA1F78583600111C2E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				064C14AB1F78583600111C2E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		064C14B21F78583600111C2E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				064C14B31F78583600111C2E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		064C14CC1F78583600111C2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		064C14CD1F78583600111C2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		064C14CF1F78583600111C2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9576A36A3EC2D535E371817E /* Pods-StoneDesafioMobile.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2X8JS4RXWL;
+				INFOPLIST_FILE = StoneDesafioMobile/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabischima.StoneDesafioMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		064C14D01F78583600111C2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F13E6FF480BF3DD0D577685E /* Pods-StoneDesafioMobile.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2X8JS4RXWL;
+				INFOPLIST_FILE = StoneDesafioMobile/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabischima.StoneDesafioMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		064C14D21F78583600111C2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2X8JS4RXWL;
+				INFOPLIST_FILE = StoneDesafioMobileTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabischima.StoneDesafioMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StoneDesafioMobile.app/StoneDesafioMobile";
+			};
+			name = Debug;
+		};
+		064C14D31F78583600111C2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2X8JS4RXWL;
+				INFOPLIST_FILE = StoneDesafioMobileTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabischima.StoneDesafioMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StoneDesafioMobile.app/StoneDesafioMobile";
+			};
+			name = Release;
+		};
+		064C14D51F78583600111C2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2X8JS4RXWL;
+				INFOPLIST_FILE = StoneDesafioMobileUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabischima.StoneDesafioMobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StoneDesafioMobile;
+			};
+			name = Debug;
+		};
+		064C14D61F78583600111C2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2X8JS4RXWL;
+				INFOPLIST_FILE = StoneDesafioMobileUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabischima.StoneDesafioMobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StoneDesafioMobile;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		064C149E1F78583600111C2E /* Build configuration list for PBXProject "StoneDesafioMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				064C14CC1F78583600111C2E /* Debug */,
+				064C14CD1F78583600111C2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		064C14CE1F78583600111C2E /* Build configuration list for PBXNativeTarget "StoneDesafioMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				064C14CF1F78583600111C2E /* Debug */,
+				064C14D01F78583600111C2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		064C14D11F78583600111C2E /* Build configuration list for PBXNativeTarget "StoneDesafioMobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				064C14D21F78583600111C2E /* Debug */,
+				064C14D31F78583600111C2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		064C14D41F78583600111C2E /* Build configuration list for PBXNativeTarget "StoneDesafioMobileUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				064C14D51F78583600111C2E /* Debug */,
+				064C14D61F78583600111C2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		064C14AD1F78583600111C2E /* StoneDesafioMobile.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				064C14AE1F78583600111C2E /* StoneDesafioMobile.xcdatamodel */,
+			);
+			currentVersion = 064C14AE1F78583600111C2E /* StoneDesafioMobile.xcdatamodel */;
+			path = StoneDesafioMobile.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 064C149B1F78583600111C2E /* Project object */;
+}

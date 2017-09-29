@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cart_item" representedClassName="Cart_item" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="img_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="product_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qtd" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Transacao" representedClassName="Transacao" syncable="YES" codeGenerationType="class">
+        <attribute name="cartao" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="data_hora" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portador" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="valor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Cart_item" positionX="-9" positionY="63" width="128" height="120"/>
+        <element name="Transacao" positionX="-9" positionY="36" width="128" height="105"/>
+    </elements>
+</model>
