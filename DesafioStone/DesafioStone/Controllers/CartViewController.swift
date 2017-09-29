@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CartViewController: UIViewController {
   
@@ -33,6 +34,8 @@ class CartViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  //MARK: - Button touches
+  
   @IBAction func closeButtonTouched() {
     self.dismiss(animated: true, completion: nil)
   }
@@ -57,6 +60,15 @@ class CartViewController: UIViewController {
         return
       }
       
+      if let amountString = self.totalAmountLabel.text,
+        let cardHolderName = self.cardNameTextField.text,
+        let cardDigits = self.cardNumberTextField.text {
+        let lastCardDigit = "\(cardDigits.replacingOccurrences(of: " ", with: "").suffix(4))"
+        
+        self.saveTransaction(amountString, lastCardDigit, cardHolderName)
+      }
+      
+      
       let alertMessage = UIAlertController(title: "Sucesso", message: "Compra completada. A seu caminho a compra agora está!", preferredStyle: .alert)
       alertMessage.addAction(UIAlertAction(title: "Voltar para a loja", style: .default, handler: { action in
         self.dismiss(animated: true, completion: nil)
@@ -64,6 +76,8 @@ class CartViewController: UIViewController {
       self.present(alertMessage, animated: true, completion: nil)
     }
   }
+  
+  //MARK: - TextFields formatting
   
   @IBAction func cardNumberTextChanged(_ sender: UITextField) {
     guard let currentText = sender.text else { return }
@@ -73,6 +87,29 @@ class CartViewController: UIViewController {
   @IBAction func expireDateTextChanged(_ sender: UITextField) {
     guard let currentText = sender.text else { return }
     sender.text = currentText.grouping(every: 2, with: "/")
+  }
+  
+  //MARK: - CoreData
+  
+  func saveTransaction(_ amount: String, _ cardLastDigits: String, _ ownerName: String) {
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext = appDelegate.persistentContainer.viewContext
+    let entity = NSEntityDescription.entity(forEntityName: "Transaction", in: managedContext)!
+    let transactionData = NSManagedObject(entity: entity, insertInto: managedContext)
+    
+    transactionData.setValue(amount, forKeyPath: "amount")
+    transactionData.setValue(ownerName, forKeyPath: "card_holder_name")
+    transactionData.setValue(Date(), forKeyPath: "date")
+    transactionData.setValue(cardLastDigits, forKeyPath: "card_last_digits")
+    
+    do {
+      try managedContext.save()
+    } catch let error as NSError {
+      print("Could not save. \(error), \(error.userInfo)")
+    }
   }
 }
 
