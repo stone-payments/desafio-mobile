@@ -18,7 +18,11 @@ struct PurchaseModel {
   
   init(_ cardNumber: String, _ value: String, _ cvv: String, _ cardHolderName: String, _ expDate: String) {
     self.card_number = cardNumber
-    self.cvv = Int(cvv)!
+    if let cvvInt = Int(cvv) {
+      self.cvv = cvvInt
+    } else {
+      self.cvv = 0
+    }
     self.card_holder_name = cardHolderName
     self.exp_date = expDate
     
@@ -26,6 +30,10 @@ struct PurchaseModel {
                               .replacingOccurrences(of: "R$", with: "")
                               .replacingOccurrences(of: ",", with: "")
                               .replacingOccurrences(of: ".", with: "")
-    self.value = Int(formatedValue)!
+    if let valueInt = Int(formatedValue) {
+      self.value = valueInt
+    } else {
+      self.value = 0
+    }
   }
 }

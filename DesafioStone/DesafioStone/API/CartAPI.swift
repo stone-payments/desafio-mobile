@@ -14,12 +14,22 @@ class CartAPI {
   
   static let shared = CartAPI()
   
+  static var requestHeaders: HTTPHeaders {
+    return [
+      "Accept" : "application/json"
+    ]
+  }
+  
   func chekoutPurchase(_ transaction: PurchaseModel, completion: @escaping (Error?) -> Void) {
     
-    let checkoutURL: URLConvertible = ""
-    let checkoutParameters: Parameters = [:]
+    let checkoutURL: URLConvertible = "http://private-30abf-desafiostoneluan1.apiary-mock.com/transactions"
+    let checkoutParameters: Parameters = ["card_number": transaction.card_number,
+                                          "value": transaction.value,
+                                          "cvv": transaction.cvv,
+                                          "card_holder_name": transaction.card_holder_name,
+                                          "exp_date": transaction.exp_date]
     
-    Alamofire.request(checkoutURL, method: .post, parameters: checkoutParameters)
+    Alamofire.request(checkoutURL, method: .post, parameters: checkoutParameters, headers: CartAPI.requestHeaders)
       .validate(statusCode: 200..<300)
       .validate(contentType: ["application/json"])
       .responseJSON { response in
@@ -30,11 +40,7 @@ class CartAPI {
             print("JSON: \(json)")
           }
           
-          if let responseData = response.data {
-            let json = JSON(data: responseData)
-            
-            
-          }
+          
           completion(nil)
           
         case .failure(let error):

@@ -57,6 +57,11 @@ class CartViewController: UIViewController {
         return
       }
       
+      let alertMessage = UIAlertController(title: "Sucesso", message: "Compra completada. A seu caminho a compra agora está!", preferredStyle: .alert)
+      alertMessage.addAction(UIAlertAction(title: "Voltar para a loja", style: .default, handler: { action in
+        self.dismiss(animated: true, completion: nil)
+      }))
+      self.present(alertMessage, animated: true, completion: nil)
     }
   }
   
