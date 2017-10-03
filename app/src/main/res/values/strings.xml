@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Millenium Store</string>
+    <string name="product_content_description">Product avatar</string>
+    <string name="product_sample_name">Sample product</string>
 </resources>
