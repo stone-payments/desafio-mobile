@@ -5,16 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.data.Product
 
 class ProductListAdapter(private var activity: Activity, private var items: ArrayList<Product>) : BaseAdapter() {
     private class ViewHolder(row: View?) {
         var txtProductName: TextView? = null
+        var imgProductAvatar: ImageView? = null
 
         init {
             this.txtProductName = row?.findViewById<TextView>(R.id.txtProductName)
+            this.imgProductAvatar = row?.findViewById<ImageView>(R.id.productImg)
         }
     }
 
@@ -31,8 +35,9 @@ class ProductListAdapter(private var activity: Activity, private var items: Arra
             viewHolder = view.tag as ViewHolder
         }
 
-        var product = items[position]
+        val product = items[position]
         viewHolder.txtProductName?.text = product.title
+        Picasso.with(view?.context).load(product.thumb).into(viewHolder.imgProductAvatar)
 
         return view as View
     }
