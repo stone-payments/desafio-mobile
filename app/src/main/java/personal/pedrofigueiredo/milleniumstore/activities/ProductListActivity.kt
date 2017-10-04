@@ -1,34 +1,69 @@
 package personal.pedrofigueiredo.milleniumstore.activities
 
-import android.support.v7.app.AppCompatActivity
+import android.os.AsyncTask
 import android.os.Bundle
-import personal.pedrofigueiredo.milleniumstore.R
+import android.support.v7.app.AppCompatActivity
+import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_product_list.*
+import org.json.JSONArray
+import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.adapters.ProductListAdapter
 import personal.pedrofigueiredo.milleniumstore.data.Product
+import java.lang.ref.WeakReference
+import java.net.URL
 
 class ProductListActivity : AppCompatActivity() {
+    val PRODUCT_LIST_URL: String = "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
 
-        val adapter: ProductListAdapter = ProductListAdapter(this, getProductData())
-        listView.adapter = adapter
-        adapter.notifyDataSetChanged()
+        GetProductTask(this, listView).execute(PRODUCT_LIST_URL)
     }
 
-    // sample data to test the list view
-    // when fetching data from the Network should be done in a background thread
-    fun getProductData(): ArrayList<Product> {
-        var result = ArrayList<Product>()
+    class GetProductTask(activity: ProductListActivity, lView: ListView) : AsyncTask<String, Void, ArrayList<Product>>() {
+        private val listViewReference: WeakReference<ListView>?
+        private val actReference: WeakReference<AppCompatActivity>?
 
-        val p1 = Product("Blusa do Império", 7999, "Joao da Silva", "https://cdn.awsli.com.br/600x450/21/21351/produto/3853007/f66e8c63ab.jpg")
-        result.add(p1)
+        init {
+            listViewReference = WeakReference(lView)
+            actReference = WeakReference(activity)
+        }
 
-        val p2 = Product("Blusa Han Shot First", 7990, "Joana", "https://cdn.awsli.com.br/1000x1000/21/21351/produto/7234148/55692a941d.jpg")
-        result.add(p2)
+        override fun doInBackground(vararg p0: String?): ArrayList<Product>? {
+            val json: String = URL(p0[0]).readText()
+            return parseProductsFromJSON(json)
+        }
 
-        return result
+        override fun onPostExecute(result: ArrayList<Product>?) {
+            if (listViewReference != null && actReference != null) {
+                val list: ListView = listViewReference.get() as ListView
+                val activity: AppCompatActivity = actReference.get() as ProductListActivity
+                if (result != null) {
+                    val adapter = ProductListAdapter(activity, result)
+                    list.adapter = adapter
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }
+
+        fun parseProductsFromJSON(json: String): ArrayList<Product> {
+            var products = ArrayList<Product>()
+
+            val jsonArray: JSONArray = JSONArray(json)
+            (0..(jsonArray.length() - 1))
+                    .map { jsonArray.getJSONObject(it) }
+                    .mapTo(products) {
+                        Product(it.getString("title"), it.getInt("price"), it.getString("seller"),
+                                it.getString("thumbnailHd"))
+                    }
+
+
+
+            return products
+        }
+
     }
+
 }

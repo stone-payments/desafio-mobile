@@ -22,7 +22,7 @@ class ProductListAdapter(private var activity: Activity, private var items: Arra
         val view: View?
         val viewHolder: ViewHolder
         if (convertView == null) {
-            val inflater = activity?.layoutInflater as LayoutInflater // fiz diferente, verificar se vai funcionar
+            val inflater = activity.layoutInflater as LayoutInflater
             view = inflater.inflate(R.layout.product_list_view, null)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
