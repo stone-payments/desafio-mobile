@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.com.wagnerrodrigues.starwarsstore.presentation.view.fragment.CartFragment">
+
+
+    <View
+        android:id="@+id/separator_up"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/rl_total_purchase"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentStart="false"
+        android:background="#BBBBBB" />
+
+    <View
+        android:id="@+id/separator_down"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/ll_finish_purchase"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:background="#BBBBBB" />
+
+    <LinearLayout
+        android:id="@+id/ll_product_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/separator_up"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_product_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_total_purchase"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/separator_down"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentStart="false"
+        android:gravity="clip_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        tools:ignore="RtlSymmetry">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/cart_total_purchase"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tx_total_purchase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="false"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/textView2"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_finish_purchase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp">
+
+        <Button
+            android:id="@+id/bt_payment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_primary"
+            android:text="@string/cart_pay_purchase" />
+    </LinearLayout>
+</RelativeLayout>
