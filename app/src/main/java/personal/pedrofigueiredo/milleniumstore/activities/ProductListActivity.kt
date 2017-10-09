@@ -1,8 +1,12 @@
 package personal.pedrofigueiredo.milleniumstore.activities
 
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.json.JSONArray
@@ -44,11 +48,18 @@ class ProductListActivity : AppCompatActivity() {
                     val adapter = ProductListAdapter(activity, result)
                     list.adapter = adapter
                     adapter.notifyDataSetChanged()
+
+                    list.onItemClickListener = OnItemClickListener { parent: AdapterView<*>?, view: View?,
+                                                                     position: Int, id: Long ->
+                        val product: Product = adapter.getItem(position)
+                        val intent: Intent = ProductDetailActivity.newIntent(activity, product)
+                        activity.startActivity(intent)
+                    }
                 }
             }
         }
 
-        fun parseProductsFromJSON(json: String): ArrayList<Product> {
+        private fun parseProductsFromJSON(json: String): ArrayList<Product> {
             var products = ArrayList<Product>()
 
             val jsonArray: JSONArray = JSONArray(json)
