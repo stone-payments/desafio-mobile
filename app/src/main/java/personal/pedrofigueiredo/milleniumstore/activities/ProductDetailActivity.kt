@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
+import org.jetbrains.anko.longToast
+import org.jetbrains.anko.selector
 import personal.pedrofigueiredo.milleniumstore.R
+import personal.pedrofigueiredo.milleniumstore.common.GlobalApplication
 import personal.pedrofigueiredo.milleniumstore.data.Product
+import personal.pedrofigueiredo.milleniumstore.data.ShoppingCart
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -24,6 +28,17 @@ class ProductDetailActivity : AppCompatActivity() {
 
         Picasso.with(this).load(prod.thumb).into(productDetailedImg)
 
+        detailCartBtn.setOnClickListener {
+            val app = application as GlobalApplication
+            val cart: ShoppingCart? = app.getShoppingCart()
+            val qtyOptions = listOf("1", "2", "3", "4", "5")
+            selector(getString(R.string.cart_quantity_selector_title), qtyOptions,
+                    { _, i ->
+                        cart?.addToCart(prod, qtyOptions[i].toInt())
+                        longToast("Cart contents: $cart!")
+                    })
+
+        }
     }
 
     companion object ProductIntent {

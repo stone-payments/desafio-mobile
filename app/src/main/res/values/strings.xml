@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Millenium Store</string>
+    <string name="app_name">Millennium Store</string>
     <string name="product_label_title">Name:</string>
     <string name="product_label_price">Price:</string>
     <string name="product_label_seller">Seller:</string>
@@ -8,4 +8,7 @@
     <string name="product_sample_price">0.00</string>
     <string name="product_sample_seller">Darth Vader</string>
     <string name="product_sample_thumb">lightsaber.gif</string>
+    <string name="action_add_cart">Add to cart</string>
+    <string name="cart_quantity_selector_title">Select quantity</string>
+    <string name="cart_quantity_selector_msg">How many do you want to add?</string>
 </resources>

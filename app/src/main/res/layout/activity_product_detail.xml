@@ -99,4 +99,22 @@
             />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/btnLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textLayoutPrice"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/detailCartBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/action_add_cart"
+            android:textColor="@android:color/white"
+            />
+    </LinearLayout>
+
 </RelativeLayout>
