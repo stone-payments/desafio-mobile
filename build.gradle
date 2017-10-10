@@ -6,6 +6,7 @@ buildscript {
         kotlin_version = '1.1.4-3'
         supportLibraryVersion = '26.1.0'
         junitVersion = '4.12'
+        androidTestVersion = '1.0.1'
         retrofitVersion = '2.3.0'
         daggerVersion = '2.11'
         constraintLayoutVersion = '1.0.2'
