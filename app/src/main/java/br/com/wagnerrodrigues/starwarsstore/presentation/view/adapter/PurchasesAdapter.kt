@@ -9,6 +9,7 @@ import br.com.wagnerrodrigues.starwarsstore.domain.entity.CartItem
 import br.com.wagnerrodrigues.starwarsstore.domain.entity.Transaction
 import kotlinx.android.synthetic.main.purchase_card_item.view.*
 import starwarsstore.wagnerrodrigues.com.br.starwarsstore.R
+import java.math.BigDecimal
 import java.text.NumberFormat
 import java.util.*
 
@@ -53,7 +54,7 @@ class PurchasesAdapter constructor(private val context: Context, private var pur
             name.text = purchase?.cardHolderName
             cardLastDigits.text = purchase?.lastDigits
             date.text = purchase?.dateTime.toString()
-            value.text = NumberFormat.getCurrencyInstance(Locale.getDefault()).format(purchase?.value)
+            value.text = NumberFormat.getCurrencyInstance(Locale.getDefault()).format(BigDecimal(purchase?.value))
 
         }
     }
