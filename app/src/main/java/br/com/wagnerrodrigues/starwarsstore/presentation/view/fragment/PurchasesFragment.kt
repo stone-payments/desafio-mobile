@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.wagnerrodrigues.starwarsstore.presentation.presenter.PurchasesPresenter
+import br.com.wagnerrodrigues.starwarsstore.presentation.view.activity.MainActivity
 import kotlinx.android.synthetic.main.app_bar_main.*
 import starwarsstore.wagnerrodrigues.com.br.starwarsstore.R
 
@@ -15,6 +16,7 @@ class PurchasesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         presenter.registerEvents()
+        (activity as MainActivity).shouldDisplayHomeUp()
         super.onCreate(savedInstanceState)
     }
 
