@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import br.com.wagnerrodrigues.starwarsstore.presentation.presenter.MainPresenter
 import br.com.wagnerrodrigues.starwarsstore.presentation.view.activity.MainActivity
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.fragment_main.*
 import starwarsstore.wagnerrodrigues.com.br.starwarsstore.R
 
@@ -24,6 +25,11 @@ class MainFragment : Fragment() {
         return inflater?.inflate(R.layout.fragment_main, container, false)
     }
 
+    override fun onStart() {
+        (activity as MainActivity).shouldDisplayHomeUp()
+        super.onStart()
+    }
+
     override fun onDestroy() {
         presenter.unregisterEvents()
         super.onDestroy()
@@ -32,6 +38,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.prepareProducts()
+        activity.toolbar.title = getString(R.string.app_name);
         fb_cart.setOnClickListener {
             (activity as MainActivity).showCart()
         }

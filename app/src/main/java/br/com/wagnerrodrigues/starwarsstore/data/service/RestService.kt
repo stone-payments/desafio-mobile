@@ -9,6 +9,7 @@ open class RestService {
 
     private val gson = GsonBuilder()
             .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+            .excludeFieldsWithoutExposeAnnotation()
             .create()!!
 
     var productsBuilder = Retrofit.Builder()

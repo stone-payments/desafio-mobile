@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 showMyPurchases()
             }
         }
+        drawer_layout.closeDrawers()
         return true
     }
 
@@ -108,5 +109,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .addToBackStack(purchasesFragment::class.java.name)
                 .commit()
     }
-
 }

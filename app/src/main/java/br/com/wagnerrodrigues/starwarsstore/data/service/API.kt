@@ -6,7 +6,7 @@ import br.com.wagnerrodrigues.starwarsstore.domain.entity.Transaction
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.PUT
+import retrofit2.http.POST
 
 
 interface API {
@@ -14,6 +14,6 @@ interface API {
     @GET("products.json")
     fun obterProdutos() : Call<List<Product>>
 
-    @PUT("pay")
+    @POST("pay")
     fun sendPaymentData(@Body transaction: Transaction): Call<PaymentResponse>
 }

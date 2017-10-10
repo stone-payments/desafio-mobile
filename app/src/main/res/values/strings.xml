@@ -21,4 +21,13 @@
     <string name="payment_label_card_numbr">Número Cartão</string>
     <string name="payment_label_nome">Nome</string>
     <string name="date_separator">/</string>
+    <string name="purchase_card_holder_name">Nome no cartão</string>
+    <string name="purchase_card_number">Cartão utilizado:</string>
+    <string name="purchase_date">Data:</string>
+    <string name="puchase_total_value">Total da compra:</string>
+    <string name="purchase_title">Minhas compras</string>
+    <string name="cart_title">Meu carrinho</string>
+    <string name="payment_title">Pagamento</string>
+    <string name="payment_message">Prencha os dados do seu cartão de crédito para efetuar o pagamento</string>
+    <string name="payment_success_message">Compra realizada com sucesso</string>
 </resources>

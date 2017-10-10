@@ -19,15 +19,16 @@ class PaymentPresenter(private val fragment: PaymentFragment) : Presenter() {
 
     fun finishPurchase() {
         try {
+            fragment.showLoadingButton()
+
             var transaction = Transaction()
             transaction.cardHolderName = fragment.et_name.text.toString()
             transaction.cardNumber = fragment.et_card_number.text.toString()
             transaction.cvv = fragment.et_cvv.text.toString()
-            transaction.expDate = fragment.et_exp_month.toString() + "/" + fragment.et_exp_year.toString()
-            transaction.value = fragment.tx_total_payment.toString()
+            transaction.expDate = fragment.et_exp_month.text.toString() + "/" + fragment.et_exp_year.text.toString()
+            transaction.value = fragment.tx_total_payment.text.replace( Regex("[^\\d]"), "" )
             transaction.dateTime = Date()
             transaction.lastDigits = transaction.cardNumber?.substring(transaction.cardNumber?.length!!.minus(4))
-
             interactor.finishPurchase(transaction);
         }catch(e : Exception){
             fragment.onUnsuccessfullPurchase(ErrorEvent("Falha ao realizar a compra"))

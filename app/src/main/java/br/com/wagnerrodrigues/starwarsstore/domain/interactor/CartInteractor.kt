@@ -21,9 +21,7 @@ class CartInteractor : Interactor(){
         cart.cartItems?.forEach{
             cart.totalPurchase += it.price!!
         }
-
-        val cartsPreparedEvent = CartItemsPreparedEvent(cart)
-        EventBus.getDefault().post(cartsPreparedEvent)
+        EventBus.getDefault().post(CartItemsPreparedEvent(cart))
     }
 
     fun removeFromCart(cartItem: CartItem) {

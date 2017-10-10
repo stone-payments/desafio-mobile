@@ -2,57 +2,31 @@ package br.com.wagnerrodrigues.starwarsstore.presentation.presenter
 
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
-import br.com.wagnerrodrigues.starwarsstore.domain.interactor.MainInteractor
-import br.com.wagnerrodrigues.starwarsstore.presentation.event.ButtonAddToCartPressedEvent
-import br.com.wagnerrodrigues.starwarsstore.presentation.event.ProductAddedToCartEvent
-import br.com.wagnerrodrigues.starwarsstore.presentation.event.ProductsPreparedEvent
-import br.com.wagnerrodrigues.starwarsstore.presentation.view.adapter.CardsProductAdapter
+import br.com.wagnerrodrigues.starwarsstore.domain.interactor.PurchasesInteractor
+import br.com.wagnerrodrigues.starwarsstore.presentation.event.PurchasesPreparedEvent
+import br.com.wagnerrodrigues.starwarsstore.presentation.view.adapter.PurchasesAdapter
 import br.com.wagnerrodrigues.starwarsstore.presentation.view.fragment.PurchasesFragment
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_purchases.*
 import org.greenrobot.eventbus.Subscribe
-import java.math.BigDecimal
 
 /**
- * Presenter da main activity
+ * Presenter da lista de compras
  */
 
 class PurchasesPresenter(private val fragment: PurchasesFragment) : Presenter() {
 
-    private val interactor : MainInteractor = MainInteractor()
+    private val interactor : PurchasesInteractor = PurchasesInteractor()
 
-    fun prepareProducts() {
-        interactor.prepareProducts()
+    fun preparePurchases() {
+        interactor.preparePurchases()
     }
 
     @Subscribe
-    fun onProductsPrepared(productsPreparedEvent: ProductsPreparedEvent){
-        productsPreparedEvent.products?.forEach {
-            val formatedPrice = StringBuilder(it.price.toString()).insert(it.price.toString().length - 2, ".").toString()
-            it.price = BigDecimal(formatedPrice)
+    fun onPurchasesPrepared(purchasesPreparedEvent: PurchasesPreparedEvent){
+        purchasesPreparedEvent.transactions.forEach {
+            it.value = StringBuilder(it.value).insert(it.value?.length!!.minus(2), ".").toString()
         }
-
-        fragment.rv_product.adapter = CardsProductAdapter(fragment.context, productsPreparedEvent.products?.toMutableList())
-        fragment.rv_product.layoutManager = LinearLayoutManager(fragment.context, LinearLayout.VERTICAL, false)
+        fragment.rv_purchases_list.adapter = PurchasesAdapter(fragment.context, purchasesPreparedEvent.transactions?.toMutableList())
+        fragment.rv_purchases_list.layoutManager = LinearLayoutManager(fragment.context, LinearLayout.VERTICAL, false)
     }
-
-    @Subscribe
-    fun onButtonAddToCartPressed(buttonAddToCartPressedEvent: ButtonAddToCartPressedEvent){
-        interactor.addProductToCart(buttonAddToCartPressedEvent.product, buttonAddToCartPressedEvent.quantity)
-    }
-
-    @Subscribe
-    fun onProductAddedToCart(productAddedToCartEvent: ProductAddedToCartEvent){
-        fragment.onProductAddedToCart(productAddedToCartEvent.quantity)
-    }
-
-    override fun registerEvents() {
-        super.registerEvents()
-        interactor.registerEvents()
-    }
-
-    override fun unregisterEvents() {
-        super.unregisterEvents()
-        interactor.unregisterEvents()
-    }
-
 }
