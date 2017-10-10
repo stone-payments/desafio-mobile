@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Star Wars Store</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="button_add_cart">+ Carrinho</string>
+    <string name="button_remove_cart">- Carrinho</string>
+    <string name="product_added_to_cart">%1$s Produto(s) adicionado(s)</string>
+    <string name="thumb">Thumb</string>
+    <string name="logo">Logo</string>
+    <string name="menu_view_cart">Carrinho</string>
+    <string name="my_purchases">Meus pedidos</string>
+    <string name="cart_finish_purchase">Finalizar compra</string>
+    <string name="cart_total_purchase">Valor total da compra</string>
+    <string name="cart_pay_purchase">Efetuar Pagamento</string>
+    <string name="cart_total_payment">Total à pagar</string>
+    <string name="payment_label_cvv">CVV</string>
+    <string name="payment_label_data_vencimento">Data Venc.</string>
+    <string name="payment_label_card_numbr">Número Cartão</string>
+    <string name="payment_label_nome">Nome</string>
+    <string name="date_separator">/</string>
+    <string name="purchase_card_holder_name">Nome no cartão</string>
+    <string name="purchase_card_number">Cartão utilizado:</string>
+    <string name="purchase_date">Data:</string>
+    <string name="puchase_total_value">Total da compra:</string>
+    <string name="purchase_title">Minhas compras</string>
+    <string name="cart_title">Meu carrinho</string>
+    <string name="payment_title">Pagamento</string>
+    <string name="payment_message">Prencha os dados do seu cartão de crédito para efetuar o pagamento</string>
+    <string name="payment_success_message">Compra realizada com sucesso</string>
+</resources>
