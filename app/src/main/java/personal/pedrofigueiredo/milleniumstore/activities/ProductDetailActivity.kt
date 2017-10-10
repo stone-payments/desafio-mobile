@@ -15,31 +15,25 @@ class ProductDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
 
-        val productTitle = intent.getStringExtra(INTENT_PRODUCT_TITLE)
-        val productPrice = intent.getStringExtra(INTENT_PRODUCT_PRICE)
-        val productSeller = intent.getStringExtra(INTENT_PRODUCT_SELLER)
-        val productThumb = intent.getStringExtra(INTENT_PRODUCT_THUMB)
+        val b: Bundle = intent.extras
+        val prod: Product = b.getParcelable<Product>(BUNDLE_PRODUCT)
 
-        txtProdTitle.text = productTitle
-        txtProdPrice.text = productPrice
-        txtProdSeller.text = productSeller
+        txtProdTitle.text = prod.title
+        txtProdPrice.text = prod.price.toString()
+        txtProdSeller.text = prod.seller
 
-        Picasso.with(this).load(productThumb).into(productDetailedImg)
+        Picasso.with(this).load(prod.thumb).into(productDetailedImg)
 
     }
 
     companion object ProductIntent {
-        private val INTENT_PRODUCT_TITLE = "product_title"
-        private val INTENT_PRODUCT_SELLER = "product_seller"
-        private val INTENT_PRODUCT_PRICE = "product_price"
-        private val INTENT_PRODUCT_THUMB = "product_thumbnail"
+        private val BUNDLE_PRODUCT = "product_ref"
 
         fun newIntent(context: Context, product: Product): Intent {
             val intent = Intent(context, ProductDetailActivity::class.java)
-            intent.putExtra(INTENT_PRODUCT_TITLE, product.title)
-            intent.putExtra(INTENT_PRODUCT_PRICE, product.price)
-            intent.putExtra(INTENT_PRODUCT_SELLER, product.seller)
-            intent.putExtra(INTENT_PRODUCT_THUMB, product.thumb)
+            val bundle = Bundle()
+            bundle.putParcelable(BUNDLE_PRODUCT, product)
+            intent.putExtras(bundle)
             return intent
         }
     }
