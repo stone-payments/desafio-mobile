@@ -8,6 +8,7 @@ buildscript {
         junitVersion = '4.12'
         retrofitVersion = '2.3.0'
         daggerVersion = '2.11'
+        constraintLayoutVersion = '1.0.2'
     }
     repositories {
         google()
