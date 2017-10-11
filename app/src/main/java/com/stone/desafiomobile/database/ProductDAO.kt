@@ -10,15 +10,15 @@ import com.stone.desafiomobile.model.Product
 @Dao
 interface ProductDAO {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg data: Product): LongArray
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertBatch(data: List<Product>): LongArray
 
     @Query("SELECT * FROM products")
     fun listAll(): LiveData<List<Product>>
 
-    @Query("SELECT * FROM products where id= :arg0")
-    fun findById(id: Long): LiveData<Product>
+    @Query("SELECT * FROM products where title=:arg0 and seller=:arg1")
+    fun findById(title: String, seller: String): LiveData<Product>
 }

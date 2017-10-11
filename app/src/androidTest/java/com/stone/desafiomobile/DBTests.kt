@@ -37,14 +37,14 @@ class DbTests {
 
     @Test
     fun testProductInsert() {
-        val product = Product(1, "title", 10f, "seller", "thumb")
+        val product = Product("title", 10L, "seller", "thumb")
         var values = productDAO.insert(product)
 
         Assert.assertTrue("nenhum valor inserido no banco", values.isNotEmpty())
         values = productDAO.insert(product)
         Assert.assertTrue("Valor repetido inserido", values.size == 1)
 
-        var DBvalue = productDAO.findById(product.id!!).blockingObserve()
+        var DBvalue = productDAO.findById(product.title, product.seller).blockingObserve()
         Assert.assertEquals("valor diferente no banco", product, DBvalue)
     }
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="thumbnail_size">200dp</dimen>
+    <dimen name="title_font">25sp</dimen>
+    <dimen name="price_font">35sp</dimen>
+    <dimen name="seller_font">20sp</dimen>
+</resources>
