@@ -49,8 +49,8 @@ class ProductListActivity : AppCompatActivity() {
                     list.adapter = adapter
                     adapter.notifyDataSetChanged()
 
-                    list.onItemClickListener = OnItemClickListener { parent: AdapterView<*>?, view: View?,
-                                                                     position: Int, id: Long ->
+                    list.onItemClickListener = OnItemClickListener { _: AdapterView<*>?, _: View?,
+                                                                     position: Int, _: Long ->
                         val product: Product = adapter.getItem(position)
                         val intent: Intent = ProductDetailActivity.newIntent(activity, product)
                         activity.startActivity(intent)
