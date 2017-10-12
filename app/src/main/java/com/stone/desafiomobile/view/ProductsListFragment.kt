@@ -80,6 +80,10 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
         mCartItens.add(product)
     }
 
+    override fun removeFromCart(product: Product) {
+        mCartItens.remove(product)
+    }
+
     override fun buyProduct() {
         Log.d(this::class.simpleName, "qtd Itens no carrinho: " + mCartItens.size)
     }

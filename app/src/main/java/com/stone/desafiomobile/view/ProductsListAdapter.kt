@@ -51,6 +51,7 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
         val mThumbnailView: ImageView
         val mBuyButton: Button
         val mAddCartButton: Button
+        val mRmCartButton: Button
 
         init {
             mTitleView = mView.findViewById(R.id.title)
@@ -62,8 +63,19 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
             mBuyButton.setOnClickListener { mItemClickCalback.buyProduct() }
 
             mAddCartButton = mView.findViewById(R.id.add_to_cart_button)
-            mAddCartButton.setOnClickListener { mItemClickCalback.addToCart(mValues.get(adapterPosition)) }
+            mRmCartButton = mView.findViewById(R.id.remove_from_cart_button)
 
+            mAddCartButton.setOnClickListener({
+                mRmCartButton.visibility = View.VISIBLE
+                mAddCartButton.visibility = View.GONE
+                mItemClickCalback.addToCart(mValues.get(adapterPosition))
+            })
+
+            mRmCartButton.setOnClickListener({
+                mAddCartButton.visibility = View.VISIBLE
+                mRmCartButton.visibility = View.GONE
+                mItemClickCalback.removeFromCart(mValues.get(adapterPosition))
+            })
         }
     }
 
@@ -71,6 +83,8 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
         fun buyProduct()
 
         fun addToCart(product: Product)
+
+        fun removeFromCart(product: Product)
 
     }
 }

@@ -42,7 +42,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/button_margin"
-        android:text="@string/add_to_cart" />
+        android:text="@string/add_to_cart"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/remove_from_cart_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/button_margin"
+        android:text="@string/remove_from_cart"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/buy_button"
