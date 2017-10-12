@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Desafio Mobile</string>
+
+    <string name="add_to_cart">Adicionar ao Carrinho</string>
+    <string name="buy">Comprar</string>
 </resources>

@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -12,7 +13,7 @@ import com.stone.desafiomobile.model.Product
 import com.stone.desafiomobile.utils.formatPriceReal
 
 
-class ProductsListAdapter() : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
+class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
 
     var mValues: List<Product> = ArrayList<Product>()
         set (new) {
@@ -21,7 +22,6 @@ class ProductsListAdapter() : RecyclerView.Adapter<ProductsListAdapter.ViewHolde
                 notifyDataSetChanged()
             }
         }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -44,16 +44,33 @@ class ProductsListAdapter() : RecyclerView.Adapter<ProductsListAdapter.ViewHolde
     }
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+
         val mTitleView: TextView
         val mPriceView: TextView
         val mSellerView: TextView
         val mThumbnailView: ImageView
+        val mBuyButton: Button
+        val mAddCartButton: Button
 
         init {
             mTitleView = mView.findViewById(R.id.title)
             mPriceView = mView.findViewById(R.id.price)
             mSellerView = mView.findViewById(R.id.seller)
             mThumbnailView = mView.findViewById(R.id.thumbnail)
+
+            mBuyButton = mView.findViewById(R.id.buy_button)
+            mBuyButton.setOnClickListener { mItemClickCalback.buyProduct() }
+
+            mAddCartButton = mView.findViewById(R.id.add_to_cart_button)
+            mAddCartButton.setOnClickListener { mItemClickCalback.addToCart(mValues.get(adapterPosition)) }
+
         }
+    }
+
+    interface ItemClickCallback {
+        fun buyProduct()
+
+        fun addToCart(product: Product)
+
     }
 }

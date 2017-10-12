@@ -17,11 +17,14 @@ import com.stone.desafiomobile.di.RetrofitModule
 import com.stone.desafiomobile.model.Product
 import com.stone.desafiomobile.viewmodel.ProductsListVm
 
-class ProductsListFragment : Fragment() {
+
+class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
 
     lateinit internal var mViewModel: ProductsListVm
     lateinit internal var mRecyclerView: RecyclerView
     lateinit internal var mAdapter: ProductsListAdapter
+
+    internal var mCartItens: ArrayList<Product> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +46,7 @@ class ProductsListFragment : Fragment() {
                 mAdapter.mValues = products
             }
         })
+
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -52,9 +56,31 @@ class ProductsListFragment : Fragment() {
         mRecyclerView = view.findViewById(R.id.products_list)
 
         mRecyclerView.layoutManager = LinearLayoutManager(activity)
-        mAdapter = ProductsListAdapter()
+        mAdapter = ProductsListAdapter(this)
         mRecyclerView.adapter = mAdapter
 
         return view
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putSerializable(BUNDLE_CART, mCartItens)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        mCartItens = savedInstanceState?.getSerializable(BUNDLE_CART) as ArrayList<Product>? ?: mCartItens
+        super.onViewStateRestored(savedInstanceState)
+    }
+
+    companion object {
+        val BUNDLE_CART = "bundle_cart"
+    }
+
+    override fun addToCart(product: Product) {
+        mCartItens.add(product)
+    }
+
+    override fun buyProduct() {
+        Log.d(this::class.simpleName, "qtd Itens no carrinho: " + mCartItens.size)
     }
 }

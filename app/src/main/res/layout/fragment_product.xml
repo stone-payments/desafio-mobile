@@ -36,4 +36,19 @@
         android:textAlignment="center"
         android:textSize="@dimen/seller_font"
         tools:text="Vitoria" />
+
+    <Button
+        android:id="@+id/add_to_cart_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/button_margin"
+        android:text="@string/add_to_cart" />
+
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/button_margin"
+        android:text="@string/buy" />
+
 </LinearLayout>
