@@ -65,7 +65,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/cvv_placeholder"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="4" />
 
     <TextView
         android:layout_width="match_parent"
@@ -81,6 +82,7 @@
         tools:text="R$150,00" />
 
     <Button
+        android:id="@+id/buy_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/buy" />
