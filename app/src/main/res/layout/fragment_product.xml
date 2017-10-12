@@ -53,11 +53,4 @@
         android:text="@string/remove_from_cart"
         android:visibility="gone" />
 
-    <Button
-        android:id="@+id/buy_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/button_margin"
-        android:text="@string/buy" />
-
 </LinearLayout>

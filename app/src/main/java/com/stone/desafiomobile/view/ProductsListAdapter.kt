@@ -49,7 +49,6 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
         val mPriceView: TextView
         val mSellerView: TextView
         val mThumbnailView: ImageView
-        val mBuyButton: Button
         val mAddCartButton: Button
         val mRmCartButton: Button
 
@@ -58,9 +57,6 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
             mPriceView = mView.findViewById(R.id.price)
             mSellerView = mView.findViewById(R.id.seller)
             mThumbnailView = mView.findViewById(R.id.thumbnail)
-
-            mBuyButton = mView.findViewById(R.id.buy_button)
-            mBuyButton.setOnClickListener { mItemClickCalback.buyProduct() }
 
             mAddCartButton = mView.findViewById(R.id.add_to_cart_button)
             mRmCartButton = mView.findViewById(R.id.remove_from_cart_button)
@@ -80,7 +76,6 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
     }
 
     interface ItemClickCallback {
-        fun buyProduct()
 
         fun addToCart(product: Product)
 

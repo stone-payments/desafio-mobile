@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/products_list"
-    android:name="com.stone.desafiomobile.view.ProductsListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    app:layoutManager="LinearLayoutManager"
-    tools:context="com.stone.desafiomobile.view.ProductsListFragment"
-    tools:listitem="@layout/fragment_product" />
+    android:orientation="vertical"
+    tools:context="com.stone.desafiomobile.view.ProductsListFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/products_list"
+        android:name="com.stone.desafiomobile.view.ProductsListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:context="com.stone.desafiomobile.view.ProductsListFragment"
+        tools:listitem="@layout/fragment_product" />
+
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/buy"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</LinearLayout>
+

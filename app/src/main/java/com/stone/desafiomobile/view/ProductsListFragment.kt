@@ -2,6 +2,7 @@ package com.stone.desafiomobile.view
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -10,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.stone.desafiomobile.R
 import com.stone.desafiomobile.di.DaggerInjectionComponent
 import com.stone.desafiomobile.di.DatabaseModule
@@ -23,6 +25,8 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
     lateinit internal var mViewModel: ProductsListVm
     lateinit internal var mRecyclerView: RecyclerView
     lateinit internal var mAdapter: ProductsListAdapter
+
+    lateinit internal var mBuyButton: Button
 
     internal var mCartItens: ArrayList<Product> = ArrayList()
 
@@ -59,6 +63,9 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
         mAdapter = ProductsListAdapter(this)
         mRecyclerView.adapter = mAdapter
 
+        mBuyButton = view.findViewById(R.id.buy_button)
+        mBuyButton.setOnClickListener { buyProduct() }
+
         return view
     }
 
@@ -78,13 +85,19 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
 
     override fun addToCart(product: Product) {
         mCartItens.add(product)
+        mBuyButton.visibility = View.VISIBLE
     }
 
     override fun removeFromCart(product: Product) {
         mCartItens.remove(product)
+        if (mCartItens.isEmpty()) {
+            mBuyButton.visibility = View.GONE
+        }
     }
 
-    override fun buyProduct() {
-        Log.d(this::class.simpleName, "qtd Itens no carrinho: " + mCartItens.size)
+    fun buyProduct() {
+        val intent = Intent(activity, CheckoutActivity::class.java)
+        intent.putExtra(CheckoutActivity.ARG_CART, mCartItens)
+        startActivity(intent)
     }
 }
