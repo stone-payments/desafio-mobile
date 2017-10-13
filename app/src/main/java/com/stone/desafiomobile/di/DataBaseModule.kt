@@ -4,6 +4,7 @@ import android.arch.persistence.room.Room
 import android.content.Context
 import com.stone.desafiomobile.database.AppDatabase
 import com.stone.desafiomobile.database.ProductDAO
+import com.stone.desafiomobile.database.PurchaseLogDAO
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -20,5 +21,10 @@ class DatabaseModule(private val context: Context) {
     @Provides
     fun provideProductDao(appDatabase: AppDatabase): ProductDAO {
         return appDatabase.getProductDAO()
+    }
+
+    @Provides
+    fun providePurchaseLogDao(appDatabase: AppDatabase): PurchaseLogDAO {
+        return appDatabase.getPurchaseLogDAO()
     }
 }
