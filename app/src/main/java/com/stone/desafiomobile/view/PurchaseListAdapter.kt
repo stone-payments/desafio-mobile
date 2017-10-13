@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.stone.desafiomobile.R
 import com.stone.desafiomobile.model.PurchaseLog
+import com.stone.desafiomobile.utils.formatPriceReal
 import java.text.SimpleDateFormat
 
 class PurchaseListAdapter() : RecyclerView.Adapter<PurchaseListAdapter.ViewHolder>() {
@@ -28,7 +29,7 @@ class PurchaseListAdapter() : RecyclerView.Adapter<PurchaseListAdapter.ViewHolde
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues.get(position)
-        holder.mValueView.text = item.value.toString()
+        holder.mValueView.text = item.value?.formatPriceReal()
         val dateformat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
         holder.mDateView.text = dateformat.format(item.date)
         holder.mLastDigitsView.text = item.lastCardDigits
