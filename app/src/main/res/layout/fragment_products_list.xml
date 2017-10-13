@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         tools:context="com.stone.desafiomobile.view.ProductsListFragment"
-        tools:listitem="@layout/fragment_product" />
+        tools:listitem="@layout/fragment_product_item" />
 
     <Button
         android:id="@+id/buy_button"

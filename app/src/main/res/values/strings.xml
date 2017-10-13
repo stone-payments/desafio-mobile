@@ -26,4 +26,9 @@
     <string name="action_purchase_log">Historico</string>
     <string name="purchase_list_activity">Histórico de Compras</string>
 
+    <string name="value_label">Valor:</string>
+    <string name="date_label">Data:</string>
+    <string name="last_digits_label">Cartão:</string>
+    <string name="holder_name_label">Portador:</string>
+
 </resources>

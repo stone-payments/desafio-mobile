@@ -15,7 +15,7 @@ import com.stone.desafiomobile.utils.formatPriceReal
 
 class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
 
-    var mValues: List<Product> = ArrayList<Product>()
+    var mValues: List<Product> = ArrayList()
         set (new) {
             if (new != field) {
                 field = new
@@ -25,7 +25,7 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.fragment_product, parent, false)
+                .inflate(R.layout.fragment_product_item, parent, false)
         return ViewHolder(view)
     }
 
