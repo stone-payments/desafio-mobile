@@ -1,5 +1,6 @@
 package personal.pedrofigueiredo.milleniumstore.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_view_cart.*
@@ -16,20 +17,31 @@ class ViewCartActivity : AppCompatActivity() {
 
         val app = application as GlobalApplication
         val cart: ShoppingCart? = app.getShoppingCart()
+        val totalCartValue = cart?.getTotalPrice()
 
         val cartAdapter = CartListAdapter(this, cart)
         cartList.adapter = cartAdapter
         cartAdapter.notifyDataSetChanged()
 
-        cartTotal.text = "Total: ${cart?.getTotalPrice()}"
+        cartTotal.text = "Total: $totalCartValue"
 
         btnClear.setOnClickListener {
             clearCart(cart)
+        }
+
+        btnCheckout.setOnClickListener {
+            goToCheckout(totalCartValue)
         }
     }
 
     private fun clearCart(c: ShoppingCart?){
         c?.clear()
         this.recreate()
+    }
+
+    private fun goToCheckout(total: Int?){
+        val intent = Intent(this, CheckoutActivity::class.java)
+        intent.putExtra("CART_TOTAL", total)
+        startActivity(intent)
     }
 }
