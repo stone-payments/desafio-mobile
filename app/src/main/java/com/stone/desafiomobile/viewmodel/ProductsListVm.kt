@@ -23,7 +23,7 @@ class ProductsListVm() : ViewModel() {
             return productDAO.listAll()
         }
 
-    public fun loadProducts() {
+    fun loadProducts() {
         restRepository.getProducts({
             Log.d(this::class.simpleName, "SUCESSO REQUISICAO " + it.toString())
             if (it != null) {

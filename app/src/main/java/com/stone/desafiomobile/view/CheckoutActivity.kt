@@ -1,17 +1,27 @@
 package com.stone.desafiomobile.view
 
+import android.arch.lifecycle.ViewModelProviders
+import android.content.DialogInterface
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.stone.desafiomobile.R
+import com.stone.desafiomobile.di.DaggerInjectionComponent
+import com.stone.desafiomobile.di.DatabaseModule
+import com.stone.desafiomobile.di.RetrofitModule
 import com.stone.desafiomobile.model.Product
 import com.stone.desafiomobile.model.Purchase
 import com.stone.desafiomobile.utils.formatPriceReal
+import com.stone.desafiomobile.viewmodel.CheckoutVm
 
 class CheckoutActivity : AppCompatActivity() {
+    companion object {
+        val ARG_CART = "arg_cart"
+    }
+
     lateinit internal var mCartItens: ArrayList<Product>
 
     lateinit internal var mCardNumberET: EditText
@@ -21,6 +31,7 @@ class CheckoutActivity : AppCompatActivity() {
     lateinit internal var mValueView: TextView
     lateinit internal var mBuyButton: Button
 
+    lateinit internal var mViewModel: CheckoutVm
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +40,15 @@ class CheckoutActivity : AppCompatActivity() {
         mCartItens = intent.getSerializableExtra(ARG_CART) as ArrayList<Product>
 
         setWidgets()
+
+        mViewModel = ViewModelProviders.of(this).get(CheckoutVm::class.java)
+
+
+        val injectionComponent = DaggerInjectionComponent.builder()
+                .retrofitModule(RetrofitModule())
+                .databaseModule(DatabaseModule(this))
+                .build()
+        injectionComponent.inject(mViewModel)
 
     }
 
@@ -42,10 +62,6 @@ class CheckoutActivity : AppCompatActivity() {
 
         mBuyButton = findViewById(R.id.buy_button)
         mBuyButton.setOnClickListener { completePurchase() }
-    }
-
-    companion object {
-        val ARG_CART = "arg_cart"
     }
 
 
@@ -64,7 +80,19 @@ class CheckoutActivity : AppCompatActivity() {
                 mExpDateET.text.toString()
         )
 
-        Log.d(this::class.simpleName, purchase.toString())
+        mViewModel.buyProducts(purchase, { result ->
+            showAlert(result)
+        })
+
+    }
+
+    fun showAlert(message: Int) {
+        val dialog = AlertDialog.Builder(this)
+                .setMessage(getString(message))
+                .setPositiveButton(R.string.ok, DialogInterface.OnClickListener { dialogInterface: DialogInterface, i: Int ->
+                    dialogInterface.dismiss()
+                }).create()
+        dialog.show()
     }
 
 

@@ -8,7 +8,6 @@
     <string name="add_to_cart">Adicionar ao Carrinho</string>
     <string name="remove_from_cart">Remover do Carrinho</string>
 
-
     <string name="card_number">Número do Cartão</string>
     <string name="card_holder_name">Nome do Portador</string>
     <string name="exp_date">Vencimento do cartão</string>
@@ -19,5 +18,9 @@
     <string name="card_holder_name_placeholder">Ex: Luke Skywalker</string>
     <string name="exp_date_placeholder">MM/yy</string>
     <string name="cvv_placeholder">código na parte traseira do cartão</string>
+
+    <string name="purchase_success">Compra realizada com sucesso</string>
+    <string name="purchase_fail">Não foi possível realizar a compra. Por favor tente novamente mais tarde</string>
+    <string name="ok">OK</string>
 
 </resources>
