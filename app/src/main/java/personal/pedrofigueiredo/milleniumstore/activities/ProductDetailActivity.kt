@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
-import org.jetbrains.anko.longToast
 import org.jetbrains.anko.selector
+import org.jetbrains.anko.toast
 import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.common.GlobalApplication
 import personal.pedrofigueiredo.milleniumstore.data.Product
@@ -35,7 +35,7 @@ class ProductDetailActivity : AppCompatActivity() {
             selector(getString(R.string.cart_quantity_selector_title), qtyOptions,
                     { _, i ->
                         cart?.addToCart(prod, qtyOptions[i].toInt())
-                        longToast("Cart contents: $cart!")
+                        toast(getString(R.string.msg_added_to_cart))
                     })
 
         }

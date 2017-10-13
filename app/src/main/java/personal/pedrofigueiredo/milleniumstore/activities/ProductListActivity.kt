@@ -4,20 +4,25 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_product_list.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.toast
 import org.json.JSONArray
 import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.adapters.ProductListAdapter
+import personal.pedrofigueiredo.milleniumstore.common.GlobalApplication
 import personal.pedrofigueiredo.milleniumstore.data.Product
 import java.lang.ref.WeakReference
 import java.net.URL
 
 class ProductListActivity : AppCompatActivity() {
-    val PRODUCT_LIST_URL: String = "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json"
+    private val PRODUCT_LIST_URL: String = "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +30,44 @@ class ProductListActivity : AppCompatActivity() {
 
         GetProductTask(this, listView).execute(PRODUCT_LIST_URL)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when(item?.itemId){
+            R.id.viewCart -> {
+                goToCart()
+                true
+            }
+            R.id.help -> {
+                toast("Needing help? :)")
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun goToCart() {
+        val app = application as GlobalApplication
+        val cart = app.getShoppingCart()
+        when(cart?.isEmpty()){
+            true -> {
+                alert(getString(R.string.dialog_cart_empty_message)){
+                    title = getString(R.string.dialog_cart_empty_title)
+                    positiveButton("OK"){}
+                }.show()
+            }
+            false -> {
+                intent = Intent(this, ViewCartActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+    }
+
 
     class GetProductTask(activity: ProductListActivity, lView: ListView) : AsyncTask<String, Void, ArrayList<Product>>() {
         private val listViewReference: WeakReference<ListView>?

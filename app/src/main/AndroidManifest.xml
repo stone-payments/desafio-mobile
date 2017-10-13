@@ -26,6 +26,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ProductListActivity" />
         </activity>
+        <activity android:name=".activities.ViewCartActivity"
+            android:parentActivityName=".activities.ProductListActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ProductListActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -7,6 +7,8 @@ class ShoppingCart {
         items.put(product, quantity)
     }
 
+    fun getProductsAsList() : MutableList<Product> = items.keys.toMutableList()
+
     fun getTotalPrice(): Int {
         return items.entries.sumBy { it.key.price * it.value }
     }
@@ -16,6 +18,14 @@ class ShoppingCart {
             true -> items[key]
             false -> 0
         }
+    }
+
+    fun clear(){
+        items.clear()
+    }
+
+    fun isEmpty() : Boolean {
+        return items.isEmpty()
     }
 
     fun getCartSize(): Int {

@@ -1,6 +1,6 @@
 package personal.pedrofigueiredo.milleniumstore.adapters
 
-import android.app.Activity
+import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +11,14 @@ import com.squareup.picasso.Picasso
 import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.data.Product
 
-class ProductListAdapter(private var activity: Activity, private var items: ArrayList<Product>) : BaseAdapter() {
+class ProductListAdapter(private var activity: AppCompatActivity, private var items: ArrayList<Product>) : BaseAdapter() {
     private class ViewHolder(row: View?) {
         var txtProductName: TextView? = null
         var imgProductAvatar: ImageView? = null
 
         init {
-            this.txtProductName = row?.findViewById<TextView>(R.id.txtProductName)
-            this.imgProductAvatar = row?.findViewById<ImageView>(R.id.productImg)
+            this.txtProductName = row?.findViewById(R.id.txtProductName)
+            this.imgProductAvatar = row?.findViewById(R.id.productImg)
         }
     }
 

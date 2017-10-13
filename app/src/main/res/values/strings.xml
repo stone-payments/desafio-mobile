@@ -11,4 +11,12 @@
     <string name="action_add_cart">Add to cart</string>
     <string name="cart_quantity_selector_title">Select quantity</string>
     <string name="cart_quantity_selector_msg">How many do you want to add?</string>
+    <string name="action_help">Help</string>
+    <string name="view_cart_title">Your Cart</string>
+    <string name="btn_checkout">Proceed to Checkout</string>
+    <string name="btn_clear_cart">Clear cart</string>
+    <string name="msg_added_to_cart">Product added to cart!</string>
+    <string name="dialog_cart_empty_title">Cart is empty</string>
+    <string name="dialog_cart_empty_message">Hi! Your cart is still empty. Want to go back and look at our products?
+        I\'m sure there will be something you\'ll like :)   </string>
 </resources>
