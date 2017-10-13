@@ -10,7 +10,6 @@ buildscript {
         androidTestVersion = '1.0.1'
         retrofitVersion = '2.3.0'
         daggerVersion = '2.11'
-        constraintLayoutVersion = '1.0.2'
         glideVersion = '4.2.0'
     }
     repositories {

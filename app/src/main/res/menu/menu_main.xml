@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_purchase_log"
+        android:icon="@drawable/ic_payment_black_24dp"
+        android:title="@string/action_purchase_log"
+        app:showAsAction="always" />
+
+</menu>

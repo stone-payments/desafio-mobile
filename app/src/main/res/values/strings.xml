@@ -23,4 +23,7 @@
     <string name="purchase_fail">Não foi possível realizar a compra. Por favor tente novamente mais tarde</string>
     <string name="ok">OK</string>
 
+    <string name="action_purchase_log">Historico</string>
+    <string name="purchase_list_activity">Histórico de Compras</string>
+
 </resources>

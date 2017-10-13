@@ -6,4 +6,5 @@
     <dimen name="title_font">25sp</dimen>
     <dimen name="price_font">35sp</dimen>
     <dimen name="seller_font">20sp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

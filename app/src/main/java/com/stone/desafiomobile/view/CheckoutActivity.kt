@@ -4,7 +4,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,7 +16,7 @@ import com.stone.desafiomobile.model.Purchase
 import com.stone.desafiomobile.utils.formatPriceReal
 import com.stone.desafiomobile.viewmodel.CheckoutVm
 
-class CheckoutActivity : AppCompatActivity() {
+class CheckoutActivity : BaseActivity() {
     companion object {
         val ARG_CART = "arg_cart"
     }

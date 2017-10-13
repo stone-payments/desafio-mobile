@@ -23,7 +23,10 @@
         <activity
             android:name=".view.CheckoutActivity"
             android:label="@string/title_activity_checkout"
-            android:parentActivityName=".view.MainActivity"></activity>
+            android:parentActivityName=".view.MainActivity" />
+        <activity
+            android:name=".view.PurchaseListActivity"
+            android:label="@string/purchase_list_activity" />
     </application>
 
 </manifest>
