@@ -4,8 +4,10 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.TextView
 import com.stone.desafiomobile.R
 import com.stone.desafiomobile.di.DaggerInjectionComponent
@@ -34,8 +36,10 @@ class CheckoutActivity : BaseActivity() {
     lateinit internal var mCvvCodeET: EditText
     lateinit internal var mValueView: TextView
     lateinit internal var mBuyButton: Button
+    lateinit internal var mProgressBar: FrameLayout
 
     lateinit internal var mViewModel: CheckoutVm
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +70,8 @@ class CheckoutActivity : BaseActivity() {
 
         mBuyButton = findViewById(R.id.buy_button)
         mBuyButton.setOnClickListener { completePurchase() }
+
+        mProgressBar = findViewById(R.id.progress_bar)
     }
 
 
@@ -89,8 +95,10 @@ class CheckoutActivity : BaseActivity() {
                 mExpDateET.text.toString()
         )
 
+        mProgressBar.visibility = View.VISIBLE
         mViewModel.buyProducts(purchase, { result ->
             showAlert(result)
+            mProgressBar.visibility = View.GONE
         })
 
     }
@@ -111,11 +119,16 @@ class CheckoutActivity : BaseActivity() {
     fun showAlert(message: Int) {
         val dialog = AlertDialog.Builder(this)
                 .setMessage(getString(message))
-                .setPositiveButton(R.string.ok, DialogInterface.OnClickListener { dialogInterface: DialogInterface, i: Int ->
+                .setPositiveButton(R.string.ok, DialogInterface.OnClickListener { dialogInterface: DialogInterface, _ ->
                     dialogInterface.dismiss()
-                }).create()
+                })
+                .setOnDismissListener { dialogInterface: DialogInterface ->
+                    if (message == R.string.purchase_success) {
+                        finish()
+                    }
+                }
+                .create()
         dialog.show()
     }
-
 
 }
