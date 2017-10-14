@@ -13,7 +13,7 @@ interface PurchaseLogDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(vararg data: PurchaseLog): LongArray
 
-    @Query("SELECT * FROM purchase_logs")
+    @Query("SELECT * FROM purchase_logs order by date desc")
     fun listAll(): LiveData<List<PurchaseLog>>
 
     @Query("SELECT * FROM purchase_logs where id=:arg0")
