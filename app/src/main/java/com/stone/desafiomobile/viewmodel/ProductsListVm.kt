@@ -23,16 +23,18 @@ class ProductsListVm() : ViewModel() {
             return productDAO.listAll()
         }
 
-    fun loadProducts() {
+    fun loadProducts(loadFinishedCallback: () -> Unit = {}) {
         restRepository.getProducts({
             Log.d(this::class.simpleName, "SUCESSO REQUISICAO " + it.toString())
             if (it != null) {
-                launch(CommonPool){
+                launch(CommonPool) {
                     productDAO.insertBatch(it)
                 }
             }
+            loadFinishedCallback()
         }, {
             Log.d(this::class.simpleName, "ERRO REQUISICAO " + it.toString())
+            loadFinishedCallback()
         })
     }
 }
