@@ -34,5 +34,6 @@
     <string name="empty_error_text">Este campo é obrigatório</string>
     <string name="min_length_error_text">Campo deve possuir no minimo <b>%1$d</b> caracteres</string>
     <string name="invalid_format_error_text">Formato Invalido</string>
+    <string name="empty_purchase_log_list">O historico de compras esta vazio!\nRealize uma compra para vizualizar </string>
 
 </resources>
