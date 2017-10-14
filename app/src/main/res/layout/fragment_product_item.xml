@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin"
+    android:layout_marginTop="@dimen/margin_padding_size_medium"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="@dimen/thumbnail_size"
-        android:layout_height="@dimen/thumbnail_size"
+        android:layout_width="@android:dimen/thumbnail_width"
+        android:layout_height="@android:dimen/thumbnail_height"
         android:layout_gravity="center"
         tools:src="@mipmap/ic_launcher" />
 
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="@dimen/title_font"
+        android:textSize="@dimen/text_size_large"
         tools:text="Moletom Trooper" />
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="@dimen/price_font"
+        android:textSize="@dimen/text_size_xlarge"
         tools:text="R$120,00" />
 
     <TextView
@@ -34,14 +34,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="@dimen/seller_font"
+        android:textSize="@dimen/text_size_medium"
         tools:text="Vitoria" />
 
     <Button
         android:id="@+id/add_to_cart_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/button_margin"
+        android:layout_marginLeft="@dimen/margin_padding_size_large"
+        android:layout_marginRight="@dimen/margin_padding_size_large"
         android:text="@string/add_to_cart"
         android:visibility="visible" />
 
@@ -49,7 +50,8 @@
         android:id="@+id/remove_from_cart_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/button_margin"
+        android:layout_marginLeft="@dimen/margin_padding_size_large"
+        android:layout_marginRight="@dimen/margin_padding_size_large"
         android:text="@string/remove_from_cart"
         android:visibility="gone" />
 

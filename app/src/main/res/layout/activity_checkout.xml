@@ -14,14 +14,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin"
+            android:layout_margin="@dimen/margin_padding_size_medium"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/card_number"
-                android:textSize="@dimen/title_font" />
+                android:textSize="@dimen/text_size_large" />
 
             <EditText
                 android:id="@+id/card_number"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/card_holder_name"
-                android:textSize="@dimen/title_font" />
+                android:textSize="@dimen/text_size_large" />
 
             <EditText
                 android:id="@+id/card_holder_name"
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/exp_date"
-                android:textSize="@dimen/title_font" />
+                android:textSize="@dimen/text_size_large" />
 
             <!--TODO melhorar a forma de inserir a data-->
             <EditText
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cvv"
-                android:textSize="@dimen/title_font" />
+                android:textSize="@dimen/text_size_large" />
 
             <EditText
                 android:id="@+id/cvv"
@@ -81,20 +81,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/purchase_value"
-                android:textSize="@dimen/title_font" />
+                android:textSize="@dimen/text_size_large" />
 
             <TextView
                 android:id="@+id/purchase_value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/price_font"
+                android:textSize="@dimen/text_size_xlarge"
                 tools:text="R$150,00" />
 
             <Button
                 android:id="@+id/buy_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
+                android:layout_margin="@dimen/margin_padding_size_medium"
                 android:text="@string/buy" />
         </LinearLayout>
     </ScrollView>

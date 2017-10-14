@@ -6,8 +6,6 @@
     android:name="com.stone.desafiomobile.view.PurchaseListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/margin"
-    android:layout_marginRight="@dimen/margin"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.stone.desafiomobile.view.PurchaseListFragment"
     tools:listitem="@layout/fragment_purchase_item" />
