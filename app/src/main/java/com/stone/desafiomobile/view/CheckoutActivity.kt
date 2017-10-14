@@ -14,7 +14,12 @@ import com.stone.desafiomobile.di.RetrofitModule
 import com.stone.desafiomobile.model.Product
 import com.stone.desafiomobile.model.Purchase
 import com.stone.desafiomobile.utils.formatPriceReal
+import com.stone.desafiomobile.utils.validateDate
+import com.stone.desafiomobile.utils.validateEmpty
+import com.stone.desafiomobile.utils.validateMinLength
 import com.stone.desafiomobile.viewmodel.CheckoutVm
+import java.util.*
+
 
 class CheckoutActivity : BaseActivity() {
     companion object {
@@ -71,6 +76,11 @@ class CheckoutActivity : BaseActivity() {
     }
 
     fun completePurchase() {
+
+        if (!isFormValid()) {
+            return
+        }
+
         val purchase = Purchase(
                 mCardNumberET.text.toString(),
                 defineValue(mCartItens),
@@ -83,6 +93,19 @@ class CheckoutActivity : BaseActivity() {
             showAlert(result)
         })
 
+    }
+
+    fun isFormValid(): Boolean {
+        val validList = ArrayList<EditText?>()
+
+        validList.add(mCardNumberET.validateEmpty()?.validateMinLength(14))
+        validList.add(mHolderNameET.validateEmpty())
+        validList.add(mExpDateET.validateEmpty()?.validateDate())
+        validList.add(mCvvCodeET.validateEmpty()?.validateMinLength(3))
+
+        validList.forEach { valid -> if (valid == null) return false }
+
+        return true;
     }
 
     fun showAlert(message: Int) {

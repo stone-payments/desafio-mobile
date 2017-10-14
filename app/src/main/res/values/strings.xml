@@ -31,4 +31,8 @@
     <string name="last_digits_label">Cartão:</string>
     <string name="holder_name_label">Portador:</string>
 
+    <string name="empty_error_text">Este campo é obrigatório</string>
+    <string name="min_length_error_text">Campo deve possuir no minimo <b>%1$d</b> caracteres</string>
+    <string name="invalid_format_error_text">Formato Invalido</string>
+
 </resources>
