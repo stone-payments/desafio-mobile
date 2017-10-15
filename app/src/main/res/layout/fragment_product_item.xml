@@ -11,6 +11,7 @@
         android:layout_width="@android:dimen/thumbnail_width"
         android:layout_height="@android:dimen/thumbnail_height"
         android:layout_gravity="center"
+        android:contentDescription="@string/thumbnail_description"
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
@@ -37,22 +38,41 @@
         android:textSize="@dimen/text_size_medium"
         tools:text="Vitoria" />
 
-    <Button
-        android:id="@+id/add_to_cart_button"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_padding_size_large"
-        android:layout_marginRight="@dimen/margin_padding_size_large"
-        android:text="@string/add_to_cart"
-        android:visibility="visible" />
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/remove_from_cart_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_padding_size_large"
-        android:layout_marginRight="@dimen/margin_padding_size_large"
-        android:text="@string/remove_from_cart"
-        android:visibility="gone" />
+        <ImageButton
+            android:id="@+id/remove_from_cart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/remove_from_cart"
+            android:src="@drawable/ic_remove_circle_black_24dp"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/quantity_on_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_padding_size_medium"
+            android:layout_marginLeft="@dimen/margin_padding_size_medium"
+            android:layout_marginRight="@dimen/margin_padding_size_medium"
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:text="@string/default_cart_quantity"
+            android:textSize="@dimen/text_size_xlarge" />
+
+        <ImageButton
+            android:id="@+id/add_to_cart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/add_to_cart"
+            android:src="@drawable/ic_add_circle_black_24dp" />
+    </LinearLayout>
 
 </LinearLayout>

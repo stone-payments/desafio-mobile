@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -14,7 +14,7 @@ import com.stone.desafiomobile.utils.formatPriceReal
 
 
 class ProductsListAdapter(val mItemClickCalback: ItemClickCallback,
-                          var selectedItens: List<Product>) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
+                          var mSelectedItens: MutableList<Product>) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
 
     var mValues: List<Product> = ArrayList()
         set (new) {
@@ -32,17 +32,17 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val product = mValues.get(position)
+        val product = mValues[position]
 
         holder.mTitleView.text = product.title
         holder.mPriceView.text = product.price?.formatPriceReal()
         holder.mSellerView.text = product.seller
 
-        Glide.with(holder.mView).load(product.thumbnailHd).into(holder.mThumbnailView);
+        Glide.with(holder.mView).load(product.thumbnailHd).into(holder.mThumbnailView)
 
-        if (selectedItens.contains(product)) {
-            holder.showButtonRmCart()
-        }
+        val list = mSelectedItens.filter { it == product }
+        holder.changeQuantity(list.size)
+
     }
 
     override fun getItemCount(): Int {
@@ -55,38 +55,39 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback,
         val mPriceView: TextView
         val mSellerView: TextView
         val mThumbnailView: ImageView
-        val mAddCartButton: Button
-        val mRmCartButton: Button
+        val mQuantity: TextView
+        val mAddCartButton: ImageButton
+        val mRmCartButton: ImageButton
 
         init {
             mTitleView = mView.findViewById(R.id.title)
             mPriceView = mView.findViewById(R.id.price)
             mSellerView = mView.findViewById(R.id.seller)
             mThumbnailView = mView.findViewById(R.id.thumbnail)
+            mQuantity = mView.findViewById(R.id.quantity_on_cart)
 
             mAddCartButton = mView.findViewById(R.id.add_to_cart_button)
             mRmCartButton = mView.findViewById(R.id.remove_from_cart_button)
 
             mAddCartButton.setOnClickListener({
-                switchCartButtons()
-                mItemClickCalback.addToCart(mValues.get(adapterPosition))
+                mItemClickCalback.addToCart(mValues[adapterPosition])
+                notifyItemChanged(adapterPosition)
             })
 
             mRmCartButton.setOnClickListener({
-                switchCartButtons()
-                mItemClickCalback.removeFromCart(mValues.get(adapterPosition))
+                mItemClickCalback.removeFromCart(mValues[adapterPosition])
+                notifyItemChanged(adapterPosition)
             })
         }
 
-        fun switchCartButtons() {
-            val aux = mRmCartButton.visibility
-            mRmCartButton.visibility = mAddCartButton.visibility
-            mAddCartButton.visibility = aux
-        }
+        fun changeQuantity(quantity: Int) {
+            mQuantity.text = quantity.toString()
 
-        fun showButtonRmCart() {
-            mRmCartButton.visibility = View.VISIBLE
-            mAddCartButton.visibility = View.GONE
+            if (quantity > 0) {
+                mRmCartButton.visibility = View.VISIBLE
+            } else {
+                mRmCartButton.visibility = View.INVISIBLE
+            }
         }
     }
 

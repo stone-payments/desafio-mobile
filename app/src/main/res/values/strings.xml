@@ -7,6 +7,9 @@
     <string name="buy">Comprar</string>
     <string name="add_to_cart">Adicionar ao Carrinho</string>
     <string name="remove_from_cart">Remover do Carrinho</string>
+    <string name="thumbnail_description">Imagem do produto</string>
+    <string name="default_cart_quantity">0</string>
+    <string name="quantity_text">Quantidade</string>
 
     <string name="card_number">Número do Cartão</string>
     <string name="card_holder_name">Nome do Portador</string>
@@ -36,5 +39,6 @@
     <string name="invalid_format_error_text">Formato Invalido</string>
     <string name="empty_purchase_log_list">O historico de compras esta vazio!\nRealize uma compra para vizualizar </string>
     <string name="empty_product_list">Opa! Nenhum foi produto encontrado</string>
+
 
 </resources>
