@@ -24,7 +24,7 @@ fun EditText.validateMinLength(minLength: Int): EditText? {
 
 
 fun EditText.validateDate(): EditText? {
-    if (!this.text.matches(Regex("[0-1][0-9]/[0-9][0-9]"))) {
+    if (!this.text.matches(Regex("[0-1][0-9]/[0-9][0-9]")) || this.text.take(2).toString().toLong() > 12) {
         val message = resources.getString(R.string.invalid_format_error_text);
         this.setError(message)
         this.requestFocus()
