@@ -6,9 +6,13 @@
         android:icon="@drawable/ic_shopping_cart_black_24dp"
         android:iconTint="@android:color/white"
         android:title="@string/action_add_cart"
+        android:orderInCategory="1"
         app:showAsAction="ifRoom"/>
-    <item android:id="@+id/help"
-        android:orderInCategory="10"
-        android:title="@string/action_help"
-        app:showAsAction="never"/>
+    <item
+        android:id="@+id/viewOrders"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="@string/view_order_title"
+        android:orderInCategory="2"
+        app:showAsAction="never" />
+
 </menu>

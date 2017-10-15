@@ -31,4 +31,10 @@
     <string name="order_request_success">Fine, everything is!  Your order was processed and, send it soon, will we!  Yeesssssss.</string>
     <string name="order_request_error">Sorry, an error has occurred while your order was being processed. If it happens again, please
     contact support and we will be glad to help! </string>
+    <string name="view_order_title">Orders history</string>
+    <string name="txt_order_id">Order #%1$s</string>
+    <string name="txt_order_card_holder">Card holder name: %1$s</string>
+    <string name="txt_order_card_last_digits">Card Number (last 4 digits): %1$s</string>
+    <string name="txt_order_value">Total value: %1$s</string>
+    <string name="txt_order_process_date">Processed on: %1$s</string>
 </resources>

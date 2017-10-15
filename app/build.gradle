@@ -29,20 +29,22 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile('khttp:khttp:0.1.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile "android.arch.persistence.room:runtime:$archRoomVersion"
+    kapt "android.arch.persistence.room:compiler:$archRoomVersion"
+
+
     compile 'org.jetbrains.anko:anko-commons:0.10.1'
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:design:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile ('khttp:khttp:0.1.0') {
-        exclude group: 'org.json', module: 'json'
-    }
     compile 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
-    compile "android.arch.persistence.room:runtime:$archRoomVersion"
-    kapt "android.arch.persistence.room:compiler:$archRoomVersion"
-
-    debugCompile 'com.amitshekhar.android:debug-db:1.0.0' // debug purpose only. remove on production environment
+    // debug purpose only. remove on production environment
+    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
 }
 
 apply plugin: 'org.jetbrains.kotlin.android.extensions'

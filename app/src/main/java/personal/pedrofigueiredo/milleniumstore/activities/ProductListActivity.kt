@@ -12,7 +12,6 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.jetbrains.anko.alert
-import org.jetbrains.anko.toast
 import org.json.JSONArray
 import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.adapters.ProductListAdapter
@@ -42,12 +41,16 @@ class ProductListActivity : AppCompatActivity() {
                 goToCart()
                 true
             }
-            R.id.help -> {
-                toast("Needing help? :)")
+            R.id.viewOrders -> {
+                viewOrders()
                 true
             }
             else -> false
         }
+    }
+
+    private fun viewOrders() {
+        startActivity(Intent(this, OrderListActivity::class.java))
     }
 
     private fun goToCart() {

@@ -15,7 +15,6 @@
         <activity android:name=".activities.ProductListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,11 +32,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ProductListActivity" />
         </activity>
-        <activity android:name=".activities.CheckoutActivity"
+        <activity
+            android:name=".activities.CheckoutActivity"
             android:parentActivityName=".activities.ViewCartActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ViewCartActivity" />
+        </activity>
+        <activity android:name=".activities.OrderListActivity"
+            android:parentActivityName=".activities.ProductListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ProductListActivity" />
         </activity>
     </application>
 

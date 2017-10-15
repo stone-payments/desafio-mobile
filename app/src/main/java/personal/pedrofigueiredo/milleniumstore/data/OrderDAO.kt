@@ -10,6 +10,9 @@ interface OrderDAO {
     @Query("SELECT * FROM orders")
     fun getAllOrders(): List<Order>
 
+    @Query("SELECT * FROM orders ORDER BY datetime_processed DESC")
+    fun getAllOrdersRecentFirst(): List<Order>
+
     @Query("SELECT * FROM orders where order_id = :arg0")
     fun getOrderById(id: Long): Order
 
