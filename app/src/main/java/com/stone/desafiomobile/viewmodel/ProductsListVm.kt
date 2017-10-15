@@ -23,6 +23,8 @@ class ProductsListVm() : ViewModel() {
             return productDAO.listAll()
         }
 
+    var cartItens: ArrayList<Product> = ArrayList()
+
     fun loadProducts(loadFinishedCallback: () -> Unit = {}) {
         restRepository.getProducts({
             Log.d(this::class.simpleName, "SUCESSO REQUISICAO " + it.toString())

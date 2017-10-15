@@ -33,8 +33,6 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
     lateinit internal var mEmptyListTV: TextView
     lateinit internal var mSwipeRefreshLayout: SwipeRefreshLayout
 
-    internal var mCartItens: ArrayList<Product> = ArrayList()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,6 +57,7 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
             }
         })
 
+
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -68,11 +67,15 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
         mRecyclerView = view.findViewById(R.id.products_list)
 
         mRecyclerView.layoutManager = LinearLayoutManager(activity)
-        mAdapter = ProductsListAdapter(this)
+        mAdapter = ProductsListAdapter(this, mViewModel.cartItens)
         mRecyclerView.adapter = mAdapter
 
         mBuyButton = view.findViewById(R.id.buy_button)
         mBuyButton.setOnClickListener { buyProduct() }
+
+        if (!mViewModel.cartItens.isEmpty()) {
+            mBuyButton.visibility = View.VISIBLE
+        }
 
         mEmptyListTV = view.findViewById(R.id.empty_list_text)
 
@@ -86,35 +89,21 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
         mViewModel.loadProducts({ mSwipeRefreshLayout.isRefreshing = false })
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putSerializable(BUNDLE_CART, mCartItens)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        mCartItens = savedInstanceState?.getSerializable(BUNDLE_CART) as ArrayList<Product>? ?: mCartItens
-        super.onViewStateRestored(savedInstanceState)
-    }
-
-    companion object {
-        val BUNDLE_CART = "bundle_cart"
-    }
-
     override fun addToCart(product: Product) {
-        mCartItens.add(product)
+        mViewModel.cartItens.add(product)
         mBuyButton.visibility = View.VISIBLE
     }
 
     override fun removeFromCart(product: Product) {
-        mCartItens.remove(product)
-        if (mCartItens.isEmpty()) {
+        mViewModel.cartItens.remove(product)
+        if (mViewModel.cartItens.isEmpty()) {
             mBuyButton.visibility = View.GONE
         }
     }
 
     fun buyProduct() {
         val intent = Intent(activity, CheckoutActivity::class.java)
-        intent.putExtra(CheckoutActivity.ARG_CART, mCartItens)
+        intent.putExtra(CheckoutActivity.ARG_CART, mViewModel.cartItens)
         startActivity(intent)
     }
 }

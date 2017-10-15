@@ -13,7 +13,8 @@ import com.stone.desafiomobile.model.Product
 import com.stone.desafiomobile.utils.formatPriceReal
 
 
-class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
+class ProductsListAdapter(val mItemClickCalback: ItemClickCallback,
+                          var selectedItens: List<Product>) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
 
     var mValues: List<Product> = ArrayList()
         set (new) {
@@ -22,6 +23,7 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
                 notifyDataSetChanged()
             }
         }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -37,6 +39,10 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
         holder.mSellerView.text = product.seller
 
         Glide.with(holder.mView).load(product.thumbnailHd).into(holder.mThumbnailView);
+
+        if (selectedItens.contains(product)) {
+            holder.showButtonRmCart()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -62,16 +68,25 @@ class ProductsListAdapter(val mItemClickCalback: ItemClickCallback) : RecyclerVi
             mRmCartButton = mView.findViewById(R.id.remove_from_cart_button)
 
             mAddCartButton.setOnClickListener({
-                mRmCartButton.visibility = View.VISIBLE
-                mAddCartButton.visibility = View.GONE
+                switchCartButtons()
                 mItemClickCalback.addToCart(mValues.get(adapterPosition))
             })
 
             mRmCartButton.setOnClickListener({
-                mAddCartButton.visibility = View.VISIBLE
-                mRmCartButton.visibility = View.GONE
+                switchCartButtons()
                 mItemClickCalback.removeFromCart(mValues.get(adapterPosition))
             })
+        }
+
+        fun switchCartButtons() {
+            val aux = mRmCartButton.visibility
+            mRmCartButton.visibility = mAddCartButton.visibility
+            mAddCartButton.visibility = aux
+        }
+
+        fun showButtonRmCart() {
+            mRmCartButton.visibility = View.VISIBLE
+            mAddCartButton.visibility = View.GONE
         }
     }
 
