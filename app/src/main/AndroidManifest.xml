@@ -16,17 +16,25 @@
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".view.CheckoutActivity"
-            android:label="@string/title_activity_checkout"
-            android:parentActivityName=".view.MainActivity" />
+            android:label="@string/title_activity_checkout">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.MainActivity" />
+        </activity>
         <activity
             android:name=".view.PurchaseListActivity"
-            android:label="@string/purchase_list_activity" />
+            android:label="@string/purchase_list_activity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
