@@ -42,24 +42,20 @@ class CartListAdapter(private var activity: AppCompatActivity, private var cart:
 
         val product = items[position]
         val quantity = cart?.getQuantityByProduct(product)
+        val subtotal = product.price * quantity!!
+        val res = activity.resources
 
         viewHolder.txtName?.text = product.title
-        viewHolder.txtQuantity?.text = "Quantity: $quantity"
-        viewHolder.txtSubtotal?.text = "Subtotal: ${product.price * quantity!!}"
+        viewHolder.txtQuantity?.text = String.format(res.getString(R.string.cart_item_quantity), quantity.toString())
+        viewHolder.txtSubtotal?.text = String.format(res.getString(R.string.cart_item_subtotal), subtotal.toString())
 
 
         return view as View
     }
 
-    override fun getCount(): Int {
-        return items.size
-    }
+    override fun getCount(): Int = items.size
 
-    override fun getItem(position: Int): Product {
-        return items[position]
-    }
+    override fun getItem(position: Int): Product = items[position]
 
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
-    }
+    override fun getItemId(position: Int): Long = position.toLong()
 }

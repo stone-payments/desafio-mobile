@@ -43,8 +43,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
-    // debug purpose only. remove on production environment
-    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
 }
 
 apply plugin: 'org.jetbrains.kotlin.android.extensions'

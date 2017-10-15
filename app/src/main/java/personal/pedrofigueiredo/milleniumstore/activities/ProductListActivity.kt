@@ -106,9 +106,9 @@ class ProductListActivity : AppCompatActivity() {
         }
 
         private fun parseProductsFromJSON(json: String): ArrayList<Product> {
-            var products = ArrayList<Product>()
+            val products = ArrayList<Product>()
 
-            val jsonArray: JSONArray = JSONArray(json)
+            val jsonArray = JSONArray(json)
             (0..(jsonArray.length() - 1))
                     .map { jsonArray.getJSONObject(it) }
                     .mapTo(products) {

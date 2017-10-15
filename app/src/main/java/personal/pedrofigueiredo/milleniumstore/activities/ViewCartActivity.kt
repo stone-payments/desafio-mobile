@@ -23,7 +23,7 @@ class ViewCartActivity : AppCompatActivity() {
         cartList.adapter = cartAdapter
         cartAdapter.notifyDataSetChanged()
 
-        cartTotal.text = "Total: $totalCartValue"
+        cartTotal.text = String.format(getString(R.string.view_cart_total), totalCartValue.toString())
 
         btnClear.setOnClickListener {
             clearCart(cart)
@@ -36,7 +36,7 @@ class ViewCartActivity : AppCompatActivity() {
 
     private fun clearCart(c: ShoppingCart?){
         c?.clear()
-        this.recreate()
+        startActivity(Intent(applicationContext, ProductListActivity::class.java))
     }
 
     private fun goToCheckout(total: Int?){

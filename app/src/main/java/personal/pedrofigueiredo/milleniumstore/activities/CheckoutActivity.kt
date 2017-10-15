@@ -47,7 +47,7 @@ class CheckoutActivity : AppCompatActivity() {
                                         pd.dismiss()
                                         // notify user
                                         longToast(getString(R.string.order_request_success))
-                                        startActivity(Intent(this@CheckoutActivity, ProductListActivity::class.java))
+                                        startActivity(Intent(this@CheckoutActivity, OrderListActivity::class.java))
                                     }
                                 } else {
                                     pd.dismiss()

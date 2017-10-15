@@ -26,7 +26,11 @@ class ProductDetailActivity : AppCompatActivity() {
         txtProdPrice.text = prod.price.toString()
         txtProdSeller.text = prod.seller
 
-        Picasso.with(this).load(prod.thumb).into(productDetailedImg)
+        Picasso.with(this)
+                .load(prod.thumb)
+                .placeholder(R.drawable.ic_portrait_black_24dp)
+                .error(R.drawable.ic_error_black_24dp)
+                .into(productDetailedImg)
 
         detailCartBtn.setOnClickListener {
             val app = application as GlobalApplication

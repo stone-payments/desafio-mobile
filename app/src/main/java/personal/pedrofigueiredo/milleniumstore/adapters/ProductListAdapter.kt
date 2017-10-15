@@ -37,20 +37,18 @@ class ProductListAdapter(private var activity: AppCompatActivity, private var it
 
         val product = items[position]
         viewHolder.txtProductName?.text = product.title
-        Picasso.with(view?.context).load(product.thumb).into(viewHolder.imgProductAvatar)
+        Picasso.with(view?.context)
+                .load(product.thumb)
+                .placeholder(R.drawable.ic_portrait_black_24dp)
+                .error(R.drawable.ic_error_black_24dp)
+                .into(viewHolder.imgProductAvatar)
 
         return view as View
     }
 
-    override fun getItem(i: Int): Product {
-        return items[i]
-    }
+    override fun getItem(i: Int): Product = items[i]
 
-    override fun getItemId(i: Int): Long {
-        return i.toLong()
-    }
+    override fun getItemId(i: Int): Long = i.toLong()
 
-    override fun getCount(): Int {
-        return items.size
-    }
+    override fun getCount(): Int = items.size
 }

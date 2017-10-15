@@ -41,13 +41,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/product_label_title" />
+            android:text="@string/product_label_title"
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/txtProdTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:text="@string/product_sample_name"
+            android:textSize="15sp"
             />
     </LinearLayout>
 
@@ -65,13 +67,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/product_label_seller" />
+            android:text="@string/product_label_seller"
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/txtProdSeller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:text="@string/product_sample_seller"
+            android:textSize="15sp"
             />
     </LinearLayout>
 
@@ -89,13 +93,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/product_label_price" />
+            android:text="@string/product_label_price"
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/txtProdPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:text="@string/product_sample_price"
+            android:textSize="15sp"
             />
     </LinearLayout>
 
@@ -111,9 +117,10 @@
             android:id="@+id/detailCartBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:background="@color/colorPrimary"
             android:text="@string/action_add_cart"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/primary_text_dark"
             />
     </LinearLayout>
 

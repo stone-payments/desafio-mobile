@@ -7,13 +7,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="top"
         android:orientation="vertical">
         <TextView
             android:id="@+id/cartTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="@string/view_cart_title"
+            android:textColor="@android:color/holo_blue_dark"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold"/>
@@ -31,25 +34,33 @@
             android:scrollbars="vertical"
             />
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
         <Button
             android:id="@+id/btnCheckout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_gravity="bottom"
             android:layout_marginBottom="5dp"
             android:background="@color/colorPrimary"
             android:text="@string/btn_checkout"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/primary_text_dark"
             />
         <Button
             android:id="@+id/btnClear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_gravity="bottom"
             android:background="@color/colorPrimary"
             android:onClick="clearCart"
             android:text="@string/btn_clear_cart"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/primary_text_dark"
             />
     </LinearLayout>
 </RelativeLayout>
