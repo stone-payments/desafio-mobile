@@ -46,7 +46,6 @@ class CheckoutActivity : BaseActivity() {
         setContentView(R.layout.activity_checkout)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mCartItens = intent.getSerializableExtra(ARG_CART) as ArrayList<Product>
-
         setWidgets()
 
         mViewModel = ViewModelProviders.of(this).get(CheckoutVm::class.java)

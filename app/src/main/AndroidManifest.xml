@@ -12,25 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.MainActivity"
-            android:label="@string/title_activity_main">
+            android:name=".view.SplashScreenActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".view.MainActivity"
+            android:label="@string/title_activity_main"></activity>
+        <activity
             android:name=".view.CheckoutActivity"
             android:label="@string/title_activity_checkout">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.MainActivity" />
         </activity>
         <activity
             android:name=".view.PurchaseListActivity"
-            android:label="@string/purchase_list_activity">
-
+            android:label="@string/title_activity_purchase_list">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.MainActivity" />

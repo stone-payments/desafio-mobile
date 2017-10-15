@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Desafio Mobile</string>
+    <string name="app_name">Wookie Shop</string>
 
     <string name="title_activity_checkout">Finalizar Compra</string>
     <string name="title_activity_main">Loja</string>
+    <string name="title_activity_purchase_list">Histórico de Compras</string>
 
     <string name="buy">Comprar</string>
     <string name="add_to_cart">Adicionar ao Carrinho</string>
@@ -27,7 +28,7 @@
     <string name="ok">OK</string>
 
     <string name="action_purchase_log">Historico</string>
-    <string name="purchase_list_activity">Histórico de Compras</string>
+
 
     <string name="value_label">Valor:</string>
     <string name="date_label">Data:</string>
