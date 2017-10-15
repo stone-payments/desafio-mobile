@@ -13,7 +13,6 @@ import com.stone.desafiomobile.R
 import com.stone.desafiomobile.di.DaggerInjectionComponent
 import com.stone.desafiomobile.di.DatabaseModule
 import com.stone.desafiomobile.di.RetrofitModule
-import com.stone.desafiomobile.model.Product
 import com.stone.desafiomobile.model.Purchase
 import com.stone.desafiomobile.utils.formatPriceReal
 import com.stone.desafiomobile.utils.validateDate
@@ -28,7 +27,7 @@ class CheckoutActivity : BaseActivity() {
         val ARG_CART = "arg_cart"
     }
 
-    lateinit internal var mCartItens: ArrayList<Product>
+    internal var mCartItensValue: Long = 0
 
     lateinit internal var mCardNumberET: EditText
     lateinit internal var mHolderNameET: EditText
@@ -45,7 +44,7 @@ class CheckoutActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        mCartItens = intent.getSerializableExtra(ARG_CART) as ArrayList<Product>
+        mCartItensValue = intent.getLongExtra(ARG_CART, 0)
         setWidgets()
 
         mViewModel = ViewModelProviders.of(this).get(CheckoutVm::class.java)
@@ -65,19 +64,12 @@ class CheckoutActivity : BaseActivity() {
         mExpDateET = findViewById(R.id.exp_date)
         mCvvCodeET = findViewById(R.id.cvv)
         mValueView = findViewById(R.id.purchase_value)
-        mValueView.text = defineValue(mCartItens).formatPriceReal()
+        mValueView.text = mCartItensValue.formatPriceReal()
 
         mBuyButton = findViewById(R.id.buy_button)
         mBuyButton.setOnClickListener { completePurchase() }
 
         mProgressBar = findViewById(R.id.progress_bar)
-    }
-
-
-    fun defineValue(cartItens: List<Product>): Long {
-        var value = 0L
-        cartItens.map { product -> value += product.price ?: 0 }
-        return value
     }
 
     fun completePurchase() {
@@ -88,7 +80,7 @@ class CheckoutActivity : BaseActivity() {
 
         val purchase = Purchase(
                 mCardNumberET.text.toString(),
-                defineValue(mCartItens),
+                mCartItensValue,
                 mCvvCodeET.text.toString().toLong(),
                 mHolderNameET.text.toString(),
                 mExpDateET.text.toString()

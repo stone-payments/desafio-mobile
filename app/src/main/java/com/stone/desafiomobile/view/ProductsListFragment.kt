@@ -103,7 +103,7 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
 
     fun buyProduct() {
         val intent = Intent(activity, CheckoutActivity::class.java)
-        intent.putExtra(CheckoutActivity.ARG_CART, mViewModel.cartItens)
+        intent.putExtra(CheckoutActivity.ARG_CART, mViewModel.defineValue())
         startActivity(intent)
     }
 }

@@ -39,4 +39,10 @@ class ProductsListVm() : ViewModel() {
             loadFinishedCallback()
         })
     }
+
+    fun defineValue(): Long {
+        var value = 0L
+        cartItens.map { product -> value += product.price ?: 0 }
+        return value
+    }
 }
