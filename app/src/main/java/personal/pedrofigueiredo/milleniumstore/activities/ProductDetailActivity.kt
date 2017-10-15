@@ -23,7 +23,7 @@ class ProductDetailActivity : AppCompatActivity() {
         val prod: Product = b.getParcelable<Product>(BUNDLE_PRODUCT)
 
         txtProdTitle.text = prod.title
-        txtProdPrice.text = prod.price.toString()
+        txtProdPrice.text = String.format(getString(R.string.product_price), prod.price.toString())
         txtProdSeller.text = prod.seller
 
         Picasso.with(this)

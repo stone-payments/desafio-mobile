@@ -14,6 +14,7 @@ import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
 import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.common.GlobalApplication
+import personal.pedrofigueiredo.milleniumstore.components.MyEditTextDatePicker
 import personal.pedrofigueiredo.milleniumstore.data.Order
 import personal.pedrofigueiredo.milleniumstore.data.OrderDataPOJO
 import java.util.*
@@ -26,6 +27,9 @@ class CheckoutActivity : AppCompatActivity() {
         setContentView(R.layout.activity_checkout)
 
         val total: Int = intent.getIntExtra("CART_TOTAL", 0)
+
+        // creates datepicker on the expiration date edit text
+        MyEditTextDatePicker(_context = this, editTextViewID = R.id.edtExpDt)
 
         btnSubmit.setOnClickListener {
             if (validateFields() && total > 0) {

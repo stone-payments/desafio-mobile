@@ -9,6 +9,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.data.Order
+import java.text.DateFormat
 
 class OrdersListAdapter(private var activity: AppCompatActivity, private var items: ArrayList<Order>) : BaseAdapter() {
 
@@ -45,11 +46,14 @@ class OrdersListAdapter(private var activity: AppCompatActivity, private var ite
         val order = items[position]
         val res: Resources = activity.resources
 
+        val fmt = DateFormat.getDateTimeInstance()
+        val localDateTime = fmt.format(order.dtProcessed)
+
         viewHolder.txtOrderId?.text = String.format(res.getString(R.string.txt_order_id), order.orderId)
         viewHolder.txtCardHolder?.text = String.format(res.getString(R.string.txt_order_card_holder), order.cardHolder)
         viewHolder.txtCardNumber?.text = String.format(res.getString(R.string.txt_order_card_last_digits), order.lastFourDigits)
         viewHolder.txtValue?.text = String.format(res.getString(R.string.txt_order_value), order.value.toString())
-        viewHolder.txtDate?.text = String.format(res.getString(R.string.txt_order_process_date), order.dtProcessed.toString())
+        viewHolder.txtDate?.text = String.format(res.getString(R.string.txt_order_process_date), localDateTime)
 
 
         return view as View

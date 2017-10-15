@@ -2,6 +2,7 @@
     <string name="app_name">Millennium Store</string>
     <string name="product_label_title">Name:</string>
     <string name="product_label_price">Price:</string>
+    <string name="product_price">%1$s Imperial Credits</string>
     <string name="product_label_seller">Seller:</string>
     <string name="product_content_description">Product avatar</string>
     <string name="product_sample_name" translatable="false">Sample product</string>
@@ -13,9 +14,9 @@
     <string name="cart_quantity_selector_msg">How many do you want to add?</string>
     <string name="action_help">Help</string>
     <string name="view_cart_title">Your Cart</string>
-    <string name="view_cart_total">Total: %1$s</string>
+    <string name="view_cart_total">Total: %1$s Imperial Credits</string>
     <string name="cart_item_quantity">Quantity: %1$s</string>
-    <string name="cart_item_subtotal">Subtotal: %1$s</string>
+    <string name="cart_item_subtotal">Subtotal: %1$s Imperial Credits</string>
     <string name="btn_checkout">Proceed to Checkout</string>
     <string name="btn_clear_cart">Clear cart</string>
     <string name="msg_added_to_cart">Product added to cart!</string>
@@ -38,6 +39,6 @@
     <string name="txt_order_id">Order #%1$s</string>
     <string name="txt_order_card_holder">Card holder name: %1$s</string>
     <string name="txt_order_card_last_digits">Card Number (last 4 digits): %1$s</string>
-    <string name="txt_order_value">Total value: %1$s</string>
+    <string name="txt_order_value">Total value: %1$s Imperial Credits</string>
     <string name="txt_order_process_date">Processed on: %1$s</string>
 </resources>
