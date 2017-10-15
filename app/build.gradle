@@ -34,9 +34,15 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'khttp:khttp:0.1.0'
+    compile ('khttp:khttp:0.1.0') {
+        exclude group: 'org.json', module: 'json'
+    }
     compile 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
+    compile "android.arch.persistence.room:runtime:$archRoomVersion"
+    kapt "android.arch.persistence.room:compiler:$archRoomVersion"
+
+    debugCompile 'com.amitshekhar.android:debug-db:1.0.0' // debug purpose only. remove on production environment
 }
 
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
