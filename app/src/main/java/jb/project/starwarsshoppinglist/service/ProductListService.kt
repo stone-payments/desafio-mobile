@@ -17,7 +17,7 @@ interface ProductListService {
 
 
     @GET("products")
-    fun fetchProductList(): Observable<Response<MutableList<Product>>>
+    fun fetchProductList(): Observable<Response<ArrayList<Product>>>
 
     companion object Factory {
         fun create(): ProductListService {

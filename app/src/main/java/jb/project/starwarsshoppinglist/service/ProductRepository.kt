@@ -8,7 +8,7 @@ import retrofit2.Response
  * Created by Jb on 13/10/2017.
  */
 class ProductRepository (val apiService: ProductListService) {
-        fun loadProducts(): Observable<Response<MutableList<Product>>> {
+        fun loadProducts(): Observable<Response<ArrayList<Product>>> {
             return apiService.fetchProductList()
         }
 }

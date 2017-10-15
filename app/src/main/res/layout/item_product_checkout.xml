@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/img_thumbnail"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/img_not_available" />
+
+    <TextView
+        android:id="@+id/text_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_toEndOf="@+id/img_thumbnail"
+        android:layout_toStartOf="@+id/edt_count"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="nome do produto startwars" />
+
+    <EditText
+        android:id="@+id/edt_count"
+        android:layout_toStartOf="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="4"/>
+
+    <ImageButton
+        android:background="@android:color/transparent"
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_delete" />
+
+
+</RelativeLayout>

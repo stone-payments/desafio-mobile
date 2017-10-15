@@ -8,12 +8,12 @@ import android.os.Parcelable
  */
 
 data class Product(val title: String? = null,
-                   val price: Int? = null,
-                   val zipcode: String? = null,
-                   val seller: String? = null,
-                   val thumbnailHd: String? = null,
-                   val date: String? = null,
-                   val type: String? = null) : Parcelable {
+                        val price: Int? = null,
+                        val zipcode: String? = null,
+                        val seller: String? = null,
+                        val thumbnailHd: String? = null,
+                        val date: String? = null,
+                        val type: String? = null) : Parcelable {
 
     constructor(parcel: Parcel) : this(
             parcel.readString(),
@@ -47,6 +47,11 @@ data class Product(val title: String? = null,
             return arrayOfNulls(size)
         }
     }
+
+    fun copy( title: String? = this.title,
+              price: Int? = this.price,
+              thumbnailHd: String? = this.thumbnailHd
+              ) = Cart(title, price, thumbnailHd, quantity = null)
 
 }
 

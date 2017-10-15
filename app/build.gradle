@@ -39,9 +39,8 @@ dependencies {
     })
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
-    implementation "org.glassfish:javax.annotation:10.0-b28"
-
     //RxJava
+    implementation "org.glassfish:javax.annotation:10.0-b28"
     implementation "io.reactivex.rxjava2:rxandroid:$rx_version"
 
     //Retrofit
@@ -49,8 +48,10 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
     compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
+    //httpLogInterceptor
     compile "com.squareup.okhttp3:okhttp:$okhttpVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
 
-
+    //Picasso
+    compile "com.squareup.picasso:picasso:$picasso_version"
 }

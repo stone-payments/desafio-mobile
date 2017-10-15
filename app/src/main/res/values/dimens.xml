@@ -8,4 +8,5 @@
     <dimen name="item_card_productM_margin_bottom">12dp</dimen>
     <dimen name="textview_padding">12dp</dimen>
     <dimen name="appbar_padding_top">4dp</dimen>
+    <dimen name="badge_text_size">14sp</dimen>
 </resources>

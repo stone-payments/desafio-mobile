@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import jb.project.starwarsshoppinglist.BaseActivity
 import jb.project.starwarsshoppinglist.R
-import jb.project.starwarsshoppinglist.home.adapter.SectionsPagerAdapter
+import jb.project.starwarsshoppinglist.productList.adapter.SectionsPagerAdapter
 import jb.project.starwarsshoppinglist.model.Product
 import jb.project.starwarsshoppinglist.productList.activity.view.ProductListView
 import jb.project.starwarsshoppinglist.productList.presenter.ProductListPresenter
@@ -14,16 +14,10 @@ import jb.project.starwarsshoppinglist.productList.presenter.ProductListPresente
 import kotlinx.android.synthetic.main.activity_product_list.*
 
 class ProductListActivity : BaseActivity(), ProductListView {
-    override fun showError(strResId: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showMessage(strResId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     private lateinit var mPresenter: ProductListPresenter
+    var mTabText: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +28,6 @@ class ProductListActivity : BaseActivity(), ProductListView {
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
     }
 
 
@@ -55,30 +47,38 @@ class ProductListActivity : BaseActivity(), ProductListView {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun loadProductList(productList: MutableList<Product>) {
+    override fun loadProductList(productList: ArrayList<Product>) {
         // Set up the ViewPager with the sections adapter.
-        val tittleList = getAllTabsNames(productList)
+        val tabsList = getAllTabsNames(productList)
 
         tabs.addTab(tabs.newTab().setText(R.string.all_products))
-        for (tittle : String in tittleList)
-        {
+        for (tittle: String in tabsList) {
             tabs.addTab(tabs.newTab().setText(tittle))
         }
-
-        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager, tittleList)
+        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager, tabsList.size, productList)
 
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
+        tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                mTabText = tab.text.toString()
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
         container.adapter = mSectionsPagerAdapter
     }
 
-    private fun getAllTabsNames(productList: MutableList<Product>): List<String> {
-        val tabsList: MutableList<String> = mutableListOf()
 
+     fun getCurrentTabText() : String {
+        return mTabText
+    }
+
+    private fun getAllTabsNames(productList: ArrayList<Product>): List<String> {
+        val tabsList: ArrayList<String> = ArrayList()
         productList.mapTo(tabsList) { it.type!! }
         return tabsList.distinct()
-
     }
 
 

@@ -9,5 +9,22 @@
     <string name="action_search">Procurar</string>
     <string name="internet_connection_unavailable">No Internet Available</string>
     <string name="server_error">Server Error</string>
-    <string name="all_products">Todos</string>
+    <string name="all_products">TODOS</string>
+    <string name="title_activity_product_detail">Detalhes do produto</string>
+    <string name="price">Preço:</string>
+    <string name="seller">Vendendor:</string>
+    <string name="quantity">Quantidade:</string>
+    <string name="add_cart">Adicionar ao Carrinho</string>
+    <string name="action_cart">Carrinho de Compras</string>
+
+
+    <!-- Usually the quantity comes from the service accordingly with the item.  -->
+    <string-array name="array_spinner">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+    </string-array>
+    <string name="title_activity_checkout">CheckoutActivity</string>
 </resources>
