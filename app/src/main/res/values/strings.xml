@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Millennium Store</string>
+    <string name="get_product_error">There was an error getting the products. Please check if your device has an active Internet connection
+    and try again.</string>
     <string name="product_label_title">Name:</string>
     <string name="product_label_price">Price:</string>
     <string name="product_price">%1$s Imperial Credits</string>

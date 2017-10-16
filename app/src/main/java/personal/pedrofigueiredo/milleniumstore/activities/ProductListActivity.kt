@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.jetbrains.anko.alert
 import org.json.JSONArray
@@ -17,6 +18,7 @@ import personal.pedrofigueiredo.milleniumstore.R
 import personal.pedrofigueiredo.milleniumstore.adapters.ProductListAdapter
 import personal.pedrofigueiredo.milleniumstore.common.GlobalApplication
 import personal.pedrofigueiredo.milleniumstore.data.Product
+import java.io.IOException
 import java.lang.ref.WeakReference
 import java.net.URL
 
@@ -75,6 +77,7 @@ class ProductListActivity : AppCompatActivity() {
     class GetProductTask(activity: ProductListActivity, lView: ListView) : AsyncTask<String, Void, ArrayList<Product>>() {
         private val listViewReference: WeakReference<ListView>?
         private val actReference: WeakReference<AppCompatActivity>?
+        var exceptionRaised: IOException? = null
 
         init {
             listViewReference = WeakReference(lView)
@@ -82,26 +85,36 @@ class ProductListActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg p0: String?): ArrayList<Product>? {
-            val json: String = URL(p0[0]).readText()
-            return parseProductsFromJSON(json)
+            try {
+                val json: String = URL(p0[0]).readText()
+                return parseProductsFromJSON(json)
+            } catch (e : IOException) {
+                exceptionRaised = e
+            }
+            return ArrayList()
         }
 
         override fun onPostExecute(result: ArrayList<Product>?) {
             if (listViewReference != null && actReference != null) {
                 val list: ListView = listViewReference.get() as ListView
                 val activity: AppCompatActivity = actReference.get() as ProductListActivity
-                if (result != null) {
-                    val adapter = ProductListAdapter(activity, result)
-                    list.adapter = adapter
-                    adapter.notifyDataSetChanged()
+                if(exceptionRaised != null){
+                    Toast.makeText(activity, activity.getString(R.string.get_product_error), Toast.LENGTH_LONG).show()
+                } else {
+                    if (result != null) {
+                        val adapter = ProductListAdapter(activity, result)
+                        list.adapter = adapter
+                        adapter.notifyDataSetChanged()
 
-                    list.onItemClickListener = OnItemClickListener { _: AdapterView<*>?, _: View?,
-                                                                     position: Int, _: Long ->
-                        val product: Product = adapter.getItem(position)
-                        val intent: Intent = ProductDetailActivity.newIntent(activity, product)
-                        activity.startActivity(intent)
+                        list.onItemClickListener = OnItemClickListener { _: AdapterView<*>?, _: View?,
+                                                                         position: Int, _: Long ->
+                            val product: Product = adapter.getItem(position)
+                            val intent: Intent = ProductDetailActivity.newIntent(activity, product)
+                            activity.startActivity(intent)
+                        }
                     }
                 }
+
             }
         }
 
