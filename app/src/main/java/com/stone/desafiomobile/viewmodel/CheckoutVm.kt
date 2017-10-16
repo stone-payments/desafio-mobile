@@ -12,6 +12,9 @@ import java.util.*
 import javax.inject.Inject
 
 
+/**
+ * ViewModel de finalização de compras
+ */
 class CheckoutVm() : ViewModel() {
 
     @Inject
@@ -20,6 +23,11 @@ class CheckoutVm() : ViewModel() {
     @Inject
     lateinit var purchaseLogDAO: PurchaseLogDAO
 
+    /**
+     * Realiza a compra
+     * @param purchase dados da compra
+     * @param callback retorna qual mensagem deve ser mostrada
+     */
     fun buyProducts(purchase: Purchase, callback: (Int) -> Unit) {
         restRepository.BuyProducts(purchase, {
             saveTransaction(purchase)
@@ -29,6 +37,10 @@ class CheckoutVm() : ViewModel() {
         })
     }
 
+    /**
+     * Salva a transação no banco
+     * @param purchase dados da compra
+     */
     fun saveTransaction(purchase: Purchase) {
         launch(CommonPool) {
             val purchaseLog = PurchaseLog(null, purchase.value, Date(), purchase.cardNumber.takeLast(4), purchase.cardHolderName)
