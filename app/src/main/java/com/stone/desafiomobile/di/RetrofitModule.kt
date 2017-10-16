@@ -1,8 +1,5 @@
 package com.stone.desafiomobile.di
 
-import android.content.Context
-import android.preference.PreferenceManager
-import com.stone.desafiomobile.R
 import com.stone.desafiomobile.network.ProductsService
 import dagger.Module
 import dagger.Provides
@@ -10,9 +7,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Classe de injeção de dependêcia para objetos relacionados ao retrofit
+ */
 @Module
 class RetrofitModule() {
 
+    /**
+     * @return Instancia configurada do [Retrofit]
+     */
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
@@ -22,6 +25,9 @@ class RetrofitModule() {
                 .build()
     }
 
+    /**
+     * @return Instancia do [ProductsService]
+     */
     @Provides
     fun provideProductsService(retrofit: Retrofit): ProductsService{
         return retrofit.create(ProductsService::class.java)

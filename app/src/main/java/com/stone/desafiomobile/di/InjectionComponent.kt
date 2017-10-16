@@ -6,13 +6,25 @@ import com.stone.desafiomobile.viewmodel.PurchaseListVm
 import dagger.Component
 import javax.inject.Singleton
 
+/**
+ * Classe que define quem fornecera as dependencias e quem as injetará
+ */
 @Singleton
 @Component(modules = arrayOf(RetrofitModule::class, DatabaseModule::class))
 interface InjectionComponent {
 
-    fun inject(productsListVm:ProductsListVm): Unit
+    /**
+     * Injeta as dependencias
+     */
+    fun inject(productsListVm: ProductsListVm)
 
-    fun inject(checkoutVm: CheckoutVm): Unit
+    /**
+     * Injeta as dependencias
+     */
+    fun inject(checkoutVm: CheckoutVm)
 
-    fun inject(purchaseListVm: PurchaseListVm): Unit
+    /**
+     * Injeta as dependencias
+     */
+    fun inject(purchaseListVm: PurchaseListVm)
 }
