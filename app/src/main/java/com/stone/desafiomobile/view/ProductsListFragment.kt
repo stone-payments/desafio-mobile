@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,9 @@ import com.stone.desafiomobile.di.RetrofitModule
 import com.stone.desafiomobile.model.Product
 import com.stone.desafiomobile.viewmodel.ProductsListVm
 
-
+/**
+ * Fragment contendo a lista de produtos
+ */
 class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
 
     lateinit internal var mViewModel: ProductsListVm
@@ -29,7 +30,6 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
     lateinit internal var mAdapter: ProductsListAdapter
 
     lateinit internal var mBuyButton: Button
-
     lateinit internal var mEmptyListTV: TextView
     lateinit internal var mSwipeRefreshLayout: SwipeRefreshLayout
 
@@ -38,17 +38,18 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
 
         mViewModel = ViewModelProviders.of(this).get(ProductsListVm::class.java)
 
-
+        //injeta as dependencias
         val injectionComponent = DaggerInjectionComponent.builder()
                 .retrofitModule(RetrofitModule())
                 .databaseModule(DatabaseModule(activity))
                 .build()
         injectionComponent.inject(mViewModel)
 
+
         mViewModel.loadProducts()
 
+        // observa os produtos que estao no banco de dados para atualizar a lista
         mViewModel.products.observe(this, Observer<List<Product>> { products ->
-            Log.d(this::class.simpleName, "Produtos recuperados " + products.toString())
             if (products != null) {
                 mAdapter.mValues = products
                 if (!products.isEmpty()) {
@@ -73,6 +74,7 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
         mBuyButton = view.findViewById(R.id.buy_button)
         mBuyButton.setOnClickListener { buyProduct() }
 
+        // mostra o botão de comprar se algum item estiver no carrinho
         if (!mViewModel.cartItens.isEmpty()) {
             mBuyButton.visibility = View.VISIBLE
         }
@@ -85,22 +87,39 @@ class ProductsListFragment : Fragment(), ProductsListAdapter.ItemClickCallback {
         return view
     }
 
+    /**
+     * Recupera produtos da api e para o refresh no fim da execução
+     */
     fun onRefresh() {
         mViewModel.loadProducts({ mSwipeRefreshLayout.isRefreshing = false })
     }
 
+    /**
+     * Adiciona um item no carrinho
+     * @param product [Product] a ser adicionado no carrinho
+     */
     override fun addToCart(product: Product) {
         mViewModel.cartItens.add(product)
         mBuyButton.visibility = View.VISIBLE
     }
 
+
+    /**
+     * Adiciona um item no carrinho
+     * @param product [Product] a ser removido do carrinho
+     */
     override fun removeFromCart(product: Product) {
         mViewModel.cartItens.remove(product)
+
+        // se nao sobrou itens no carrinho faz o botao de comprar desaparecer
         if (mViewModel.cartItens.isEmpty()) {
             mBuyButton.visibility = View.GONE
         }
     }
 
+    /**
+     * Leva para [CheckoutActivity] passando o valor da compra
+     */
     fun buyProduct() {
         val intent = Intent(activity, CheckoutActivity::class.java)
         intent.putExtra(CheckoutActivity.ARG_CART, mViewModel.defineValue())

@@ -17,7 +17,9 @@ import com.stone.desafiomobile.di.RetrofitModule
 import com.stone.desafiomobile.model.PurchaseLog
 import com.stone.desafiomobile.viewmodel.PurchaseListVm
 
-
+/**
+ * Fragment contendo o historico de compras
+ */
 class PurchaseListFragment : Fragment() {
 
     lateinit internal var mViewModel: PurchaseListVm
@@ -31,13 +33,14 @@ class PurchaseListFragment : Fragment() {
 
         mViewModel = ViewModelProviders.of(this).get(PurchaseListVm::class.java)
 
-
+        //injeta as dependencias
         val injectionComponent = DaggerInjectionComponent.builder()
                 .retrofitModule(RetrofitModule())
                 .databaseModule(DatabaseModule(activity))
                 .build()
         injectionComponent.inject(mViewModel)
 
+        // observa os produtos que estao no banco de dados para atualizar a lista
         mViewModel.purchaseLogList.observe(this, Observer<List<PurchaseLog>> { purchaseLog ->
             if (purchaseLog != null) {
                 mAdapter.mValues = purchaseLog

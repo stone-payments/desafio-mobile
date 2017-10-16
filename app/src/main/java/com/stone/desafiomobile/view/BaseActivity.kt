@@ -7,6 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.stone.desafiomobile.R
 
+/**
+ * Activity base para ser herdada
+ */
 open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

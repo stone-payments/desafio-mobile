@@ -21,14 +21,18 @@ import com.stone.desafiomobile.utils.validateMinLength
 import com.stone.desafiomobile.viewmodel.CheckoutVm
 import java.util.*
 
-
+/**
+ * Activity de finalização de compras
+ */
 class CheckoutActivity : BaseActivity() {
     companion object {
         val ARG_CART = "arg_cart"
     }
 
+    // valor da compra
     internal var mCartItensValue: Long = 0
 
+    // referencias do layout
     lateinit internal var mCardNumberET: EditText
     lateinit internal var mHolderNameET: EditText
     lateinit internal var mExpDateET: EditText
@@ -37,6 +41,7 @@ class CheckoutActivity : BaseActivity() {
     lateinit internal var mBuyButton: Button
     lateinit internal var mProgressBar: FrameLayout
 
+
     lateinit internal var mViewModel: CheckoutVm
 
 
@@ -44,12 +49,16 @@ class CheckoutActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // recupera o valor da compra
         mCartItensValue = intent.getLongExtra(ARG_CART, 0)
+
         setWidgets()
 
         mViewModel = ViewModelProviders.of(this).get(CheckoutVm::class.java)
 
 
+        //injeta as dependencias
         val injectionComponent = DaggerInjectionComponent.builder()
                 .retrofitModule(RetrofitModule())
                 .databaseModule(DatabaseModule(this))
@@ -58,6 +67,9 @@ class CheckoutActivity : BaseActivity() {
 
     }
 
+    /**
+     * Pega as referências do layout
+     */
     fun setWidgets() {
         mCardNumberET = findViewById(R.id.card_number)
         mHolderNameET = findViewById(R.id.card_holder_name)
@@ -72,12 +84,17 @@ class CheckoutActivity : BaseActivity() {
         mProgressBar = findViewById(R.id.progress_bar)
     }
 
+    /**
+     * Realiza a compra
+     */
     fun completePurchase() {
 
+        // se o formulario estiver invalido para imediatamente
         if (!isFormValid()) {
             return
         }
 
+        // cria um objeto da compra
         val purchase = Purchase(
                 mCardNumberET.text.toString(),
                 mCartItensValue,
@@ -86,33 +103,49 @@ class CheckoutActivity : BaseActivity() {
                 mExpDateET.text.toString()
         )
 
+        // mostra o loading
         mProgressBar.visibility = View.VISIBLE
+
+        // faz a requisição
         mViewModel.buyProducts(purchase, { result ->
+            // mostra o resultado em um alerta
             showAlert(result)
+            // esconde o loading
             mProgressBar.visibility = View.GONE
         })
 
     }
 
+    /**
+     * valida o formulario
+     */
     fun isFormValid(): Boolean {
         val validList = ArrayList<EditText?>()
 
+        // valida cada formulario
         validList.add(mCardNumberET.validateEmpty()?.validateMinLength(14))
         validList.add(mHolderNameET.validateEmpty())
         validList.add(mExpDateET.validateEmpty()?.validateDate())
         validList.add(mCvvCodeET.validateEmpty()?.validateMinLength(3))
 
+        // percorre os inputs
+        // se algum deles for nulo significa que o fomulario esta invalido
         validList.forEach { valid -> if (valid == null) return false }
 
         return true;
     }
 
+    /**
+     * Mostra um alerta
+     * @param message id da string para mostrar
+     */
     fun showAlert(message: Int) {
         val dialog = AlertDialog.Builder(this)
                 .setMessage(getString(message))
                 .setPositiveButton(R.string.ok, DialogInterface.OnClickListener { dialogInterface: DialogInterface, _ ->
                     dialogInterface.dismiss()
                 })
+                // se o dialogo for dispensado fecha a atividade
                 .setOnDismissListener { dialogInterface: DialogInterface ->
                     if (message == R.string.purchase_success) {
                         finish()
