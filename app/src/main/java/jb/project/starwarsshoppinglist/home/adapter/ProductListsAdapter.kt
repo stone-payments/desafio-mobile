@@ -12,6 +12,8 @@ import com.squareup.picasso.Picasso
 import jb.project.starwarsshoppinglist.R
 import jb.project.starwarsshoppinglist.model.Product
 import android.content.Intent
+import io.realm.RealmResults
+import jb.project.starwarsshoppinglist.model.Cart
 import jb.project.starwarsshoppinglist.productDetail.activity.ProductDetailActivity
 
 

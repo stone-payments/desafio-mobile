@@ -2,6 +2,7 @@ package jb.project.starwarsshoppinglist.productDetail.activity
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -14,6 +15,7 @@ import io.realm.Realm
 import jb.project.starwarsshoppinglist.BaseActivity
 import jb.project.starwarsshoppinglist.R
 import jb.project.starwarsshoppinglist.Utils.BadgeDrawable
+import jb.project.starwarsshoppinglist.cart.activity.CheckoutActivity
 import jb.project.starwarsshoppinglist.model.Cart
 import jb.project.starwarsshoppinglist.model.Product
 import kotlinx.android.synthetic.main.activity_product_detail.*
@@ -78,6 +80,9 @@ class ProductDetailActivity : BaseActivity() {
             setBadgeCount(this, mIcon, cartCount.size.toString())
             it.close()
         }
+
+        val mIntent = Intent(this, CheckoutActivity::class.java)
+        this.startActivity(mIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -93,7 +98,8 @@ class ProductDetailActivity : BaseActivity() {
         val id = item.itemId
 
         if (id == R.id.action_cart) {
-            return true
+            val mIntent = Intent(this, CheckoutActivity::class.java)
+            this.startActivity(mIntent)
         }
 
         return super.onOptionsItemSelected(item)

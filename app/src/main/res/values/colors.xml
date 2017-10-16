@@ -5,4 +5,5 @@
     <color name="colorPrimaryLight">#4d3d7f</color>
     <color name="colorAccent">#3CBFAF</color>
     <color name="textview_bkg_red">#CE102C</color>
+    <color name="background_gray">#CACCC9</color>
 </resources>

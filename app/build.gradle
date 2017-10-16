@@ -54,4 +54,7 @@ dependencies {
 
     //Picasso
     compile "com.squareup.picasso:picasso:$picasso_version"
+
+    //Realm Adapter
+    compile 'io.realm:android-adapters:2.1.0'
 }

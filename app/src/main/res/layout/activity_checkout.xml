@@ -31,9 +31,17 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_cart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_sum_items"
+                tools:text="asdasdasdasd"/>
+
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -66,6 +74,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal">
 
                 <android.support.design.widget.TextInputLayout
