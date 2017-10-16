@@ -7,9 +7,18 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
+/**
+ * Classe para realizar requisições HTTP
+ * @param productsService serviço com os metodos para fazer as requisições
+ */
 class RestRepository @Inject constructor(
         private val productsService: ProductsService) {
 
+    /**
+     * recupera os produtos da API
+     * @param success callback para quando a requisição é realizada com sucesso
+     * @param error callback para quando a requisição falha
+     */
     fun getProducts(success: (data: List<Product>?) -> Unit,
                     error: (t: Throwable) -> Unit) {
         productsService.getProducts().enqueue(object : Callback<List<Product>> {
@@ -25,6 +34,12 @@ class RestRepository @Inject constructor(
         })
     }
 
+    /**
+     * envia uma compra para a API
+     * @param purchase dados da compra
+     * @param success callback para quando a requisição é realizada com sucesso
+     * @param error callback para quando a requisição falha
+     */
     fun BuyProducts(purchase: Purchase,
                     success: (data: Map<String, String>?) -> Unit,
                     error: (t: Throwable) -> Unit) {
