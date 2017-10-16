@@ -20,6 +20,9 @@ import java.util.*
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
+/**
+ * Tests do banco de dados
+ */
 @RunWith(AndroidJUnit4::class)
 class DbTests {
     private lateinit var productDAO: ProductDAO
@@ -40,6 +43,9 @@ class DbTests {
         mDb.close()
     }
 
+    /**
+     * Testa a inserção de [Product]
+     */
     @Test
     fun testProductInsert() {
         val product = Product("title", 10L, "seller", "thumb")
@@ -53,6 +59,9 @@ class DbTests {
         Assert.assertEquals("valor diferente no banco", product, DBvalue)
     }
 
+    /**
+     * Testa a inserção de [PurchaseLog]
+     */
     @Test
     fun testPurchaseLogInsert() {
         val purchaseLog = PurchaseLog(1L, 50L, Date(), "0123", "Renan")
@@ -66,6 +75,9 @@ class DbTests {
         Assert.assertEquals("valor diferente no banco", purchaseLog, DBvalue)
     }
 
+    /**
+     * faz o [LiveData] funcionar de forma sincrona
+     */
     fun <T> LiveData<T>.blockingObserve(): T? {
         var value: T? = null
         val latch = CountDownLatch(1)
