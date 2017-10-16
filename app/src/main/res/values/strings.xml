@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Millennium Store</string>
+    <string name="get_product_error">There was an error getting the products. Please check if your device has an active Internet connection
+    and try again.</string>
+    <string name="product_label_title">Name:</string>
+    <string name="product_label_price">Price:</string>
+    <string name="product_price">%1$s Imperial Credits</string>
+    <string name="product_label_seller">Seller:</string>
+    <string name="product_content_description">Product avatar</string>
+    <string name="product_sample_name" translatable="false">Sample product</string>
+    <string name="product_sample_price" translatable="false">0.00</string>
+    <string name="product_sample_seller" translatable="false">Darth Vader</string>
+    <string name="product_sample_thumb" translatable="false">lightsaber.gif</string>
+    <string name="action_add_cart">Add to cart</string>
+    <string name="cart_quantity_selector_title">Select quantity</string>
+    <string name="cart_quantity_selector_msg">How many do you want to add?</string>
+    <string name="action_help">Help</string>
+    <string name="view_cart_title">Your Cart</string>
+    <string name="view_cart_total">Total: %1$s Imperial Credits</string>
+    <string name="cart_item_quantity">Quantity: %1$s</string>
+    <string name="cart_item_subtotal">Subtotal: %1$s Imperial Credits</string>
+    <string name="btn_checkout">Proceed to Checkout</string>
+    <string name="btn_clear_cart">Clear cart</string>
+    <string name="msg_added_to_cart">Product added to cart!</string>
+    <string name="dialog_cart_empty_title">Cart is empty</string>
+    <string name="dialog_cart_empty_message">Hi! Your cart is still empty. Want to go back and look at our products?
+        I\'m sure there will be something you\'ll like :)   </string>
+    <string name="checkout_instructions">Please fill the information below so we can submit your order. All fields are required.</string>
+    <string name="card_holder_hint">Name of the card holder</string>
+    <string name="card_number_hint">Card number</string>
+    <string name="cvv_hint">CVV (code on the back of the card)</string>
+    <string name="expiration_date_hint">Card Expiration date (MM/YYYY)</string>
+    <string name="error_field_required">This field is required!</string>
+    <string name="btn_submit_order">Submit Order</string>
+    <string name="order_progress_title">Processing order</string>
+    <string name="order_progress_msg">Please wait while your order is being processed&#8230;</string>
+    <string name="order_request_success">Fine, everything is!  Your order was processed and, send it soon, will we!  Yeesssssss.</string>
+    <string name="order_request_error">Sorry, an error has occurred while your order was being processed. If it happens again, please
+    contact support and we will be glad to help! </string>
+    <string name="view_order_title">Orders history</string>
+    <string name="txt_order_id">Order #%1$s</string>
+    <string name="txt_order_card_holder">Card holder name: %1$s</string>
+    <string name="txt_order_card_last_digits">Card Number (last 4 digits): %1$s</string>
+    <string name="txt_order_value">Total value: %1$s Imperial Credits</string>
+    <string name="txt_order_process_date">Processed on: %1$s</string>
+</resources>

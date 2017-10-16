@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Millennium Store</string>
+    <string name="action_add_cart">Adicionar ao carrinho</string>
+    <string name="action_help">Ajuda</string>
+    <string name="btn_checkout">Comprar</string>
+    <string name="btn_clear_cart">Limpar carrinho</string>
+    <string name="btn_submit_order">Enviar pedido</string>
+    <string name="card_holder_hint">Nome do portador do cartão</string>
+    <string name="card_number_hint">Número do cartão</string>
+    <string name="cart_item_quantity">Quantidade: %1$s</string>
+    <string name="cart_item_subtotal">Subtotal: %1$s Créditos Imperiais</string>
+    <string name="cart_quantity_selector_msg">Quantos itens deseja adicionar?</string>
+    <string name="cart_quantity_selector_title">Selecione quantidade</string>
+    <string name="checkout_instructions">Por gentileza, preencha as informações abaixo para que possamos enviar seu pedido. Todos os campos são obrigatórios.</string>
+    <string name="cvv_hint">CVV (código na parte traseira do cartão)</string>
+    <string name="dialog_cart_empty_message">Olá! Seu carrinho ainda está vazio. Que tal dar mais uma olhada em nossos produtos? Temos certeza que encontrará algo que gosta :)</string>
+    <string name="dialog_cart_empty_title">Carrinho vazio</string>
+    <string name="error_field_required">Este campo é obrigatório!</string>
+    <string name="expiration_date_hint">Data de expiração do cartão (MM/AAAA)</string>
+    <string name="get_product_error">Ocorreu um erro ao tentar carregar os produtos. Por gentileza, verifique se o seu dispositivo possui uma conexão ativa à Internet e tente novamente.</string>
+    <string name="msg_added_to_cart">Produto foi adicionado ao carrinho!</string>
+    <string name="order_progress_msg">Por favor aguarde enquanto seu pedido é processado&#8230;</string>
+    <string name="order_progress_title">Pedido sendo processado</string>
+    <string name="order_request_error">Desculpe, um erro aconteceu enquanto seu pedido era processado. Caso aconteça novamente, contate nosso suporte e teremos prazer em ajudar!</string>
+    <string name="order_request_success">"Bem, tudo está! Seu pedido processado foi e, em breve, enviado será! "</string>
+    <string name="product_content_description">Avatar</string>
+    <string name="product_label_price">Preço:</string>
+    <string name="product_label_seller">Vendedor:</string>
+    <string name="product_label_title">Nome:</string>
+    <string name="product_price">%1$s Créditos Imperiais</string>
+    <string name="txt_order_card_holder">Portador do cartão: %1$s</string>
+    <string name="txt_order_card_last_digits">Número do cartão (últimos 4 dígitos): %1$s</string>
+    <string name="txt_order_id">Pedido #%1$s</string>
+    <string name="txt_order_process_date">Processado em: %1$s</string>
+    <string name="txt_order_value">Valor total: %1$s Créditos Imperiais</string>
+    <string name="view_cart_title">Seu carrinho</string>
+    <string name="view_cart_total">Total: %1$s Créditos Imperiais</string>
+    <string name="view_order_title">Histórico de Pedidos</string>
+</resources>
