@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Desafio Stone</string>
+
+    <string name="seller"><![CDATA[<b>Vendedor: </b>]]></string>
+</resources>
