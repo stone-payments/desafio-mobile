@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="com.stone.desafiomobile.view.PurchaseListFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.stone.desafiomobile.view.PurchaseListFragment">
+
+    <TextView
+        android:id="@+id/empty_list_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/empty_purchase_log_list"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_large" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/purchase_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/fragment_purchase_item" />
+
+</FrameLayout>
+
+

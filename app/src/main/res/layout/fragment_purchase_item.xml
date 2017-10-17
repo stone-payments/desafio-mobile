@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_padding_size_medium"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/value_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/date_label"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/date_label"
+        android:text="@string/value_label"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginStart="@dimen/margin_padding_size_medium"
+        android:layout_toEndOf="@id/value_label"
+        android:layout_toRightOf="@id/value_label"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="R$180" />
+
+    <TextView
+        android:id="@+id/date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/value_label"
+        android:text="@string/date_label"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/value_label"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginStart="@dimen/margin_padding_size_medium"
+        android:layout_toEndOf="@id/date_label"
+        android:layout_toRightOf="@id/date_label"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="13/10 11:20" />
+
+    <TextView
+        android:id="@+id/last_digits_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date_label"
+
+        android:text="@string/last_digits_label"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="@string/last_digits_label" />
+
+    <TextView
+        android:id="@+id/last_digits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date_label"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginStart="@dimen/margin_padding_size_medium"
+        android:layout_toEndOf="@id/last_digits_label"
+        android:layout_toRightOf="@id/last_digits_label"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="1234" />
+
+    <TextView
+        android:id="@+id/holder_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/last_digits_label"
+        android:text="@string/holder_name_label"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="@string/holder_name_label" />
+
+    <TextView
+        android:id="@+id/holder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/last_digits_label"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginStart="@dimen/margin_padding_size_medium"
+        android:layout_toEndOf="@id/holder_name_label"
+        android:layout_toRightOf="@id/holder_name_label"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="Renan Barros" />
+</RelativeLayout>
