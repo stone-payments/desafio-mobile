@@ -40,4 +40,5 @@
 
     <string name="invalid_cart_number">Carrinho está vazio</string>
     <string name="generic_error">Aconteceu um erro inesperado!</string>
+    <string name="item_not_found">Nenhum item encontrado</string>
 </resources>

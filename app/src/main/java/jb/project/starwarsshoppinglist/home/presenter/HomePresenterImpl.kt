@@ -19,16 +19,23 @@ class HomePresenterImpl : HomePresenter {
         mView = homeView
         realm = Realm.getDefaultInstance()
 
+        loadList()
+
+    }
+
+    override fun loadList() {
         val repository = ProductRepositoryProvider.provideProductRepository()
         repository.loadProducts()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ result ->
-                    mView.loadProductList(result.body()!!)
+                    if (result.body()?.count() == 0) {
+                        mView.productListNotFound()
+                    } else
+                        mView.loadProductList(result.body()!!)
                 }, { error ->
-                    error.printStackTrace()
+                    mView.errorLoading()
                 })
-
     }
 
     override fun getCountCart(): String {

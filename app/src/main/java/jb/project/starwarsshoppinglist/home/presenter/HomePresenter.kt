@@ -12,4 +12,5 @@ interface HomePresenter
     fun init(homeView: HomeView)
     fun getCountCart(): String
     fun destroy()
+    fun loadList()
 }

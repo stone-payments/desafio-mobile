@@ -7,4 +7,6 @@ import jb.project.starwarsshoppinglist.model.Product
  */
 interface HomeView {
     fun loadProductList(productList: ArrayList<Product>)
+    fun errorLoading()
+    fun productListNotFound()
 }

@@ -28,9 +28,6 @@
             android:parentActivityName=".home.activity.HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="jb.project.starwarsshoppinglist.home.activity.HomeActivity" />
         </activity>
         <activity
             android:name=".productDetail.activity.ProductDetailActivity"
@@ -45,7 +42,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden"/>
-
 
         <activity
             android:name=".orderHistory.activity.OrderHistoryActivity"

@@ -46,11 +46,12 @@ class CartnCheckoutPresenterImpl : CartnCheckoutPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ result ->
-                    if (result.isSuccessful)
+                    if (result.isSuccessful) {
+                        val newPurchase = Purchase(result.body()?.cardHolderName, purchase.value, result.body()?.cvv, purchase.cardHolderName, purchase.expDate)
+
                         realm.executeTransactionAsync({ bgRealm ->
                             Cart().deleteAll(bgRealm)
-                            bgRealm.copyToRealm(result.body())
-
+                            bgRealm.copyToRealm(newPurchase)
                         }, {
                             //all good
                             mView.orderPurchaseSuccessful()
@@ -58,6 +59,7 @@ class CartnCheckoutPresenterImpl : CartnCheckoutPresenter {
                             //error on realm
                             mView.showToast(R.string.generic_error)
                         }
+                    }
                 }, {
                     //error on post
                     mView.showToast(R.string.generic_error)
@@ -91,16 +93,18 @@ class CartnCheckoutPresenterImpl : CartnCheckoutPresenter {
                     cardName,
                     cardExp
             )
-
             sendCartAndSavePurchase(purchase)
         }
+    }
+
+    override fun getCountCart(): String {
+        return realm.where(Cart::class.java).findAll().count().toString()
     }
 
     override fun changeRowCart(title: String, amount: Int) {
         realm.executeTransaction({ bgRealm ->
             Cart().updateAmount(bgRealm, title, amount)
         })
-
     }
 
     override fun deleteRowCart(title: String) {

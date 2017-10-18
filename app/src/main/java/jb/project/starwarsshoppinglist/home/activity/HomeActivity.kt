@@ -3,6 +3,7 @@ package jb.project.starwarsshoppinglist.home.activity
 import android.content.Intent
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
@@ -19,6 +20,7 @@ import jb.project.starwarsshoppinglist.home.presenter.HomePresenterImpl
 import jb.project.starwarsshoppinglist.model.Product
 import jb.project.starwarsshoppinglist.orderHistory.activity.OrderHistoryActivity
 import kotlinx.android.synthetic.main.activity_home.*
+
 
 class HomeActivity : BaseActivity(), HomeView {
 
@@ -37,9 +39,16 @@ class HomeActivity : BaseActivity(), HomeView {
         progress_bar.visibility = View.VISIBLE
         mPresenter.init(this)
 
+        swipe_container.setOnRefreshListener({
+            Handler().postDelayed({
+                mPresenter.loadList()
+                swipe_container.setRefreshing(false)
+            }, 2000)
+        })
     }
 
     override fun loadProductList(productList: ArrayList<Product>) {
+        text_item_not_found.visibility = View.GONE
         progress_bar.visibility = View.GONE
 
         recyler_product_items.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
@@ -50,8 +59,9 @@ class HomeActivity : BaseActivity(), HomeView {
         menuInflater.inflate(R.menu.menu_cart, menu)
         val itemCart = menu.findItem(R.id.action_cart)
         mIcon = itemCart.icon as LayerDrawable
+        mCountCart = mPresenter.getCountCart()
 
-        badge.setBadgeCount(this, mIcon, mPresenter.getCountCart())
+        badge.setBadgeCount(this, mIcon, mCountCart)
         return true
     }
 
@@ -67,6 +77,15 @@ class HomeActivity : BaseActivity(), HomeView {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun errorLoading() {
+        progress_bar.visibility = View.GONE
+        text_item_not_found.visibility = View.VISIBLE
+    }
+
+    override fun productListNotFound() {
+        progress_bar.visibility = View.GONE
+        text_item_not_found.visibility = View.VISIBLE
+    }
 
     override fun onDestroy() {
         mPresenter.destroy()

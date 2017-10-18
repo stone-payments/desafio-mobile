@@ -101,7 +101,7 @@ class CartnCheckoutActivity : BaseActivity(), ItemClickListener, CartnCheckoutVi
         recycler_cart.addItemDecoration(android.support.v7.widget.DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
         mSumItems = mPresenter.getCartValue()
-        txt_sum_items.text = "R$ " + String.format("%.2f", mSumItems.div(100.0))
+        txt_sum_items.text = "Valor total: " + "R$ " + String.format("%.2f", mSumItems.div(100.0))
     }
 
     override fun onDestroy() {
@@ -112,13 +112,14 @@ class CartnCheckoutActivity : BaseActivity(), ItemClickListener, CartnCheckoutVi
 
     override fun onClick(title: String) {
         mPresenter.deleteRowCart(title)
+        mCountCart = mPresenter.getCountCart()
         mSumItems = mPresenter.getCartValue()
-        txt_sum_items.text = "R$ " + String.format("%.2f", mSumItems.div(100.0))
+        txt_sum_items.text = "Valor total: " + "R$ " + String.format("%.2f", mSumItems.div(100.0))
     }
 
     override fun onSpinnerSelected(title: String, amount: Int) {
         mPresenter.changeRowCart(title, amount)
         mSumItems = mPresenter.getCartValue()
-        txt_sum_items.text = "R$ " + String.format("%.2f", mSumItems.div(100.0))
+        txt_sum_items.text = "Valor total: " + "R$ " + String.format("%.2f", mSumItems.div(100.0))
     }
 }

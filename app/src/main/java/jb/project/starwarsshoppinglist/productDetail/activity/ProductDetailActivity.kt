@@ -24,7 +24,6 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
     private lateinit var mIcon: LayerDrawable
     private lateinit var mProduct: Product
-    var mCountCart: String = "0"
     private lateinit var mPresenter: ProductDetailPresenter
     private lateinit var badge: BadgeDrawable
 
@@ -40,9 +39,9 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
         loadInitialView()
 
-        mCountCart = mPresenter.getCountCart()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         button_add_cart.setOnClickListener { addCartClick() }
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -74,7 +73,8 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
         val cart = mProduct.copy()
         cart.quantity = spinner_quantity.selectedItem as Int
         mPresenter.addCart(cart)
-        badge.setCount(mPresenter.getCountCart())
+        mCountCart = mPresenter.getCountCart()
+        badge.setBadgeCount(this, mIcon, mCountCart)
         openCheckoutActivity()
 
     }
@@ -88,7 +88,7 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
         menuInflater.inflate(R.menu.menu_cart, menu)
         val itemCart = menu.findItem(R.id.action_cart)
         mIcon = itemCart.icon as LayerDrawable
-
+        mCountCart = mPresenter.getCountCart()
         badge.setBadgeCount(this, mIcon, mCountCart)
         return true
     }

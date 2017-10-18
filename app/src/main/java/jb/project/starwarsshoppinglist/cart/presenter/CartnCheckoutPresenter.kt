@@ -14,4 +14,5 @@ interface CartnCheckoutPresenter {
     fun destroy()
     fun deleteRowCart(title: String)
     fun changeRowCart(title: String, amount: Int)
+    fun getCountCart(): String
 }
