@@ -47,11 +47,12 @@ class CartnCheckoutPresenterImpl : CartnCheckoutPresenter {
                 .subscribeOn(Schedulers.io())
                 .subscribe({ result ->
                     if (result.isSuccessful) {
-                        val newPurchase = Purchase(result.body()?.cardHolderName, purchase.value, result.body()?.cvv, purchase.cardHolderName, purchase.expDate)
+                        val creditCardAsterisk = "**** **** **** " + purchase.cardNumber!!.substring(purchase.cardNumber?.length!! - 4)
+                        purchase.cardNumber = creditCardAsterisk
 
                         realm.executeTransactionAsync({ bgRealm ->
                             Cart().deleteAll(bgRealm)
-                            bgRealm.copyToRealm(newPurchase)
+                            bgRealm.copyToRealm(purchase)
                         }, {
                             //all good
                             mView.orderPurchaseSuccessful()

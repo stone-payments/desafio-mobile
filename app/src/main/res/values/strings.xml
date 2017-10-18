@@ -11,7 +11,7 @@
     <string name="server_error">Server Error</string>
     <string name="all_products">TODOS</string>
     <string name="title_activity_product_detail">Detalhes do produto</string>
-    <string name="price">Preço:</string>
+    <string name="price">Valor Unitário:</string>
     <string name="seller">Vendendor:</string>
     <string name="quantity">Quantidade:</string>
     <string name="add_cart">Adicionar ao Carrinho</string>
