@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,30 +21,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
+
+import io.realm.RealmResults;
 
 /**
  * Created by Filipi Andrade on 17-Oct-17.
  */
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHolder> {
 
     private Context mContext;
-    private ArrayList<Products> mProducts;
+    private RealmResults<Products> mProducts;
 
     private String TAG = "TAG";
 
-    public ProductAdapter(Context c, ArrayList<Products> p) {
+    public CartAdapter(Context c, RealmResults<Products> p) {
         this.mContext = c;
         this.mProducts = p;
     }
 
     @Override
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.item_product, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_cart, parent, false);
         return new ProductViewHolder(v);
     }
 
@@ -66,7 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return mProducts.size();
     }
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ProductViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivThumb, ivAddCart;
         TextView tvTitle, tvPrice, tvSeller;
@@ -75,24 +73,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             super(itemView);
 
             ivThumb = itemView.findViewById(R.id.ivThumb);
-            ivAddCart = itemView.findViewById(R.id.ivAddCart);
 
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvPrice = itemView.findViewById(R.id.tvPrice);
             tvSeller = itemView.findViewById(R.id.tvSeller);
-
-            ivAddCart.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            try {
-                RealmDatabase.getInstance().setContext(mContext);
-                RealmDatabase.getInstance().addCart(mProducts.get(getAdapterPosition()));
-                Toast.makeText(mContext, mProducts.get(getAdapterPosition()).getTitle() + " foi adicionado no carrinho!", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 

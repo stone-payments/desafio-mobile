@@ -1,10 +1,12 @@
 package com.desafiostone.domain;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Filipi Andrade on 17-Oct-17.
  */
 
-public class Products {
+public class Products extends RealmObject {
 
     private String title;
     private String price;

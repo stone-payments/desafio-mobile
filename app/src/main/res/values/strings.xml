@@ -2,4 +2,6 @@
     <string name="app_name">Desafio Stone</string>
 
     <string name="seller"><![CDATA[<b>Vendedor: </b>]]></string>
+    <string name="cart">Carrinho</string>
+    <string name="seeCart">Ver Carrinho</string>
 </resources>
