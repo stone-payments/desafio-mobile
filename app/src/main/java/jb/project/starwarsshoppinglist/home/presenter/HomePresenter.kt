@@ -10,4 +10,6 @@ import jb.project.starwarsshoppinglist.productList.activity.view.ProductListView
 interface HomePresenter
 {
     fun init(homeView: HomeView)
+    fun getCountCart(): String
+    fun destroy()
 }

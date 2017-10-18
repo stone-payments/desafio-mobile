@@ -3,6 +3,7 @@ package jb.project.starwarsshoppinglist.Utils
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
 import android.support.v4.content.ContextCompat
 import jb.project.starwarsshoppinglist.R
 
@@ -85,6 +86,22 @@ class BadgeDrawable(context: Context) : Drawable() {
         // Only draw a badge if there are notifications.
         mWillDraw = !count.equals("0", ignoreCase = true)
         invalidateSelf()
+    }
+
+    fun setBadgeCount(context: Context, icon: LayerDrawable, count: String) {
+
+        val badge: BadgeDrawable
+
+        // Reuse drawable if possible
+        val reuse = icon.findDrawableByLayerId(R.id.ic_badge)
+        badge = if (reuse != null && reuse is BadgeDrawable) {
+            reuse
+        } else {
+            BadgeDrawable(context)
+        }
+        badge.setCount(count)
+        icon.mutate()
+        icon.setDrawableByLayerId(R.id.ic_badge, badge)
     }
 
     override fun setAlpha(alpha: Int) {

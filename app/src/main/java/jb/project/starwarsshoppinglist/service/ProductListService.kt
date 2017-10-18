@@ -3,12 +3,15 @@ package jb.project.starwarsshoppinglist.service
 import io.reactivex.Observable
 import jb.project.starwarsshoppinglist.BuildConfig
 import jb.project.starwarsshoppinglist.model.Product
+import jb.project.starwarsshoppinglist.model.Purchase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 /**
  * Created by Jb on 12/10/2017.
@@ -18,6 +21,9 @@ interface ProductListService {
 
     @GET("products")
     fun fetchProductList(): Observable<Response<ArrayList<Product>>>
+
+    @POST("products")
+    fun savePurchase(@Body purchase: Purchase): Observable<Response<Purchase>>
 
     companion object Factory {
         fun create(): ProductListService {

@@ -11,14 +11,14 @@ import com.squareup.picasso.Picasso
 import io.realm.OrderedRealmCollection
 import io.realm.RealmRecyclerViewAdapter
 import jb.project.starwarsshoppinglist.R
-import jb.project.starwarsshoppinglist.cart.`interface`.ItemClickListener
+import jb.project.starwarsshoppinglist.cart.listener.ItemClickListener
 import jb.project.starwarsshoppinglist.model.Cart
 
 
 /**
  * Created by joao.neto on 16/10/2017.
  */
-class AdapterItemsRecycler(itemList: OrderedRealmCollection<Cart>) : RealmRecyclerViewAdapter<Cart, AdapterItemsRecycler.ItemViewHolder>(itemList, true) {
+class CartnCheckoutAdapter(itemList: OrderedRealmCollection<Cart>) : RealmRecyclerViewAdapter<Cart, CartnCheckoutAdapter.ItemViewHolder>(itemList, true) {
 
     private lateinit var listener: ItemClickListener
 
@@ -41,14 +41,14 @@ class AdapterItemsRecycler(itemList: OrderedRealmCollection<Cart>) : RealmRecycl
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val btnDelete: ImageButton = view.findViewById(R.id.btn_delete)
         val imageProduct = itemView.findViewById<ImageView>(R.id.img_thumbnail) as ImageView
-        val textViewTittle = itemView.findViewById<TextView>(R.id.text_tittle) as TextView
-        val textPrice = itemView.findViewById<TextView>(R.id.text_price) as TextView
-        val spinnerQuantity = itemView.findViewById<Spinner>(R.id.spinner_quantity) as Spinner
+        private val textViewTittle = itemView.findViewById<TextView>(R.id.text_tittle) as TextView
+        private val textPrice = itemView.findViewById<TextView>(R.id.text_price) as TextView
+        private val spinnerQuantity = itemView.findViewById<Spinner>(R.id.spinner_quantity) as Spinner
 
         fun loadItem(item: Cart, clickListener: ItemClickListener?) {
-            textViewTittle.setText(item.title)
+            textViewTittle.text = item.title
 
-            spinnerQuantity.adapter = ArrayAdapter<Int>(itemView.context, R.layout.support_simple_spinner_dropdown_item, mutableListOf(0, 1, 2, 3, 4, 5, 6))
+            spinnerQuantity.adapter = ArrayAdapter<Int>(itemView.context, R.layout.support_simple_spinner_dropdown_item, mutableListOf(0, 1, 2, 3, 4, 5))
             item.quantity?.let(spinnerQuantity::setSelection)
 
 
@@ -63,7 +63,17 @@ class AdapterItemsRecycler(itemList: OrderedRealmCollection<Cart>) : RealmRecycl
             btnDelete.setImageResource(R.drawable.ic_delete)
 
             btnDelete.setOnClickListener {
-                clickListener?.onClick(item.title)
+                clickListener?.onClick(item.title!!)
+            }
+            spinnerQuantity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
+
+                override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+
+                    if (position != item.quantity)
+                        clickListener?.onSpinnerSelected(item.title!!, position)
+                }
+
             }
         }
     }

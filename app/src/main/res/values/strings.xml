@@ -26,5 +26,18 @@
         <item>04</item>
         <item>05</item>
     </string-array>
-    <string name="title_activity_checkout">CheckoutActivity</string>
+    <string name="title_activity_checkout">Carrinho</string>
+    <string name="pay">Efetuar compra</string>
+    <string name="card_number">Número do cartão</string>
+    <string name="invalid_card_number">Numero do cartão é inválido</string>
+    <string name="card_name">Nome como no cartão</string>
+    <string name="invalid_card_name">Nome inválido</string>
+    <string name="card_exp_date">Vencimento</string>
+    <string name="invalid_card_exp">Data de Expiração inválida</string>
+    <string name="card_cvv">CVV</string>
+    <string name="invalid_card_cvv">Código CVV inválido</string>
+    <string name="title_activity_order_history">Todas compras</string>
+
+    <string name="invalid_cart_number">Carrinho está vazio</string>
+    <string name="generic_error">Aconteceu um erro inesperado!</string>
 </resources>

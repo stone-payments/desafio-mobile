@@ -6,5 +6,5 @@ import jb.project.starwarsshoppinglist.model.Product
  * Created by Jb on 12/10/2017.
  */
 interface HomeView {
-    fun loadProductList(productList: ArrayList<Product>) {}
+    fun loadProductList(productList: ArrayList<Product>)
 }

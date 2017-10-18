@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="jb.project.starwarsshoppinglist.cart.activity.CheckoutActivity">
+    tools:context="jb.project.starwarsshoppinglist.cart.activity.CartnCheckoutActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -50,10 +50,11 @@
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
+                    android:id="@+id/input_card_number"
                     android:layout_height="wrap_content"
-                    android:hint="Número do cartão"
+                    android:hint="@string/card_number"
                     android:inputType="number"
-                    android:maxLength="19"
+                    android:maxLength="16"
                     android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 
@@ -63,9 +64,10 @@
                 android:layout_marginStart="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/input_card_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nome como no cartão"
+                    android:hint="@string/card_name"
                     android:inputType="textNoSuggestions"
                     android:maxLength="50"
                     android:maxLines="1" />
@@ -86,8 +88,9 @@
 
                     <android.support.design.widget.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/input_card_exp"
                         android:layout_height="wrap_content"
-                        android:hint="Vencimento"
+                        android:hint="@string/card_exp_date"
                         android:inputType="date"
                         android:maxLength="5"
                         android:maxLines="1" />
@@ -98,13 +101,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
-
                     android:layout_weight="1">
 
                     <android.support.design.widget.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/input_card_cvv"
                         android:layout_height="wrap_content"
-                        android:hint="CVV"
+                        android:hint="@string/card_cvv"
                         android:inputType="number"
                         android:maxLength="3"
                         android:maxLines="1" />
@@ -112,13 +115,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button_add_cart"
+                android:id="@+id/button_pay_cart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="@color/textview_bkg_red"
                 android:fitsSystemWindows="true"
-                android:text="@string/add_cart"
+                android:text="@string/pay"
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>

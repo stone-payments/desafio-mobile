@@ -37,16 +37,20 @@
             android:label="@string/title_activity_product_detail"
             android:parentActivityName=".home.activity.HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="jb.project.starwarsshoppinglist.home.activity.HomeActivity" />
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
-            android:name=".cart.activity.CheckoutActivity"
+            android:name=".cart.activity.CartnCheckoutActivity"
             android:label="@string/title_activity_checkout"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+
+        <activity
+            android:name=".orderHistory.activity.OrderHistoryActivity"
+            android:label="@string/title_activity_order_history"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>

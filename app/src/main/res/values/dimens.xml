@@ -9,4 +9,6 @@
     <dimen name="textview_padding">12dp</dimen>
     <dimen name="appbar_padding_top">4dp</dimen>
     <dimen name="badge_text_size">14sp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

@@ -21,7 +21,17 @@ open class Cart(
     }
 
     fun delete(realm: Realm, id: String) {
-        realm.where(jb.project.starwarsshoppinglist.model.Cart::class.java).equalTo("title", id).findFirst()?.deleteFromRealm()
+        realm.where(Cart::class.java).equalTo("title", id).findFirst()?.deleteFromRealm()
+    }
+
+    fun updateAmount(realm: Realm, id: String, amount : Int)
+    {
+        realm.where(Cart::class.java).equalTo("title", id).findFirst()?.quantity = amount
+
+    }
+
+    fun deleteAll(realm: Realm) {
+        realm.where(Cart::class.java).findAll().deleteAllFromRealm()
     }
 
 }
