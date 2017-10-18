@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">StarWars Shopping List</string>
+    <string name="title_activity_product_list">Product List</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="action_search">Procurar</string>
+    <string name="internet_connection_unavailable">No Internet Available</string>
+    <string name="server_error">Server Error</string>
+    <string name="all_products">TODOS</string>
+    <string name="title_activity_product_detail">Detalhes do produto</string>
+    <string name="price">Valor Unitário:</string>
+    <string name="seller">Vendendor:</string>
+    <string name="quantity">Quantidade:</string>
+    <string name="add_cart">Adicionar ao Carrinho</string>
+    <string name="action_cart">Carrinho de Compras</string>
+
+
+    <!-- Usually the quantity comes from the service accordingly with the item.  -->
+    <string-array name="array_spinner">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+    </string-array>
+    <string name="title_activity_checkout">Carrinho</string>
+    <string name="pay">Efetuar compra</string>
+    <string name="card_number">Número do cartão</string>
+    <string name="invalid_card_number">Numero do cartão é inválido</string>
+    <string name="card_name">Nome como no cartão</string>
+    <string name="invalid_card_name">Nome inválido</string>
+    <string name="card_exp_date">Vencimento</string>
+    <string name="invalid_card_exp">Data de Expiração inválida</string>
+    <string name="card_cvv">CVV</string>
+    <string name="invalid_card_cvv">Código CVV inválido</string>
+    <string name="title_activity_order_history">Todas compras</string>
+
+    <string name="invalid_cart_number">Carrinho está vazio</string>
+    <string name="generic_error">Aconteceu um erro inesperado!</string>
+    <string name="item_not_found">Nenhum item encontrado</string>
+</resources>

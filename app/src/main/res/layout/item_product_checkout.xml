@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/img_thumbnail"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/img_not_available" />
+
+    <TextView
+        android:id="@+id/text_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_alignTop="@+id/img_thumbnail"
+        android:layout_toEndOf="@+id/img_thumbnail"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="nome do produto startwars" />
+
+    <TextView
+        android:id="@+id/edt_count"
+        android:layout_below="@+id/text_tittle"
+        android:layout_toEndOf="@+id/img_thumbnail"
+        android:layout_margin="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quantity" />
+
+    <Spinner
+        android:layout_marginStart="12dp"
+        android:id="@+id/spinner_quantity"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/edt_count"
+        android:layout_toEndOf="@+id/edt_count"/>
+
+    <TextView
+        android:layout_marginTop="12dp"
+        android:id="@+id/text_price_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_thumbnail"
+        android:text="@string/price"/>
+
+    <TextView
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="4dp"
+        android:id="@+id/text_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/text_price_desc"
+        android:layout_below="@+id/img_thumbnail"
+        tools:text="RS 24,00"/>
+
+    <ImageButton
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_delete" />
+
+
+</RelativeLayout>
