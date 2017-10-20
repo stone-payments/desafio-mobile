@@ -3,6 +3,8 @@ package com.desafiostone.database;
 import android.content.Context;
 
 import com.desafiostone.domain.Products;
+import com.desafiostone.domain.Purchase;
+import com.desafiostone.domain.Transaction;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -59,5 +61,32 @@ public class RealmDatabase {
     public RealmResults<Products> getCart() {
         realm = Realm.getInstance(realmConfiguration);
         return realm.where(Products.class).findAll();
+    }
+
+    public void removeFromCart(int position) {
+        realm = Realm.getInstance(realmConfiguration);
+        realm.beginTransaction();
+        realm.where(Products.class).findAll().deleteFromRealm(position);
+        realm.commitTransaction();
+    }
+
+    public boolean isEmptyCart() {
+        realm = Realm.getInstance(realmConfiguration);
+        if (realm.where(Products.class).findAll().isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void saveTransaction(Transaction t) {
+        realm = Realm.getInstance(realmConfiguration);
+        realm.beginTransaction();
+        Transaction transaction = realm.createObject(Transaction.class);
+        transaction.setDate_hour(t.getDate_hour());
+        transaction.setLast_digits(t.getLast_digits());
+        transaction.setCard_holder_name(t.getCard_holder_name());
+        transaction.setValue(t.getValue());
+        realm.commitTransaction();
     }
 }

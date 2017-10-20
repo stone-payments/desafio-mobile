@@ -1,11 +1,15 @@
 package com.desafiostone.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +17,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.desafiostone.R;
 import com.desafiostone.database.RealmDatabase;
 import com.desafiostone.domain.Products;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,6 +46,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
     public CartAdapter(Context c, RealmResults<Products> p) {
         this.mContext = c;
         this.mProducts = p;
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
     }
 
     @Override
@@ -48,7 +58,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
     }
 
     @Override
-    public void onBindViewHolder(ProductViewHolder holder, int position) {
+    public void onBindViewHolder(final ProductViewHolder holder, final int position) {
         holder.tvTitle.setText(mProducts.get(position).getTitle());
 
         holder.tvPrice.setText(mProducts.get(position).getPrice());
@@ -56,7 +66,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
         String seller = mContext.getResources().getString(R.string.seller) + mProducts.get(position).getSeller();
         holder.tvSeller.setText(Html.fromHtml(seller));
 
-        new DownloadImageAsyncTask(mContext, holder.ivThumb, mProducts.get(position).getThumbnailHd()).execute();
+        Picasso.with(mContext).load(mProducts.get(position).getThumbnailHd()).into(holder.ivThumb);
     }
 
     @Override
@@ -64,56 +74,56 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
         return mProducts.size();
     }
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder {
+    public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        ImageView ivThumb, ivAddCart;
+        ImageView ivThumb, ivRemove;
         TextView tvTitle, tvPrice, tvSeller;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
 
             ivThumb = itemView.findViewById(R.id.ivThumb);
+            ivRemove = itemView.findViewById(R.id.ivRemove);
 
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvPrice = itemView.findViewById(R.id.tvPrice);
             tvSeller = itemView.findViewById(R.id.tvSeller);
-        }
-    }
 
-    private class DownloadImageAsyncTask extends AsyncTask<Void, Void, Void> {
-
-        Context context;
-        ImageView imageView;
-        String string;
-        Bitmap bitmap;
-
-        public DownloadImageAsyncTask(Context c, ImageView iv, String s) {
-            this.context = c;
-            this.imageView = iv;
-            this.string = s;
+            ivRemove.setOnClickListener(this);
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                URL url = new URL(string);
-                HttpURLConnection connection = (HttpURLConnection) url
-                        .openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream input = connection.getInputStream();
-                bitmap = BitmapFactory.decodeStream(input);
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-            return null;
-        }
+        public void onClick(View v) {
+            final String title = mProducts.get(getAdapterPosition()).getTitle();
 
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            imageView.setImageBitmap(bitmap);
-            super.onPostExecute(aVoid);
+            new MaterialDialog.Builder(mContext)
+                    .title(mContext.getResources().getString(R.string.warning))
+                    .content(mContext.getResources().getString(R.string.delete_item))
+                    .negativeText(mContext.getResources().getString(R.string.no))
+                    .positiveText(mContext.getResources().getString(R.string.yes))
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            RealmDatabase.getInstance().setContext(mContext);
+                            RealmDatabase.getInstance().removeFromCart(getAdapterPosition());
+                            notifyDataSetChanged();
+                            notifyItemChanged(getAdapterPosition());
+                            notifyItemRemoved(getAdapterPosition());
+                            Toast.makeText(mContext, title + " foi removido do carrinho!", Toast.LENGTH_SHORT).show();
+
+                            if (RealmDatabase.getInstance().isEmptyCart()) {
+                                ((Activity) mContext).finish();
+                            }
+                        }
+                    })
+                    .onNegative(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
+
         }
     }
 }

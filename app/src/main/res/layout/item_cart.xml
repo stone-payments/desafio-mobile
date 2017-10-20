@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/ivThumb"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp" />
 
@@ -24,7 +24,6 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:layout_toEndOf="@id/ivThumb"
             android:layout_toRightOf="@id/ivThumb"
             android:text="New Text"
@@ -36,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvTitle"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:layout_toEndOf="@id/ivThumb"
             android:layout_toRightOf="@id/ivThumb"
             android:text="New Text"
@@ -48,18 +47,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvPrice"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:layout_toEndOf="@id/ivThumb"
             android:layout_toRightOf="@id/ivThumb"
             android:text="New Text"
             android:textColor="@color/colorPrimaryText"
             android:textSize="18sp" />
 
+        <ImageView
+            android:id="@+id/ivRemove"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/remove" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_below="@id/ivThumb"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="14dp"
             android:layout_toEndOf="@id/ivThumb"
             android:layout_toRightOf="@id/ivThumb"
             android:background="@color/colorDivider" />

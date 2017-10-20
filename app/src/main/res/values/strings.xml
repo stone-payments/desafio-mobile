@@ -4,4 +4,9 @@
     <string name="seller"><![CDATA[<b>Vendedor: </b>]]></string>
     <string name="cart">Carrinho</string>
     <string name="seeCart">Ver Carrinho</string>
+    <string name="warning">Aviso!</string>
+    <string name="delete_item">Deseja remover esse item do carrinho?</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
+    <string name="purchase">Finalizar compra</string>
 </resources>

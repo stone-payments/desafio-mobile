@@ -1,9 +1,11 @@
 package com.desafiostone.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import com.desafiostone.R;
 import com.desafiostone.database.RealmDatabase;
 import com.desafiostone.domain.Products;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,6 +44,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public ProductAdapter(Context c, ArrayList<Products> p) {
         this.mContext = c;
         this.mProducts = p;
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
     }
 
     @Override
@@ -50,7 +56,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     @Override
-    public void onBindViewHolder(ProductViewHolder holder, int position) {
+    public void onBindViewHolder(final ProductViewHolder holder, final int position) {
         holder.tvTitle.setText(mProducts.get(position).getTitle());
 
         holder.tvPrice.setText(mProducts.get(position).getPrice());
@@ -58,7 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         String seller = mContext.getResources().getString(R.string.seller) + mProducts.get(position).getSeller();
         holder.tvSeller.setText(Html.fromHtml(seller));
 
-        new DownloadImageAsyncTask(mContext, holder.ivThumb, mProducts.get(position).getThumbnailHd()).execute();
+        Picasso.with(mContext).load(mProducts.get(position).getThumbnailHd()).into(holder.ivThumb);
     }
 
     @Override
@@ -93,43 +99,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    private class DownloadImageAsyncTask extends AsyncTask<Void, Void, Void> {
-
-        Context context;
-        ImageView imageView;
-        String string;
-        Bitmap bitmap;
-
-        public DownloadImageAsyncTask(Context c, ImageView iv, String s) {
-            this.context = c;
-            this.imageView = iv;
-            this.string = s;
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                URL url = new URL(string);
-                HttpURLConnection connection = (HttpURLConnection) url
-                        .openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream input = connection.getInputStream();
-                bitmap = BitmapFactory.decodeStream(input);
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            imageView.setImageBitmap(bitmap);
-            super.onPostExecute(aVoid);
         }
     }
 }

@@ -9,10 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.desafiostone.R;
 import com.desafiostone.adapter.ProductAdapter;
 import com.desafiostone.api.ProductsAPI;
+import com.desafiostone.database.RealmDatabase;
 import com.desafiostone.domain.Products;
 
 import java.util.ArrayList;
@@ -79,8 +81,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        //REALM
+        RealmDatabase.getInstance().setContext(this);
+
         if (id == R.id.seeCart) {
-            startActivity(new Intent(this, CartActivity.class));
+            if (RealmDatabase.getInstance().isEmptyCart()) {
+                Toast.makeText(this, "O carrinho está vazio! :(", Toast.LENGTH_SHORT).show();
+            } else {
+                startActivity(new Intent(this, CartActivity.class));
+            }
         }
 
         return super.onOptionsItemSelected(item);

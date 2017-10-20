@@ -1,11 +1,10 @@
 package com.desafiostone.api;
 
-import com.desafiostone.domain.Products;
+import com.desafiostone.domain.Purchase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -13,20 +12,21 @@ import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 /**
- * Created by Filipi Andrade on 17-Oct-17.
+ * Created by Filipi Andrade on 19-Oct-17.
  */
 
-public class ProductsAPI {
+public class APIAry {
 
-    private static final String BASE_URL = "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/";
-    private static ProductsInterface mProductsInterface;
+        private static final String BASE_URL = "https://private-8c29f-purchase4.apiary-mock.com/";
 
-    public static ProductsInterface getClient() {
+    private static APIAryInterface mAPIAryInterface;
+
+    public static APIAryInterface getClient() {
         try {
-            if (mProductsInterface == null) {
+            if (mAPIAryInterface == null) {
                 OkHttpClient okHttpClient = new OkHttpClient.Builder()
                         .addInterceptor(new Interceptor() {
                             @Override
@@ -46,16 +46,16 @@ public class ProductsAPI {
                         .addConverterFactory(GsonConverterFactory.create(gson))
                         .build();
 
-                mProductsInterface = retrofit.create(ProductsInterface.class);
+                mAPIAryInterface = retrofit.create(APIAryInterface.class);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return mProductsInterface;
+        return mAPIAryInterface;
     }
 
-    public interface ProductsInterface {
-        @GET("products.json")
-        Call<ArrayList<Products>> getProducts();
+    public interface APIAryInterface {
+        @POST("purchase")
+        Call<Purchase> finishPurchase();
     }
 }
