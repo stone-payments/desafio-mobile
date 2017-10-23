@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Stone Store</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="menu_loja">Loja</string>
+    <string name="menu_carrinho">Carrinho</string>
+    <string name="menu_historico">Histórico de Compras</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_carrinho">Add Carrinho</string>
+    <string name="remove_carrinho">Remover</string>
+    <string name="vendedor">Vendedor</string>
+    <string name="pre_o">Preço</string>
+    <string name="produto_nome">Produto Nome</string>
+    <string name="historico_compras">Histórico de Compras</string>
+    <string name="meu_carrinho">Meu Carrinho</string>
+    <string name="finalizar_compra">Finalizar Compra</string>
+</resources>
