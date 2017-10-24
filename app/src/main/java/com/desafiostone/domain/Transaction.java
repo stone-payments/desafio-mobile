@@ -8,16 +8,16 @@ import io.realm.RealmObject;
 
 public class Transaction extends RealmObject {
 
-    private String value;
+    private int value;
     private String date_hour;
     private String card_holder_name;
     private String last_digits;
 
-    public String getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(int value) {
         this.value = value;
     }
 

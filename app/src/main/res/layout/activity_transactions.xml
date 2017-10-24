@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.desafiostone.activity.CartActivity">
+    android:orientation="vertical"
+    tools:context="com.desafiostone.activity.TransactionsActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/tbCart"
+        android:id="@+id/tbTransactions"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -15,13 +16,8 @@
         android:minHeight="?attr/actionBarSize" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvCart"
+        android:id="@+id/rvTransactions"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tbCart"
-        android:layout_marginBottom="60dp" />
+        android:layout_height="match_parent" />
 
-    <include
-        android:id="@+id/incTbBottom"
-        layout="@layout/cart_bottom" />
-</RelativeLayout>
+</LinearLayout>

@@ -70,6 +70,13 @@ public class RealmDatabase {
         realm.commitTransaction();
     }
 
+    public void removeAllItemFromCart() {
+        realm = Realm.getInstance(realmConfiguration);
+        realm.beginTransaction();
+        realm.where(Products.class).findAll().deleteAllFromRealm();
+        realm.commitTransaction();
+    }
+
     public boolean isEmptyCart() {
         realm = Realm.getInstance(realmConfiguration);
         if (realm.where(Products.class).findAll().isEmpty()) {
@@ -88,5 +95,19 @@ public class RealmDatabase {
         transaction.setCard_holder_name(t.getCard_holder_name());
         transaction.setValue(t.getValue());
         realm.commitTransaction();
+    }
+
+    public RealmResults<Transaction> getTransactions() {
+        realm = Realm.getInstance(realmConfiguration);
+        return realm.where(Transaction.class).findAll();
+    }
+
+    public boolean isEmptyTransactions() {
+        realm = Realm.getInstance(realmConfiguration);
+        if (realm.where(Transaction.class).findAll().isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

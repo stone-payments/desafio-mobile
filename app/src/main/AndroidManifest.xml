@@ -23,6 +23,7 @@
         <activity
             android:name=".activity.CartActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.TransactionsActivity"></activity>
     </application>
 
 </manifest>

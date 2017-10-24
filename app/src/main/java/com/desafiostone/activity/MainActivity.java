@@ -25,8 +25,6 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String TAG = "TAG";
-
     private RecyclerView mRecyclerView;
     private ProductAdapter mProductAdapter;
     private Toolbar mToolbar;
@@ -89,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "O carrinho está vazio! :(", Toast.LENGTH_SHORT).show();
             } else {
                 startActivity(new Intent(this, CartActivity.class));
+            }
+        } else if (id == R.id.transactions) {
+            if (RealmDatabase.getInstance().isEmptyTransactions()) {
+                Toast.makeText(this, "Você não possui transições, vamos comprar! :D", Toast.LENGTH_SHORT).show();
+            } else {
+                startActivity(new Intent(this, TransactionsActivity.class));
             }
         }
 

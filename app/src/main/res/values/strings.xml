@@ -9,4 +9,7 @@
     <string name="no">Não</string>
     <string name="yes">Sim</string>
     <string name="purchase">Finalizar compra</string>
+    <string name="transactions">Transações</string>
+    <string name="totalValue">Total: </string>
+    <string name="complete_purchase">Deseja finalizar essa compra?</string>
 </resources>

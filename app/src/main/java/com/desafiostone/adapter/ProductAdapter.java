@@ -39,14 +39,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private Context mContext;
     private ArrayList<Products> mProducts;
 
-    private String TAG = "TAG";
-
     public ProductAdapter(Context c, ArrayList<Products> p) {
         this.mContext = c;
         this.mProducts = p;
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
     }
 
     @Override

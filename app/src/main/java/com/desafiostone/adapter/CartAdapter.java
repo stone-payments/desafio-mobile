@@ -41,14 +41,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
     private Context mContext;
     private RealmResults<Products> mProducts;
 
-    private String TAG = "TAG";
-
     public CartAdapter(Context c, RealmResults<Products> p) {
         this.mContext = c;
         this.mProducts = p;
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
     }
 
     @Override
@@ -123,7 +118,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
                         }
                     })
                     .show();
-
         }
     }
 }
