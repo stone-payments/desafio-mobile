@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingEnd="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/ivThumb"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/ivThumb"
+            android:layout_toRightOf="@id/ivThumb"
+            android:text="New Text"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/ivThumb"
+            android:layout_toRightOf="@id/ivThumb"
+            android:text="New Text"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvSeller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPrice"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/ivThumb"
+            android:layout_toRightOf="@id/ivThumb"
+            android:text="New Text"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/ivAddCart"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/cart" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/ivThumb"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/ivThumb"
+            android:layout_toRightOf="@id/ivThumb"
+            android:background="@color/colorDivider" />
+    </RelativeLayout>
+
+</LinearLayout>
