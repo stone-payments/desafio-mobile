@@ -32,11 +32,14 @@ class ProductDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
-
         product = intent.getSerializableExtra(INTENT_EXTRA_PRODUCT) as Product
         setTitle(product.title)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        fillProductDetail()
+    }
+
+    fun fillProductDetail() {
         actProdDetail_imProductImage.load(product.thumbnailHd, { request -> request.fit() } )
         actProdDetail_tvProductTitle.text = product.title
         actProdDetail_tvProductSeller.text = product.seller
@@ -47,8 +50,10 @@ class ProductDetailActivity : AppCompatActivity() {
             actProdDetail_tvProductAmount.setText(modifyAmount(actProdDetail_tvProductAmount.text.toString(), true))
         }
 
-        actProdDetail_imMinus.setOnClickListener {  if (actProdDetail_tvProductAmount.text.toString().toInt() > 1)
-            actProdDetail_tvProductAmount.setText(modifyAmount(actProdDetail_tvProductAmount.text.toString(), false)) }
+        actProdDetail_imMinus.setOnClickListener {
+            if (actProdDetail_tvProductAmount.text.toString().toInt() > 1)
+            actProdDetail_tvProductAmount.setText(modifyAmount(actProdDetail_tvProductAmount.text.toString(), false))
+        }
 
         actProdDetail_btAddCart.setOnClickListener {
             product.amount = actProdDetail_tvProductAmount.text.toString().toInt()

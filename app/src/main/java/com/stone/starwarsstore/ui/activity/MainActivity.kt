@@ -43,18 +43,7 @@ class MainActivity : AppCompatActivity(), OnProductAddedListener {
             startActivity(intent)
         }
 
-        RestService().loadProducts()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe ({ product ->
-                    productsList.add(product)
-                }, { e ->
-                    e.printStackTrace()
-                }, {
-                    actMain_progressBar.visibility = View.GONE
-                    actMain_recyclerView.visibility = View.VISIBLE
-                    productsAdapter.notifyDataSetChanged()
-                })
+        getProductsFromService()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -78,6 +67,21 @@ class MainActivity : AppCompatActivity(), OnProductAddedListener {
         actMain_recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         actMain_recyclerView.layoutManager = layoutManager
+    }
+
+    fun getProductsFromService() {
+        RestService().loadProducts()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe ({ product ->
+                    productsList.add(product)
+                }, { e ->
+                    e.printStackTrace()
+                }, {
+                    actMain_progressBar.visibility = View.GONE
+                    actMain_recyclerView.visibility = View.VISIBLE
+                    productsAdapter.notifyDataSetChanged()
+                })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -18,23 +18,17 @@ import org.jetbrains.anko.toast
 class CartActivity : AppCompatActivity(), OnProductAmountChangedListener {
 
     val REQUEST_CODE_FINISH_PURCHASE: Int = 2
+    var cartProductsAdapter: CartProductsAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
-
         setTitle(getString(R.string.title_cart))
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val cartProductsAdapter = CartProductsAdapter(Cart.getCartProducts(), this)
+        cartProductsAdapter = CartProductsAdapter(Cart.getCartProducts(), this)
 
-        val recyclerView = actCart_listProducts
-        recyclerView.adapter = cartProductsAdapter
-        recyclerView.setHasFixedSize(true)
-
-        val layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        recyclerView.layoutManager = layoutManager
+        setupRecyclerView()
 
         actProdCart_tvTotalPrice.text = Cart.getTotalPrice()?.formatPrice()
 
@@ -46,6 +40,15 @@ class CartActivity : AppCompatActivity(), OnProductAmountChangedListener {
                 toast(getString(R.string.toast_add_cart_items))
             }
         }
+    }
+
+    fun setupRecyclerView() {
+        val recyclerView = actCart_listProducts
+        recyclerView.adapter = cartProductsAdapter
+        recyclerView.setHasFixedSize(true)
+
+        val layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        recyclerView.layoutManager = layoutManager
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

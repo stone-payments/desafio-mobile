@@ -13,7 +13,7 @@ abstract class Mask {
         }
 
 
-        fun insert(ediTxt: EditText): TextWatcher {
+        fun format(ediTxt: EditText): TextWatcher {
 
             return object : TextWatcher {
                 internal var isUpdating: Boolean = false

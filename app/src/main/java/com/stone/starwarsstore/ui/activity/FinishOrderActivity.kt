@@ -20,17 +20,16 @@ class FinishOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish_order)
-
         setTitle(getString(R.string.title_payment))
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        actFinishOrder_etCardExpire.addTextChangedListener(Mask.insert(actFinishOrder_etCardExpire))
+        actFinishOrder_etCardExpire.addTextChangedListener(Mask.format(actFinishOrder_etCardExpire))
 
         actFinishOrder_tvTotalPrice.text = Cart.getTotalPrice()?.formatPrice()
 
         actFinishOrder_btFinish.setOnClickListener {
             if (validateFields()) {
+
             val transaction = Transaction(actFinishOrder_etCardNumber.text.toString(),
                     Cart.getTotalPrice(),
                     actFinishOrder_etCardCode.text.toString().toLong(),
@@ -44,18 +43,7 @@ class FinishOrderActivity : AppCompatActivity() {
                     if (result == R.string.callback_succes) {
                         dialog.dismiss()
                         toast(getString(R.string.toast_order_success))
-                        val order = Order(System.currentTimeMillis(), actFinishOrder_etCardNumber.text.toString().takeLast(4), Cart.getTotalPrice(), actFinishOrder_etCardHolder.text.toString(), System.currentTimeMillis() )
-
-                        val realmInstance = Realm.getDefaultInstance()
-
-                        realmInstance.use { realm ->
-                            realm.beginTransaction()
-                            realm.insert(order)
-                            realm.commitTransaction()
-                            Cart.clearCart()
-                            setResult(RESULT_OK)
-                            finish()
-                        }
+                        saveOrderInLocalDatabase()
                     }
                 })
             }
@@ -68,7 +56,20 @@ class FinishOrderActivity : AppCompatActivity() {
         })
     }
 
-    private fun validateFields() : Boolean {
+    fun saveOrderInLocalDatabase() {
+        val order = Order(System.currentTimeMillis(), actFinishOrder_etCardNumber.text.toString().takeLast(4), Cart.getTotalPrice(), actFinishOrder_etCardHolder.text.toString(), System.currentTimeMillis() )
+        val realmInstance = Realm.getDefaultInstance()
+        realmInstance.use { realm ->
+            realm.beginTransaction()
+            realm.insert(order)
+            realm.commitTransaction()
+            Cart.clearCart()
+            setResult(RESULT_OK)
+            finish()
+        }
+    }
+
+    private fun validateFields(): Boolean {
         if (actFinishOrder_etCardCode.text.isEmpty() &&
                 actFinishOrder_etCardNumber.text.isEmpty() &&
                 actFinishOrder_etCardHolder.text.isEmpty() &&

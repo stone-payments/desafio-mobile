@@ -23,12 +23,10 @@ class OrdersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orders)
-
         setTitle(getString(R.string.title_orders))
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        setUpRecyclerView()
+        setupRecyclerView()
 
         realm = Realm.getDefaultInstance()
 
@@ -44,7 +42,7 @@ class OrdersActivity : AppCompatActivity() {
         ordersAdapter.notifyDataSetChanged()
     }
 
-    fun setUpRecyclerView(){
+    fun setupRecyclerView(){
         actOrders_recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         actOrders_recyclerView.layoutManager = layoutManager
