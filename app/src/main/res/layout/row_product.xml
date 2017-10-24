@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="6dp"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="5dp"
+        android:background="?attr/selectableItemBackground"
+        android:layout_margin="@dimen/margin_10">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margin_10"
+            android:paddingTop="@dimen/margin_10">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/rowProduct_clProdDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10"
+                app:layout_constraintBottom_toTopOf="@id/rowProduct_clProdCart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/rowProduct_imProductImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/con_product_image"/>
+
+                <LinearLayout
+                    android:id="@+id/rowProduct_llProdDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/rowProduct_imProductImage"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/rowProduct_tvProductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/breeserif_regular"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/rowProduct_tvProductPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/breeserif_regular"/>
+
+                    <TextView
+                        android:id="@+id/rowProduct_tvProductSeller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/breeserif_regular"/>
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/rowProduct_clProdCart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rowProduct_clProdDetails"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/rowProduct_llProdCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="@dimen/margin_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/rowProduct_btAddCart"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside">
+
+                    <Button
+                        android:id="@+id/rowProduct_btMinus"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/icon_minus" />
+
+                    <TextView
+                        android:id="@+id/rowProduct_tvAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10"
+                        android:layout_marginEnd="@dimen/margin_10"
+                        android:fontFamily="@font/breeserif_regular"
+                        android:text="@string/one"/>
+
+                    <Button
+                        android:id="@+id/rowProduct_btPlus"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/icon_plus"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/rowProduct_btAddCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bt_add"
+                    android:fontFamily="@font/breeserif_regular"
+                    android:background="@drawable/add_cart_button"
+                    android:textColor="@android:color/white"
+                    android:layout_marginEnd="@dimen/margin_14"
+                    app:layout_constraintStart_toEndOf="@id/rowProduct_llProdCart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

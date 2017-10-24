@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/actFinishOrder_etCardHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/hint_card_holder_name"
+            android:drawableEnd="@drawable/icon_card_name"
+            android:fontFamily="@font/breeserif_regular"
+            android:layout_margin="@dimen/margin_8"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/actFinishOrder_etCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="16"
+            android:hint="@string/hint_card_number"
+            android:drawableEnd="@drawable/icon_credit_card"
+            android:fontFamily="@font/breeserif_regular"
+            android:layout_margin="@dimen/margin_8"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/actFinishOrder_etCardExpire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/hint_expire_date"
+            android:drawableEnd="@drawable/icon_card_expire"
+            android:fontFamily="@font/breeserif_regular"
+            android:layout_margin="@dimen/margin_8"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/actFinishOrder_etCardCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/hint_cvv"
+            android:drawableEnd="@drawable/icon_cvv"
+            android:maxLength="4"
+            android:fontFamily="@font/breeserif_regular"
+            android:layout_margin="@dimen/margin_8"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_14">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_total_price"
+            android:fontFamily="@font/breeserif_regular"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_18"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/actFinishOrder_tvTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_default_price"
+            android:fontFamily="@font/breeserif_regular"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_18"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/actFinishOrder_btFinish"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_60"
+        android:text="@string/bt_finish_order"
+        android:fontFamily="@font/breeserif_regular"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"/>
+</LinearLayout>
