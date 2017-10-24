@@ -1,0 +1,25 @@
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/actMain_coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/actOrders_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/actOrder_tvEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_orders"
+        android:drawablePadding="@dimen/margin_8"
+        android:text="@string/str_empty_orders"
+        android:fontFamily="@font/breeserif_regular"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+</android.support.design.widget.CoordinatorLayout>

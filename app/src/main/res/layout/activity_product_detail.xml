@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/actProdDetail_imProductImage"
+        android:layout_width="@dimen/product_200"
+        android:layout_height="@dimen/product_200"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/con_product_image"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_14">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_14"
+        android:fontFamily="@font/breeserif_regular"
+        android:text="@string/str_name" />
+
+        <TextView
+            android:id="@+id/actProdDetail_tvProductTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif_regular"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_14">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif_regular"
+        android:layout_marginStart="@dimen/margin_14"
+        android:text="@string/str_seller" />
+
+        <TextView
+            android:id="@+id/actProdDetail_tvProductSeller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif_regular"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_14">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif_regular"
+        android:layout_marginStart="@dimen/margin_14"
+        android:text="@string/str_zip_code" />
+
+        <TextView
+            android:id="@+id/actProdDetail_tvProductZipCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif_regular"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_14">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif_regular"
+        android:layout_marginStart="@dimen/margin_14"
+        android:text="@string/str_date" />
+
+        <TextView
+            android:id="@+id/actProdDetail_tvProductDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif_regular"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_14">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif_regular"
+            android:layout_marginStart="@dimen/margin_14"
+            android:text="@string/str_price" />
+
+        <TextView
+            android:id="@+id/actProdDetail_tvProductPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif_regular"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/actProdDetail_imMinus"
+            android:layout_width="@dimen/size_20"
+            android:layout_height="@dimen/size_20"
+            android:layout_marginTop="@dimen/margin_14"
+            android:background="@drawable/icon_minus"/>
+
+        <TextView
+            android:id="@+id/actProdDetail_tvProductAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/one"
+            android:layout_gravity="center"
+            android:fontFamily="@font/breeserif_regular"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginStart="@dimen/margin_14"
+            android:layout_marginEnd="@dimen/margin_14"/>
+
+        <Button
+            android:id="@+id/actProdDetail_imPlus"
+            android:layout_width="@dimen/size_20"
+            android:layout_height="@dimen/size_20"
+            android:layout_marginTop="@dimen/margin_14"
+            android:background="@drawable/icon_plus"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/actProdDetail_btAddCart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_60"
+        android:background="@drawable/add_cart_button"
+        android:fontFamily="@font/breeserif_regular"
+        android:text="@string/bt_add_to_cart"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

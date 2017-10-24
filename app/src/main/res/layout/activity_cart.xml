@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/actCart_listProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_14">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_total_price"
+                android:fontFamily="@font/breeserif_regular"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/actProdCart_tvTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_default_price"
+                android:fontFamily="@font/breeserif_regular"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/font_18"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/actCart_btNext"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_60"
+            android:background="@color/colorPrimary"
+            android:text="@string/bt_next"
+            android:drawableEnd="@drawable/icon_forward"
+            android:fontFamily="@font/breeserif_regular"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+</LinearLayout>

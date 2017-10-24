@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">StarWars Store</string>
+    <string name="callback_succes">Sucesso</string>
+
+    <!-- Strings -->
+    <string name="str_see">VER</string>
+    <string name="str_name">Nome:</string>
+    <string name="str_seller">Vendedor:</string>
+    <string name="str_value">Data e hora:</string>
+    <string name="str_zip_code">CEP:</string>
+    <string name="str_date">Data:</string>
+    <string name="str_price">Preço:</string>
+    <string name="str_date_and_time">Data e hora:</string>
+    <string name="str_card_last_four_digits">Últimos 4 dígitos do cartão:</string>
+    <string name="str_card_holder_name">Nome do portador:</string>
+    <string name="str_total_price">Total do Pedido</string>
+    <string name="str_default_price">R$ 0,00</string>
+    <string name="str_empty_orders">Você não possui nenhum pedido.</string>
+
+    <!-- Toast, Alerts, Snackbars & Dialogs -->
+    <string name="snackbar_added">%s foi adicionado ao carrinho.</string>
+    <string name="toast_add_cart_items">Você deve adicionar produtos antes de prosseguir.</string>
+    <string name="toast_removed_item">Item removido do seu carrinho.</string>
+    <string name="toast_order_success">Pedido realizado com sucesso!</string>
+    <string name="toast_empty_fields">Você deve preencher todos os campos.</string>
+    <string name="toast_card_number_invalid">Número do cartão de crédito está inválido.</string>
+
+    <string name="alert_remove_product_title">Remover Produto</string>
+    <string name="alert_remove_product_message">Deseja remover o item do seu carrinho?</string>
+
+    <string name="dlg_progress_wait">Aguarde enquanto seu pedido está sendo processado.</string>
+
+    <!-- Hints -->
+    <string name="hint_card_holder_name">Nome do portador do cartão</string>
+    <string name="hint_card_number">Número do cartão</string>
+    <string name="hint_expire_date">Vencimento do cartão (mm/yy)</string>
+    <string name="hint_cvv">CVV (código do cartão)</string>
+
+    <!--Screen Titles-->
+    <string name="title_orders">Meus Pedidos</string>
+    <string name="title_cart">Meu Carrinho</string>
+    <string name="title_payment">Finalizar Pedido</string>
+
+    <!--Button-->
+    <string name="bt_add">Adicionar</string>
+    <string name="bt_next">Próximo</string>
+    <string name="bt_add_to_cart">Adicionar ao carrinho</string>
+    <string name="bt_finish_order">Finalizar pedido</string>
+
+    <!--Content description-->
+    <string name="con_product_image">Imagem do Produto</string>
+
+    <string name="one">1</string>
+</resources>

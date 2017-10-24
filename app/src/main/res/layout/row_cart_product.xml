@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/rowCartProduct_imProductImage"
+        android:layout_width="@dimen/product_60"
+        android:layout_height="@dimen/product_60"
+        android:layout_margin="@dimen/margin_14"
+        android:contentDescription="@string/con_product_image"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/rowCartProduct_tvProductTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif_regular"
+        android:layout_marginTop="@dimen/margin_14" />
+
+        <TextView
+            android:id="@+id/rowCartProduct_tvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif_regular"
+            android:textColor="@android:color/holo_green_dark" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/rowCartProduct_btMinus"
+        android:layout_width="@dimen/size_20"
+        android:layout_height="@dimen/size_20"
+        android:background="@drawable/icon_minus"
+        android:layout_margin="@dimen/margin_14"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/rowCartProduct_tvProductAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/one"
+        android:fontFamily="@font/breeserif_regular"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/rowCartProduct_btPlus"
+        android:layout_width="@dimen/size_20"
+        android:layout_height="@dimen/size_20"
+        android:background="@drawable/icon_plus"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_14"/>
+
+    <Button
+        android:id="@+id/rowCartProduct_btRemove"
+        android:layout_width="@dimen/size_20"
+        android:layout_height="@dimen/size_20"
+        android:background="@drawable/icon_remove"
+        android:layout_gravity="center"/>
+</LinearLayout>
