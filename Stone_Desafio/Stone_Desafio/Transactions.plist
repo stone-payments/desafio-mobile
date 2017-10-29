@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Transacoes</key>
+	<array>
+		<dict>
+			<key>nome</key>
+			<string>Pedro Elkind Velmovitsky</string>
+			<key>4digitos</key>
+			<string>1234</string>
+			<key>datahora</key>
+			<date>2017-10-28T18:13:11Z</date>
+			<key>valor</key>
+			<integer>7900</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
