@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.victo.desafiostone">
+
+
+    <!-- Permissão para o uso de internet para importar o Json -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <!-- Activity Itens e voltando para Activity Main -->
+        <activity
+            android:name=".ItensActivity"
+            android:label="Itens da Loja"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.victo.desafiostone.MainActivity" />
+        </activity>
+
+
+        <!-- Activity Banco e voltando para Activity Main -->
+
+
+        <!-- Activity Carrinho e voltando para Activity Itens -->
+        <activity android:name=".CarrinhoActivity"
+            android:label="Carrinho de Compras"
+            android:parentActivityName=".ItensActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.victo.desafiostone.ItensActivity" />
+        </activity>
+        </application>
+
+</manifest>
