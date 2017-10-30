@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="saI-5B-wBk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="tpi-Eb-TWu">
+            <objects>
+                <navigationController id="saI-5B-wBk" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V3q-yJ-Wk7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Gda-CY-dBp" kind="relationship" relationship="rootViewController" id="ETk-Zo-CmC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvv-gX-Ekx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1508" y="-817"/>
+        </scene>
+        <!--PRODUTOS-->
+        <scene sceneID="UYq-60-ZKt">
+            <objects>
+                <viewController storyboardIdentifier="ProductListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gda-CY-dBp" userLabel="PRODUTOS" customClass="ProductListViewController" customModule="desafio_mobile" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gfu-pw-zAT"/>
+                        <viewControllerLayoutGuide type="bottom" id="CLL-5D-QKd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mSE-8Z-2lu">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VrQ-KD-yHj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gda-CY-dBp" id="2UX-Ir-XBb"/>
+                                    <outlet property="delegate" destination="Gda-CY-dBp" id="IJp-eY-z5d"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VrQ-KD-yHj" firstAttribute="top" secondItem="gfu-pw-zAT" secondAttribute="bottom" id="90P-yO-IeL"/>
+                            <constraint firstAttribute="trailing" secondItem="VrQ-KD-yHj" secondAttribute="trailing" id="AXD-tf-S4M"/>
+                            <constraint firstItem="VrQ-KD-yHj" firstAttribute="leading" secondItem="mSE-8Z-2lu" secondAttribute="leading" id="fmQ-sa-e5P"/>
+                            <constraint firstItem="CLL-5D-QKd" firstAttribute="top" secondItem="VrQ-KD-yHj" secondAttribute="bottom" id="nfU-1q-pv1"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="PRODUTOS" id="U0a-kQ-BTY" userLabel="PRODUTOS">
+                        <barButtonItem key="backBarButtonItem" title=" " id="PHD-CQ-bsz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="VrQ-KD-yHj" id="abY-Vy-VAm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTi-b0-U14" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1508" y="-51"/>
+        </scene>
+    </scenes>
+</document>
