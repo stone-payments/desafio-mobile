@@ -28,7 +28,7 @@ class CartManager {
         return keys.flatMap({ getFromCart(key: $0) })
     }
     
-    private func getFromCart(key: String) -> Product? {
+    func getFromCart(key: String) -> Product? {
         guard let jsonString = UserDefaults.standard.value(forKey: key) as? String else { return nil }
         return Mapper<Product>().map(JSONString: jsonString)
     }

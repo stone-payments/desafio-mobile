@@ -11,17 +11,19 @@ import ObjectMapper
 
 class Product : Mappable {
     
-    public var title        : String = ""
+    public var title        : String    = ""
     
-    public var price        : Int = 0
+    public var price        : Int       = 0
     
-    public var zipcode      : String = ""
+    public var zipcode      : String    = ""
     
-    public var seller       : String = ""
+    public var seller       : String    = ""
     
-    public var thumbnailHd  : String = ""
+    public var thumbnailHd  : String    = ""
     
-    public var date         : String = ""
+    public var date         : String    = ""
+    
+    public var isCart       : Bool      = false
     
     public typealias blockCompletion = ([Product], NSError?) -> Void
     

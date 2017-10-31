@@ -3,13 +3,37 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in ProductListSection.loadProducts():ProductListSection.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CartManager.shared.getFromCart(key: key)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CartProductListSection.loadCartProducts():CartProductListSection.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.value(forKey: product.title!)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static GitHubAPI.(getProducts(completionHandler : (RepositoryRest?, NSError?) -&gt; ()) -&gt; ()).(closure #1):GitHubAPI.swift">
          <PersistentStrings>
             <PersistentString
-               value = "GitHubAPIParser.parseJSON(response.result.value) as? [[String: Any]]">
+               value = "json[0] as? [String: Any]">
             </PersistentString>
             <PersistentString
-               value = "json[0] as? [String: Any]">
+               value = "GitHubAPIParser.parseJSON(response.result.value) as? [[String: Any]]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ProductCell.setup(product:):ProductCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "product.isCart">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -34,14 +58,6 @@
          <PersistentStrings>
             <PersistentString
                value = "Mapper&lt;Product&gt;().mapArray(JSONObject: json)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in CartProductListSection.loadCartProducts():CartProductListSection.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserDefaults.standard.value(forKey: product.title!)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

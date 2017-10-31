@@ -29,6 +29,13 @@ class ProductListSection: ProductSection {
             
             self.requesting = !self.requesting
             
+            for product in products {
+                let key = "Cart-\(product.title)"
+                if CartManager.shared.getFromCart(key: key) != nil {
+                    product.isCart = true
+                }
+            }
+            
             var _items = self.items as? [Product]
             _items?.insert(contentsOf: products, at: self.items.endIndex)
             self.items = _items ?? self.items

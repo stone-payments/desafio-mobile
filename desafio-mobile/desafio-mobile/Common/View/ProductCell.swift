@@ -19,7 +19,7 @@ class ProductCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel       : UILabel!
     
-    @IBOutlet weak var addToCart: UIButton!
+    @IBOutlet weak var addToCart        : UIButton!
     
     @IBOutlet weak var priceLabel       : UILabel!
     
@@ -43,6 +43,10 @@ class ProductCell: UITableViewCell {
         sellerLabel.text    = product.seller
         
         addToCart.layer.cornerRadius = 42.5
+        
+        addToCart.isSelected = !product.isCart
+        addToCart.setImage(UIImage(named: "remove-cart.png"), for: .normal)
+        addToCart.setImage(UIImage(named: "add-cart.png"), for: .selected)
     }
     
     func addRemoveToCart(buttonState: Bool) {

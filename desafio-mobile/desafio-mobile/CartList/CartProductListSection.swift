@@ -17,14 +17,41 @@ class CartProductListSection: ProductSection {
     }
     
     fileprivate func loadCartProducts () {
-        self.items = CartManager.shared.getAllCarts() ?? []
+        
+        if let products = CartManager.shared.getAllCarts() {
+            
+            for product in products {
+                let key = "Cart-\(product.title)"
+                if CartManager.shared.getFromCart(key: key) != nil {
+                    product.isCart = true
+                }
+            }
+            self.items = products
+            
+        } else {
+            self.items = []
+        }
+        
         self.parentOutput?.reloadSection(self)
     }
     
     override func didSelectRemove(key: String) {
         super.didSelectRemove(key: key)
         
-        self.items = CartManager.shared.getAllCarts() ?? []
+        if let products = CartManager.shared.getAllCarts() {
+            
+            for product in products {
+                let key = "Cart-\(product.title)"
+                if CartManager.shared.getFromCart(key: key) != nil {
+                    product.isCart = true
+                }
+            }
+            self.items = products
+            
+        } else {
+            self.items = []
+        }
+        
         self.parentOutput?.reloadSection(self)
     }
 }
