@@ -52,5 +52,11 @@ extension UITableView {
         
         endUpdates()
     }
+}
+
+extension UIColor {
     
+    class var greenCart: UIColor {
+        return UIColor(red: 39, green: 174, blue: 96, alpha: 1)
+    }
 }

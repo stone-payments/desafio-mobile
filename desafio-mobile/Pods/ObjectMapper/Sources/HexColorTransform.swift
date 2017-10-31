@@ -36,7 +36,7 @@ open class HexColorTransform: TransformType {
 		if let rgba = value as? String {
 			if rgba.hasPrefix("#") {
 				let index = rgba.characters.index(rgba.startIndex, offsetBy: 1)
-				let hex = String(rgba[index])
+				let hex = String(rgba[index...])
 				return getColor(hex: hex)
 			} else {
 				return getColor(hex: rgba)

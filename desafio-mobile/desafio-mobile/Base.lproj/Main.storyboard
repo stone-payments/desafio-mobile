@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="saI-5B-wBk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="saI-5B-wBk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="saI-5B-wBk" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V3q-yJ-Wk7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -34,10 +34,10 @@
                         <viewControllerLayoutGuide type="bottom" id="CLL-5D-QKd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mSE-8Z-2lu">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VrQ-KD-yHj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VrQ-KD-yHj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -58,14 +58,64 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="PRODUTOS" id="U0a-kQ-BTY" userLabel="PRODUTOS">
                         <barButtonItem key="backBarButtonItem" title=" " id="PHD-CQ-bsz"/>
+                        <barButtonItem key="rightBarButtonItem" image="add-cart" id="HGc-qa-ynq">
+                            <connections>
+                                <segue destination="mIx-ea-UH5" kind="show" id="Ro0-vk-ovK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="VrQ-KD-yHj" id="abY-Vy-VAm"/>
+                        <outlet property="tableView" destination="VrQ-KD-yHj" id="K1s-x9-9rI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTi-b0-U14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1508" y="-51"/>
         </scene>
+        <!--CARRINHO-->
+        <scene sceneID="I5Y-vZ-DZ8">
+            <objects>
+                <viewController storyboardIdentifier="CartProductListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mIx-ea-UH5" userLabel="CARRINHO" customClass="CartProductListViewController" customModule="desafio_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vc1-Tb-nhr"/>
+                        <viewControllerLayoutGuide type="bottom" id="jpA-rA-hJ1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gsa-eU-vff">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-zO-TzD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mIx-ea-UH5" id="9iS-OS-90N"/>
+                                    <outlet property="delegate" destination="mIx-ea-UH5" id="k3d-zL-zQ7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Rg-zO-TzD" firstAttribute="leading" secondItem="Gsa-eU-vff" secondAttribute="leading" id="LhH-Iu-YPg"/>
+                            <constraint firstItem="jpA-rA-hJ1" firstAttribute="top" secondItem="4Rg-zO-TzD" secondAttribute="bottom" id="WEW-ye-Q4K"/>
+                            <constraint firstItem="4Rg-zO-TzD" firstAttribute="top" secondItem="vc1-Tb-nhr" secondAttribute="bottom" id="i7g-BH-oC1"/>
+                            <constraint firstAttribute="trailing" secondItem="4Rg-zO-TzD" secondAttribute="trailing" id="ody-Fe-LCy"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="CARRINHO" id="KxA-Oy-bHM" userLabel="CARRINHO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="1Rs-x3-u0N"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="4Rg-zO-TzD" id="XuQ-HH-EaF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wk1-K1-WqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2649" y="-52"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="add-cart" width="42" height="42"/>
+    </resources>
 </document>

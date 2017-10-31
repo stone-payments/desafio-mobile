@@ -3,21 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "static GitHubAPI.(getProducts(completionHandler : ([Product], NSError?) -&gt; ()) -&gt; ()).(closure #1):GitHubAPI.swift">
+         contextName = "static GitHubAPI.(getProducts(completionHandler : (RepositoryRest?, NSError?) -&gt; ()) -&gt; ()).(closure #1):GitHubAPI.swift">
          <PersistentStrings>
             <PersistentString
-               value = "Mapper&lt;Product&gt;().mapArray(JSONObject: json)">
+               value = "GitHubAPIParser.parseJSON(response.result.value) as? [[String: Any]]">
+            </PersistentString>
+            <PersistentString
+               value = "json[0] as? [String: Any]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static GitHubAPI.(getProducts(completionHandler : (RepositoryRest?, NSError?) -&gt; ()) -&gt; ()).(closure #1):GitHubAPI.swift">
+         contextName = "ProductListCell.addToCart(_:):ProductListCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "json[0] as? [String: Any]">
-            </PersistentString>
-            <PersistentString
-               value = "GitHubAPIParser.parseJSON(response.result.value) as? [[String: Any]]">
+               value = "UIImage(named: &quot;remove-cart.png&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -26,6 +26,22 @@
          <PersistentStrings>
             <PersistentString
                value = "Mapper&lt;Product&gt;().mapArray(JSONObject: json)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static GitHubAPI.(getProducts(completionHandler : ([Product], NSError?) -&gt; ()) -&gt; ()).(closure #1):GitHubAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Mapper&lt;Product&gt;().mapArray(JSONObject: json)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CartProductListSection.loadCartProducts():CartProductListSection.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.value(forKey: product.title!)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

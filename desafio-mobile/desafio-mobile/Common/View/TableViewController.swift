@@ -61,9 +61,8 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
 extension TableViewController: SectionOutput {
     
     func reloadSection(_ section: Section) {
-        
-        guard let index = sections.index(of: section) else { return }
-        tableView.reloadSections(IndexSet(integer: index), with: .automatic)
+        guard let index = self.sections.index(of: section) else { return }
+        self.tableView.reloadSections(IndexSet(integer: index), with: .automatic)
     }
     
     func insertItems(atSection section: Section) {
