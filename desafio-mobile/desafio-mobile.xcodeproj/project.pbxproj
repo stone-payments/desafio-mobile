@@ -22,6 +22,14 @@
 		1D3AD87D1FA847E4008DC794 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3AD87C1FA847E4008DC794 /* Product.swift */; };
 		1D3AD8801FA847EB008DC794 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3AD87E1FA847EB008DC794 /* Section.swift */; };
 		1D3AD8811FA847EB008DC794 /* ProductSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3AD87F1FA847EB008DC794 /* ProductSection.swift */; };
+		1D955E341FA93C2600408472 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D955E331FA93C2600408472 /* Transaction.swift */; };
+		1D955E361FA9401300408472 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D955E351FA9401300408472 /* Card.swift */; };
+		1D955E381FA94A0900408472 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D955E371FA94A0900408472 /* TransactionViewController.swift */; };
+		1D955E3A1FA9513500408472 /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D955E391FA9513500408472 /* TransactionListViewController.swift */; };
+		1D955E3C1FA9580A00408472 /* TransactionListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D955E3B1FA9580A00408472 /* TransactionListSection.swift */; };
+		1D955E3E1FA959EE00408472 /* TransactionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D955E3D1FA959EE00408472 /* TransactionSection.swift */; };
+		1D955E401FA95A4F00408472 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D955E3F1FA95A4F00408472 /* TransactionCell.swift */; };
+		1D955E421FA95ACA00408472 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D955E411FA95ACA00408472 /* TransactionCell.xib */; };
 		1DCCEEDF1FA62C31007D02CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCCEEDE1FA62C31007D02CE /* AppDelegate.swift */; };
 		1DCCEEE41FA62C31007D02CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DCCEEE21FA62C31007D02CE /* Main.storyboard */; };
 		1DCCEEE61FA62C31007D02CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DCCEEE51FA62C31007D02CE /* Assets.xcassets */; };
@@ -66,6 +74,14 @@
 		1D3AD87C1FA847E4008DC794 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1D3AD87E1FA847EB008DC794 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		1D3AD87F1FA847EB008DC794 /* ProductSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSection.swift; sourceTree = "<group>"; };
+		1D955E331FA93C2600408472 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		1D955E351FA9401300408472 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		1D955E371FA94A0900408472 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		1D955E391FA9513500408472 /* TransactionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
+		1D955E3B1FA9580A00408472 /* TransactionListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListSection.swift; sourceTree = "<group>"; };
+		1D955E3D1FA959EE00408472 /* TransactionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSection.swift; sourceTree = "<group>"; };
+		1D955E3F1FA95A4F00408472 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		1D955E411FA95ACA00408472 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		1DCCEEDB1FA62C31007D02CE /* desafio-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DCCEEDE1FA62C31007D02CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DCCEEE31FA62C31007D02CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,8 +195,23 @@
 			isa = PBXGroup;
 			children = (
 				1D3AD87C1FA847E4008DC794 /* Product.swift */,
+				1D955E331FA93C2600408472 /* Transaction.swift */,
+				1D955E351FA9401300408472 /* Card.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1D955E321FA93C0000408472 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				1D955E371FA94A0900408472 /* TransactionViewController.swift */,
+				1D955E391FA9513500408472 /* TransactionListViewController.swift */,
+				1D955E3B1FA9580A00408472 /* TransactionListSection.swift */,
+				1D955E3D1FA959EE00408472 /* TransactionSection.swift */,
+				1D955E3F1FA95A4F00408472 /* TransactionCell.swift */,
+				1D955E411FA95ACA00408472 /* TransactionCell.xib */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		1DCCEED21FA62C31007D02CE = {
@@ -208,6 +239,7 @@
 		1DCCEEDD1FA62C31007D02CE /* desafio-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				1D955E321FA93C0000408472 /* Transaction */,
 				1D3AD8541FA84601008DC794 /* CartList */,
 				1D3AD8691FA8468E008DC794 /* Common */,
 				1D3AD8551FA8460C008DC794 /* GitHubAPI */,
@@ -386,6 +418,7 @@
 				1D3AD8771FA846BE008DC794 /* ProductCell.xib in Resources */,
 				1DCCEEE61FA62C31007D02CE /* Assets.xcassets in Resources */,
 				1DCCEEE41FA62C31007D02CE /* Main.storyboard in Resources */,
+				1D955E421FA95ACA00408472 /* TransactionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,18 +599,25 @@
 			files = (
 				1D3AD8591FA84622008DC794 /* CartProductListViewController.swift in Sources */,
 				1D3AD8711FA846A0008DC794 /* APIURL.swift in Sources */,
+				1D955E341FA93C2600408472 /* Transaction.swift in Sources */,
+				1D955E3A1FA9513500408472 /* TransactionListViewController.swift in Sources */,
 				1D3AD8661FA84678008DC794 /* CartManager.swift in Sources */,
 				1D3AD8801FA847EB008DC794 /* Section.swift in Sources */,
 				1DCCEEDF1FA62C31007D02CE /* AppDelegate.swift in Sources */,
+				1D955E361FA9401300408472 /* Card.swift in Sources */,
 				1D3AD8761FA846BE008DC794 /* ProductCell.swift in Sources */,
+				1D955E3E1FA959EE00408472 /* TransactionSection.swift in Sources */,
 				1D3AD8621FA84655008DC794 /* ProductListViewController.swift in Sources */,
 				1D3AD8581FA84622008DC794 /* CartProductListSection.swift in Sources */,
+				1D955E401FA95A4F00408472 /* TransactionCell.swift in Sources */,
 				1D3AD8611FA84655008DC794 /* ProductListSection.swift in Sources */,
 				1D3AD85D1FA84635008DC794 /* GitHubAPIParser.swift in Sources */,
 				1D3AD8811FA847EB008DC794 /* ProductSection.swift in Sources */,
+				1D955E381FA94A0900408472 /* TransactionViewController.swift in Sources */,
 				1D3AD86F1FA846A0008DC794 /* Extensions.swift in Sources */,
 				1D3AD8781FA846BE008DC794 /* TableViewController.swift in Sources */,
 				1D3AD85C1FA84635008DC794 /* GitHubAPI.swift in Sources */,
+				1D955E3C1FA9580A00408472 /* TransactionListSection.swift in Sources */,
 				1D3AD87D1FA847E4008DC794 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

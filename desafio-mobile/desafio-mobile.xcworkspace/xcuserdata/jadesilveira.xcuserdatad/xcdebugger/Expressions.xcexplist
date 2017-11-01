@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in CartManager.getAllTransactions():CartManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userDefaults.dictionaryRepresentation().keys">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in ProductListSection.loadProducts():ProductListSection.swift">
          <PersistentStrings>
             <PersistentString
@@ -19,13 +27,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CartManager.getAllTransactions():CartManager.swift">
+      </ContextState>
+      <ContextState
          contextName = "static GitHubAPI.(getProducts(completionHandler : (RepositoryRest?, NSError?) -&gt; ()) -&gt; ()).(closure #1):GitHubAPI.swift">
          <PersistentStrings>
             <PersistentString
-               value = "json[0] as? [String: Any]">
+               value = "GitHubAPIParser.parseJSON(response.result.value) as? [[String: Any]]">
             </PersistentString>
             <PersistentString
-               value = "GitHubAPIParser.parseJSON(response.result.value) as? [[String: Any]]">
+               value = "json[0] as? [String: Any]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -34,6 +45,14 @@
          <PersistentStrings>
             <PersistentString
                value = "product.isCart">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TransactionViewController.getCard():TransactionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Int(txtCvv.text)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -50,6 +69,14 @@
          <PersistentStrings>
             <PersistentString
                value = "Mapper&lt;Product&gt;().mapArray(JSONObject: json)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CartManager.getTransaction(key:):CartManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userDefaults.value(forKey: key) as? [Any]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
