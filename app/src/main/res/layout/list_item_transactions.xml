@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/margin_default"
+    android:background="@android:color/white"
+    app:cardCornerRadius="@dimen/corner"
+    android:elevation="@dimen/elevation">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default">
+
+        <TextView
+            style="@style/TextAppearance.Medium"
+            android:id="@+id/textViewName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_itens_default"
+            android:layout_marginStart="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            tools:text="Uzias"
+            app:layout_constraintEnd_toStartOf="@+id/textViewValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:id="@+id/textViewValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            tools:text="Valor: 4,00"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:id="@+id/textViewDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_itens_default"
+            android:layout_marginStart="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            tools:text="dezembro de 2016"
+            app:layout_constraintEnd_toStartOf="@+id/textViewValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:id="@+id/textViewCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_itens_default"
+            android:layout_marginStart="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            tools:text="0004"
+            app:layout_constraintEnd_toStartOf="@+id/textViewValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

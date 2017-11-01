@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+
+    <style name="toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark">
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark">
+    </style>
+
+    <style name="TextAppearance.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/primaryText</item>
+    </style>
+
+    <style name="TextAppearance.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/secondaryText</item>
+    </style>
+
+    <style name="TextAppearance.Button.Primary" parent="TextAppearance.AppCompat.Button">
+        <item name="android:background">@drawable/ripple_primary_button</item>
+        <item name="android:textColor">@color/buttonTextColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Button.Secondary" parent="TextAppearance.AppCompat.Button">
+        <item name="android:background">@drawable/ripple_secondary_button</item>
+        <item name="android:textColor">@color/primaryText</item>
+    </style>
+
+</resources>

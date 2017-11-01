@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="elevation">4dp</dimen>
+    <dimen name="corner">4dp</dimen>
+    <dimen name="width_image_product">80dp</dimen>
+    <dimen name="width_image_add">20dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="margin_between_itens_default">8dp</dimen>
+    <dimen name="padding_default">16dp</dimen>
+</resources>

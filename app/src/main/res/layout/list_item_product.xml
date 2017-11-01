@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_default"
+    android:background="@android:color/white"
+    app:cardCornerRadius="@dimen/corner"
+    android:elevation="@dimen/elevation"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default">
+
+        <TextView
+            style="@style/TextAppearance.Medium"
+            android:id="@+id/textViewName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_itens_default"
+            android:layout_marginStart="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonAdd"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProduct"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Uzias Santos Ferreira" />
+
+
+        <ImageView
+            android:id="@+id/imageViewProduct"
+            android:layout_width="@dimen/width_image_product"
+            android:layout_height="@dimen/width_image_product"
+            android:layout_marginStart="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:id="@+id/textViewSeller"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_itens_default"
+            android:layout_marginStart="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            tools:text="Vendido por: Uzias"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCountItem"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProduct"
+            app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:id="@+id/textViewPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_between_itens_default"
+            android:layout_marginEnd="@dimen/margin_between_itens_default"
+            android:layout_marginStart="@dimen/margin_between_itens_default"
+            android:layout_marginTop="@dimen/margin_between_itens_default"
+            tools:text="Preço: 1,00"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonRemove"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProduct"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSeller" />
+
+        <ImageButton
+            android:id="@+id/imageButtonAdd"
+            android:layout_width="@dimen/width_image_add"
+            android:layout_height="@dimen/width_image_add"
+            android:background="@null"
+            app:layout_constraintBottom_toTopOf="@+id/textViewCountItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_add" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:id="@+id/textViewCountItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="1"
+            app:layout_constraintBottom_toTopOf="@+id/imageButtonRemove"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageButtonAdd"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonAdd" />
+
+        <ImageButton
+            android:id="@+id/imageButtonRemove"
+            android:layout_width="@dimen/width_image_add"
+            android:layout_height="@dimen/width_image_add"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageButtonAdd"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCountItem"
+            app:srcCompat="@drawable/ic_remove" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

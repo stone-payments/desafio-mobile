@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/item_products"
+            android:title="@string/item_products" />
+        <item
+            android:id="@+id/item_transactions"
+            android:title="@string/item_transactions" />
+
+    </group>
+</menu>
