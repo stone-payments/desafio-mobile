@@ -1,0 +1,18 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+
+target 'desafio-mobile' do
+  use_frameworks!
+
+  pod 'Alamofire', '~> 4.5.1'
+  pod 'ObjectMapper', '~> 3.0.0'
+  pod 'SDWebImage', '~> 4.2.0'
+
+  target 'desafio-mobileTests' do
+    inherit! :search_paths
+  end
+
+  target 'desafio-mobileUITests' do
+    inherit! :search_paths
+  end
+end
