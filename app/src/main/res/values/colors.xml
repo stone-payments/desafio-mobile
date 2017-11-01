@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="primaryLight">#FFCDD2</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="background">#fafafa</color>
+    <color name="buttonTextColorPrimary">@android:color/white</color>
+
+    <!-- LIB CREDIT CARD VIEW CHANGE COLOR BUTTON-->
+    <color name="green_continue">@color/colorPrimary</color>
+</resources>

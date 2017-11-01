@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Star Wars Shop</string>
+    <string name="label_loading">Loading</string>
+    <string name="label_empty_products">List of products empty.</string>
+    <string name="label_empty_transactions">List of transactions empty.</string>
+    <string name="label_generic_error">Oops! Something went wrong!
+        \nHelp us improve your experience by sending an error report.</string>
+    <string name="label_network_error">Network not available</string>
+    <string name="label_try_again">Try again!</string>
+    <string name="label_seller">Seller: %s</string>
+    <string name="label_price">Price: %s</string>
+    <string name="label_checkout">Checkout</string>
+    <string name="label_total_shop">Total\n%s</string>
+    <string name="label_add_credit_card">Add credit card</string>
+    <string name="label_confirm">Confirm</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_try_again_dialog">Try again</string>
+
+    <string name="item_products">Products</string>
+    <string name="item_transactions">Transactions</string>
+</resources>

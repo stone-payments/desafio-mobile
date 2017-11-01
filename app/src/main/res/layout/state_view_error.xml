@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/state_view_error"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="@dimen/width_image_product"
+        android:layout_height="@dimen/width_image_product"
+        android:src="@drawable/ic_error"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@+id/text_error"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        style="@style/TextAppearance.Medium"
+        android:id="@+id/text_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/label_generic_error"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <Button
+        style="@style/TextAppearance.Button.Primary"
+        android:id="@+id/buttonTryAgain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        android:text="@string/label_try_again"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_error" />
+
+
+</android.support.constraint.ConstraintLayout>
