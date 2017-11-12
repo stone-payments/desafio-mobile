@@ -5,4 +5,7 @@
     <string name="try_again">Try Again</string>
 
     <string name="sold_by">Sold by %1$s</string>
+
+    <string name="product_added_to_cart">Product added to the Cart</string>
+    <string name="product_failed_to_cart">Failed to add to the Cart</string>
 </resources>

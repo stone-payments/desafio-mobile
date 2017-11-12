@@ -7,6 +7,7 @@ import douglasspgyn.com.github.desafiostone.R
 import douglasspgyn.com.github.desafiostone.application.Constants
 import douglasspgyn.com.github.desafiostone.business.model.Product
 import douglasspgyn.com.github.desafiostone.common.extensions.loadUrl
+import douglasspgyn.com.github.desafiostone.common.extensions.snackbar
 import douglasspgyn.com.github.desafiostone.common.extensions.toCurrency
 import kotlinx.android.synthetic.main.activity_product.*
 
@@ -30,6 +31,14 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
         productPhoto.loadUrl(presenter.product.thumbnailHd, R.drawable.ic_darth_vader)
         productTitle.text = presenter.product.title
         productPrice.text = presenter.product.price.toCurrency()
+    }
+
+    override fun productAdddedToCart() {
+        snackbar(getString(R.string.product_added_to_cart), view = coordinator)
+    }
+
+    override fun productFailedToCart() {
+        snackbar(getString(R.string.product_failed_to_cart), view = coordinator)
     }
 
     private fun setListener() {

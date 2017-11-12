@@ -1,5 +1,6 @@
 package douglasspgyn.com.github.desafiostone.ui.product
 
+import douglasspgyn.com.github.desafiostone.application.App.Companion.productDao
 import douglasspgyn.com.github.desafiostone.business.model.Product
 
 /**
@@ -11,6 +12,19 @@ class ProductPresenter(val view: ProductContract.View) : ProductContract.Present
     lateinit var product: Product
 
     override fun addToCart() {
+        try {
+            val dbProduct = productDao?.getProduct(product.title)
 
+            if (dbProduct == null) {
+                productDao?.saveProduct(product)
+            } else {
+                dbProduct.quantity += 1
+                productDao?.updateProduct(dbProduct)
+            }
+
+            view.productAdddedToCart()
+        } catch (e: Exception) {
+            view.productFailedToCart()
+        }
     }
 }
