@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Desafio Stone</string>
+    <string name="app_name">Shop Wars</string>
 
     <string name="failed_load_products">Failed to load products\nSwipe to refresh</string>
     <string name="try_again">Try Again</string>

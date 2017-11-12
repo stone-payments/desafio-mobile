@@ -9,8 +9,8 @@
         android:id="@+id/productPhoto"
         android:layout_width="144dp"
         android:layout_height="144dp"
-        android:src="@drawable/ic_darth_vader"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_darth_vader" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,8 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/productPrice"
