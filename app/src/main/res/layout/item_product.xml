@@ -9,6 +9,7 @@
         android:id="@+id/productPhoto"
         android:layout_width="144dp"
         android:layout_height="144dp"
+        android:src="@drawable/ic_darth_vader"
         android:scaleType="centerCrop" />
 
     <RelativeLayout

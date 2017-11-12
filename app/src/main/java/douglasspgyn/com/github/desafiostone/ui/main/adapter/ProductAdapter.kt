@@ -33,7 +33,7 @@ class ProductAdapter(private val products: List<Product>) : RecyclerView.Adapter
     class ProductViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         fun bind(product: Product) {
             with(itemView) {
-                productPhoto.loadUrl(product.thumbnailHd)
+                productPhoto.loadUrl(product.thumbnailHd, R.drawable.ic_darth_vader)
                 productTitle.text = product.title
                 productPrice.text = product.price.toCurrency()
                 productSeller.text = context.getString(R.string.sold_by, product.seller)
