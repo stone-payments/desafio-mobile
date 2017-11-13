@@ -22,4 +22,14 @@
     <string name="cancel">Cancel</string>
     <string name="total_price">Total: %1$s</string>
     <string name="checkout">Checkout</string>
+
+    <string name="card_number">Card Number</string>
+    <string name="card_holder_name">Card Holder Name</string>
+    <string name="card_expires_date">Expires Date</string>
+    <string name="card_cvv">Card Verification Value</string>
+    <string name="place_order">Place Order</string>
+
+    <string name="empty_fields">Empty Field</string>
+    <string name="invalid_card_number">Invalid Number</string>
+    <string name="invalid_card_expires_date">Invalid Expires Date</string>
 </resources>

@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.product.ProductActivity" />
-        <activity android:name=".ui.cart.CartActivity"></activity>
+        <activity android:name=".ui.cart.CartActivity" />
+        <activity android:name=".ui.checkout.CheckoutActivity"></activity>
     </application>
 
 </manifest>

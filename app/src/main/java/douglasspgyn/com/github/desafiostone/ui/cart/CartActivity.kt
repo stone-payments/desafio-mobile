@@ -1,5 +1,6 @@
 package douglasspgyn.com.github.desafiostone.ui.cart
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
@@ -10,6 +11,7 @@ import douglasspgyn.com.github.desafiostone.R
 import douglasspgyn.com.github.desafiostone.business.model.Product
 import douglasspgyn.com.github.desafiostone.common.extensions.snackbar
 import douglasspgyn.com.github.desafiostone.ui.cart.adapter.CartAdapter
+import douglasspgyn.com.github.desafiostone.ui.checkout.CheckoutActivity
 import kotlinx.android.synthetic.main.activity_cart.*
 
 class CartActivity : AppCompatActivity(), CartContract.View {
@@ -21,12 +23,20 @@ class CartActivity : AppCompatActivity(), CartContract.View {
         setContentView(R.layout.activity_cart)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        setListeners()
     }
 
     override fun onResume() {
         super.onResume()
 
         presenter.getCartProducts()
+    }
+
+    private fun setListeners() {
+        checkout.setOnClickListener {
+            startActivity(Intent(this, CheckoutActivity::class.java))
+        }
     }
 
     override fun cartLoaded(products: List<Product>) {
