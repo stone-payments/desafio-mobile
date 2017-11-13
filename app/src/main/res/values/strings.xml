@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Shop Wars</string>
 
+    <string name="cart">Cart</string>
+
     <string name="failed_load_products">Failed to load products\nSwipe to refresh</string>
     <string name="try_again">Try Again</string>
 
@@ -8,4 +10,12 @@
 
     <string name="product_added_to_cart">Product added to the Cart</string>
     <string name="product_failed_to_cart">Failed to add to the Cart</string>
+
+    <string name="failed_load_cart">Failed to load the cart</string>
+    <string name="remove_product">Remove Product</string>
+    <string name="remove_product_message">This will remove the product from the cart</string>
+    <string name="remove">Remove</string>
+    <string name="cancel">Cancel</string>
+    <string name="total_price">Total: %1$s</string>
+    <string name="checkout">Checkout</string>
 </resources>
