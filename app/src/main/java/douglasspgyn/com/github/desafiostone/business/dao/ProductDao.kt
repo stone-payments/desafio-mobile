@@ -24,4 +24,7 @@ interface ProductDao {
 
     @Delete
     fun deleteProduct(product: Product)
+
+    @Query("DELETE FROM products")
+    fun deleteAll()
 }

@@ -13,6 +13,7 @@ import douglasspgyn.com.github.desafiostone.business.model.Product
 import douglasspgyn.com.github.desafiostone.common.extensions.inflate
 import douglasspgyn.com.github.desafiostone.common.extensions.loadUrl
 import douglasspgyn.com.github.desafiostone.common.extensions.toCurrency
+import douglasspgyn.com.github.desafiostone.ui.cart.CartContract
 import douglasspgyn.com.github.desafiostone.ui.product.ProductActivity
 import kotlinx.android.synthetic.main.item_cart.view.*
 
@@ -20,22 +21,35 @@ import kotlinx.android.synthetic.main.item_cart.view.*
  * Created by Douglas on 13/11/17.
  */
 
-class CartAdapter(val products: List<Product>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(val products: MutableList<Product>, val presenter: CartContract.Presenter) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CartViewHolder {
         return CartViewHolder(parent?.inflate(R.layout.item_cart))
     }
 
     override fun onBindViewHolder(holder: CartViewHolder?, position: Int) {
-        holder?.bind(products[position])
+        holder?.bind(products[position], this)
     }
 
     override fun getItemCount(): Int {
         return products.size
     }
 
+    private fun removeProduct(position: Int) {
+        products.remove(products[position])
+        notifyItemRemoved(position)
+    }
+
+    private fun updateTotalPrices() {
+        presenter.calculateTotalProduct()
+    }
+
     class CartViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        fun bind(product: Product) {
+        private lateinit var cartAdapter: CartAdapter
+
+        fun bind(product: Product, cartAdapter: CartAdapter) {
+            this.cartAdapter = cartAdapter
+
             with(itemView) {
                 productPhoto.loadUrl(product.thumbnailHd, R.drawable.ic_darth_vader)
                 productTitle.text = product.title
@@ -45,21 +59,15 @@ class CartAdapter(val products: List<Product>) : RecyclerView.Adapter<CartAdapte
                         (product.price * product.quantity).toCurrency())
 
                 productRemove.setOnClickListener {
-                    removeProduct(context, product)
+                    removeProductDialog(context, product)
                 }
 
                 removeQuantity.setOnClickListener {
-                    if (product.quantity == 1) {
-                        removeProduct(context, product)
-                    } else {
-                        product.quantity -= 1
-                        productDao?.updateProduct(product)
-                    }
+                    removeQuantity(product)
                 }
 
                 addQuantity.setOnClickListener {
-                    product.quantity += 1
-                    productDao?.updateProduct(product)
+                    addQuantity(product)
                 }
 
                 setOnClickListener {
@@ -70,13 +78,44 @@ class CartAdapter(val products: List<Product>) : RecyclerView.Adapter<CartAdapte
             }
         }
 
-        private fun removeProduct(context: Context, product: Product) {
+        private fun addQuantity(product: Product) {
+            with(itemView) {
+                product.quantity += 1
+                productDao?.updateProduct(product)
+                updateProductView(product)
+            }
+        }
+
+        private fun removeQuantity(product: Product) {
+            with(itemView) {
+                if (product.quantity == 1) {
+                    removeProductDialog(context, product)
+                } else {
+                    product.quantity -= 1
+                    productDao?.updateProduct(product)
+                    updateProductView(product)
+                }
+            }
+        }
+
+        private fun updateProductView(product: Product) {
+            with(itemView) {
+                productQuantity.text = product.quantity.toString()
+                productTotal.text = context.getString(R.string.total_price,
+                        (product.price * product.quantity).toCurrency())
+
+                cartAdapter.updateTotalPrices()
+            }
+        }
+
+        private fun removeProductDialog(context: Context, product: Product) {
             AlertDialog.Builder(context).create().apply {
                 setTitle(context.getString(R.string.remove_product))
                 setMessage(context.getString(R.string.remove_product_message))
                 setButton(AlertDialog.BUTTON_POSITIVE, context.getString(R.string.remove), { _, _ ->
                     productDao?.deleteProduct(product)
-
+                    cartAdapter.removeProduct(adapterPosition)
+                    cartAdapter.updateTotalPrices()
                 })
                 setButton(AlertDialog.BUTTON_NEGATIVE, context.getString(R.string.cancel), { _, _ ->
                     dismiss()

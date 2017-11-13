@@ -12,11 +12,13 @@ interface CartContract {
         fun cartLoaded(products: List<Product>)
         fun cartEmpty()
         fun cartFailed()
+        fun cartCleared()
         fun updateTotalProduct(total: String)
     }
 
     interface Presenter {
         fun getCartProducts()
         fun calculateTotalProduct()
+        fun clearCart()
     }
 }

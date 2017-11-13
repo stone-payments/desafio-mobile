@@ -36,4 +36,9 @@ class CartPresenter(val view: CartContract.View) : CartContract.Presenter {
             view.updateTotalProduct(total.toCurrency())
         }
     }
+
+    override fun clearCart() {
+        productDao?.deleteAll()
+        view.cartCleared()
+    }
 }
