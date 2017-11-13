@@ -1,7 +1,10 @@
 package douglasspgyn.com.github.desafiostone.ui.checkout
 
 import douglasspgyn.com.github.desafiostone.application.App
+import douglasspgyn.com.github.desafiostone.application.App.Companion.orderDao
+import douglasspgyn.com.github.desafiostone.application.App.Companion.productDao
 import douglasspgyn.com.github.desafiostone.business.controller.OrderController
+import douglasspgyn.com.github.desafiostone.business.model.Order
 import douglasspgyn.com.github.desafiostone.business.model.OrderRequest
 import douglasspgyn.com.github.desafiostone.business.network.RequestCallback
 import douglasspgyn.com.github.desafiostone.common.extensions.toCurrency
@@ -28,14 +31,18 @@ class CheckoutPresenter(val view: CheckoutContract.View) : CheckoutContract.Pres
     override fun createOrder(cardNumber: String, cardCvv: String, cardHolderName: String, cardExpiresDate: String) {
         view.creatingOrder()
 
-        val order = OrderRequest(cardNumber,
+        val orderRequest = OrderRequest(cardNumber,
                 totalValue.toInt(),
                 cardCvv.toInt(),
                 cardHolderName,
                 cardExpiresDate)
 
-        OrderController().createOrder(order, object : RequestCallback<ResponseBody> {
+        OrderController().createOrder(orderRequest, object : RequestCallback<ResponseBody> {
             override fun onSuccess(t: ResponseBody) {
+                val order = Order(orderRequest.value, System.currentTimeMillis(),
+                        getLastDigits(orderRequest.cardNumber), orderRequest.cardHolderName)
+                orderDao?.saveOrder(order)
+                productDao?.deleteAll()
                 view.orderCreated()
             }
 
@@ -45,4 +52,6 @@ class CheckoutPresenter(val view: CheckoutContract.View) : CheckoutContract.Pres
 
         })
     }
+
+    private fun getLastDigits(cardNumber: String) = cardNumber.subSequence(cardNumber.length - 4, cardNumber.length).toString()
 }

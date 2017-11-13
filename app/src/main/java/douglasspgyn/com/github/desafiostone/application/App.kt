@@ -2,6 +2,7 @@ package douglasspgyn.com.github.desafiostone.application
 
 import android.app.Application
 import android.arch.persistence.room.Room
+import douglasspgyn.com.github.desafiostone.business.dao.OrderDao
 import douglasspgyn.com.github.desafiostone.business.dao.ProductDao
 import douglasspgyn.com.github.desafiostone.business.database.AppDatabase
 
@@ -15,6 +16,7 @@ class App : Application() {
 
     companion object {
         var productDao: ProductDao? = null
+        var orderDao: OrderDao? = null
     }
 
     override fun onCreate() {
@@ -22,5 +24,6 @@ class App : Application() {
         database = Room.databaseBuilder(this, AppDatabase::class.java, "stone").allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
         productDao = database?.productDao()
+        orderDao = database?.orderDao()
     }
 }

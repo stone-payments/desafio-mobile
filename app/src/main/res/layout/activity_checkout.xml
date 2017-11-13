@@ -94,4 +94,21 @@
             android:layout_alignParentRight="true"
             android:text="@string/place_order" />
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/checkoutLoader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlackTransparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
 </RelativeLayout>

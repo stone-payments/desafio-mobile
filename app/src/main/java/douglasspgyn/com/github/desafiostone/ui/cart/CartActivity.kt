@@ -35,7 +35,11 @@ class CartActivity : AppCompatActivity(), CartContract.View {
 
     private fun setListeners() {
         checkout.setOnClickListener {
-            startActivity(Intent(this, CheckoutActivity::class.java))
+            if (cartRecycler.adapter != null && cartRecycler.adapter.itemCount > 0) {
+                startActivity(Intent(this, CheckoutActivity::class.java))
+            } else {
+                snackbar(getString(R.string.empty_cart))
+            }
         }
     }
 

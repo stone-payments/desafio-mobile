@@ -13,6 +13,7 @@
 
     <string name="clear_cart">Clear Cart</string>
     <string name="clear_cart_message">This will remove all products from the cart</string>
+    <string name="empty_cart">The cart is empty, add something to checkout</string>
     <string name="empty_already_cart">The cart is already empty</string>
 
     <string name="failed_load_cart">Failed to load the cart</string>
@@ -28,6 +29,12 @@
     <string name="card_expires_date">Expires Date</string>
     <string name="card_cvv">Card Verification Value</string>
     <string name="place_order">Place Order</string>
+
+    <string name="failed_place_order">Failed to place order</string>
+
+    <string name="order_placed">Order Created</string>
+    <string name="order_placed_message">Thank you for your order!\n We\'re processing it right now!</string>
+    <string name="go_orders">View Orders</string>
 
     <string name="empty_fields">Empty Field</string>
     <string name="invalid_card_number">Invalid Number</string>

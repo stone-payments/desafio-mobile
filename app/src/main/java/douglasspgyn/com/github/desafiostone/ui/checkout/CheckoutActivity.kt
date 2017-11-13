@@ -1,17 +1,21 @@
 package douglasspgyn.com.github.desafiostone.ui.checkout
 
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.view.LayoutInflater
 import android.view.MenuItem
 import douglasspgyn.com.github.desafiostone.R
-import douglasspgyn.com.github.desafiostone.common.extensions.validCreditCardExpiresDate
-import douglasspgyn.com.github.desafiostone.common.extensions.validCreditCardNumber
+import douglasspgyn.com.github.desafiostone.common.extensions.*
 import douglasspgyn.com.github.desafiostone.common.util.MaskEditTextChangedListener
+import douglasspgyn.com.github.desafiostone.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_checkout.*
 
 class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
     val presenter = CheckoutPresenter(this)
+    private var orderPlaced = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +23,13 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        presenter.calculateTotalProduct()
-
         setListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        presenter.calculateTotalProduct()
     }
 
     private fun setListeners() {
@@ -76,15 +84,38 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
     }
 
     override fun creatingOrder() {
-
+        checkoutLoader.visible()
+        loading.visible()
     }
 
     override fun orderCreated() {
+        orderPlaced = true
+        loading.gone()
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_order_placed, null)
+        AlertDialog.Builder(this).create().apply {
+            setView(view)
+            setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.go_orders), { _, _ ->
 
+            })
+            setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), { _, _ ->
+                goToMain()
+            })
+            show()
+        }
     }
 
     override fun orderFailed() {
+        checkoutLoader.gone()
+        loading.gone()
+        snackbar(getString(R.string.failed_place_order))
+    }
 
+    private fun goToMain() {
+        startActivity(Intent(this@CheckoutActivity, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -93,5 +124,13 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        if (orderPlaced) {
+           goToMain()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
