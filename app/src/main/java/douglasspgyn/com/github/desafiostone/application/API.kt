@@ -10,12 +10,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object API {
 
-    private var retrofit: Retrofit = Retrofit.Builder()
+    private var retrofitAPI: Retrofit = Retrofit.Builder()
             .baseUrl(ApplicationConfig.API_URL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .build()
 
-    fun <T> provideService(serviceClass: Class<T>): T {
-        return retrofit.create(serviceClass)
+    private var retrofitApiary: Retrofit = Retrofit.Builder()
+            .baseUrl(ApplicationConfig.APIARY_URL)
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+            .build()
+
+    fun <T> provideAPIService(serviceClass: Class<T>): T {
+        return retrofitAPI.create(serviceClass)
+    }
+
+    fun <T> provideApiaryService(serviceClass: Class<T>): T {
+        return retrofitApiary.create(serviceClass)
     }
 }

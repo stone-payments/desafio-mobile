@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  */
 
 data class OrderRequest(@SerializedName("card_number") val cardNumber: String = "",
-                        val value: Double = 0.0,
+                        val value: Int = 0,
                         val cvv: Int = 0,
                         @SerializedName("card_holder_name") val cardHolderName: String = "",
                         @SerializedName("exp_date") val expiresDate: String = "")

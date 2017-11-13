@@ -7,7 +7,7 @@ import android.arch.persistence.room.Entity
  */
 
 @Entity(tableName = "orders")
-data class Order(val value: Double = 0.0,
+data class Order(val value: Int = 0,
                  val date: Long = 0,
                  val cardNumber: String = "",
                  val cardHolderName: String = "")

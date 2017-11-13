@@ -19,5 +19,6 @@ abstract class AbstractController<out T> protected constructor() {
         }
     }
 
-    val service: T get() = API.provideService(beanClass!!)
+    val serviceAPI: T get() = API.provideAPIService(beanClass!!)
+    val serviceApiary: T get() = API.provideApiaryService(beanClass!!)
 }

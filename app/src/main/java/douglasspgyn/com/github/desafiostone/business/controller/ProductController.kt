@@ -12,6 +12,6 @@ import douglasspgyn.com.github.desafiostone.business.service.ProductService
 class ProductController : AbstractController<ProductService>() {
 
     fun getProducts(callback: RequestCallback<List<Product>>) {
-        RequestManager.newRequest(service.products(), callback)
+        RequestManager.newRequest(serviceAPI.products(), callback)
     }
 }

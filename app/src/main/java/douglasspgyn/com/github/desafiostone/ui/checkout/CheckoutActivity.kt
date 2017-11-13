@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import douglasspgyn.com.github.desafiostone.R
-import douglasspgyn.com.github.desafiostone.common.extensions.snackbar
 import douglasspgyn.com.github.desafiostone.common.extensions.validCreditCardExpiresDate
 import douglasspgyn.com.github.desafiostone.common.extensions.validCreditCardNumber
 import douglasspgyn.com.github.desafiostone.common.util.MaskEditTextChangedListener
@@ -34,7 +33,10 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
         placeOrder.setOnClickListener {
             if (validFields()) {
-                snackbar("Valid")
+                presenter.createOrder(cardNumber.text.toString(),
+                        cardCvv.text.toString(),
+                        cardHolderName.text.toString(),
+                        cardExpiresDate.text.toString())
             }
         }
     }
@@ -49,8 +51,8 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
                 cardNumber.error = getString(R.string.invalid_card_number)
                 return false
             }
-            cardOwnerName.text.toString().isEmpty() -> {
-                cardOwnerName.error = getString(R.string.empty_fields)
+            cardHolderName.text.toString().isEmpty() -> {
+                cardHolderName.error = getString(R.string.empty_fields)
                 return false
             }
             cardExpiresDate.text.toString().isEmpty() -> {
@@ -71,6 +73,18 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
     override fun updateTotalProduct(total: String) {
         checkoutTotal.text = getString(R.string.total_price, total)
+    }
+
+    override fun creatingOrder() {
+
+    }
+
+    override fun orderCreated() {
+
+    }
+
+    override fun orderFailed() {
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

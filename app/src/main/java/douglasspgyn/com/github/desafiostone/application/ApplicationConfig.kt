@@ -6,4 +6,5 @@ package douglasspgyn.com.github.desafiostone.application
 
 object ApplicationConfig {
     val API_URL = "https://raw.githubusercontent.com"
+    val APIARY_URL = "https://private-f1493e-stonedesafiomobile1.apiary-mock.com"
 }
