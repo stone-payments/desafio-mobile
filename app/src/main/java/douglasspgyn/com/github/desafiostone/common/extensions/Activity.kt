@@ -23,7 +23,3 @@ private fun Activity.shortSnackbar(view: View, text: String) {
 private fun Activity.longSnackbar(view: View, text: String) {
     Snackbar.make(view, text, Snackbar.LENGTH_LONG).show()
 }
-
-fun Activity.hideKeyboard() {
-    hideKeyboard(if (currentFocus == null) View(this) else currentFocus)
-}
