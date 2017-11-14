@@ -6,7 +6,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import douglasspgyn.com.github.desafiostone.R
 import douglasspgyn.com.github.desafiostone.business.model.Order
+import douglasspgyn.com.github.desafiostone.common.extensions.gone
 import douglasspgyn.com.github.desafiostone.common.extensions.snackbar
+import douglasspgyn.com.github.desafiostone.common.extensions.visible
 import douglasspgyn.com.github.desafiostone.ui.order.adapter.OrderAdapter
 import kotlinx.android.synthetic.main.activity_order.*
 
@@ -28,10 +30,13 @@ class OrderActivity : AppCompatActivity(), OrderContract.View {
             it.layoutManager = LinearLayoutManager(this)
             it.adapter = OrderAdapter(orders)
         }
+        orderRecycler.visible()
+        orderEmptyContainer.gone()
     }
 
     override fun ordersEmpty() {
-
+        orderRecycler.gone()
+        orderEmptyContainer.visible()
     }
 
     override fun ordersFailed() {

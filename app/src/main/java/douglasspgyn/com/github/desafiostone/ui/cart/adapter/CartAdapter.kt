@@ -24,11 +24,11 @@ import kotlinx.android.synthetic.main.item_cart.view.*
 class CartAdapter(val products: MutableList<Product>, val presenter: CartContract.Presenter) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CartViewHolder {
-        return CartViewHolder(parent?.inflate(R.layout.item_cart))
+        return CartViewHolder(parent?.inflate(R.layout.item_cart), this)
     }
 
     override fun onBindViewHolder(holder: CartViewHolder?, position: Int) {
-        holder?.bind(products[position], this)
+        holder?.bind(products[position])
     }
 
     override fun getItemCount(): Int {
@@ -41,15 +41,12 @@ class CartAdapter(val products: MutableList<Product>, val presenter: CartContrac
     }
 
     private fun updateTotalPrices() {
-        presenter.calculateTotalProduct()
+        presenter.updateViewData()
     }
 
-    class CartViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        private lateinit var cartAdapter: CartAdapter
+    class CartViewHolder(itemView: View?, private val adapter: CartAdapter) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(product: Product, cartAdapter: CartAdapter) {
-            this.cartAdapter = cartAdapter
-
+        fun bind(product: Product) {
             with(itemView) {
                 productPhoto.loadUrl(product.thumbnailHd, R.drawable.ic_darth_vader)
                 productTitle.text = product.title
@@ -104,7 +101,7 @@ class CartAdapter(val products: MutableList<Product>, val presenter: CartContrac
                 productTotal.text = context.getString(R.string.total_price,
                         (product.price * product.quantity).toCurrency())
 
-                cartAdapter.updateTotalPrices()
+                adapter.updateTotalPrices()
             }
         }
 
@@ -114,8 +111,8 @@ class CartAdapter(val products: MutableList<Product>, val presenter: CartContrac
                 setMessage(context.getString(R.string.remove_product_message))
                 setButton(AlertDialog.BUTTON_POSITIVE, context.getString(R.string.remove), { _, _ ->
                     productDao?.deleteProduct(product)
-                    cartAdapter.removeProduct(adapterPosition)
-                    cartAdapter.updateTotalPrices()
+                    adapter.removeProduct(adapterPosition)
+                    adapter.updateTotalPrices()
                 })
                 setButton(AlertDialog.BUTTON_NEGATIVE, context.getString(R.string.cancel), { _, _ ->
                     dismiss()

@@ -37,6 +37,13 @@ class CartPresenter(val view: CartContract.View) : CartContract.Presenter {
         }
     }
 
+    override fun updateViewData() {
+        calculateTotalProduct()
+        if (productDao?.getProducts() == null || productDao?.getProducts()?.isEmpty()!!) {
+            view.cartEmpty()
+        }
+    }
+
     override fun clearCart() {
         productDao?.deleteAll()
         view.cartCleared()

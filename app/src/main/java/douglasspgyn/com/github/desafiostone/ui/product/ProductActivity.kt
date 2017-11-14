@@ -31,6 +31,7 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
         productPhoto.loadUrl(presenter.product.thumbnailHd, R.drawable.ic_darth_vader)
         productTitle.text = presenter.product.title
         productPrice.text = presenter.product.price.toCurrency()
+        productSeller.text = getString(R.string.sold_by, presenter.product.seller)
     }
 
     override fun productAdddedToCart() {

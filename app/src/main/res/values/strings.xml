@@ -40,6 +40,7 @@
     <string name="order_placed">Order Created</string>
     <string name="order_placed_message">Thank you for your order!\n We\'re processing it right now!</string>
     <string name="go_orders">View Orders</string>
+    <string name="empty_order">You don\'t have any orders yet</string>
 
     <string name="failed_load_order">Failed to load the orders</string>
     <string name="order_card_number">XXXX XXXX XXXX %1$s</string>

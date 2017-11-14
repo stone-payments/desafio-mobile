@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/coordinator"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="douglasspgyn.com.github.desafiostone.ui.product.ProductActivity">
@@ -52,6 +52,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/productTitle"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/productSeller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productPrice" />
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 

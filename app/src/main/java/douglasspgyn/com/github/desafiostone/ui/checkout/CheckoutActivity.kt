@@ -45,6 +45,8 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
         cardExpiresDate.addTextChangedListener(expiresDateMask)
 
         placeOrder.setOnClickListener {
+            hideKeyboard()
+
             if (validFields()) {
                 presenter.createOrder(cardNumber.text.toString(),
                         cardCvv.text.toString(),

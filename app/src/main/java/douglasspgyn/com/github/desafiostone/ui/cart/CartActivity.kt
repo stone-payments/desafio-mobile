@@ -9,7 +9,9 @@ import android.view.Menu
 import android.view.MenuItem
 import douglasspgyn.com.github.desafiostone.R
 import douglasspgyn.com.github.desafiostone.business.model.Product
+import douglasspgyn.com.github.desafiostone.common.extensions.gone
 import douglasspgyn.com.github.desafiostone.common.extensions.snackbar
+import douglasspgyn.com.github.desafiostone.common.extensions.visible
 import douglasspgyn.com.github.desafiostone.ui.cart.adapter.CartAdapter
 import douglasspgyn.com.github.desafiostone.ui.checkout.CheckoutActivity
 import kotlinx.android.synthetic.main.activity_cart.*
@@ -35,11 +37,7 @@ class CartActivity : AppCompatActivity(), CartContract.View {
 
     private fun setListeners() {
         checkout.setOnClickListener {
-            if (cartRecycler.adapter != null && cartRecycler.adapter.itemCount > 0) {
-                startActivity(Intent(this, CheckoutActivity::class.java))
-            } else {
-                snackbar(getString(R.string.empty_cart))
-            }
+            startActivity(Intent(this, CheckoutActivity::class.java))
         }
     }
 
@@ -50,6 +48,8 @@ class CartActivity : AppCompatActivity(), CartContract.View {
         }
 
         presenter.calculateTotalProduct()
+        checkoutEmptyContainer.gone()
+        checkoutContainer.visible()
     }
 
     override fun cartEmpty() {
@@ -58,6 +58,8 @@ class CartActivity : AppCompatActivity(), CartContract.View {
             it.adapter = null
         }
         presenter.calculateTotalProduct()
+        checkoutContainer.gone()
+        checkoutEmptyContainer.visible()
     }
 
     override fun cartFailed() {

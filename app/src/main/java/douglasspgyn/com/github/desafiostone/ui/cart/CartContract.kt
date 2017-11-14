@@ -19,6 +19,7 @@ interface CartContract {
     interface Presenter {
         fun getCartProducts()
         fun calculateTotalProduct()
+        fun updateViewData()
         fun clearCart()
     }
 }
