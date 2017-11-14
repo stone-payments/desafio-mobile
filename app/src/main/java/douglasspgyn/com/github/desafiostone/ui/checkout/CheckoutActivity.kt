@@ -90,12 +90,10 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
     override fun creatingOrder() {
         checkoutLoader.visible()
-        loading.visible()
     }
 
     override fun orderCreated() {
         orderPlaced = true
-        loading.gone()
         val view = LayoutInflater.from(this).inflate(R.layout.dialog_order_placed, null)
         AlertDialog.Builder(this).create().apply {
             setView(view)
@@ -111,8 +109,15 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
     override fun orderFailed() {
         checkoutLoader.gone()
-        loading.gone()
         snackbar(getString(R.string.failed_place_order))
+    }
+
+    override fun showLoading() {
+        loading.visible()
+    }
+
+    override fun hideLoading() {
+        loading.gone()
     }
 
     private fun goToMain() {

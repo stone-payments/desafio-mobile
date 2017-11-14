@@ -21,6 +21,10 @@ class OrderActivity : AppCompatActivity(), OrderContract.View {
         setContentView(R.layout.activity_order)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         presenter.loadOrders()
     }
@@ -30,6 +34,7 @@ class OrderActivity : AppCompatActivity(), OrderContract.View {
             it.layoutManager = LinearLayoutManager(this)
             it.adapter = OrderAdapter(orders)
         }
+
         orderRecycler.visible()
         orderEmptyContainer.gone()
     }

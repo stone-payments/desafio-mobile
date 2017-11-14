@@ -23,8 +23,14 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
 
         presenter.product = intent.extras.getSerializable(Constants.PRODUCT) as Product
 
-        populateView()
         setListener()
+        populateView()
+    }
+
+    private fun setListener() {
+        addToCart.setOnClickListener {
+            presenter.addToCart()
+        }
     }
 
     override fun populateView() {
@@ -34,18 +40,12 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
         productSeller.text = getString(R.string.sold_by, presenter.product.seller)
     }
 
-    override fun productAdddedToCart() {
+    override fun productAddedToCart() {
         snackbar(getString(R.string.product_added_to_cart), view = coordinator)
     }
 
     override fun productFailedToCart() {
         snackbar(getString(R.string.product_failed_to_cart), view = coordinator)
-    }
-
-    private fun setListener() {
-        addToCart.setOnClickListener {
-            presenter.addToCart()
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

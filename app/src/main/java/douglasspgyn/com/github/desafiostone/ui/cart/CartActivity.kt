@@ -48,27 +48,22 @@ class CartActivity : AppCompatActivity(), CartContract.View {
         }
 
         presenter.calculateTotalProduct()
+
         checkoutEmptyContainer.gone()
         checkoutContainer.visible()
     }
 
     override fun cartEmpty() {
-        cartRecycler.let {
-            it.layoutManager = LinearLayoutManager(this)
-            it.adapter = null
-        }
         presenter.calculateTotalProduct()
+
         checkoutContainer.gone()
         checkoutEmptyContainer.visible()
     }
 
     override fun cartFailed() {
-        snackbar(getString(R.string.failed_load_cart))
         presenter.calculateTotalProduct()
-    }
 
-    override fun cartCleared() {
-        presenter.getCartProducts()
+        snackbar(getString(R.string.failed_load_cart))
     }
 
     override fun updateTotalProduct(total: String) {
@@ -101,7 +96,6 @@ class CartActivity : AppCompatActivity(), CartContract.View {
                 })
                 setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), { _, _ ->
                     dismiss()
-
                 })
                 show()
             }

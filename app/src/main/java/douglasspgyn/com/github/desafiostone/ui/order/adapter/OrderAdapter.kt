@@ -32,12 +32,12 @@ class OrderAdapter(private val orders: List<Order>) : RecyclerView.Adapter<Order
     class OrderViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         fun bind(order: Order) {
             with(itemView) {
+                val date = Date()
+                date.time = order.date
+
                 orderCardNumber.text = context.getString(R.string.order_card_number, order.cardNumber)
                 orderCardHolderName.text = order.cardHolderName
                 orderPrice.text = context.getString(R.string.total_price, order.value.toDouble().toCurrency())
-
-                val date = Date()
-                date.time = order.date
                 orderDateTime.text = SimpleDateFormat().format(date)
             }
         }

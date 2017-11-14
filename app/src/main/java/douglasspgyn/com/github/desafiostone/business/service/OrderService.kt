@@ -14,5 +14,4 @@ interface OrderService {
 
     @POST("/orders")
     fun newOrder(@Body order: OrderRequest): Call<ResponseBody>
-
 }

@@ -7,6 +7,7 @@ import douglasspgyn.com.github.desafiostone.business.model.Order
  */
 
 interface OrderContract {
+
     interface View {
         fun ordersLoaded(orders:List<Order>)
         fun ordersEmpty()

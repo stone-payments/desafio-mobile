@@ -19,10 +19,10 @@ class ProductPresenter(val view: ProductContract.View) : ProductContract.Present
                 productDao?.saveProduct(product)
             } else {
                 dbProduct.quantity += 1
-                productDao?.updateProduct(dbProduct)
+                productDao?.saveProduct(dbProduct)
             }
 
-            view.productAdddedToCart()
+            view.productAddedToCart()
         } catch (e: Exception) {
             view.productFailedToCart()
         }

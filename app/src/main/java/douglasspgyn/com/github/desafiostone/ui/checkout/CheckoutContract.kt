@@ -5,11 +5,14 @@ package douglasspgyn.com.github.desafiostone.ui.checkout
  */
 
 interface CheckoutContract {
+
     interface View {
         fun updateTotalProduct(total: String)
         fun creatingOrder()
         fun orderCreated()
         fun orderFailed()
+        fun showLoading()
+        fun hideLoading()
     }
 
     interface Presenter {

@@ -10,12 +10,22 @@ import java.util.*
  */
 
 class MaskEditTextChangedListener(private val mask: String, private val editText: EditText) : TextWatcher {
+
     private val symbolMask = HashSet<String>()
     private var updating: Boolean = false
     private var old = ""
 
     init {
         initSymbolMask()
+    }
+
+    private fun initSymbolMask() {
+        for (i in 0 until mask.length) {
+            val ch = mask[i]
+            if (ch != '#') {
+                symbolMask.add(ch.toString())
+            }
+        }
     }
 
     private fun unmask(s: String, replaceSymbols: Set<String>): String {
@@ -45,15 +55,6 @@ class MaskEditTextChangedListener(private val mask: String, private val editText
         }
 
         return maskedText
-    }
-
-    private fun initSymbolMask() {
-        for (i in 0 until mask.length) {
-            val ch = mask[i]
-            if (ch != '#') {
-                symbolMask.add(ch.toString())
-            }
-        }
     }
 
     override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {

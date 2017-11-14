@@ -10,6 +10,7 @@ class OrderPresenter(val view: OrderContract.View) : OrderContract.Presenter {
 
     override fun loadOrders() {
         val dbOrders = orderDao?.getOrders()
+        
         if (dbOrders != null) {
             if (dbOrders.isNotEmpty()) {
                 view.ordersLoaded(dbOrders)

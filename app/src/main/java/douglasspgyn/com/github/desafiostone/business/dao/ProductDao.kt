@@ -16,11 +16,8 @@ interface ProductDao {
     @Query("SELECT * FROM products WHERE title LIKE :arg0 LIMIT 1")
     fun getProduct(title: String): Product
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveProduct(product: Product)
-
-    @Update
-    fun updateProduct(product: Product)
 
     @Delete
     fun deleteProduct(product: Product)

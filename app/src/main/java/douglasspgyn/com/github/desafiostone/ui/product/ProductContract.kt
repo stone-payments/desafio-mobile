@@ -5,9 +5,10 @@ package douglasspgyn.com.github.desafiostone.ui.product
  */
 
 interface ProductContract {
+
     interface View {
         fun populateView()
-        fun productAdddedToCart()
+        fun productAddedToCart()
         fun productFailedToCart()
     }
 

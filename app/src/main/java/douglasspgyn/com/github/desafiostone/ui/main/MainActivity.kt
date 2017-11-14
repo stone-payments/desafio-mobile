@@ -10,7 +10,6 @@ import douglasspgyn.com.github.desafiostone.R
 import douglasspgyn.com.github.desafiostone.business.model.Product
 import douglasspgyn.com.github.desafiostone.common.extensions.gone
 import douglasspgyn.com.github.desafiostone.common.extensions.hide
-import douglasspgyn.com.github.desafiostone.common.extensions.snackbar
 import douglasspgyn.com.github.desafiostone.common.extensions.visible
 import douglasspgyn.com.github.desafiostone.ui.cart.CartActivity
 import douglasspgyn.com.github.desafiostone.ui.main.adapter.ProductAdapter
@@ -25,11 +24,15 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        presenter.loadProducts(true)
+
+        setListeners()
+    }
+
+    private fun setListeners() {
         swipeRefreshLayout.setOnRefreshListener {
             presenter.loadProducts(false)
         }
-
-        presenter.loadProducts(true)
     }
 
     override fun productsLoaded(products: List<Product>) {
@@ -37,10 +40,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             it.layoutManager = LinearLayoutManager(this)
             it.adapter = ProductAdapter(products)
         }
+
+        productsErrorContainer.gone()
+        productsRecycler.visible()
     }
 
     override fun productsFailed() {
-        snackbar(getString(R.string.failed_load_products), true)
+        productsRecycler.gone()
+        productsErrorContainer.visible()
     }
 
     override fun showLoading() {

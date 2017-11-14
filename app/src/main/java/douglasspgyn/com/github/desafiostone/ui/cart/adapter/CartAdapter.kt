@@ -78,7 +78,8 @@ class CartAdapter(val products: MutableList<Product>, val presenter: CartContrac
         private fun addQuantity(product: Product) {
             with(itemView) {
                 product.quantity += 1
-                productDao?.updateProduct(product)
+                productDao?.saveProduct(product)
+
                 updateProductView(product)
             }
         }
@@ -89,7 +90,8 @@ class CartAdapter(val products: MutableList<Product>, val presenter: CartContrac
                     removeProductDialog(context, product)
                 } else {
                     product.quantity -= 1
-                    productDao?.updateProduct(product)
+                    productDao?.saveProduct(product)
+
                     updateProductView(product)
                 }
             }
@@ -111,6 +113,7 @@ class CartAdapter(val products: MutableList<Product>, val presenter: CartContrac
                 setMessage(context.getString(R.string.remove_product_message))
                 setButton(AlertDialog.BUTTON_POSITIVE, context.getString(R.string.remove), { _, _ ->
                     productDao?.deleteProduct(product)
+
                     adapter.removeProduct(adapterPosition)
                     adapter.updateTotalPrices()
                 })

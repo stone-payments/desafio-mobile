@@ -10,18 +10,15 @@ import douglasspgyn.com.github.desafiostone.common.extensions.toCurrency
 class CartPresenter(val view: CartContract.View) : CartContract.Presenter {
 
     override fun getCartProducts() {
-        try {
-            val dbProducts = productDao?.getProducts()
-            if (dbProducts != null) {
-                if (dbProducts.isNotEmpty()) {
-                    view.cartLoaded(dbProducts)
-                } else {
-                    view.cartEmpty()
-                }
+        val dbProducts = productDao?.getProducts()
+
+        if (dbProducts != null) {
+            if (dbProducts.isNotEmpty()) {
+                view.cartLoaded(dbProducts)
             } else {
-                view.cartFailed()
+                view.cartEmpty()
             }
-        } catch (e: Exception) {
+        } else {
             view.cartFailed()
         }
     }
@@ -29,6 +26,7 @@ class CartPresenter(val view: CartContract.View) : CartContract.Presenter {
     override fun calculateTotalProduct() {
         val dbProducts = productDao?.getProducts()
         var total = 0.0
+
         if (dbProducts != null && dbProducts.isNotEmpty()) {
             total = dbProducts.sumByDouble { it.price * it.quantity }
             view.updateTotalProduct(total.toCurrency())
@@ -39,6 +37,7 @@ class CartPresenter(val view: CartContract.View) : CartContract.Presenter {
 
     override fun updateViewData() {
         calculateTotalProduct()
+
         if (productDao?.getProducts() == null || productDao?.getProducts()?.isEmpty()!!) {
             view.cartEmpty()
         }
@@ -46,6 +45,7 @@ class CartPresenter(val view: CartContract.View) : CartContract.Presenter {
 
     override fun clearCart() {
         productDao?.deleteAll()
-        view.cartCleared()
+
+        view.cartEmpty()
     }
 }

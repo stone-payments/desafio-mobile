@@ -16,10 +16,10 @@ fun Activity.snackbar(text: String, long: Boolean = false, view: View = findView
     }
 }
 
-private fun Activity.shortSnackbar(view: View, text: String) {
+private fun shortSnackbar(view: View, text: String) {
     Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
 }
 
-private fun Activity.longSnackbar(view: View, text: String) {
+private fun longSnackbar(view: View, text: String) {
     Snackbar.make(view, text, Snackbar.LENGTH_LONG).show()
 }

@@ -16,7 +16,7 @@ import okhttp3.ResponseBody
 
 class CheckoutPresenter(val view: CheckoutContract.View) : CheckoutContract.Presenter {
 
-    var totalValue: Double = 0.0
+    private var totalValue: Double = 0.0
 
     override fun calculateTotalProduct() {
         val dbProducts = App.productDao?.getProducts()
@@ -29,6 +29,7 @@ class CheckoutPresenter(val view: CheckoutContract.View) : CheckoutContract.Pres
     }
 
     override fun createOrder(cardNumber: String, cardCvv: String, cardHolderName: String, cardExpiresDate: String) {
+        view.showLoading()
         view.creatingOrder()
 
         val orderRequest = OrderRequest(cardNumber,
@@ -41,13 +42,17 @@ class CheckoutPresenter(val view: CheckoutContract.View) : CheckoutContract.Pres
             override fun onSuccess(t: ResponseBody) {
                 val order = Order(orderRequest.value, System.currentTimeMillis(),
                         getLastDigits(orderRequest.cardNumber), orderRequest.cardHolderName)
+
                 orderDao?.saveOrder(order)
                 productDao?.deleteAll()
+
                 view.orderCreated()
+                view.hideLoading()
             }
 
             override fun onError() {
                 view.orderFailed()
+                view.hideLoading()
             }
 
         })
