@@ -10,6 +10,7 @@ import douglasspgyn.com.github.desafiostone.R
 import douglasspgyn.com.github.desafiostone.common.extensions.*
 import douglasspgyn.com.github.desafiostone.common.util.MaskEditTextChangedListener
 import douglasspgyn.com.github.desafiostone.ui.main.MainActivity
+import douglasspgyn.com.github.desafiostone.ui.order.OrderActivity
 import kotlinx.android.synthetic.main.activity_checkout.*
 
 class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
@@ -28,6 +29,10 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
     override fun onResume() {
         super.onResume()
+
+        if (orderPlaced) {
+            goToMain()
+        }
 
         presenter.calculateTotalProduct()
     }
@@ -95,7 +100,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
         AlertDialog.Builder(this).create().apply {
             setView(view)
             setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.go_orders), { _, _ ->
-
+                startActivity(Intent(this@CheckoutActivity, OrderActivity::class.java))
             })
             setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), { _, _ ->
                 goToMain()
@@ -111,7 +116,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
     }
 
     private fun goToMain() {
-        startActivity(Intent(this@CheckoutActivity, MainActivity::class.java).apply {
+        startActivity(Intent(this, MainActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -128,7 +133,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
     override fun onBackPressed() {
         if (orderPlaced) {
-           goToMain()
+            goToMain()
         } else {
             super.onBackPressed()
         }

@@ -12,7 +12,7 @@ import douglasspgyn.com.github.desafiostone.business.model.Order
 @Dao
 interface OrderDao {
 
-    @Query("SELECT * FROM orders")
+    @Query("SELECT * FROM orders ORDER BY date DESC")
     fun getOrders(): List<Order>
 
     @Insert

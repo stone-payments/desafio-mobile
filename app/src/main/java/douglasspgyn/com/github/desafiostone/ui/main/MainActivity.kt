@@ -14,6 +14,7 @@ import douglasspgyn.com.github.desafiostone.common.extensions.snackbar
 import douglasspgyn.com.github.desafiostone.common.extensions.visible
 import douglasspgyn.com.github.desafiostone.ui.cart.CartActivity
 import douglasspgyn.com.github.desafiostone.ui.main.adapter.ProductAdapter
+import douglasspgyn.com.github.desafiostone.ui.order.OrderActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
@@ -63,6 +64,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.menu_cart) {
             startActivity(Intent(this, CartActivity::class.java))
+        } else if (item?.itemId == R.id.menu_order) {
+            startActivity(Intent(this, OrderActivity::class.java))
         }
 
         return super.onOptionsItemSelected(item)

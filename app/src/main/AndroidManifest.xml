@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".ui.product.ProductActivity" />
         <activity android:name=".ui.cart.CartActivity" />
-        <activity android:name=".ui.checkout.CheckoutActivity"></activity>
+        <activity android:name=".ui.checkout.CheckoutActivity" />
+        <activity android:name=".ui.order.OrderActivity"></activity>
     </application>
 
 </manifest>
