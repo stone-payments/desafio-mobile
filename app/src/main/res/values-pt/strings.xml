@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Shop Wars</string>
+
+    <string name="cart">Carrinho</string>
+    <string name="order">Perdido</string>
+
+    <string name="failed_load_products">Falha ao carregar os productos\nDeslize para recarregar</string>
+    <string name="try_again">Tente Novamente</string>
+
+    <string name="sold_by">Vendido por %1$s</string>
+
+    <string name="product_added_to_cart">Produto adicionado no carrinho</string>
+    <string name="product_failed_to_cart">Falha ao adicionar o produto no carrinho</string>
+
+    <string name="clear_cart">Limpar Carrinho</string>
+    <string name="clear_cart_message">Isso irá remover todos os produtos do carrinho</string>
+    <string name="empty_cart">O carrinho está vazio, adicione algo para comprar</string>
+    <string name="empty_already_cart">O carrinho já está vazio</string>
+
+    <string name="failed_load_cart">Falha ao carregar o carrinho</string>
+    <string name="remove_product">Remover Produto</string>
+    <string name="remove_product_message">Esse produto será removido do carrinho</string>
+    <string name="remove">Remover</string>
+    <string name="cancel">Cancelar</string>
+    <string name="total_price">Total: %1$s</string>
+    <string name="checkout">Comprar</string>
+
+    <string name="card_number">Número do Cartão</string>
+    <string name="card_holder_name">Nome no Cartão</string>
+    <string name="card_expires_date">Data de Expiração</string>
+    <string name="card_cvv">Código de Verificação do Cartão</string>
+    <string name="place_order">Fazer Pedido</string>
+
+    <string name="empty_fields">Campo Vazio</string>
+    <string name="invalid_card_number">Número Inválido</string>
+    <string name="invalid_card_expires_date">Data de Expiração Inválida</string>
+
+    <string name="failed_place_order">Falha ao fazer pedido</string>
+
+    <string name="order_placed">Predido Criado</string>
+    <string name="order_placed_message">Obrigado pelo pedido!\n Nós estamos processando ele agora mesmo!</string>
+    <string name="go_orders">Ver Perdidos</string>
+    <string name="empty_order">Você ainda não fez nenhum pedido</string>
+
+    <string name="failed_load_order">Falha ao carregar os pedidos</string>
+    <string name="order_card_number">XXXX XXXX XXXX %1$s</string>
+</resources>

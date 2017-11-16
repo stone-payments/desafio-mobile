@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Shop Wars</string>
+
+    <string name="cart">Cart</string>
+    <string name="order">Order</string>
+
+    <string name="failed_load_products">Failed to load products\nSwipe to refresh</string>
+    <string name="try_again">Try Again</string>
+
+    <string name="sold_by">Sold by %1$s</string>
+
+    <string name="product_added_to_cart">Product added to the Cart</string>
+    <string name="product_failed_to_cart">Failed to add to the Cart</string>
+
+    <string name="clear_cart">Clear Cart</string>
+    <string name="clear_cart_message">This will remove all products from the cart</string>
+    <string name="empty_cart">The cart is empty, add something to checkout</string>
+    <string name="empty_already_cart">The cart is already empty</string>
+
+    <string name="failed_load_cart">Failed to load the cart</string>
+    <string name="remove_product">Remove Product</string>
+    <string name="remove_product_message">This will remove the product from the cart</string>
+    <string name="remove">Remove</string>
+    <string name="cancel">Cancel</string>
+    <string name="total_price">Total: %1$s</string>
+    <string name="checkout">Checkout</string>
+
+    <string name="card_number">Card Number</string>
+    <string name="card_holder_name">Card Holder Name</string>
+    <string name="card_expires_date">Expires Date</string>
+    <string name="card_cvv">Card Verification Value</string>
+    <string name="place_order">Place Order</string>
+
+    <string name="empty_fields">Empty Field</string>
+    <string name="invalid_card_number">Invalid Number</string>
+    <string name="invalid_card_expires_date">Invalid Expires Date</string>
+
+    <string name="failed_place_order">Failed to place order</string>
+
+    <string name="order_placed">Order Created</string>
+    <string name="order_placed_message">Thank you for your order!\n We\'re processing it right now!</string>
+    <string name="go_orders">View Orders</string>
+    <string name="empty_order">You don\'t have any orders yet</string>
+
+    <string name="failed_load_order">Failed to load the orders</string>
+    <string name="order_card_number">XXXX XXXX XXXX %1$s</string>
+</resources>
