@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC2CA8C71FCCB3DE000CF5F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */; };
+		EC2CA8C91FCCB3DE000CF5F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */; };
+		EC2CA8CC1FCCB3DE000CF5F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CA1FCCB3DE000CF5F4 /* Main.storyboard */; };
+		EC2CA8CE1FCCB3DE000CF5F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CD1FCCB3DE000CF5F4 /* Assets.xcassets */; };
+		EC2CA8D11FCCB3DE000CF5F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CF1FCCB3DE000CF5F4 /* LaunchScreen.storyboard */; };
+		EC2CA8DC1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8DB1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift */; };
+		EC2CA8E71FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8E61FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC2CA8D81FCCB3DE000CF5F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CA8BB1FCCB3DD000CF5F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC2CA8C21FCCB3DD000CF5F4;
+			remoteInfo = "Stone Store Star";
+		};
+		EC2CA8E31FCCB3DE000CF5F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CA8BB1FCCB3DD000CF5F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC2CA8C21FCCB3DD000CF5F4;
+			remoteInfo = "Stone Store Star";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC2CA8C31FCCB3DD000CF5F4 /* Stone Store Star.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stone Store Star.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC2CA8CB1FCCB3DE000CF5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC2CA8CD1FCCB3DE000CF5F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC2CA8D01FCCB3DE000CF5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC2CA8D21FCCB3DE000CF5F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC2CA8D71FCCB3DE000CF5F4 /* Stone Store StarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stone Store StarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2CA8DB1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stone_Store_StarTests.swift; sourceTree = "<group>"; };
+		EC2CA8DD1FCCB3DE000CF5F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC2CA8E21FCCB3DE000CF5F4 /* Stone Store StarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stone Store StarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2CA8E61FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stone_Store_StarUITests.swift; sourceTree = "<group>"; };
+		EC2CA8E81FCCB3DE000CF5F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC2CA8C01FCCB3DD000CF5F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2CA8D41FCCB3DE000CF5F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2CA8DF1FCCB3DE000CF5F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC2CA8BA1FCCB3DD000CF5F4 = {
+			isa = PBXGroup;
+			children = (
+				EC2CA8C51FCCB3DD000CF5F4 /* Stone Store Star */,
+				EC2CA8DA1FCCB3DE000CF5F4 /* Stone Store StarTests */,
+				EC2CA8E51FCCB3DE000CF5F4 /* Stone Store StarUITests */,
+				EC2CA8C41FCCB3DD000CF5F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC2CA8C41FCCB3DD000CF5F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CA8C31FCCB3DD000CF5F4 /* Stone Store Star.app */,
+				EC2CA8D71FCCB3DE000CF5F4 /* Stone Store StarTests.xctest */,
+				EC2CA8E21FCCB3DE000CF5F4 /* Stone Store StarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC2CA8C51FCCB3DD000CF5F4 /* Stone Store Star */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */,
+				EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */,
+				EC2CA8CA1FCCB3DE000CF5F4 /* Main.storyboard */,
+				EC2CA8CD1FCCB3DE000CF5F4 /* Assets.xcassets */,
+				EC2CA8CF1FCCB3DE000CF5F4 /* LaunchScreen.storyboard */,
+				EC2CA8D21FCCB3DE000CF5F4 /* Info.plist */,
+			);
+			path = "Stone Store Star";
+			sourceTree = "<group>";
+		};
+		EC2CA8DA1FCCB3DE000CF5F4 /* Stone Store StarTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CA8DB1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift */,
+				EC2CA8DD1FCCB3DE000CF5F4 /* Info.plist */,
+			);
+			path = "Stone Store StarTests";
+			sourceTree = "<group>";
+		};
+		EC2CA8E51FCCB3DE000CF5F4 /* Stone Store StarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CA8E61FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift */,
+				EC2CA8E81FCCB3DE000CF5F4 /* Info.plist */,
+			);
+			path = "Stone Store StarUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC2CA8C21FCCB3DD000CF5F4 /* Stone Store Star */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC2CA8EB1FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store Star" */;
+			buildPhases = (
+				EC2CA8BF1FCCB3DD000CF5F4 /* Sources */,
+				EC2CA8C01FCCB3DD000CF5F4 /* Frameworks */,
+				EC2CA8C11FCCB3DD000CF5F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stone Store Star";
+			productName = "Stone Store Star";
+			productReference = EC2CA8C31FCCB3DD000CF5F4 /* Stone Store Star.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC2CA8D61FCCB3DE000CF5F4 /* Stone Store StarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC2CA8EE1FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store StarTests" */;
+			buildPhases = (
+				EC2CA8D31FCCB3DE000CF5F4 /* Sources */,
+				EC2CA8D41FCCB3DE000CF5F4 /* Frameworks */,
+				EC2CA8D51FCCB3DE000CF5F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC2CA8D91FCCB3DE000CF5F4 /* PBXTargetDependency */,
+			);
+			name = "Stone Store StarTests";
+			productName = "Stone Store StarTests";
+			productReference = EC2CA8D71FCCB3DE000CF5F4 /* Stone Store StarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EC2CA8E11FCCB3DE000CF5F4 /* Stone Store StarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC2CA8F11FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store StarUITests" */;
+			buildPhases = (
+				EC2CA8DE1FCCB3DE000CF5F4 /* Sources */,
+				EC2CA8DF1FCCB3DE000CF5F4 /* Frameworks */,
+				EC2CA8E01FCCB3DE000CF5F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC2CA8E41FCCB3DE000CF5F4 /* PBXTargetDependency */,
+			);
+			name = "Stone Store StarUITests";
+			productName = "Stone Store StarUITests";
+			productReference = EC2CA8E21FCCB3DE000CF5F4 /* Stone Store StarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC2CA8BB1FCCB3DD000CF5F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Kennedy Noia";
+				TargetAttributes = {
+					EC2CA8C21FCCB3DD000CF5F4 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					EC2CA8D61FCCB3DE000CF5F4 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EC2CA8C21FCCB3DD000CF5F4;
+					};
+					EC2CA8E11FCCB3DE000CF5F4 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EC2CA8C21FCCB3DD000CF5F4;
+					};
+				};
+			};
+			buildConfigurationList = EC2CA8BE1FCCB3DD000CF5F4 /* Build configuration list for PBXProject "Stone Store Star" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC2CA8BA1FCCB3DD000CF5F4;
+			productRefGroup = EC2CA8C41FCCB3DD000CF5F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC2CA8C21FCCB3DD000CF5F4 /* Stone Store Star */,
+				EC2CA8D61FCCB3DE000CF5F4 /* Stone Store StarTests */,
+				EC2CA8E11FCCB3DE000CF5F4 /* Stone Store StarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC2CA8C11FCCB3DD000CF5F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2CA8D11FCCB3DE000CF5F4 /* LaunchScreen.storyboard in Resources */,
+				EC2CA8CE1FCCB3DE000CF5F4 /* Assets.xcassets in Resources */,
+				EC2CA8CC1FCCB3DE000CF5F4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2CA8D51FCCB3DE000CF5F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2CA8E01FCCB3DE000CF5F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC2CA8BF1FCCB3DD000CF5F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2CA8C91FCCB3DE000CF5F4 /* ViewController.swift in Sources */,
+				EC2CA8C71FCCB3DE000CF5F4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2CA8D31FCCB3DE000CF5F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2CA8DC1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2CA8DE1FCCB3DE000CF5F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2CA8E71FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC2CA8D91FCCB3DE000CF5F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC2CA8C21FCCB3DD000CF5F4 /* Stone Store Star */;
+			targetProxy = EC2CA8D81FCCB3DE000CF5F4 /* PBXContainerItemProxy */;
+		};
+		EC2CA8E41FCCB3DE000CF5F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC2CA8C21FCCB3DD000CF5F4 /* Stone Store Star */;
+			targetProxy = EC2CA8E31FCCB3DE000CF5F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC2CA8CA1FCCB3DE000CF5F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC2CA8CB1FCCB3DE000CF5F4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC2CA8CF1FCCB3DE000CF5F4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC2CA8D01FCCB3DE000CF5F4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC2CA8E91FCCB3DE000CF5F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC2CA8EA1FCCB3DE000CF5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC2CA8EC1FCCB3DE000CF5F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5R5HC6XV89;
+				INFOPLIST_FILE = "Stone Store Star/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.trief.Stone-Store-Star";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC2CA8ED1FCCB3DE000CF5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5R5HC6XV89;
+				INFOPLIST_FILE = "Stone Store Star/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.trief.Stone-Store-Star";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EC2CA8EF1FCCB3DE000CF5F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5R5HC6XV89;
+				INFOPLIST_FILE = "Stone Store StarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.trief.Stone-Store-StarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stone Store Star.app/Stone Store Star";
+			};
+			name = Debug;
+		};
+		EC2CA8F01FCCB3DE000CF5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5R5HC6XV89;
+				INFOPLIST_FILE = "Stone Store StarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.trief.Stone-Store-StarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stone Store Star.app/Stone Store Star";
+			};
+			name = Release;
+		};
+		EC2CA8F21FCCB3DE000CF5F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5R5HC6XV89;
+				INFOPLIST_FILE = "Stone Store StarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.trief.Stone-Store-StarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Stone Store Star";
+			};
+			name = Debug;
+		};
+		EC2CA8F31FCCB3DE000CF5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5R5HC6XV89;
+				INFOPLIST_FILE = "Stone Store StarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.trief.Stone-Store-StarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Stone Store Star";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC2CA8BE1FCCB3DD000CF5F4 /* Build configuration list for PBXProject "Stone Store Star" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC2CA8E91FCCB3DE000CF5F4 /* Debug */,
+				EC2CA8EA1FCCB3DE000CF5F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC2CA8EB1FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store Star" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC2CA8EC1FCCB3DE000CF5F4 /* Debug */,
+				EC2CA8ED1FCCB3DE000CF5F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC2CA8EE1FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store StarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC2CA8EF1FCCB3DE000CF5F4 /* Debug */,
+				EC2CA8F01FCCB3DE000CF5F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC2CA8F11FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store StarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC2CA8F21FCCB3DE000CF5F4 /* Debug */,
+				EC2CA8F31FCCB3DE000CF5F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC2CA8BB1FCCB3DD000CF5F4 /* Project object */;
+}
