@@ -1,0 +1,6 @@
+framework module Pods_Stone_Store_StarUITests {
+  umbrella header "Pods-Stone Store StarUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D9BC774BEA1F69249009B2C /* Pods_Stone_Store_Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7319E6B0C19A8D450C3297 /* Pods_Stone_Store_Star.framework */; };
+		9C996EFDAA71738F1982FD69 /* Pods_Stone_Store_StarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F641D0DA1801FB82CEFD3082 /* Pods_Stone_Store_StarTests.framework */; };
 		EC2CA8C71FCCB3DE000CF5F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */; };
 		EC2CA8C91FCCB3DE000CF5F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */; };
 		EC2CA8CC1FCCB3DE000CF5F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CA1FCCB3DE000CF5F4 /* Main.storyboard */; };
@@ -14,6 +16,7 @@
 		EC2CA8D11FCCB3DE000CF5F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CF1FCCB3DE000CF5F4 /* LaunchScreen.storyboard */; };
 		EC2CA8DC1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8DB1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift */; };
 		EC2CA8E71FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8E61FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift */; };
+		F3EDAA5EBCF633342DC43C15 /* Pods_Stone_Store_StarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD15C5CC7DFEDBEF2FC501B3 /* Pods_Stone_Store_StarUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007D3D3ABAB1C131F1A3A51E /* Pods-Stone Store StarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stone Store StarUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stone Store StarUITests/Pods-Stone Store StarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2D39B948BD98C24D3EA3145F /* Pods-Stone Store Star.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stone Store Star.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stone Store Star/Pods-Stone Store Star.debug.xcconfig"; sourceTree = "<group>"; };
+		6F7319E6B0C19A8D450C3297 /* Pods_Stone_Store_Star.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stone_Store_Star.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96A94429DAA5305CA4D9BA56 /* Pods-Stone Store StarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stone Store StarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stone Store StarUITests/Pods-Stone Store StarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A09757AFCA02FFE14FCBD0C1 /* Pods-Stone Store StarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stone Store StarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stone Store StarTests/Pods-Stone Store StarTests.release.xcconfig"; sourceTree = "<group>"; };
+		B4F6ACB492A760F5AAF78567 /* Pods-Stone Store StarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stone Store StarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stone Store StarTests/Pods-Stone Store StarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EAF5C5008A9CC959A9CA8026 /* Pods-Stone Store Star.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stone Store Star.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stone Store Star/Pods-Stone Store Star.release.xcconfig"; sourceTree = "<group>"; };
 		EC2CA8C31FCCB3DD000CF5F4 /* Stone Store Star.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stone Store Star.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,8 @@
 		EC2CA8E21FCCB3DE000CF5F4 /* Stone Store StarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stone Store StarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CA8E61FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stone_Store_StarUITests.swift; sourceTree = "<group>"; };
 		EC2CA8E81FCCB3DE000CF5F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F641D0DA1801FB82CEFD3082 /* Pods_Stone_Store_StarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stone_Store_StarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD15C5CC7DFEDBEF2FC501B3 /* Pods_Stone_Store_StarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stone_Store_StarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9BC774BEA1F69249009B2C /* Pods_Stone_Store_Star.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C996EFDAA71738F1982FD69 /* Pods_Stone_Store_StarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3EDAA5EBCF633342DC43C15 /* Pods_Stone_Store_StarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DD3A4089A032CB3B0292BB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D39B948BD98C24D3EA3145F /* Pods-Stone Store Star.debug.xcconfig */,
+				EAF5C5008A9CC959A9CA8026 /* Pods-Stone Store Star.release.xcconfig */,
+				B4F6ACB492A760F5AAF78567 /* Pods-Stone Store StarTests.debug.xcconfig */,
+				A09757AFCA02FFE14FCBD0C1 /* Pods-Stone Store StarTests.release.xcconfig */,
+				96A94429DAA5305CA4D9BA56 /* Pods-Stone Store StarUITests.debug.xcconfig */,
+				007D3D3ABAB1C131F1A3A51E /* Pods-Stone Store StarUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B6BB17C4264D0602CBC553B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F7319E6B0C19A8D450C3297 /* Pods_Stone_Store_Star.framework */,
+				F641D0DA1801FB82CEFD3082 /* Pods_Stone_Store_StarTests.framework */,
+				FD15C5CC7DFEDBEF2FC501B3 /* Pods_Stone_Store_StarUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC2CA8BA1FCCB3DD000CF5F4 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +119,8 @@
 				EC2CA8DA1FCCB3DE000CF5F4 /* Stone Store StarTests */,
 				EC2CA8E51FCCB3DE000CF5F4 /* Stone Store StarUITests */,
 				EC2CA8C41FCCB3DD000CF5F4 /* Products */,
+				1DD3A4089A032CB3B0292BB2 /* Pods */,
+				7B6BB17C4264D0602CBC553B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC2CA8EB1FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store Star" */;
 			buildPhases = (
+				FDEC54006BB109A3F8D06892 /* [CP] Check Pods Manifest.lock */,
 				EC2CA8BF1FCCB3DD000CF5F4 /* Sources */,
 				EC2CA8C01FCCB3DD000CF5F4 /* Frameworks */,
 				EC2CA8C11FCCB3DD000CF5F4 /* Resources */,
+				72928DB7BB5A018CB82E32CF /* [CP] Embed Pods Frameworks */,
+				A62B97A80D0C072ED9C6E175 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC2CA8EE1FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store StarTests" */;
 			buildPhases = (
+				64B8E906D0BF3132394C6F48 /* [CP] Check Pods Manifest.lock */,
 				EC2CA8D31FCCB3DE000CF5F4 /* Sources */,
 				EC2CA8D41FCCB3DE000CF5F4 /* Frameworks */,
 				EC2CA8D51FCCB3DE000CF5F4 /* Resources */,
+				5D11B3B581139BE5207100CB /* [CP] Embed Pods Frameworks */,
+				2D077B39235DBF3AC7CAB469 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC2CA8F11FCCB3DE000CF5F4 /* Build configuration list for PBXNativeTarget "Stone Store StarUITests" */;
 			buildPhases = (
+				1BDF9A1A2864742FD423970F /* [CP] Check Pods Manifest.lock */,
 				EC2CA8DE1FCCB3DE000CF5F4 /* Sources */,
 				EC2CA8DF1FCCB3DE000CF5F4 /* Frameworks */,
 				EC2CA8E01FCCB3DE000CF5F4 /* Resources */,
+				8715A02F30760BAEC5D71F89 /* [CP] Embed Pods Frameworks */,
+				00C28DF11F9FF343371B9E85 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,162 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00C28DF11F9FF343371B9E85 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stone Store StarUITests/Pods-Stone Store StarUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BDF9A1A2864742FD423970F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stone Store StarUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D077B39235DBF3AC7CAB469 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stone Store StarTests/Pods-Stone Store StarTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D11B3B581139BE5207100CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stone Store StarTests/Pods-Stone Store StarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64B8E906D0BF3132394C6F48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stone Store StarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72928DB7BB5A018CB82E32CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stone Store Star/Pods-Stone Store Star-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stone Store Star/Pods-Stone Store Star-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8715A02F30760BAEC5D71F89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stone Store StarUITests/Pods-Stone Store StarUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A62B97A80D0C072ED9C6E175 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stone Store Star/Pods-Stone Store Star-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDEC54006BB109A3F8D06892 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stone Store Star-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC2CA8BF1FCCB3DD000CF5F4 /* Sources */ = {
@@ -424,6 +629,7 @@
 		};
 		EC2CA8EC1FCCB3DE000CF5F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D39B948BD98C24D3EA3145F /* Pods-Stone Store Star.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +645,7 @@
 		};
 		EC2CA8ED1FCCB3DE000CF5F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAF5C5008A9CC959A9CA8026 /* Pods-Stone Store Star.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +661,7 @@
 		};
 		EC2CA8EF1FCCB3DE000CF5F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4F6ACB492A760F5AAF78567 /* Pods-Stone Store StarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +679,7 @@
 		};
 		EC2CA8F01FCCB3DE000CF5F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A09757AFCA02FFE14FCBD0C1 /* Pods-Stone Store StarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +697,7 @@
 		};
 		EC2CA8F21FCCB3DE000CF5F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A94429DAA5305CA4D9BA56 /* Pods-Stone Store StarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +714,7 @@
 		};
 		EC2CA8F31FCCB3DE000CF5F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 007D3D3ABAB1C131F1A3A51E /* Pods-Stone Store StarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
