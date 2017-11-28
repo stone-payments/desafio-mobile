@@ -46,6 +46,3 @@ Select the simulator of your preference and Run the application. Have fun and bu
 * [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - Image component library for Alamofire
 * [realm](https://realm.io/docs/swift/latest/) - Used to abstract database layer with fast
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
