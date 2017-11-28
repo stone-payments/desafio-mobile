@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fJ0-bM-uSf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711" y="403"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TmB-g7-vS2">
+            <objects>
+                <viewController id="fJ0-bM-uSf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CJI-J1-ylt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="sOZ-cB-Thq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="stone-logo" translatesAutoresizingMaskIntoConstraints="NO" id="lGM-uC-Io5">
+                                <rect key="frame" x="127.5" y="310.5" width="120" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="1IV-a8-jVV"/>
+                                    <constraint firstAttribute="height" constant="46" id="4of-ph-OHO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sOZ-cB-Thq" firstAttribute="top" secondItem="CJI-J1-ylt" secondAttribute="top" id="Nhi-6z-Eqj"/>
+                            <constraint firstAttribute="bottom" secondItem="sOZ-cB-Thq" secondAttribute="bottom" id="TAA-ek-IwH"/>
+                            <constraint firstAttribute="trailing" secondItem="sOZ-cB-Thq" secondAttribute="trailing" id="cbh-Cp-uXe"/>
+                            <constraint firstItem="lGM-uC-Io5" firstAttribute="centerY" secondItem="CJI-J1-ylt" secondAttribute="centerY" id="fzL-h5-0Bl"/>
+                            <constraint firstItem="lGM-uC-Io5" firstAttribute="centerX" secondItem="CJI-J1-ylt" secondAttribute="centerX" id="g3v-Dl-iWK"/>
+                            <constraint firstItem="sOZ-cB-Thq" firstAttribute="leading" secondItem="CJI-J1-ylt" secondAttribute="leading" id="quC-Mf-8lp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Rv-te-Tdq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKz-5U-7vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-129" y="403"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="281" height="500"/>
+        <image name="stone-logo" width="120" height="46"/>
+    </resources>
+</document>
