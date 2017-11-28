@@ -45,4 +45,5 @@ Select the simulator of your preference and Run the application. Have fun and bu
 * [Alamofire](http://www.dropwizard.io/1.0.2/docs/) - Elegant HTTP Networking in Swift
 * [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - Image component library for Alamofire
 * [realm](https://realm.io/docs/swift/latest/) - Used to abstract database layer with fast
+* [Apiary](https://stonestorestar.docs.apiary.io/) - Fast-track API Design
 
