@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func openRealm() {
-        let seed = RSeed()
-        seed.run()
+        let seed = Seed()
+        seed.run(clearData: false)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -15,11 +15,11 @@ let group = DispatchGroup()
 
 class Seed {
     //    Check if data is already saved, otherwise saves.
-    func run(cleanData: Bool = false){
+    func run(clearData: Bool = false){
         Realm.Configuration.defaultConfiguration.deleteRealmIfMigrationNeeded = true
         
         let realm = try! Realm()
-        if cleanData {
+        if clearData {
             try! realm.write {
                 realm.deleteAll()
             }
@@ -64,7 +64,7 @@ class Seed {
     func createLukesCard(){
         let realm = try! Realm()
         try! realm.write({
-            var card = RCard()
+            let card = RCard()
             
             card.number = "1234123412341234"
             card.cvv = 7990
