@@ -10,12 +10,23 @@
 		1D9BC774BEA1F69249009B2C /* Pods_Stone_Store_Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7319E6B0C19A8D450C3297 /* Pods_Stone_Store_Star.framework */; };
 		9C996EFDAA71738F1982FD69 /* Pods_Stone_Store_StarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F641D0DA1801FB82CEFD3082 /* Pods_Stone_Store_StarTests.framework */; };
 		EC2CA8C71FCCB3DE000CF5F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */; };
-		EC2CA8C91FCCB3DE000CF5F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */; };
 		EC2CA8CC1FCCB3DE000CF5F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CA1FCCB3DE000CF5F4 /* Main.storyboard */; };
 		EC2CA8CE1FCCB3DE000CF5F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CD1FCCB3DE000CF5F4 /* Assets.xcassets */; };
 		EC2CA8D11FCCB3DE000CF5F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CA8CF1FCCB3DE000CF5F4 /* LaunchScreen.storyboard */; };
 		EC2CA8DC1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8DB1FCCB3DE000CF5F4 /* Stone_Store_StarTests.swift */; };
 		EC2CA8E71FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA8E61FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift */; };
+		ECA3DCA61FCCB9630058990F /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCA01FCCB9620058990F /* OrdersViewController.swift */; };
+		ECA3DCA71FCCB9630058990F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCA11FCCB9620058990F /* TransactionsViewController.swift */; };
+		ECA3DCA81FCCB9630058990F /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCA21FCCB9630058990F /* ProductsViewController.swift */; };
+		ECA3DCA91FCCB9630058990F /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCA31FCCB9630058990F /* TransactionTableViewCell.swift */; };
+		ECA3DCAA1FCCB9630058990F /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCA41FCCB9630058990F /* OrderTableViewCell.swift */; };
+		ECA3DCAB1FCCB9630058990F /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCA51FCCB9630058990F /* ProductCollectionViewCell.swift */; };
+		ECA3DCB21FCCB9780058990F /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCAC1FCCB9780058990F /* DataHelper.swift */; };
+		ECA3DCB31FCCB9780058990F /* RCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCAD1FCCB9780058990F /* RCard.swift */; };
+		ECA3DCB41FCCB9780058990F /* ROrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCAE1FCCB9780058990F /* ROrder.swift */; };
+		ECA3DCB51FCCB9780058990F /* RProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCAF1FCCB9780058990F /* RProduct.swift */; };
+		ECA3DCB61FCCB9780058990F /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCB01FCCB9780058990F /* Seed.swift */; };
+		ECA3DCB71FCCB9780058990F /* RTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3DCB11FCCB9780058990F /* RTransaction.swift */; };
 		F3EDAA5EBCF633342DC43C15 /* Pods_Stone_Store_StarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD15C5CC7DFEDBEF2FC501B3 /* Pods_Stone_Store_StarUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +57,6 @@
 		EAF5C5008A9CC959A9CA8026 /* Pods-Stone Store Star.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stone Store Star.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stone Store Star/Pods-Stone Store Star.release.xcconfig"; sourceTree = "<group>"; };
 		EC2CA8C31FCCB3DD000CF5F4 /* Stone Store Star.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stone Store Star.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EC2CA8CB1FCCB3DE000CF5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC2CA8CD1FCCB3DE000CF5F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2CA8D01FCCB3DE000CF5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +67,18 @@
 		EC2CA8E21FCCB3DE000CF5F4 /* Stone Store StarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stone Store StarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CA8E61FCCB3DE000CF5F4 /* Stone_Store_StarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stone_Store_StarUITests.swift; sourceTree = "<group>"; };
 		EC2CA8E81FCCB3DE000CF5F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECA3DCA01FCCB9620058990F /* OrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		ECA3DCA11FCCB9620058990F /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		ECA3DCA21FCCB9630058990F /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		ECA3DCA31FCCB9630058990F /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		ECA3DCA41FCCB9630058990F /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		ECA3DCA51FCCB9630058990F /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECA3DCAC1FCCB9780058990F /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		ECA3DCAD1FCCB9780058990F /* RCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCard.swift; sourceTree = "<group>"; };
+		ECA3DCAE1FCCB9780058990F /* ROrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROrder.swift; sourceTree = "<group>"; };
+		ECA3DCAF1FCCB9780058990F /* RProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RProduct.swift; sourceTree = "<group>"; };
+		ECA3DCB01FCCB9780058990F /* Seed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
+		ECA3DCB11FCCB9780058990F /* RTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTransaction.swift; sourceTree = "<group>"; };
 		F641D0DA1801FB82CEFD3082 /* Pods_Stone_Store_StarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stone_Store_StarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD15C5CC7DFEDBEF2FC501B3 /* Pods_Stone_Store_StarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stone_Store_StarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -138,11 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				EC2CA8C61FCCB3DE000CF5F4 /* AppDelegate.swift */,
-				EC2CA8C81FCCB3DE000CF5F4 /* ViewController.swift */,
-				EC2CA8CA1FCCB3DE000CF5F4 /* Main.storyboard */,
-				EC2CA8CD1FCCB3DE000CF5F4 /* Assets.xcassets */,
-				EC2CA8CF1FCCB3DE000CF5F4 /* LaunchScreen.storyboard */,
 				EC2CA8D21FCCB3DE000CF5F4 /* Info.plist */,
+				ECA3DCB91FCCB9FB0058990F /* View */,
+				ECA3DC9E1FCCB93D0058990F /* Controller */,
+				ECA3DC9F1FCCB9460058990F /* Model */,
+				EC2CA8CD1FCCB3DE000CF5F4 /* Assets.xcassets */,
 			);
 			path = "Stone Store Star";
 			sourceTree = "<group>";
@@ -163,6 +185,41 @@
 				EC2CA8E81FCCB3DE000CF5F4 /* Info.plist */,
 			);
 			path = "Stone Store StarUITests";
+			sourceTree = "<group>";
+		};
+		ECA3DC9E1FCCB93D0058990F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ECA3DCA01FCCB9620058990F /* OrdersViewController.swift */,
+				ECA3DCA41FCCB9630058990F /* OrderTableViewCell.swift */,
+				ECA3DCA51FCCB9630058990F /* ProductCollectionViewCell.swift */,
+				ECA3DCA21FCCB9630058990F /* ProductsViewController.swift */,
+				ECA3DCA11FCCB9620058990F /* TransactionsViewController.swift */,
+				ECA3DCA31FCCB9630058990F /* TransactionTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ECA3DC9F1FCCB9460058990F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECA3DCAD1FCCB9780058990F /* RCard.swift */,
+				ECA3DCAE1FCCB9780058990F /* ROrder.swift */,
+				ECA3DCAF1FCCB9780058990F /* RProduct.swift */,
+				ECA3DCB11FCCB9780058990F /* RTransaction.swift */,
+				ECA3DCB01FCCB9780058990F /* Seed.swift */,
+				ECA3DCAC1FCCB9780058990F /* DataHelper.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ECA3DCB91FCCB9FB0058990F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CA8CA1FCCB3DE000CF5F4 /* Main.storyboard */,
+				EC2CA8CF1FCCB3DE000CF5F4 /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,8 +521,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2CA8C91FCCB3DE000CF5F4 /* ViewController.swift in Sources */,
+				ECA3DCB51FCCB9780058990F /* RProduct.swift in Sources */,
+				ECA3DCA61FCCB9630058990F /* OrdersViewController.swift in Sources */,
+				ECA3DCAB1FCCB9630058990F /* ProductCollectionViewCell.swift in Sources */,
+				ECA3DCB21FCCB9780058990F /* DataHelper.swift in Sources */,
+				ECA3DCB31FCCB9780058990F /* RCard.swift in Sources */,
+				ECA3DCA71FCCB9630058990F /* TransactionsViewController.swift in Sources */,
+				ECA3DCAA1FCCB9630058990F /* OrderTableViewCell.swift in Sources */,
 				EC2CA8C71FCCB3DE000CF5F4 /* AppDelegate.swift in Sources */,
+				ECA3DCB61FCCB9780058990F /* Seed.swift in Sources */,
+				ECA3DCB41FCCB9780058990F /* ROrder.swift in Sources */,
+				ECA3DCA91FCCB9630058990F /* TransactionTableViewCell.swift in Sources */,
+				ECA3DCA81FCCB9630058990F /* ProductsViewController.swift in Sources */,
+				ECA3DCB71FCCB9780058990F /* RTransaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

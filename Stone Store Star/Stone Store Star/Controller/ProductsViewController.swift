@@ -48,8 +48,8 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.layer.cornerRadius = 6.0
         cell.clipsToBounds = true
 
-        let mHelper = MHelper()
-        let openedOrder = mHelper.getOpenedOrder()
+        let dataHelper = DataHelper()
+        let openedOrder = dataHelper.getOpenedOrder()
         for product in openedOrder.products {
             if product.title == cell.product?.title &&
                 product.price == cell.product?.price &&

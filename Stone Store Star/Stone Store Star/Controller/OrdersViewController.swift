@@ -10,10 +10,10 @@ import UIKit
 
 class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var totalLabel: UILabel!
-    let mHelper = MHelper()
+    let dataHelper = DataHelper()
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let order = mHelper.getOpenedOrder()
+        let order = dataHelper.getOpenedOrder()
         return order.products.count
     }
     
@@ -32,7 +32,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let order = mHelper.getOpenedOrder()
+        let order = dataHelper.getOpenedOrder()
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
         
@@ -67,10 +67,10 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func stonePayment(_ sender: Any) {
-        let order = mHelper.getOpenedOrder()
+        let order = dataHelper.getOpenedOrder()
         
         if order.products.count > 0 {
-            mHelper.closeOrder()
+            dataHelper.closeOrder()
             let alert = UIAlertController(title: "Stone Payment", message: "Transação aprovada.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.performSegue(withIdentifier: "fromOrderToTransactions", sender: self)}))
             self.present(alert, animated: true, completion: nil)
@@ -93,7 +93,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func calculateTotalPrice(){
-        let order = mHelper.getOpenedOrder()
+        let order = dataHelper.getOpenedOrder()
 
         var totalPrice = 0
         for product in order.products {

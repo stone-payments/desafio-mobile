@@ -9,6 +9,8 @@
 import Foundation
 import RealmSwift
 
+//  Open order corresponds to the selected items contained in the shopping cart, whose purchase has not yet been finalized.
+//  Closed orders correspond to orders already completed, when finalizing a request and obtaining approval of the payment a new transaction must be registered.
 enum OrderStatus: Int {
     case Open = 0
     case Closed = 1
@@ -17,6 +19,7 @@ enum OrderStatus: Int {
 class ROrder: Object {
     @objc dynamic var status = OrderStatus.Open.rawValue
     let products = List<RProduct>()
+// TO DO: Future implementation, allowing the user change the quantity of the same product
 //    let productsQuantities = List<RProductQuantity>()
     var statusEnum: OrderStatus {
         get {
@@ -28,6 +31,7 @@ class ROrder: Object {
     }
 }
 
+// TO DO: Future implementation, allowing the user change the quantity of the same product
 //class RProductQuantity: Object {
 //    @objc dynamic var product: RProduct?
 //    @objc dynamic var quantity: Int = 1

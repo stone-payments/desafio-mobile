@@ -1,5 +1,5 @@
 //
-//  MHelper.swift
+//  DataHelper.swift
 //  Stone Store Star
 //
 //  Created by Kennedy Noia on 27/11/2017.
@@ -83,10 +83,6 @@ class DataHelper{
             switch response.result {
             case .success:
                 print("Validation Successful")
-//              if let json = response.result.value {
-//                    print("JSON: \(json)") // serialized json response
-//                    debugPrint(json)
-//                debugPrint(response)
                 if response.result.value != nil {
                     let realm = try! Realm()
 

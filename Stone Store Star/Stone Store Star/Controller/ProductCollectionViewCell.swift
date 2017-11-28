@@ -17,20 +17,20 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var product: RProduct?
     
     @IBAction func addOrRemoveItemOfOrder(_ sender: Any) {
-        let mHelper = MHelper()
+        let dataHelper = DataHelper()
 
         if self.cartButton.titleLabel?.text == "       Adicionar"{
             self.cartButton.setTitle("Remover", for: .normal)
             self.cartButton.backgroundColor = self.cartButton.titleLabel?.textColor
             self.cartButton.setTitleColor(UIColor.white, for: .normal)
             
-            mHelper.addToOpenedOrder(product: self.product!)
+            dataHelper.addToOpenedOrder(product: self.product!)
         }else{
             self.cartButton.setTitle("       Adicionar", for: .normal)
             self.cartButton.setTitleColor(self.cartButton.backgroundColor, for: .normal)
             self.cartButton.backgroundColor = UIColor.clear
             
-            mHelper.removeFromOpenedOrder(product: self.product!)
+            dataHelper.removeFromOpenedOrder(product: self.product!)
         }
     }
 }
