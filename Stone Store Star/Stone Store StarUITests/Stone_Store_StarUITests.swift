@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import RealmSwift
+@testable import Stone_Store_Star
 
 class Stone_Store_StarUITests: XCTestCase {
         
@@ -28,9 +30,51 @@ class Stone_Store_StarUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // Test the UI checking the collection and table view cells quantity
+    //to conform the normal flow inside de app
+    func testCloseOrderAndCleanCartItemSelections() {
+        let app = XCUIApplication()
+        
+        //  Go to Transaction View Controller
+        app.buttons["button transactions"].tap()
+        let transactionsBeforeCellsQuery = app.tables.cells
+        //  Check if transactions collections is empty
+        XCTAssertEqual(transactionsBeforeCellsQuery.count, 0)
+        let transactionsBeforeCellsCount = transactionsBeforeCellsQuery.count
+        
+        //  Back to Products View Controller
+        app.buttons["button back"].tap()
+        
+        //  Add some products to opened order
+        let productsCellsQuery = app.collectionViews.cells
+        productsCellsQuery.otherElements.containing(.staticText, identifier:"Blusa do Imperio").buttons["       Adicionar"].tap()
+        productsCellsQuery.otherElements.containing(.staticText, identifier:"R$29,90").buttons["       Adicionar"].tap()
+        productsCellsQuery.otherElements.containing(.staticText, identifier:"Boneco de StormTrooper").buttons["       Adicionar"].tap()
+        productsCellsQuery.otherElements.containing(.staticText, identifier:"R$50,00").buttons["       Adicionar"].tap()
+        productsCellsQuery.otherElements.containing(.staticText, identifier:"Moletom Vader").buttons["       Adicionar"].tap()
+        //  Go to Order View Controller
+        app.buttons["button order"].tap()
+        
+        let orderCellsQuery = app.tables.cells
+        //  Check if the amount of items inside the table view is the same as added before
+        XCTAssertEqual(orderCellsQuery.count, 5)
+        //  Do POST Request payment transaction
+        app.buttons["button stone payment"].tap()
+        
+        //  Wait some time until the request is complete, so can find the alert
+        sleep(5)
+        app.alerts["Stone Payment"].buttons["OK"]/*@START_MENU_TOKEN@*/.press(forDuration: 0.9);/*[[".tap()",".press(forDuration: 0.9);"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        
+        let transactionsAfterCellsQuery = app.tables.cells
+        //  Check if table view of transactions now has more one item(the new one added)
+        XCTAssertEqual(transactionsAfterCellsQuery.count, transactionsBeforeCellsCount+1)
+        //  Back to Products View Controller
+        app.buttons["button back"].tap()
+        //  Back to Order View Controller
+        app.buttons["button order"].tap()
+        let emptyOrderCells = app.tables.cells
+        //  Check if the new opened order is empty
+        XCTAssertEqual(emptyOrderCells.count, 0)
     }
     
 }

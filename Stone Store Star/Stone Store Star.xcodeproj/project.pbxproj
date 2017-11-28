@@ -190,11 +190,11 @@
 		ECA3DC9E1FCCB93D0058990F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ECA3DCA01FCCB9620058990F /* OrdersViewController.swift */,
-				ECA3DCA41FCCB9630058990F /* OrderTableViewCell.swift */,
-				ECA3DCA51FCCB9630058990F /* ProductCollectionViewCell.swift */,
 				ECA3DCA21FCCB9630058990F /* ProductsViewController.swift */,
+				ECA3DCA01FCCB9620058990F /* OrdersViewController.swift */,
 				ECA3DCA11FCCB9620058990F /* TransactionsViewController.swift */,
+				ECA3DCA51FCCB9630058990F /* ProductCollectionViewCell.swift */,
+				ECA3DCA41FCCB9630058990F /* OrderTableViewCell.swift */,
 				ECA3DCA31FCCB9630058990F /* TransactionTableViewCell.swift */,
 			);
 			path = Controller;
