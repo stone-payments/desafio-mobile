@@ -7,27 +7,29 @@
 //
 
 import UIKit
-import RealmSwift
 
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var transactionsTableView: UITableView!
+    let dataHelper = DataHelper()
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let realm = try! Realm()
-        return realm.objects(RTransaction.self).count
+        let transactions = dataHelper.getAllTransactions()
+        return transactions.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let realm = try! Realm()
-        let transactions = realm.objects(RTransaction.self)
+        let transactions = dataHelper.getAllTransactions()
         let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! TransactionTableViewCell
         let transaction = transactions[indexPath.section]
         cell.holderName.text = transaction.card?.holder_name
+        // Show only the last four digits
+        // To do: Check if save only four digits is a rule.
         cell.lastFourDigitsCardNumber.text = "\((transaction.card?.number.suffix(4))!)"
         
+        // To do: Create a helper function to format price values.
         let price = transaction.value
         var strPrice = String(price)
         strPrice.insert(".", at: strPrice.index(strPrice.endIndex, offsetBy: -2))
@@ -38,6 +40,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         
         cell.transactionValue.text = String(priceText!)
         
+        // To do: Creat helper functions to convert string into date and the opposite
         let calendar = Calendar.current
         let minute = calendar.component(.minute, from: transaction.created_at)
         let hour = calendar.component(.hour, from: transaction.created_at)
@@ -48,12 +51,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         cell.transactionTime.text = "\(hour):\(minute)"
         cell.layer.cornerRadius = 6.0
         cell.clipsToBounds = true
-        
-//        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.viewOutlet.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerBottomLeft | UIRectCornerBottomRight) cornerRadii:CGSizeMake(10.0, 10.0)];
-//
-//        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//        maskLayer.frame = self.view.bounds;
-//        maskLayer.path  = maskPath.CGPath;
         
         let maskPath = UIBezierPath.init(roundedRect: cell.valueViewBackground.bounds,
                                          byRoundingCorners: UIRectCorner.bottomLeft,
@@ -66,10 +63,12 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    // Margin between the rows(headers)
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 14.0
     }
-    
+
+    // Just clearing the background color
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = UIColor.clear
@@ -83,31 +82,15 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        // Reload data from transaction table view, considering
+        //the block of alamofire async task
         group.notify(queue: .main) {
             self.transactionsTableView.reloadData()
         }
-        
-//        DispatchQueue.main.async {
-//            self.transactionsTableView.reloadData()
-//        }
-        print("should reload the transactions")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

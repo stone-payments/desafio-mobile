@@ -16,9 +16,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cartButton: UIButton!
     var product: RProduct?
     
+    //    Change button mode considering if the product was selected
+    //    Add/Remove product from opened order
     @IBAction func addOrRemoveItemOfOrder(_ sender: Any) {
         let dataHelper = DataHelper()
-
+        
+        //A little "advanced" technique to center the label text,
+        //considerind the cart icon ;)
         if self.cartButton.titleLabel?.text == "       Adicionar"{
             self.cartButton.setTitle("Remover", for: .normal)
             self.cartButton.backgroundColor = self.cartButton.titleLabel?.textColor

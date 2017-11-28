@@ -55,6 +55,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.productSellerLabel.text = cell.product?.seller
         cell.quantityLabel.text = "x \(cell.quantity)"
         
+        // To do: Create a helper function to format price values.
         let totalPrice = (cell.product?.price)!*cell.quantity
         strPrice = String(describing: totalPrice)
         strPrice.insert(".", at: strPrice.index(strPrice.endIndex, offsetBy: -2))
@@ -66,23 +67,22 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    //    Send the transaction request to payment API
     @IBAction func stonePayment(_ sender: Any) {
         let order = dataHelper.getOpenedOrder()
         
         if order.products.count > 0 {
-            dataHelper.closeOrder()
-            let alert = UIAlertController(title: "Stone Payment", message: "Transação aprovada.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.performSegue(withIdentifier: "fromOrderToTransactions", sender: self)}))
-            self.present(alert, animated: true, completion: nil)
-            //        DispatchQueue.main.async {
-            //        self.performSegue(withIdentifier: "fromOrderToProducts", sender: self)
-//            self.performSegue(withIdentifier: "fromOrderToTransactions", sender: self)
-            //        }
-            //        if transactionCreated {
-            //        performSegue(withIdentifier: "fromOrderToProducts", sender: self)
-            //        }
-            //        let transactionViewController = TransactionsViewController()
-            //        present(transactionViewController, animated: false)
+            dataHelper.closeOrder(completionHander: {
+                let alert = UIAlertController(title: "Stone Payment", message: "Transação aprovada.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.performSegue(withIdentifier: "fromOrderToTransactions", sender: self)}))
+                self.present(alert, animated: true, completion: nil)
+            })
+            
+//            group.notify(queue: .main) {
+//                let alert = UIAlertController(title: "Stone Payment", message: "Transação aprovada.", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.performSegue(withIdentifier: "fromOrderToTransactions", sender: self)}))
+//                self.present(alert, animated: true, completion: nil)
+//            }
         }
     }
     
@@ -91,7 +91,9 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.calculateTotalPrice()
     }
-    
+
+    // Get all products from opened order, sum the values
+    //and updates the label of total price.
     func calculateTotalPrice(){
         let order = dataHelper.getOpenedOrder()
 
@@ -115,16 +117,4 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

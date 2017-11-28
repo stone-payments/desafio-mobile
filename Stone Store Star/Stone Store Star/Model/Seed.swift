@@ -28,15 +28,18 @@ class Seed {
         if cards.count == 0 {
             self.createLukesCard()
         }
-        
-        let products = realm.objects(RProduct.self)
-        if products.count == 0 {
-            self.loadProducts()
-        }
+
+//        COMMENTED FOR TEMPORARY BUG CONTORNATION!
+//        explained at ProductsViewController->viewWillAppear()
+//
+//        let products = realm.objects(RProduct.self)
+//        if products.count == 0 {
+//            self.loadProducts()
+//        }
     }
     
     //    Save products of provided json
-    func loadProducts(){
+    func loadProducts(completionHander: @escaping () -> Swift.Void){
         group.enter()
         Alamofire.request("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json").validate().responseJSON { response in
             switch response.result {
@@ -50,6 +53,7 @@ class Seed {
                             realm.create(RProduct.self, value: jProduct)
                         })
                     }
+                    completionHander()
                     group.leave()
                 }
             case .failure(let error):

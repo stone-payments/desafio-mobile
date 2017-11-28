@@ -17,15 +17,16 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     var product: RProduct?
     var quantity = 1
-    
+
+    //    To do: Future implementation allowing the user to
+    //change the value of quantities of the same product.
     @IBAction func removeOne(_ sender: Any) {
     }
-    
     @IBAction func addOne(_ sender: Any) {
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
