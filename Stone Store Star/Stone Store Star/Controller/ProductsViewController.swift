@@ -90,36 +90,39 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
 //            self.productsCollectionView.reloadData()
 //        }
         
-        
-        let realm = try! Realm()
-        let products = realm.objects(RProduct.self)
-        if products.count == 0 {
-            group.enter()
-            Alamofire.request("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json").validate().responseJSON { response in
-                switch response.result {
-                case .success:
-                    print("Validation Successful")
-                    if let json = response.result.value {
-                        print("JSON: \(json)") // serialized json response
-                        debugPrint(json)
-                        let realm = try! Realm()
-                        
-                        for jProduct in json as! [Any] {
-                            debugPrint(jProduct)
-                            
-                            try! realm.write({
-                                realm.create(RProduct.self, value: jProduct)
-                            })
-                        }
-                        self.productsCollectionView.reloadData()
-                        group.leave()
-                    }
-                case .failure(let error):
-                    print(error)
-                    group.leave()
-                }
-            }
+        group.notify(queue: .main) {
+            self.productsCollectionView.reloadData()
         }
+        
+//        let realm = try! Realm()
+//        let products = realm.objects(RProduct.self)
+//        if products.count == 0 {
+//            group.enter()
+//            Alamofire.request("https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json").validate().responseJSON { response in
+//                switch response.result {
+//                case .success:
+//                    print("Validation Successful")
+//                    if let json = response.result.value {
+//                        print("JSON: \(json)") // serialized json response
+//                        debugPrint(json)
+//                        let realm = try! Realm()
+//
+//                        for jProduct in json as! [Any] {
+//                            debugPrint(jProduct)
+//
+//                            try! realm.write({
+//                                realm.create(RProduct.self, value: jProduct)
+//                            })
+//                        }
+//                        self.productsCollectionView.reloadData()
+//                        group.leave()
+//                    }
+//                case .failure(let error):
+//                    print(error)
+//                    group.leave()
+//                }
+//            }
+//        }
 //        group.notify(queue: .main) {
 //            self.productsCollectionView.reloadData()
 //        }
