@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DesafioStone</string>
+
+    <string name="base_url">https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json</string>
 </resources>
