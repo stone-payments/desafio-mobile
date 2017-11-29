@@ -28,16 +28,21 @@ public class QueryUtils {
         String jsonResponse = null;
 
         try {
-            jsonResponse = makeHttpRequest(url);
 
-            Log.d("debug", jsonResponse);
+            jsonResponse = makeHttpRequest(url);
 
         } catch (IOException e) {
             Log.e(TAG, "HTTP request failed", e);
         }
 
-        // TODO make JsonParse
-        ArrayList<Item> itensList = null;
+        ArrayList<Item> itensList = JsonParse.parseItensFromJson(jsonResponse);
+
+        for (Item item:itensList){
+            Log.d("debug", item.getTitle() + "\n"+
+                            item.getPrice() + "\n"+
+                            item.getSeller() + "\n"+
+                            item.getImage());
+        }
 
         return itensList;
     }
