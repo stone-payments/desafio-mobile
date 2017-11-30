@@ -1,5 +1,6 @@
 package kelly.com.desafiostone.activities;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,25 +9,37 @@ import android.view.View;
 import android.widget.ImageView;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
 
+import kelly.com.desafiostone.fragments.FragmentCart;
+import kelly.com.desafiostone.interfaces.ComunicatorActivityFragment;
+import kelly.com.desafiostone.interfaces.ComunicatorFragmentActivity;
 import kelly.com.desafiostone.adapters.SimpleFragmentPageAdapter;
 import kelly.com.desafiostone.R;
 import kelly.com.desafiostone.models.FullTransaction;
+import kelly.com.desafiostone.models.Item;
 import kelly.com.desafiostone.network.QueryUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ComunicatorFragmentActivity{
 
+    private ArrayList<Item> mListItensAdded;
     private ViewPager mViewPager;
+    private ComunicatorActivityFragment mComunicatorActivityFragment;
+    private FragmentCart mFragmentCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mListItensAdded = new ArrayList<>();
+
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
-        SimpleFragmentPageAdapter simpleFragmentPageAdapter = new SimpleFragmentPageAdapter(getSupportFragmentManager());
+        mFragmentCart = new FragmentCart();
+
+        SimpleFragmentPageAdapter simpleFragmentPageAdapter = new SimpleFragmentPageAdapter(getSupportFragmentManager(), mFragmentCart);
         mViewPager.setAdapter(simpleFragmentPageAdapter);
 
         ImageView imageViewHome = (ImageView) findViewById(R.id.img_vw_home);
@@ -41,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         imageViewCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mComunicatorActivityFragment = (ComunicatorActivityFragment) mFragmentCart;
+                mComunicatorActivityFragment.setListItensAdded(mListItensAdded);
                 mViewPager.setCurrentItem(1);
             }
         });
@@ -54,26 +69,33 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public class Teste extends AsyncTask<Void, Void, Void> {
+    @Override
+    public void addItemToCart(Item item) {
+        mListItensAdded.add(item);
+    }
 
-        @Override
-        protected Void doInBackground(Void... params) {
-            FullTransaction fullTransaction = new FullTransaction();
-            fullTransaction.setCardNumber("1234123412341234");
-            fullTransaction.setCvv(123);
-            fullTransaction.setValue(22.80);
-            fullTransaction.setHolderName("Kelly M Bentes");
-            fullTransaction.setExpirationDate(new Date(11/22));
+    @Override
+    public void procedToCheckout() {
 
-            String urlString = getString(R.string.post_transactions_url);
+        double total = getTotal(mListItensAdded);
 
-            try {
-                QueryUtils.sendTransaction(urlString, fullTransaction);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
+        mListItensAdded.clear();
 
-            return null;
+        Bundle bundle = new Bundle();
+        bundle.putDouble("total", total);
+
+        Intent intent = new Intent(this, InsertTransactionActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    private double getTotal (ArrayList<Item> itensList){
+        double total = 0;
+
+        for (Item item : itensList){
+            total += item.getPrice();
         }
+
+        return total;
     }
 }

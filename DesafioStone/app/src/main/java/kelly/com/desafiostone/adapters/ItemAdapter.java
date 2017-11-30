@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,10 +34,19 @@ public class ItemAdapter extends BaseAdapter {
     private ArrayList<Item> itens;
     private LayoutInflater mInflater;
 
-    public ItemAdapter(Context context, ArrayList <Item> produtos) {
+    private ListAdapterListener mListener;
+
+    public ItemAdapter(Context context, ArrayList <Item> produtos, ListAdapterListener mListener) {
         this.context = context;
         this.itens = produtos;
-        mInflater = LayoutInflater.from(context);
+        if (context != null) {
+            mInflater = LayoutInflater.from(context);
+        }
+        this.mListener = mListener;
+    }
+
+    public interface ListAdapterListener {
+        void onClickAtItem(Item item);
     }
 
     @Override
@@ -57,7 +67,7 @@ public class ItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
 
-        Item item = itens.get(position);
+        final Item item = itens.get(position);
         view = mInflater.inflate(R.layout.item_list, null);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title);
@@ -74,6 +84,19 @@ public class ItemAdapter extends BaseAdapter {
             imageItem.setImageBitmap(item.getImageBitmap());
         } else{
             new DownloadImagesTask(imageItem, item).execute(item.getImageURL());
+        }
+
+        Button btnAddCart = (Button) view.findViewById(R.id.btn_add_cart);
+        if (mListener != null) {
+            btnAddCart.setVisibility(View.VISIBLE);
+            btnAddCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListener.onClickAtItem(item);
+                }
+            });
+        } else {
+            btnAddCart.setVisibility(View.GONE);
         }
 
         return view;

@@ -79,7 +79,7 @@
 
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/value_title"
+            android:text="@string/total_title"
             android:textAppearance="@style/TextViewTitles"
             android:layout_marginBottom="5dp"/>
 

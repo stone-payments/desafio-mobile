@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kelly.com.desafiostone.fragments.FragmentInsertTransaction"
+    tools:context="kelly.com.desafiostone.activities.InsertTransactionActivity"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -16,11 +16,12 @@
 
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/value_title"
+            android:text="@string/total_title"
             android:textAppearance="@style/TextViewTitles"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
 
-        <TextView android:id="@+id/tv_value"
+        <TextView android:id="@+id/tv_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextSecundary" />
@@ -70,7 +71,8 @@
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:minWidth="150sp"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:maxLength="16" />
 
     </LinearLayout>
 
@@ -94,7 +96,8 @@
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:minWidth="150sp"
-            android:inputType="date"/>
+            android:inputType="date"
+            android:hint="@string/hint_expiration_date"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -120,6 +123,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"

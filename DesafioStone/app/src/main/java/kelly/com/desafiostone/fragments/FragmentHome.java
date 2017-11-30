@@ -1,5 +1,6 @@
 package kelly.com.desafiostone.fragments;
 
+import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import kelly.com.desafiostone.interfaces.ComunicatorFragmentActivity;
 import kelly.com.desafiostone.R;
 import kelly.com.desafiostone.adapters.ItemAdapter;
 import kelly.com.desafiostone.loaders.ItensLoader;
@@ -23,6 +25,8 @@ public class FragmentHome extends Fragment implements LoaderManager.LoaderCallba
 
     private ListView mItemList;
     private static final int ITEM_LOADER = 1;
+    private ComunicatorFragmentActivity mComunicatorFragmentActivity;
+    private ItemAdapter.ListAdapterListener mListAdapterListener;
 
     public FragmentHome() {
     }
@@ -42,14 +46,27 @@ public class FragmentHome extends Fragment implements LoaderManager.LoaderCallba
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mListAdapterListener = new ItemAdapter.ListAdapterListener() {
+            @Override
+            public void onClickAtItem(Item item) {
+                mComunicatorFragmentActivity.addItemToCart(item);
+            }
+        };
+
         mItemList = (ListView) view.findViewById(R.id.lv_itens_list);
-        ItemAdapter itemAdapter = new ItemAdapter(getContext(), new ArrayList<Item>());
+        ItemAdapter itemAdapter = new ItemAdapter(getContext(), new ArrayList<Item>(), mListAdapterListener);
         mItemList.setAdapter(itemAdapter);
 
         if (isInternetConnectionAvailable()){
             LoaderManager loaderManager = getActivity().getSupportLoaderManager();
             loaderManager.initLoader(ITEM_LOADER, null, this);
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mComunicatorFragmentActivity = (ComunicatorFragmentActivity) getContext();
     }
 
     private boolean isInternetConnectionAvailable(){
@@ -71,14 +88,14 @@ public class FragmentHome extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public void onLoadFinished(Loader<ArrayList<Item>> loader, ArrayList<Item> data) {
         if(data != null){
-            ItemAdapter itemAdapter = new ItemAdapter(getContext(), data);
+            ItemAdapter itemAdapter = new ItemAdapter(getContext(), data, mListAdapterListener);
             mItemList.setAdapter(itemAdapter);
         }
     }
 
     @Override
     public void onLoaderReset(Loader<ArrayList<Item>> loader) {
-        ItemAdapter itemAdapter = new ItemAdapter(getContext(), new ArrayList<Item>());
+        ItemAdapter itemAdapter = new ItemAdapter(getContext(), new ArrayList<Item>(), mListAdapterListener);
         mItemList.setAdapter(itemAdapter);
     }
 }

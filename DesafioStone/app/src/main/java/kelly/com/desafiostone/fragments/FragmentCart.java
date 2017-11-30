@@ -1,15 +1,30 @@
 package kelly.com.desafiostone.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import kelly.com.desafiostone.R;
+import kelly.com.desafiostone.adapters.ItemAdapter;
+import kelly.com.desafiostone.interfaces.ComunicatorActivityFragment;
+import kelly.com.desafiostone.interfaces.ComunicatorFragmentActivity;
+import kelly.com.desafiostone.models.Item;
 
 
-public class FragmentCart extends Fragment {
+public class FragmentCart extends Fragment implements ComunicatorActivityFragment {
+
+    private ListView mItemList;
+    private TextView mTextViewTotal;
+    private ComunicatorFragmentActivity mComunicatorFragmentActivity;
 
     public FragmentCart() {
 
@@ -24,5 +39,48 @@ public class FragmentCart extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_cart, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mTextViewTotal = (TextView) view.findViewById(R.id.tv_total);
+
+        mItemList = (ListView) view.findViewById(R.id.lv_itens_list);
+        ItemAdapter itemAdapter = new ItemAdapter(getContext(), new ArrayList<Item>(), null);
+        mItemList.setAdapter(itemAdapter);
+
+        Button btnProcedCheckout = (Button) view.findViewById(R.id.btn_proceed_checkout);
+        btnProcedCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mComunicatorFragmentActivity.procedToCheckout();
+            }
+        });
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mComunicatorFragmentActivity = (ComunicatorFragmentActivity) getContext();
+    }
+
+    @Override
+    public void setListItensAdded(ArrayList<Item> itensAddedCart) {
+        ItemAdapter itemAdapter = new ItemAdapter(getContext(), itensAddedCart, null);
+        mItemList.setAdapter(itemAdapter);
+
+        mTextViewTotal.setText("R$" + String.format("%.2f", getTotal(itensAddedCart)));
+    }
+
+    private double getTotal (ArrayList<Item> itensList){
+        double total = 0;
+
+        for (Item item : itensList){
+            total += item.getPrice();
+        }
+
+        return total;
     }
 }

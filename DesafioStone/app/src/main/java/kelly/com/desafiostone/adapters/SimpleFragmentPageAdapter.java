@@ -6,35 +6,35 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import kelly.com.desafiostone.fragments.FragmentCart;
 import kelly.com.desafiostone.fragments.FragmentHome;
-import kelly.com.desafiostone.fragments.FragmentInsertTransaction;
+import kelly.com.desafiostone.fragments.FragmentListTransactions;
 
 /**
  * Created by kelly on 30/11/17.
  */
 
 public class SimpleFragmentPageAdapter extends FragmentPagerAdapter {
-    private FragmentHome fragmentHome;
-    private FragmentCart fragmentCart;
-    private FragmentInsertTransaction fragmentInsertTransaction;
+    private FragmentHome mFragmentHome;
+    private FragmentCart mFragmentCart;
+    private FragmentListTransactions mFragmentListTransactions;
 
 
-    public SimpleFragmentPageAdapter(FragmentManager fm) {
+    public SimpleFragmentPageAdapter(FragmentManager fm, FragmentCart fragmentCart) {
         super(fm);
 
-        fragmentHome = new FragmentHome();
-        fragmentCart = new FragmentCart();
-        fragmentInsertTransaction = new FragmentInsertTransaction();
+        mFragmentHome = new FragmentHome();
+        mFragmentCart = fragmentCart;
+        mFragmentListTransactions = new FragmentListTransactions();
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position){
             case 1:
-                return fragmentCart;
+                return mFragmentCart;
             case 2:
-                return fragmentInsertTransaction;
+                return mFragmentListTransactions;
             default:
-                return fragmentHome;
+                return mFragmentHome;
         }
     }
 

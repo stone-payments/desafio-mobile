@@ -46,13 +46,6 @@ public class QueryUtils {
 
         ArrayList<Item> itensList = JsonParse.parseItensFromJson(jsonResponse);
 
-        for (Item item:itensList){
-            Log.d("debug", item.getTitle() + "\n"+
-                            item.getPrice() + "\n"+
-                            item.getSeller() + "\n"+
-                            item.getImageURL());
-        }
-
         return itensList;
     }
 
@@ -113,7 +106,7 @@ public class QueryUtils {
         return output.toString();
     }
 
-    public static ArrayList<ShortTransaction> sendTransaction(String postUrl, FullTransaction fullTransaction) throws UnsupportedEncodingException {
+    public static String sendTransaction(String postUrl, FullTransaction fullTransaction) throws UnsupportedEncodingException {
         URL url = createUrl(postUrl);
 
         String jsonResponse = null;
@@ -133,9 +126,7 @@ public class QueryUtils {
             Log.e(TAG, "HTTP request failed", e);
         }
 
-        ArrayList<ShortTransaction> shortTransactions = null;
-
-        return shortTransactions;
+        return jsonResponse;
     }
 
     private static String makeHttpPost (URL url, String data) throws IOException {

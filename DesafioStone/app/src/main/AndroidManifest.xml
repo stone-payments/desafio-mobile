@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.InsertTransactionActivity"
+            android:label="@string/title_activity_insert_transaction"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

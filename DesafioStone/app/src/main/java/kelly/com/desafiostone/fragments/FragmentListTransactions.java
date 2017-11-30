@@ -9,17 +9,18 @@ import android.view.ViewGroup;
 
 import kelly.com.desafiostone.R;
 
-public class FragmentInsertTransaction extends Fragment {
+public class FragmentListTransactions extends Fragment {
 
 
-    public FragmentInsertTransaction() {
+    public FragmentListTransactions() {
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_insert_transaction, container, false);
+        return inflater.inflate(R.layout.fragment_list_transactions, container, false);
     }
 
 }

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Desafio Stone</string>
+    <string name="title_activity_insert_transaction">Finish Buy</string>
 
     <string name="get_itens_url">https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json</string>
     <string name="post_transactions_url">https://private-c9e557-kellybentes.apiary-mock.com/questions</string>
@@ -10,14 +11,20 @@
     <string name="holder_name_title">Holder: </string>
     <string name="card_number_title">Card Number: </string>
     <string name="transaction_date_tile">Realized in: </string>
-    <string name="value_title">Value: </string>
+    <string name="total_title">Total: </string>
 
     <!--Fragment Cart-->
     <string name="proceed_checkout">Proceed To Checkout</string>
 
-    <!--Fragment Insert Transaction-->
+    <!--Activity Insert Transaction-->
     <string name="expiration_date_title">Expiration Date: </string>
     <string name="cvv_title">CVV: </string>
     <string name="finish">Finish</string>
+    <string name="hint_expiration_date">mm/yy</string>
+
+    <!--Messages-->
+    <string name="message_form_incomplete">You have to full fill all the form</string>
+    <string name="message_invalid_card_number">Invalid Card Number</string>
+    <string name="message_invalid_date_format">Invalid date format</string>
 
 </resources>

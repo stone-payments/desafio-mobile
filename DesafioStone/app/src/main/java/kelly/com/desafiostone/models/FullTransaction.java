@@ -1,5 +1,7 @@
 package kelly.com.desafiostone.models;
 
+import java.text.DateFormat;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -58,7 +60,12 @@ public class FullTransaction {
     }
 
     public String getFormatedDate(){
-        return new SimpleDateFormat("MM-yy").format(getExpirationDate());
+        if(getExpirationDate()==null) return null;
+
+        DateFormat df = new SimpleDateFormat("MM/yy");
+        String reportDate = df.format(getExpirationDate());
+
+        return reportDate;
     }
 
     public HashMap<String, String> toHashMap () {
