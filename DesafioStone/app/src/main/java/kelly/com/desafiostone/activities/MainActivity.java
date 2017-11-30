@@ -1,25 +1,20 @@
 package kelly.com.desafiostone.activities;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import kelly.com.desafiostone.fragments.FragmentCart;
 import kelly.com.desafiostone.interfaces.ComunicatorActivityFragment;
 import kelly.com.desafiostone.interfaces.ComunicatorFragmentActivity;
 import kelly.com.desafiostone.adapters.SimpleFragmentPageAdapter;
 import kelly.com.desafiostone.R;
-import kelly.com.desafiostone.models.FullTransaction;
 import kelly.com.desafiostone.models.Item;
-import kelly.com.desafiostone.network.QueryUtils;
 
 public class MainActivity extends AppCompatActivity implements ComunicatorFragmentActivity{
 

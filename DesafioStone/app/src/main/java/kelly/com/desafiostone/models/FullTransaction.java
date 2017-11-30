@@ -14,7 +14,7 @@ public class FullTransaction {
     private String cardNumber;
     private String holderName;
     private Date expirationDate;
-    private int cvv;
+    private String cvv;
     private double value;
 
     public FullTransaction() {}
@@ -43,11 +43,11 @@ public class FullTransaction {
         this.expirationDate = expirationDate;
     }
 
-    public int getCvv() {
+    public String getCvv() {
         return cvv;
     }
 
-    public void setCvv(int cvv) {
+    public void setCvv(String cvv) {
         this.cvv = cvv;
     }
 
@@ -73,7 +73,7 @@ public class FullTransaction {
 
         fullTransactionsHashMap.put("card_number", getCardNumber());
         fullTransactionsHashMap.put("value", Double.toString(getValue() * 100));
-        fullTransactionsHashMap.put("cvv", Integer.toString(getCvv()));
+        fullTransactionsHashMap.put("cvv", getCvv());
         fullTransactionsHashMap.put("card_holder_name", getHolderName());
         fullTransactionsHashMap.put("exp_date", getFormatedDate());
 

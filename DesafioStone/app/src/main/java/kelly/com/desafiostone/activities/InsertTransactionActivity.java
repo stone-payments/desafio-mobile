@@ -1,11 +1,14 @@
 package kelly.com.desafiostone.activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -22,6 +25,7 @@ import java.util.Date;
 
 import kelly.com.desafiostone.R;
 import kelly.com.desafiostone.models.FullTransaction;
+import kelly.com.desafiostone.models.Item;
 import kelly.com.desafiostone.network.QueryUtils;
 
 public class InsertTransactionActivity extends AppCompatActivity {
@@ -52,7 +56,7 @@ public class InsertTransactionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isValidForm() && isInternetConnectionAvailable()){
-                    sendTransation();
+                    showConfirmTransationDialog();
                 }
             }
         });
@@ -86,7 +90,13 @@ public class InsertTransactionActivity extends AppCompatActivity {
 
                 if (isValidDate(dateString)){
 
-                    return true;
+                    if (cvvString.length() == 3){
+
+                        return true;
+
+                    } else {
+                        Toast.makeText(getBaseContext(), R.string.message_invalid_cvv, Toast.LENGTH_SHORT).show();
+                    }
 
                 } else {
                     Toast.makeText(getBaseContext(), R.string.message_invalid_date_format, Toast.LENGTH_SHORT).show();
@@ -132,7 +142,7 @@ public class InsertTransactionActivity extends AppCompatActivity {
         fullTransaction.setHolderName(holderName);
         fullTransaction.setCardNumber(cardNumber);
         fullTransaction.setExpirationDate(stringToDate(dateString, "MM/yy"));
-        fullTransaction.setCvv(Integer.parseInt(cvvString));
+        fullTransaction.setCvv(cvvString);
         fullTransaction.setValue(total);
 
         new SendTransactionAsyncTask().execute(fullTransaction);
@@ -146,6 +156,55 @@ public class InsertTransactionActivity extends AppCompatActivity {
         Date stringDate = simpledateformat.parse(aDate, pos);
         return stringDate;
 
+    }
+
+    private void showConfirmTransationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.message_finish_transation);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                sendTransation();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void showTransationNegativeResultDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.message_problem_transation);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void showTransationPositiveResultDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.message_successful_transaction);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+                Intent intent = new Intent(getBaseContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public class SendTransactionAsyncTask extends AsyncTask<FullTransaction, String, String> {
@@ -170,7 +229,12 @@ public class InsertTransactionActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+
+            if(s.contains("Sucess")){
+                showTransationPositiveResultDialog();
+            } else {
+                showTransationNegativeResultDialog();
+            }
         }
     }
-
 }

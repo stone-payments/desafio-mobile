@@ -6,6 +6,8 @@
     <string name="post_transactions_url">https://private-c9e557-kellybentes.apiary-mock.com/questions</string>
 
     <string name="add_cart">Add Cart</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
 
     <!--Item Transaction-->
     <string name="holder_name_title">Holder: </string>
@@ -26,5 +28,11 @@
     <string name="message_form_incomplete">You have to full fill all the form</string>
     <string name="message_invalid_card_number">Invalid Card Number</string>
     <string name="message_invalid_date_format">Invalid date format</string>
+    <string name="message_invalid_cvv">Invalid CVV</string>
+    <string name="message_insert_item_cart">Are you sure you want to add %s to the cart?</string>
+    <string name="message_proceed_to_checkou">Do you want proceed to checkout?</string>
+    <string name="message_finish_transation">Finish transation?</string>
+    <string name="message_problem_transation">There was a problem with your transaction.</string>
+    <string name="message_successful_transaction">Successful transaction</string>
 
 </resources>

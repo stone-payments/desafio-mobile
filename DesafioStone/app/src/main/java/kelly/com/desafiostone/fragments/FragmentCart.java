@@ -1,9 +1,11 @@
 package kelly.com.desafiostone.fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +57,7 @@ public class FragmentCart extends Fragment implements ComunicatorActivityFragmen
         btnProcedCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mComunicatorFragmentActivity.procedToCheckout();
+                showProceedCheckoutCartDialog();
             }
         });
     }
@@ -82,5 +84,26 @@ public class FragmentCart extends Fragment implements ComunicatorActivityFragmen
         }
 
         return total;
+    }
+
+    private void showProceedCheckoutCartDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage(R.string.message_proceed_to_checkou);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                mComunicatorFragmentActivity.procedToCheckout();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

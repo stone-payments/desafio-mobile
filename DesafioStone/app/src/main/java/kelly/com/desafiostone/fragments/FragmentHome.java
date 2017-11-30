@@ -1,6 +1,7 @@
 package kelly.com.desafiostone.fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +51,7 @@ public class FragmentHome extends Fragment implements LoaderManager.LoaderCallba
         mListAdapterListener = new ItemAdapter.ListAdapterListener() {
             @Override
             public void onClickAtItem(Item item) {
-                mComunicatorFragmentActivity.addItemToCart(item);
+                showInsertItemCartDialog(item);
             }
         };
 
@@ -76,6 +78,27 @@ public class FragmentHome extends Fragment implements LoaderManager.LoaderCallba
             return true;
         else
             return false;
+    }
+
+    private void showInsertItemCartDialog(final Item item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage(getString(R.string.message_insert_item_cart, item.getTitle()));
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                mComunicatorFragmentActivity.addItemToCart(item);
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     @Override
