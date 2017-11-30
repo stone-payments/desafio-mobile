@@ -19,7 +19,6 @@ import java.util.Map;
 
 import kelly.com.desafiostone.models.Item;
 import kelly.com.desafiostone.models.FullTransaction;
-import kelly.com.desafiostone.models.ShortTransaction;
 
 /**
  * Created by kelly on 29/11/17.
