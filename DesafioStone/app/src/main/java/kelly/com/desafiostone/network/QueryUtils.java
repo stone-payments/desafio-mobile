@@ -46,12 +46,12 @@ public class QueryUtils {
 
         ArrayList<Item> itensList = JsonParse.parseItensFromJson(jsonResponse);
 
-//        for (Item item:itensList){
-//            Log.d("debug", item.getTitle() + "\n"+
-//                            item.getPrice() + "\n"+
-//                            item.getSeller() + "\n"+
-//                            item.getImage());
-//        }
+        for (Item item:itensList){
+            Log.d("debug", item.getTitle() + "\n"+
+                            item.getPrice() + "\n"+
+                            item.getSeller() + "\n"+
+                            item.getImage());
+        }
 
         return itensList;
     }
