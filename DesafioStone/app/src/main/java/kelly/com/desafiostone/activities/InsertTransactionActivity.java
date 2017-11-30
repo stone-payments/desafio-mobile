@@ -1,9 +1,13 @@
 package kelly.com.desafiostone.activities;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,14 +22,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kelly.com.desafiostone.R;
+import kelly.com.desafiostone.data.TransactionContract;
 import kelly.com.desafiostone.models.FullTransaction;
 import kelly.com.desafiostone.models.Item;
+import kelly.com.desafiostone.models.ShortTransaction;
 import kelly.com.desafiostone.network.QueryUtils;
 
 public class InsertTransactionActivity extends AppCompatActivity {
@@ -207,13 +214,40 @@ public class InsertTransactionActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    private void saveTransaction(ShortTransaction shortTransaction) {
+
+        ContentValues values = new ContentValues();
+        values.put(TransactionContract.TransactionEntry.COLUMN_TRANSACTION_HOLDER_NAME, shortTransaction.getHolderName());
+        values.put(TransactionContract.TransactionEntry.COLUMN_TRANSACTION_LAST_CARD_NUMBERS, shortTransaction.getLastCardNumbers());
+        values.put(TransactionContract.TransactionEntry.COLUMN_TRANSACTION_VALUE, shortTransaction.getValue());
+        values.put(TransactionContract.TransactionEntry.COLUMN_TRANSACTION_DATE, shortTransaction.getLongOcurrenceDate());
+
+        getContentResolver().insert(TransactionContract.TransactionEntry.CONTENT_URI, values);
+
+    }
+
+    private ShortTransaction fullToShortTransation(FullTransaction fullTransaction){
+
+        String fullCredCardNumber = fullTransaction.getCardNumber();
+
+        ShortTransaction result = new ShortTransaction();
+        result.setHolderName(fullTransaction.getHolderName());
+        result.setLastCardNumbers(fullCredCardNumber.substring(fullCredCardNumber.length()-4,
+                fullCredCardNumber.length()));
+        result.setOccurrenceDate(new Date(System.currentTimeMillis()));
+        result.setValue(fullTransaction.getValue());
+
+        return result;
+    }
+
     public class SendTransactionAsyncTask extends AsyncTask<FullTransaction, String, String> {
 
         String result;
+        FullTransaction fullTransaction;
 
         @Override
         protected String doInBackground(FullTransaction... params) {
-            FullTransaction fullTransaction = params[0];
+            fullTransaction = params[0];
 
             String urlString = getString(R.string.post_transactions_url);
 
@@ -231,6 +265,7 @@ public class InsertTransactionActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             if(s.contains("Sucess")){
+                saveTransaction(fullToShortTransation(fullTransaction));
                 showTransationPositiveResultDialog();
             } else {
                 showTransationNegativeResultDialog();

@@ -12,7 +12,7 @@ public class TransactionContract {
     public static final String CONTENT_AUTHORITY = "kelly.com.desafiostone";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    public static final String PATH_TRANSACTIONS = "transaction";
+    public static final String PATH_TRANSACTIONS = "itemTransaction";
 
     private TransactionContract(){}
 
@@ -26,7 +26,7 @@ public class TransactionContract {
         public static final String CONTENT_ITEM_TYPE =
                 ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TRANSACTIONS;
 
-        public final static String TABLE_NAME = "transaction";
+        public final static String TABLE_NAME = "itemTransaction";
 
         public final static String _ID = BaseColumns._ID;
         /**
@@ -46,12 +46,12 @@ public class TransactionContract {
          *
          * Type: REAL
          */
-        public final static String COLUMN_TRANSACTION_VALUE = "value";
+        public final static String COLUMN_TRANSACTION_VALUE = "transactionValue";
         /**
          * The transaction date in miliseconds
          *
          * Type: INTEGER
          */
-        public final static String COLUMN_TRANSACTION_DATE = "date";
+        public final static String COLUMN_TRANSACTION_DATE = "transactionDate";
     }
 }

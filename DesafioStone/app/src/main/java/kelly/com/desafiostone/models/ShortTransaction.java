@@ -1,6 +1,5 @@
 package kelly.com.desafiostone.models;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -55,5 +54,12 @@ public class ShortTransaction {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public long getLongOcurrenceDate (){
+
+        Date date = getOccurrenceDate();
+
+        return date.getTime();
     }
 }

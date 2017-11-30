@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TransactionDataBaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "transaction.db";
+    private static final String DATABASE_NAME = "itemTransaction.db";
     private static final int DATABASE_VERSION = 1;
 
     public TransactionDataBaseHelper(Context context) {
@@ -20,12 +20,12 @@ public class TransactionDataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_TRANSACTION_TABLE =  "CREATE TABLE " + TransactionContract.TransactionEntry.TABLE_NAME + " ("
+        final String SQL_CREATE_TRANSACTION_TABLE =  "CREATE TABLE " + TransactionContract.TransactionEntry.TABLE_NAME + "("
                 + TransactionContract.TransactionEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TransactionContract.TransactionEntry.COLUMN_TRANSACTION_HOLDER_NAME + " TEXT NOT NULL, "
                 + TransactionContract.TransactionEntry.COLUMN_TRANSACTION_LAST_CARD_NUMBERS + " TEXT NOT NULL, "
-                + TransactionContract.TransactionEntry.COLUMN_TRANSACTION_DATE + " INTEGER NOT NULL, "
-                + TransactionContract.TransactionEntry.COLUMN_TRANSACTION_VALUE + " REAL NOT NULL);";
+                + TransactionContract.TransactionEntry.COLUMN_TRANSACTION_VALUE + " REAL NOT NULL, "
+                + TransactionContract.TransactionEntry.COLUMN_TRANSACTION_DATE + " INTEGER NOT NULL);";
 
         db.execSQL(SQL_CREATE_TRANSACTION_TABLE);
     }

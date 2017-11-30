@@ -23,6 +23,11 @@
             android:name=".activities.InsertTransactionActivity"
             android:label="@string/title_activity_insert_transaction"
             android:theme="@style/AppTheme"></activity>
+
+        <provider
+            android:name=".data.TransactionProvider"
+            android:authorities="kelly.com.desafiostone"
+            android:exported="false" />
     </application>
 
 </manifest>
