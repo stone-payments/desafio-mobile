@@ -120,8 +120,6 @@ public class QueryUtils {
 
             jsonResponse = makeHttpPost(url, data);
 
-            Log.d("debug", jsonResponse);
-
         } catch (IOException e) {
             Log.e(TAG, "HTTP request failed", e);
         }

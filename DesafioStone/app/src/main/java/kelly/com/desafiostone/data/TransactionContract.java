@@ -8,13 +8,13 @@ import android.provider.BaseColumns;
  * Created by kelly on 30/11/17.
  */
 
-public class ShopContract {
+public class TransactionContract {
     public static final String CONTENT_AUTHORITY = "kelly.com.desafiostone";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     public static final String PATH_TRANSACTIONS = "transaction";
 
-    private ShopContract(){}
+    private TransactionContract(){}
 
     public static final class TransactionEntry implements BaseColumns {
 
@@ -50,7 +50,7 @@ public class ShopContract {
         /**
          * The transaction date in miliseconds
          *
-         * Type: INT
+         * Type: INTEGER
          */
         public final static String COLUMN_TRANSACTION_DATE = "date";
     }
