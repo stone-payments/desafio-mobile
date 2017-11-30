@@ -37,7 +37,7 @@ public class JsonParse {
                 item.setTitle(itensObject.getString("title"));
                 item.setPrice(itensObject.getDouble("price") /100);
                 item.setSeller(itensObject.getString("seller"));
-                item.setImage(itensObject.getString("thumbnailHd"));
+                item.setImageURL(itensObject.getString("thumbnailHd"));
 
                 itensList.add(item);
             }

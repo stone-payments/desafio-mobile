@@ -1,66 +1,60 @@
 package kelly.com.desafiostone.activities;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Date;
 
-import kelly.com.desafiostone.loaders.ItensLoader;
+import kelly.com.desafiostone.adapters.SimpleFragmentPageAdapter;
 import kelly.com.desafiostone.R;
 import kelly.com.desafiostone.models.FullTransaction;
-import kelly.com.desafiostone.models.Item;
 import kelly.com.desafiostone.network.QueryUtils;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Item>>{
+public class MainActivity extends AppCompatActivity {
+
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (isInternetConnectionAvailable()){
-            LoaderManager loaderManager = getSupportLoaderManager();
-            loaderManager.initLoader(1, null, this);
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
-            new Teste().execute();
-        }
+        SimpleFragmentPageAdapter simpleFragmentPageAdapter = new SimpleFragmentPageAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(simpleFragmentPageAdapter);
+
+        ImageView imageViewHome = (ImageView) findViewById(R.id.img_vw_home);
+        imageViewHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewPager.setCurrentItem(0);
+            }
+        });
+
+        ImageView imageViewCart = (ImageView) findViewById(R.id.img_vw_cart);
+        imageViewCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewPager.setCurrentItem(1);
+            }
+        });
+
+        ImageView imageViewTransactionList = (ImageView) findViewById(R.id.img_vw_transactions);
+        imageViewTransactionList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewPager.setCurrentItem(2);
+            }
+        });
     }
 
-    private boolean isInternetConnectionAvailable(){
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if ((netInfo != null) && (netInfo.isConnectedOrConnecting()) && (netInfo.isAvailable()))
-            return true;
-        else
-            return false;
-    }
-
-    @Override
-    public Loader<ArrayList<Item>> onCreateLoader(int id, Bundle args) {
-
-        ItensLoader itensLoader = new ItensLoader(this, getString(R.string.get_itens_url));
-        return itensLoader;
-    }
-
-    @Override
-    public void onLoadFinished(Loader<ArrayList<Item>> loader, ArrayList<Item> data) {
-        // TODO make loader onLoadFinished
-    }
-
-    @Override
-    public void onLoaderReset(Loader<ArrayList<Item>> loader) {
-        // TODO make loader onLoaderReset
-    }
-
-    public class Teste extends AsyncTask<Void, Void, Void>{
+    public class Teste extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {

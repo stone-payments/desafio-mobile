@@ -50,7 +50,7 @@ public class QueryUtils {
             Log.d("debug", item.getTitle() + "\n"+
                             item.getPrice() + "\n"+
                             item.getSeller() + "\n"+
-                            item.getImage());
+                            item.getImageURL());
         }
 
         return itensList;

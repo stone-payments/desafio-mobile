@@ -1,5 +1,7 @@
 package kelly.com.desafiostone.models;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by kelly on 29/11/17.
  */
@@ -9,7 +11,8 @@ public class Item {
     private String title;
     private double price;
     private String seller;
-    private String image;
+    private String imageURL;
+    private Bitmap imageBitmap;
 
     public Item() {}
 
@@ -17,7 +20,7 @@ public class Item {
         this.title = title;
         this.price = price;
         this.seller = seller;
-        this.image = image;
+        this.imageURL = image;
     }
 
     public String getTitle() {
@@ -44,11 +47,19 @@ public class Item {
         this.seller = seller;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageURL(String image) {
+        this.imageURL = image;
+    }
+
+    public Bitmap getImageBitmap() {
+        return imageBitmap;
+    }
+
+    public void setImageBitmap(Bitmap imageBitmap) {
+        this.imageBitmap = imageBitmap;
     }
 }
