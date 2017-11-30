@@ -1,4 +1,4 @@
-package kelly.com.desafiostone;
+package kelly.com.desafiostone.network;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import kelly.com.desafiostone.models.Item;
 
 /**
  * Created by kelly on 29/11/17.

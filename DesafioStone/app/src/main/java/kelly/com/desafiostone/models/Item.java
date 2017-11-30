@@ -1,4 +1,4 @@
-package kelly.com.desafiostone;
+package kelly.com.desafiostone.models;
 
 /**
  * Created by kelly on 29/11/17.

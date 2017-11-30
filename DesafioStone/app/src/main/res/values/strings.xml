@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">DesafioStone</string>
 
-    <string name="base_url">https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json</string>
+    <string name="get_itens_url">https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json</string>
+    <string name="post_transactions_url">https://private-c9e557-kellybentes.apiary-mock.com/questions</string>
 </resources>

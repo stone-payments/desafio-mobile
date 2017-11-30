@@ -1,9 +1,12 @@
-package kelly.com.desafiostone;
+package kelly.com.desafiostone.loaders;
 
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
 
 import java.util.ArrayList;
+
+import kelly.com.desafiostone.models.Item;
+import kelly.com.desafiostone.network.QueryUtils;
 
 /**
  * Created by kelly on 29/11/17.
