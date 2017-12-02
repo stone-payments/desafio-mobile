@@ -23,8 +23,6 @@
 		3DF37CE71FCB79FC00D5D21A /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF37CE61FCB79FC00D5D21A /* CartViewController.swift */; };
 		3DF37CEC1FCB79FC00D5D21A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF37CEB1FCB79FC00D5D21A /* Assets.xcassets */; };
 		3DF37CEF1FCB79FC00D5D21A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF37CED1FCB79FC00D5D21A /* LaunchScreen.storyboard */; };
-		3DF37CFA1FCB79FD00D5D21A /* StarWarsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF37CF91FCB79FC00D5D21A /* StarWarsStoreTests.swift */; };
-		3DF37D051FCB79FD00D5D21A /* StarWarsStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF37D041FCB79FD00D5D21A /* StarWarsStoreUITests.swift */; };
 		3DF37D131FCB92E200D5D21A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF37D121FCB92E200D5D21A /* ProfileViewController.swift */; };
 		3DF37D1B1FCB934B00D5D21A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF37D1A1FCB934B00D5D21A /* Item.swift */; };
 		3DF37D1D1FCB9FB400D5D21A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF37D1C1FCB9FB400D5D21A /* User.swift */; };
@@ -67,11 +65,7 @@
 		3DF37CEE1FCB79FC00D5D21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF37CF01FCB79FC00D5D21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF37CF51FCB79FC00D5D21A /* StarWarsStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DF37CF91FCB79FC00D5D21A /* StarWarsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStoreTests.swift; sourceTree = "<group>"; };
-		3DF37CFB1FCB79FD00D5D21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF37D001FCB79FD00D5D21A /* StarWarsStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DF37D041FCB79FD00D5D21A /* StarWarsStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStoreUITests.swift; sourceTree = "<group>"; };
-		3DF37D061FCB79FD00D5D21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF37D121FCB92E200D5D21A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3DF37D1A1FCB934B00D5D21A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3DF37D1C1FCB9FB400D5D21A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -116,8 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				3DF37CE11FCB79FC00D5D21A /* StarWarsStore */,
-				3DF37CF81FCB79FC00D5D21A /* StarWarsStoreTests */,
-				3DF37D031FCB79FD00D5D21A /* StarWarsStoreUITests */,
 				3DF37CE01FCB79FC00D5D21A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,24 +134,6 @@
 				3DF37D151FCB930C00D5D21A /* View */,
 			);
 			path = StarWarsStore;
-			sourceTree = "<group>";
-		};
-		3DF37CF81FCB79FC00D5D21A /* StarWarsStoreTests */ = {
-			isa = PBXGroup;
-			children = (
-				3DF37CF91FCB79FC00D5D21A /* StarWarsStoreTests.swift */,
-				3DF37CFB1FCB79FD00D5D21A /* Info.plist */,
-			);
-			path = StarWarsStoreTests;
-			sourceTree = "<group>";
-		};
-		3DF37D031FCB79FD00D5D21A /* StarWarsStoreUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3DF37D041FCB79FD00D5D21A /* StarWarsStoreUITests.swift */,
-				3DF37D061FCB79FD00D5D21A /* Info.plist */,
-			);
-			path = StarWarsStoreUITests;
 			sourceTree = "<group>";
 		};
 		3DF37D141FCB92F500D5D21A /* Controller */ = {
@@ -364,7 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF37CFA1FCB79FD00D5D21A /* StarWarsStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF37D051FCB79FD00D5D21A /* StarWarsStoreUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PMD3Q4LVK;
-				INFOPLIST_FILE = "$(SRCROOT)/StarWarsStoreUITests/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/StarWarsStore/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lucasferracof.StarWarsStore;
@@ -540,7 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PMD3Q4LVK;
-				INFOPLIST_FILE = "$(SRCROOT)/StarWarsStoreUITests/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/StarWarsStore/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lucasferracof.StarWarsStore;
