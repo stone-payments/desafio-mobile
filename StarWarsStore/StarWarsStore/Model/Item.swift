@@ -16,6 +16,8 @@ class Item {
 	public var postedDate: Date!
     public var photo: UIImage!
 	
+	public var isOnCart: Bool!
+	
 	init(name: String, price: Double, sellerName: String, sellerZipCode: String, postedDate: Date, photo: UIImage) {
 		self.name = name
 		self.price = price
@@ -23,6 +25,8 @@ class Item {
 		self.sellerZipCode = sellerZipCode
 		self.postedDate = postedDate
 		self.photo = photo
+		
+		isOnCart = false
 	}
 	
 	init?(from json: [String : Any], _ completion: ((_ image: UIImage?) -> Void)? = nil) {
@@ -37,7 +41,7 @@ class Item {
 		//	}
 		
 		if let name = json["title"] as? String { self.name = name }
-		if let price = json["price"] as? Double { self.price = price }
+		if let price = json["price"] as? Double { self.price = price/100 }
 		if let sellerName = json["seller"] as? String { self.sellerName = sellerName }
 		if let sellerZipCode = json["zipcode"] as? String { self.sellerZipCode = sellerZipCode }
 		
@@ -56,21 +60,24 @@ class Item {
 			let url = URL(string: photoURL)
 			
 			URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-				if error == nil {
-					DispatchQueue.main.async {
+				DispatchQueue.main.async {
+					if error == nil {
 						self.photo = UIImage(data: data!)
 						
 						if completion != nil {
 							completion!(UIImage(data: data!)!)
 						}
 					}
-				}
-				else {
-					if completion != nil {
-						completion!(nil)
+					else {
+						if completion != nil {
+							completion!(nil)
+						}
 					}
 				}
 			}).resume()
 		}
+		
+		isOnCart = false
 	}
+	
 }
