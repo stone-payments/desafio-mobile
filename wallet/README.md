@@ -55,7 +55,7 @@ O desafio será avaliado através de cinco critérios.
 
 * O código possui configuração de lint?
 * O código possui testes unitários?
-* O código possui teste de cobertura?
+* O código possui cobertura de testes?
 * O código está em Integração Contínua?
 
 ## Material de Estudo
