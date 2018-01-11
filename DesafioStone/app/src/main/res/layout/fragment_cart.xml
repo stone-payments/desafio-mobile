@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kelly.com.desafiostone.fragments.FragmentCart"
+    android:layout_margin="10dp">
+
+    <Button
+        android:id="@+id/btn_proceed_checkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/proceed_checkout"
+        android:textAppearance="@style/TextViewTitles"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_green_light"
+        android:textColor="@android:color/white"/>
+
+    <LinearLayout
+        android:id="@+id/ll_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:gravity="top"
+        android:layout_marginBottom="5dp"
+        android:layout_alignStart="@+id/btn_proceed_checkout"
+        android:layout_alignLeft="@+id/btn_proceed_checkout"
+        android:layout_above="@+id/btn_proceed_checkout">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_title"
+            android:textAppearance="@style/TextViewTitles"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextSecundary"
+            android:minWidth="80sp"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_itens_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_total"
+        android:layout_alignParentTop="true">
+    </ListView>
+
+</RelativeLayout>

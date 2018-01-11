@@ -1,0 +1,138 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kelly.com.desafiostone.activities.InsertTransactionActivity"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:gravity="top"
+        android:layout_marginBottom="5dp">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_title"
+            android:textAppearance="@style/TextViewTitles"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextSecundary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:gravity="top"
+        android:layout_marginBottom="5dp">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/holder_name_title"
+            android:textAppearance="@style/TextViewTitles"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText android:id="@+id/edt_holder_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextSecundary"
+            android:minWidth="150sp"
+            android:inputType="textPersonName"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:gravity="top">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/card_number_title"
+            android:textAppearance="@style/TextViewTitles"
+            android:layout_marginBottom="5dp" />
+
+        <EditText android:id="@+id/edt_card_numer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextSecundary"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:minWidth="150sp"
+            android:inputType="number"
+            android:maxLength="16" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:gravity="top">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/expiration_date_title"
+            android:textAppearance="@style/TextViewTitles"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText android:id="@+id/edt_expiration_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextSecundary"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:minWidth="150sp"
+            android:inputType="date"
+            android:hint="@string/hint_expiration_date"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:gravity="top">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cvv_title"
+            android:textAppearance="@style/TextViewTitles"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText android:id="@+id/edt_cvv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextSecundary"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:minWidth="80sp"
+            android:inputType="number"
+            android:maxLength="3"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="end"
+        android:text="@string/finish"
+        android:textAppearance="@style/TextViewTitles"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_green_light"
+        android:textColor="@android:color/white"/>
+</LinearLayout>
