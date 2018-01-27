@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Call
 
         ProdutosSyncAdapter.initializeSyncAdapter(this);
 
+        mCarrinho = new Carrinho();
+
     }
 
     @Override

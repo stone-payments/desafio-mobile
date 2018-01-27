@@ -136,8 +136,6 @@ public class ProdutoDetalheFragment extends Fragment implements LoaderManager.Lo
             String thumbnailHd = cursor.getString(thumbnailHdIndex);
             String data = cursor.getString(dataIndex);
 
-            mCarrinho = new Carrinho();
-
             itemProduto = new ItemProduto(Long.valueOf(idProduto), title,
                     Double.valueOf(price),
                     zipcode,
@@ -159,6 +157,7 @@ public class ProdutoDetalheFragment extends Fragment implements LoaderManager.Lo
 //            }
 
             dataView.setText(data);
+            totalValorProdutoCarrinho.setText("Valor do carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
 
         }
     }
