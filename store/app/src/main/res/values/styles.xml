@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DesafioLojaStarWarsTheme" parent="AppTheme">
+        <item name="actionBarStyle">@style/ActionBar.Solid.DesafioLojaStarWars.NoTitle</item>
+    </style>
+
+    <style name="ActionBar.Solid.DesafioLojaStarWars.NoTitle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:displayOptions">useLogo|showHome</item>
+        <item name="logo">@mipmap/ic_launcher</item>
+    </style>
+
+    <style name="DesafioLojaStarWarsListStyle">
+
+    </style>
+
+</resources>
