@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 public class ProdutoDetalheActivity extends AppCompatActivity {
 
@@ -26,6 +28,29 @@ public class ProdutoDetalheActivity extends AppCompatActivity {
         fragment.setArguments(bundle);
         fragmentTransaction.add(R.id.fragment_file_detalhe, fragment);
 
+        // toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Detalhes do Produto");
+//        actionBar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_back));
+//        actionBar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //What to do on back clicked
+//            }
+//        });
+        // end toolbar
+
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
