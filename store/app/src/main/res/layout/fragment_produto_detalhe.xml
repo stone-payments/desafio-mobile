@@ -153,6 +153,13 @@
             android:text="Adicionar ao carrinho"
             android:layout_marginTop="10dp"/>
 
+        <Button
+            android:id="@+id/btn_remove_carrinho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remover do carrinho"
+            android:layout_marginTop="10dp"/>
+
     </LinearLayout>
 
 </LinearLayout>

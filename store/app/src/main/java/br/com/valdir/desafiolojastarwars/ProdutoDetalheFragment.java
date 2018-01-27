@@ -47,6 +47,8 @@ public class ProdutoDetalheFragment extends Fragment implements LoaderManager.Lo
 
     private Button btnAdicionarCarrinho;
 
+    private Button btnRemoverCarrinho;
+
     private static final int PRODUTO_DETALHE_LOADER = 0;
 
     @Override
@@ -85,6 +87,10 @@ public class ProdutoDetalheFragment extends Fragment implements LoaderManager.Lo
 
         btnAdicionarCarrinho.setOnClickListener(onClickAdicionarCarrinho());
 
+        btnRemoverCarrinho = view.findViewById(R.id.btn_remove_carrinho);
+
+        btnRemoverCarrinho.setOnClickListener(onClickRemoverCarrinho());
+
         return view;
     }
 
@@ -93,6 +99,15 @@ public class ProdutoDetalheFragment extends Fragment implements LoaderManager.Lo
             public void onClick(View v) {
                mCarrinho.addToCart(itemProduto);
                totalValorProdutoCarrinho.setText("Valor do carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
+            }
+        };
+    }
+
+    private View.OnClickListener onClickRemoverCarrinho() {
+        return new Button.OnClickListener(){
+            public void onClick(View v) {
+                mCarrinho.removeFromCart(itemProduto);
+                totalValorProdutoCarrinho.setText("Valor do carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
             }
         };
     }

@@ -22,6 +22,18 @@ public class Carrinho {
         mValue += itemProduto.getPrice();
     }
 
+    void removeFromCart(ItemProduto itemProduto) {
+
+        if((mCarrinho.containsKey(itemProduto)) && (mCarrinho.get(itemProduto).intValue() != 0)) {
+            mCarrinho.put(itemProduto, mCarrinho.get(itemProduto) - 1);
+            mValue -= itemProduto.getPrice();
+        }
+
+        if((mCarrinho.containsKey(itemProduto)) && (mCarrinho.get(itemProduto).intValue() == 0))
+            mCarrinho.remove(itemProduto);
+
+    }
+
     int getQuantity(ItemProduto itemProduto)
     {
         return mCarrinho.get(itemProduto);
