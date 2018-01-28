@@ -6,7 +6,8 @@ import java.util.Set;
 
 public class Carrinho {
 
-    Map<ItemProduto, Integer> mCarrinho;
+    Map<Long, Integer> mCarrinho;
+    //Map<ItemProduto, Integer> mProduto;
     double mValue = 0;
 
     Carrinho() {
@@ -14,18 +15,18 @@ public class Carrinho {
     }
 
     void addToCart(ItemProduto itemProduto) {
-        if(mCarrinho.containsKey(itemProduto))
-            mCarrinho.put(itemProduto, mCarrinho.get(itemProduto) + 1);
+        if(mCarrinho.containsKey(itemProduto.getId()))
+            mCarrinho.put(itemProduto.getId(), mCarrinho.get(itemProduto.getId()) + 1);
         else
-            mCarrinho.put(itemProduto, 1);
+            mCarrinho.put(itemProduto.getId(), 1);
 
         mValue += itemProduto.getPrice();
     }
 
     void removeFromCart(ItemProduto itemProduto) {
 
-        if((mCarrinho.containsKey(itemProduto)) && (mCarrinho.get(itemProduto).intValue() != 0)) {
-            mCarrinho.put(itemProduto, mCarrinho.get(itemProduto) - 1);
+        if((mCarrinho.containsKey(itemProduto.getId())) && (mCarrinho.get(itemProduto.getId()).intValue() != 0)) {
+            mCarrinho.put(itemProduto.getId(), mCarrinho.get(itemProduto.getId()) - 1);
             mValue -= itemProduto.getPrice();
         }
 

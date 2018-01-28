@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,11 +20,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.valdir.desafiolojastarwars.data.ProdutosContract;
 import br.com.valdir.desafiolojastarwars.sync.ProdutosSyncAdapter;
+
+import static br.com.valdir.desafiolojastarwars.MainActivity.mCarrinho;
 
 public class MainFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -40,6 +45,8 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     private static final int PRODUTOS_LOADER = 0;
 
     private ProgressDialog progressDialog;
+
+    private TextView totalValorCarrinho;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,6 +86,20 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         progressDialog.setCancelable(false);
 
         getLoaderManager().initLoader(PRODUTOS_LOADER, null, this);
+
+
+        Button btnCarrinho = view.findViewById(R.id.btn_ver_carrinho);
+        btnCarrinho.setOnClickListener(onClickVerCarrinho());
+
+        Button btnZerarCarrinho = view.findViewById(R.id.btn_zerar_carrinho);
+        btnZerarCarrinho.setOnClickListener(onClickZerarCarrinho());
+
+        Button btnPagar = view.findViewById(R.id.btn_pagar);
+        btnPagar.setOnClickListener(onClickPagar());
+
+        totalValorCarrinho = view.findViewById(R.id.txt_total_carrinho);
+//        totalValorCarrinho.setText("Total do Carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
+        totalValorCarrinho.setText("Total do Carrinho = R$ 0,00");
 
         return view;
     }
@@ -127,6 +148,8 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onResume();
 
         getLoaderManager().restartLoader(PRODUTOS_LOADER, null, this);
+
+        totalValorCarrinho.setText("Total do Carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
     }
 
     @Override
@@ -181,4 +204,32 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
             adapter.setUseProdutoDestaque(useProdutoDestaque);
         }
     }
+
+    private View.OnClickListener onClickVerCarrinho() {
+        return new Button.OnClickListener() {
+           public void onClick(View v) {
+
+               Log.d("C1", "Ver carrinho");
+           }
+        };
+    }
+
+    private View.OnClickListener onClickZerarCarrinho() {
+        return new Button.OnClickListener() {
+            public void onClick(View v) {
+                mCarrinho.empty();
+                totalValorCarrinho.setText("Total do Carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
+                Log.d("C2", "Zerar carrinho");
+            }
+        };
+    }
+
+    private View.OnClickListener onClickPagar() {
+        return new Button.OnClickListener() {
+            public void onClick(View v) {
+                Log.d("C3", "Pagar");
+            }
+        };
+    }
+
 }

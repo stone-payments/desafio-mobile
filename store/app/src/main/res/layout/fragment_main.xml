@@ -49,8 +49,9 @@
         </TableLayout>
 
         <TextView
+            android:id="@+id/txt_total_carrinho"
             android:text="Total do Carrinho = R$ "
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
