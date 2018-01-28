@@ -7,11 +7,12 @@ import java.util.Set;
 public class Carrinho {
 
     Map<Long, Integer> mCarrinho;
-    //Map<ItemProduto, Integer> mProduto;
+    Map<Long, ItemProduto> mProduto;
     double mValue = 0;
 
     Carrinho() {
         mCarrinho = new LinkedHashMap<>();
+        mProduto = new LinkedHashMap<>();
     }
 
     void addToCart(ItemProduto itemProduto) {
@@ -21,6 +22,7 @@ public class Carrinho {
             mCarrinho.put(itemProduto.getId(), 1);
 
         mValue += itemProduto.getPrice();
+        mProduto.put(itemProduto.getId(), itemProduto);
     }
 
     void removeFromCart(ItemProduto itemProduto) {
@@ -30,17 +32,19 @@ public class Carrinho {
             mValue -= itemProduto.getPrice();
         }
 
-        if((mCarrinho.containsKey(itemProduto)) && (mCarrinho.get(itemProduto).intValue() == 0))
+        if((mCarrinho.containsKey(itemProduto)) && (mCarrinho.get(itemProduto).intValue() == 0)) {
             mCarrinho.remove(itemProduto);
+            mProduto.remove(itemProduto.getId());
+        }
 
     }
 
-    int getQuantity(ItemProduto itemProduto)
+    int getQuantidade(ItemProduto itemProduto)
     {
-        return mCarrinho.get(itemProduto);
+        return mCarrinho.get(itemProduto.getId());
     }
 
-    Set getProducts()
+    Set getIdItemProdutos()
     {
         return mCarrinho.keySet();
     }

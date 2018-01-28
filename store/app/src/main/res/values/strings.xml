@@ -5,6 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="detalhe_activity_label">Detalhe</string>
     <string name="settings_activity_label">Configurações</string>
+    <string name="visao_carrinho_activity_label">Configurações</string>
 
     <!-- Preferências de ordem -->
     <string name="prefs_ordem_label">Ordem</string>
