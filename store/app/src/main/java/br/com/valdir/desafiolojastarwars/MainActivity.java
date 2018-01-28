@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Call
         }
 
         MainFragment mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-        mainFragment.setUseProdutoDestaque(!isTablet);
+        //mainFragment.setUseProdutoDestaque(!isTablet);
+        mainFragment.setUseProdutoDestaque(false);
 
         ProdutosSyncAdapter.initializeSyncAdapter(this);
 

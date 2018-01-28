@@ -5,12 +5,12 @@
     android:background="#F4F4f4"
     android:orientation="vertical"
     android:padding="10dp"
-    android:layout_marginTop="70dp">
+    android:layout_marginTop="50dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="5">
 
         <ImageView
             android:id="@+id/item_thumbnailhd"
@@ -38,7 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_weight="5"
         android:background="@android:color/white"
         android:orientation="vertical">
 
@@ -146,19 +146,32 @@
             android:text="Total do carrinho = R$ 0,00"
             android:textAppearance="?android:textAppearanceSmall" />
 
-        <Button
-            android:id="@+id/btn_adiciona_carrinho"
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adicionar ao carrinho"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="match_parent"
+            android:shrinkColumns="*"
+            android:stretchColumns="*"
+            android:layout_marginTop="10dp">
 
-        <Button
-            android:id="@+id/btn_remove_carrinho"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Remover do carrinho"
-            android:layout_marginTop="10dp"/>
+            <TableRow
+                android:id="@+id/linha_botoes_detalhe"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <Button
+                    android:id="@+id/btn_adiciona_carrinho"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Adicionar ao carrinho" />
+
+                <Button
+                    android:id="@+id/btn_remove_carrinho"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Remover do carrinho" />
+            </TableRow>
+        </TableLayout>
 
     </LinearLayout>
 

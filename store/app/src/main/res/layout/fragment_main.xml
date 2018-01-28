@@ -7,11 +7,62 @@
     android:layout_height="match_parent"
     tools:context="br.com.valdir.desafiolojastarwars.MainActivity">
 
-    <ListView
-        style="@style/DesafioLojaStarWarsListStyle"
-        android:id="@+id/list_produtos"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:id="@+id/linhaBotoes"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <Button
+                    android:id="@+id/btn_ver_carrinho"
+                    android:text="Carrinho"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_zerar_carrinho"
+                    android:text="Zerar Carrinho"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_pagar"
+                    android:text="Pagar"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:text="Total do Carrinho = R$ "
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ListView
+            style="@style/DesafioLojaStarWarsListStyle"
+            android:id="@+id/list_produtos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+
 
 </FrameLayout>

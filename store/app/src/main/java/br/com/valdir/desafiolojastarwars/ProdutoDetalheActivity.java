@@ -36,18 +36,12 @@ public class ProdutoDetalheActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Detalhes do Produto");
-//        actionBar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_back));
-//        actionBar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //What to do on back clicked
-//            }
-//        });
         // end toolbar
-
         fragmentTransaction.commit();
     }
 
+    // usado pela toolbar, pois a toolbar nativa construía uma nova activity
+    // que por sua disparava o evento onCreate de novo
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
