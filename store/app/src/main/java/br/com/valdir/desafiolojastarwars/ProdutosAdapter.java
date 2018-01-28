@@ -9,6 +9,8 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import br.com.valdir.desafiolojastarwars.data.ProdutosContract;
 
 /**
@@ -89,7 +91,7 @@ public class ProdutosAdapter extends CursorAdapter {
             case VIEW_TYPE_DESTAQUE: {
                 holder.title.setText(cursor.getString(titleIndex));
                 holder.price.setText("R$ " + String.format("%.2f", cursor.getDouble(priceIndex)));
-                new DownloadImageTask(holder.thumbnailHd).execute(cursor.getString(thumbnailHdIndex));
+                Picasso.with(context).load(cursor.getString(thumbnailHdIndex)).into(holder.thumbnailHd);
                 break;
             }
             case VIEW_TYPE_ITEM: {
@@ -97,7 +99,7 @@ public class ProdutosAdapter extends CursorAdapter {
                 holder.price.setText("R$ " + String.format("%.2f", cursor.getDouble(priceIndex)));
                 holder.zipcode.setText(cursor.getString(zipcodeIndex));
                 holder.seller.setText(cursor.getString(sellerIndex));
-                new DownloadImageTask(holder.thumbnailHd).execute(cursor.getString(thumbnailHdIndex));
+                Picasso.with(context).load(cursor.getString(thumbnailHdIndex)).into(holder.thumbnailHd);
                 holder.data.setText(cursor.getString(dataIndex));
                 break;
             }

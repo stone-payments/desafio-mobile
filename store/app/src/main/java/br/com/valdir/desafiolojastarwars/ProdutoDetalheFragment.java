@@ -163,13 +163,7 @@ public class ProdutoDetalheFragment extends Fragment implements LoaderManager.Lo
             zipcodeView.setText(zipcode);
             sellerView.setText(seller);
 
-            //new DownloadImageTask(thumbnailHdView).execute(thumbnailHd);
-
             Picasso.with(getContext()).load(thumbnailHd).into(thumbnailHdView);
-
-//            if (thumbnailHdView != null) {
-//                new DownloadImageTask(thumbnailHdView).execute(thumbnailHd);
-//            }
 
             dataView.setText(data);
             totalValorProdutoCarrinho.setText("Valor do carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
