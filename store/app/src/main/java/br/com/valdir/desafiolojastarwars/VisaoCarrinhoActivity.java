@@ -16,7 +16,7 @@ import java.util.Set;
  * Created by valdy on 28/01/2018.
  */
 
-public class VisaoCarrinho extends AppCompatActivity {
+public class VisaoCarrinhoActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState)
     {

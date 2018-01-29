@@ -45,7 +45,17 @@
 
         <activity
             android:label="@string/visao_carrinho_activity_label"
-            android:name="br.com.valdir.desafiolojastarwars.VisaoCarrinho"
+            android:name="br.com.valdir.desafiolojastarwars.VisaoCarrinhoActivity"
+            android:parentActivityName="br.com.valdir.desafiolojastarwars.MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.valdir.desafiolojastarwars.MainActivity"/>
+        </activity>
+
+        <activity
+            android:label="@string/cartao_credito_activity_label"
+            android:name="br.com.valdir.desafiolojastarwars.CartaoCreditoActivity"
             android:parentActivityName="br.com.valdir.desafiolojastarwars.MainActivity">
 
             <meta-data

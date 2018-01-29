@@ -208,7 +208,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     private View.OnClickListener onClickVerCarrinho() {
         return new Button.OnClickListener() {
            public void onClick(View v) {
-               Intent intent = new Intent(getContext(), VisaoCarrinho.class);
+               Intent intent = new Intent(getContext(), VisaoCarrinhoActivity.class);
                mCarrinho = mCarrinho;
                startActivity(intent);
                Log.d("C1", "Ver carrinho");
@@ -229,6 +229,9 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     private View.OnClickListener onClickPagar() {
         return new Button.OnClickListener() {
             public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CartaoCreditoActivity.class);
+                intent.putExtra("VALOR_PAGAMENTO", String.valueOf(mCarrinho.getValue()));
+                startActivity(intent);
                 Log.d("C3", "Pagar");
             }
         };
