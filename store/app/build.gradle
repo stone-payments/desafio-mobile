@@ -34,4 +34,12 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
 
     implementation 'com.craftman.cardform:cardform:0.0.2'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+
+    // JSON Parsing
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
 }
