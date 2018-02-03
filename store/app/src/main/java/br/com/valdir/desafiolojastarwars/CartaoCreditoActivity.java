@@ -1,5 +1,7 @@
 package br.com.valdir.desafiolojastarwars;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -16,9 +18,13 @@ import com.craftman.cardform.OnPayBtnClickListner;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 import br.com.valdir.desafiolojastarwars.api.APIServicePost;
 import br.com.valdir.desafiolojastarwars.api.ApiUtils;
 import br.com.valdir.desafiolojastarwars.api.Infor;
+import br.com.valdir.desafiolojastarwars.data.TransacoesContract;
+import br.com.valdir.desafiolojastarwars.data.TransacoesDBHelper;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,11 +35,15 @@ import retrofit2.Response;
  */
 
 public class CartaoCreditoActivity extends AppCompatActivity {
+    private SQLiteDatabase db;
+    private TransacoesDBHelper bancoTransacoes;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cartao_credito_form);
+
+        bancoTransacoes = new TransacoesDBHelper(this);
 
         CardForm cardForm = findViewById(R.id.credito_form);
         final TextView txtValorPagamento = findViewById(R.id.payment_amount);
@@ -67,9 +77,49 @@ public class CartaoCreditoActivity extends AppCompatActivity {
                 Log.d("4a", "card_holder_name:"+card.getName());
                 Log.d("5a", String.format("exp_date: %d/%d", card.getExpMonth(), card.getExpYear()));
 
-                pagamentoCartao(card.getNumber(),card.getName(),
-                        String.format("exp_date: %d/%d", card.getExpMonth(), card.getExpYear()),
-                        card.getCVC(),txtValorPagamento.getText().toString());
+                // -- Insere transacao no banco
+                ContentValues transacao;
+                long resultado;
+
+                db = bancoTransacoes.getWritableDatabase();
+                // data corrente calculo
+                Calendar c = Calendar.getInstance();
+                int ano = c.get(Calendar.YEAR);
+                int mes = c.get(Calendar.MONTH) + 1;
+                int dia = c.get(Calendar.DAY_OF_MONTH);
+                int hora = c.get(Calendar.HOUR_OF_DAY);
+                int minuto = c.get(Calendar.MINUTE);
+
+                String stDia, stMes, stHora, stMinuto;
+                stDia = String.valueOf(dia);
+                stMes = String.valueOf(mes);
+                stHora = String.valueOf(hora);
+                stMinuto = String.valueOf(minuto);
+                // fim data corrente calculo
+
+                transacao = new ContentValues();
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_USUARIO_ID, "1");
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_VALOR, Double.valueOf(txtValorPagamento.getText().toString()));
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_DATA, stDia + "/" + stMes + "/" + ano);
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_HORA, stHora + ":" + stMinuto);
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_ULT_4_DIGITOS_CARTAO, card.getLast4());
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_PORTADOR_CARTAO_NOME_COMPLETO, card.getName());
+
+                resultado = db.insert(TransacoesContract.TransacaoEntry.TABLE_NAME, null, transacao);
+                db.close();
+
+                // -- Fim insere transacao no banco
+
+                if (resultado == -1) {
+                    Log.e("ErroBanco", "Incapaz de inserir dados no banco de transações");
+                    Toast.makeText(getBaseContext(), "Não foi possível realizar o pagamento", Toast.LENGTH_LONG).show();
+                    return;
+                } else {
+
+                    pagamentoCartao(card.getNumber(), card.getName(),
+                            String.format("exp_date: %d/%d", card.getExpMonth(), card.getExpYear()),
+                            card.getCVC(), txtValorPagamento.getText().toString());
+                }
             }
         });
 
@@ -100,14 +150,14 @@ public class CartaoCreditoActivity extends AppCompatActivity {
 
                     if (response.isSuccessful()) {
                         //showResponse(response.body().toString());
-                        Log.i("PostActivity", "Pagamento enviado." + response.body().toString());
+                        Log.i("CartaoCreditoActivity", "Pagamento enviado." + response.body().toString());
                         Toast.makeText(getBaseContext(), response.body().getResultado(), Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Infor> call, Throwable t) {
-                    Log.e("PostActivity", "Unable to submit post to API.");
+                    Log.e("CartaoCreditoActivity", "Incapaz de realizar o post para a API.");
                     Toast.makeText(getBaseContext(), "Não foi possível realizar o pagamento", Toast.LENGTH_LONG).show();
                 }
 
