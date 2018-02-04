@@ -75,38 +75,6 @@ public class TransacoesDBHelper extends SQLiteOpenHelper {
         cursor = db.query(TransacoesContract.TransacaoEntry.TABLE_NAME,
                 campos, null, null, null, null, null, null);
 
-
-        // -- debug
-//        String tableString = String.format("Table %s:\n", TransacoesContract.TransacaoEntry.TABLE_NAME);
-//        Cursor allRows  = db.rawQuery("SELECT * FROM " + TransacoesContract.TransacaoEntry.TABLE_NAME, null);
-//        if (allRows.moveToFirst() ){
-//            String[] columnNames = allRows.getColumnNames();
-//            do {
-//                for (String name: columnNames) {
-//                    tableString += String.format("%s: %s\n", name,
-//                            allRows.getString(allRows.getColumnIndex(name)));
-//                }
-//                tableString += "\n";
-//
-//            } while (allRows.moveToNext());
-//        }
-
-        String tableString = String.format("Table %s:\n", TransacoesContract.TransacaoEntry.TABLE_NAME);
-        if (cursor.moveToFirst() ){
-            String[] columnNames = cursor.getColumnNames();
-            do {
-                for (String name: columnNames) {
-                    tableString += String.format("%s: %s\n", name,
-                            cursor.getString(cursor.getColumnIndex(name)));
-                }
-                tableString += "\n";
-
-            } while (cursor.moveToNext());
-        }
-
-        Log.d("1", tableString);
-        // -- fim debug
-
         if(cursor!=null){
             cursor.moveToFirst();
         }

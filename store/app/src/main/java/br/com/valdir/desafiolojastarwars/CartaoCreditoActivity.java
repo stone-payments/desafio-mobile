@@ -98,7 +98,7 @@ public class CartaoCreditoActivity extends AppCompatActivity {
                 // fim data corrente calculo
 
                 transacao = new ContentValues();
-                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_USUARIO_ID, "1");
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_USUARIO_ID, card.getNumber());
                 transacao.put(TransacoesContract.TransacaoEntry.COLUMN_VALOR, Double.valueOf(txtValorPagamento.getText().toString()));
                 transacao.put(TransacoesContract.TransacaoEntry.COLUMN_DATA, stDia + "/" + stMes + "/" + ano);
                 transacao.put(TransacoesContract.TransacaoEntry.COLUMN_HORA, stHora + ":" + stMinuto);

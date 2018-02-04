@@ -2,10 +2,13 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="4"
-    android:rowCount="2" >
+    android:columnCount="2"
+    android:rowCount="7" >
 
-
+    <TextView
+        android:text="@string/txt_transacao"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"/>
     <TextView
         android:id="@+id/id_transacao"
         android:layout_width="0dip"
@@ -16,6 +19,10 @@
         android:text="ID" />
 
     <TextView
+        android:text="@string/txt_id_usuario"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
         android:id="@+id/id_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,6 +30,10 @@
         android:layout_marginTop="5dp"
         android:text="ID_USUARIO" />
 
+    <TextView
+        android:text="@string/txt_valor"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/campo_valor"
         android:layout_width="wrap_content"
@@ -32,6 +43,10 @@
         android:text="VALOR" />
 
     <TextView
+        android:text="Data:"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
         android:id="@+id/campo_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,6 +54,10 @@
         android:layout_marginTop="5dp"
         android:text="DATA" />
 
+    <TextView
+        android:text="@string/txt_hora"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/campo_hora"
         android:layout_width="wrap_content"
@@ -48,6 +67,10 @@
         android:text="HORA" />
 
     <TextView
+        android:text="@string/txt_ultimos_4_digitos"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
         android:id="@+id/campo_cc4digitos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,6 +78,10 @@
         android:layout_marginTop="5dp"
         android:text="HORA" />
 
+    <TextView
+        android:text="@string/txt_nome_no_cartao"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/campo_cartao_nome_completo"
         android:layout_width="wrap_content"

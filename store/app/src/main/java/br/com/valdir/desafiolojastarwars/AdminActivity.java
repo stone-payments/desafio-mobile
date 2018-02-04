@@ -69,9 +69,4 @@ public class AdminActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onPreferenceChange(Preference preference, Object newValue) {
-//
-//        return true;
-//    }
 }

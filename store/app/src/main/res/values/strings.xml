@@ -26,7 +26,7 @@
     <string name="prefs_idioma_label">Idioma</string>
     <string name="prefs_idioma_key">idioma</string>
     <string name="menu_atualizar_label">Atualizar</string>
-    <string name="menu_config_label">Configurações</string>
+    <string name="menu_config_label">Admin</string>
     <string name="pd_carregando_titulo">Carregando...</string>
     <string name="pd_carregando_mensagem">Por favor, aguarde!</string>
 
@@ -40,5 +40,11 @@
     <string name="prefs_notif_filmes_off">Inabilitado</string>
     <string name="prefs_notif_filmes_on">Habilitado</string>
     <string name="prefs_notif_filmes_default">true</string>
+    <string name="txt_transacao">Transação:</string>
+    <string name="txt_id_usuario">id usuário:</string>
+    <string name="txt_valor">Valor:</string>
+    <string name="txt_hora">Hora:</string>
+    <string name="txt_ultimos_4_digitos">Últimos 4 dígitos:</string>
+    <string name="txt_nome_no_cartao">Nome:</string>
 
 </resources>
