@@ -230,7 +230,8 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         return new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CartaoCreditoActivity.class);
-                intent.putExtra("VALOR_PAGAMENTO", String.valueOf(mCarrinho.getValue()));
+//                intent.putExtra("VALOR_PAGAMENTO", String.valueOf(mCarrinho.getValue()));
+                intent.putExtra("VALOR_PAGAMENTO", String.format("%.2f", mCarrinho.getValue()));
                 startActivity(intent);
                 Log.d("C3", "Pagar");
             }

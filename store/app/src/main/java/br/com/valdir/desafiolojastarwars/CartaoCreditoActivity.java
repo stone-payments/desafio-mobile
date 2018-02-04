@@ -57,7 +57,7 @@ public class CartaoCreditoActivity extends AppCompatActivity {
             Log.d("CC", extras.getString("VALOR_PAGAMENTO"));
         }
 
-        btnPagamento.setText(String.format("Pagar %s", txtValorPagamento.getText()));
+        btnPagamento.setText(String.format("Pagar R$ %s", txtValorPagamento.getText()));
 
         // Modelo do post
         //{
