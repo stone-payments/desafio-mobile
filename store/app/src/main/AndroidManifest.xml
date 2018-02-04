@@ -35,7 +35,7 @@
 
         <activity
             android:label="@string/settings_activity_label"
-            android:name="br.com.valdir.desafiolojastarwars.SettingsActivity"
+            android:name="br.com.valdir.desafiolojastarwars.AdminActivity"
             android:parentActivityName="br.com.valdir.desafiolojastarwars.MainActivity">
 
             <meta-data

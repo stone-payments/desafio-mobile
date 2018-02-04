@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    android:rowCount="2" >
+
+
+    <TextView
+        android:id="@+id/id_transacao"
+        android:layout_width="0dip"
+        android:layout_gravity="fill_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="ID" />
+
+    <TextView
+        android:id="@+id/id_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="ID_USUARIO" />
+
+    <TextView
+        android:id="@+id/campo_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="VALOR" />
+
+    <TextView
+        android:id="@+id/campo_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="DATA" />
+
+    <TextView
+        android:id="@+id/campo_hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="HORA" />
+
+    <TextView
+        android:id="@+id/campo_cc4digitos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="HORA" />
+
+    <TextView
+        android:id="@+id/campo_cartao_nome_completo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="HORA" />
+
+</GridLayout>

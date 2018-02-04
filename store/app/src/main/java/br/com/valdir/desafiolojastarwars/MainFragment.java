@@ -137,7 +137,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
                 Toast.makeText(getContext(), "Atualizando os produtos...", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.menu_config:
-                startActivity(new Intent(getContext(), SettingsActivity.class));
+                startActivity(new Intent(getContext(), AdminActivity.class));
             default:
                 return super.onOptionsItemSelected(item);
         }

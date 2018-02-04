@@ -1,8 +1,10 @@
 package br.com.valdir.desafiolojastarwars.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by valdyrtorres on 26/11/2017.
@@ -55,5 +57,60 @@ public class TransacoesDBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE " + UsuariosSaldoContract.UsuarioSaldoEntry.TABLE_NAME);
 
         onCreate(db);
+    }
+
+    public Cursor carregaDados(SQLiteDatabase db, Context context){
+        Cursor cursor;
+        String[] campos =  { TransacoesContract.TransacaoEntry._ID,
+                TransacoesContract.TransacaoEntry.COLUMN_USUARIO_ID,
+                TransacoesContract.TransacaoEntry.COLUMN_VALOR,
+                TransacoesContract.TransacaoEntry.COLUMN_DATA,
+                TransacoesContract.TransacaoEntry.COLUMN_HORA,
+                TransacoesContract.TransacaoEntry.COLUMN_ULT_4_DIGITOS_CARTAO,
+                TransacoesContract.TransacaoEntry.COLUMN_PORTADOR_CARTAO_NOME_COMPLETO };
+
+        TransacoesDBHelper banco = new TransacoesDBHelper(context);
+
+        db = banco.getReadableDatabase();
+        cursor = db.query(TransacoesContract.TransacaoEntry.TABLE_NAME,
+                campos, null, null, null, null, null, null);
+
+
+        // -- debug
+//        String tableString = String.format("Table %s:\n", TransacoesContract.TransacaoEntry.TABLE_NAME);
+//        Cursor allRows  = db.rawQuery("SELECT * FROM " + TransacoesContract.TransacaoEntry.TABLE_NAME, null);
+//        if (allRows.moveToFirst() ){
+//            String[] columnNames = allRows.getColumnNames();
+//            do {
+//                for (String name: columnNames) {
+//                    tableString += String.format("%s: %s\n", name,
+//                            allRows.getString(allRows.getColumnIndex(name)));
+//                }
+//                tableString += "\n";
+//
+//            } while (allRows.moveToNext());
+//        }
+
+        String tableString = String.format("Table %s:\n", TransacoesContract.TransacaoEntry.TABLE_NAME);
+        if (cursor.moveToFirst() ){
+            String[] columnNames = cursor.getColumnNames();
+            do {
+                for (String name: columnNames) {
+                    tableString += String.format("%s: %s\n", name,
+                            cursor.getString(cursor.getColumnIndex(name)));
+                }
+                tableString += "\n";
+
+            } while (cursor.moveToNext());
+        }
+
+        Log.d("1", tableString);
+        // -- fim debug
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
     }
 }
