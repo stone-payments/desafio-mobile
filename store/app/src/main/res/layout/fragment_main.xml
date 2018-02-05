@@ -38,6 +38,11 @@
                     android:layout_weight="1"
                     android:padding="20dp"
                     android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:id="@+id/linha2Botoes"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
 
                 <Button
                     android:id="@+id/btn_pagar"
@@ -45,6 +50,22 @@
                     android:layout_weight="1"
                     android:padding="20dp"
                     android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:text="Login"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:visibility="visible"/>
+
+                <Button
+                    android:id="@+id/btn_logout"
+                    android:text="Logout"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:visibility="gone"/>
             </TableRow>
         </TableLayout>
 

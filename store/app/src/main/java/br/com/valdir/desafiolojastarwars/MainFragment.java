@@ -26,6 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.valdir.desafiolojastarwars.data.ProdutosContract;
+import br.com.valdir.desafiolojastarwars.login.AlertDialogManager;
+import br.com.valdir.desafiolojastarwars.login.SessionManagement;
 import br.com.valdir.desafiolojastarwars.sync.ProdutosSyncAdapter;
 
 import static br.com.valdir.desafiolojastarwars.MainActivity.mCarrinho;
@@ -48,10 +50,19 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 
     private TextView totalValorCarrinho;
 
+    Button btnLogin;
+
+    Button btnLogout;
+
+    AlertDialogManager alert = new AlertDialogManager();
+    SessionManagement session;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        session = new SessionManagement(getContext());
     }
 
     @Override
@@ -101,7 +112,56 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 //        totalValorCarrinho.setText("Total do Carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
         totalValorCarrinho.setText("Total do Carrinho = R$ 0,00");
 
+        btnLogin = view.findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(onClickLogin());
+
+        btnLogout = view.findViewById(R.id.btn_logout);
+        btnLogout.setOnClickListener(onClickLogout());
+
+        if (session.isLoggedIn()) {
+            btnLogin.setVisibility(View.GONE);
+            btnLogout.setVisibility(View.VISIBLE);
+        } else {
+            btnLogin.setVisibility(View.VISIBLE);
+            btnLogout.setVisibility(View.GONE);
+        }
+
         return view;
+    }
+
+    private View.OnClickListener onClickPagar() {
+        return new Button.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), CartaoCreditoActivity.class);
+//                intent.putExtra("VALOR_PAGAMENTO", String.valueOf(mCarrinho.getValue()));
+                intent.putExtra("VALOR_PAGAMENTO", String.format("%.2f", mCarrinho.getValue()));
+                startActivity(intent);
+                Log.d("C3", "Pagar");
+
+                session.checkLogin();
+            }
+        };
+    }
+
+    private View.OnClickListener onClickLogin() {
+        return new Button.OnClickListener() {
+            public void onClick(View v) {
+                btnLogin.setVisibility(View.GONE);
+                btnLogout.setVisibility(View.VISIBLE);
+                session.checkLogin();
+            }
+        };
+    }
+
+    private View.OnClickListener onClickLogout() {
+        return new Button.OnClickListener() {
+            public void onClick(View v) {
+                btnLogin.setVisibility(View.VISIBLE);
+                btnLogout.setVisibility(View.GONE);
+                session.simplesLogoutUser();
+            }
+        };
     }
 
     @Override
@@ -150,6 +210,14 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         getLoaderManager().restartLoader(PRODUTOS_LOADER, null, this);
 
         totalValorCarrinho.setText("Total do Carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
+
+        if (session.isLoggedIn()) {
+            btnLogin.setVisibility(View.GONE);
+            btnLogout.setVisibility(View.VISIBLE);
+        } else {
+            btnLogin.setVisibility(View.VISIBLE);
+            btnLogout.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -222,18 +290,6 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
                 mCarrinho.empty();
                 totalValorCarrinho.setText("Total do Carrinho = R$ " + String.format("%.2f", mCarrinho.getValue()));
                 Log.d("C2", "Zerar carrinho");
-            }
-        };
-    }
-
-    private View.OnClickListener onClickPagar() {
-        return new Button.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CartaoCreditoActivity.class);
-//                intent.putExtra("VALOR_PAGAMENTO", String.valueOf(mCarrinho.getValue()));
-                intent.putExtra("VALOR_PAGAMENTO", String.format("%.2f", mCarrinho.getValue()));
-                startActivity(intent);
-                Log.d("C3", "Pagar");
             }
         };
     }
