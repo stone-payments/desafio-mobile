@@ -9,10 +9,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-/**
- * Created by valdyrtorres on 29/11/2017.
- */
-
 public class ProdutosProvider extends ContentProvider {
 
     private static final UriMatcher URI_MATCHER = buildUriMatcher();

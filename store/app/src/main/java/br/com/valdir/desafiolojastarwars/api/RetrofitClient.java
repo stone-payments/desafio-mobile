@@ -1,9 +1,5 @@
 package br.com.valdir.desafiolojastarwars.api;
 
-/**
- * Created by valdir on 30/01/18.
- */
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;

@@ -18,10 +18,6 @@ import android.widget.Toast;
 import br.com.valdir.desafiolojastarwars.data.TransacoesContract;
 import br.com.valdir.desafiolojastarwars.data.TransacoesDBHelper;
 
-/**
- * Created by valdyrtorres on 24/11/2017.
- */
-
 public class AdminActivity extends AppCompatActivity {
 
     private ListView listaTransacoes;

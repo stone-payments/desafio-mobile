@@ -13,10 +13,6 @@ import com.squareup.picasso.Picasso;
 
 import br.com.valdir.desafiolojastarwars.data.ProdutosContract;
 
-/**
- * Created by valdyrtorres on 13/11/2017.
- */
-
 public class ProdutosAdapter extends CursorAdapter {
 
     private static final int VIEW_TYPE_DESTAQUE = 0;

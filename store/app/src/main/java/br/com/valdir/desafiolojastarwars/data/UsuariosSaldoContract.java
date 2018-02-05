@@ -5,10 +5,6 @@ import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-/**
- * Created by valdyrtorres on 26/11/2017.
- */
-
 public class UsuariosSaldoContract {
 
     public static final String CONTENT_AUTHORITY = "br.com.valdir.desafiolojastarwars";

@@ -10,10 +10,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
-/**
- * Created by valdyrtorres on 13/11/2017.
- */
-
 /* {
       "title": "Blusa do Imperio",
       "price": 7990,

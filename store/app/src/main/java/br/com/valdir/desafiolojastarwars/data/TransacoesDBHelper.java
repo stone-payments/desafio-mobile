@@ -6,10 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by valdyrtorres on 26/11/2017.
- */
-
 public class TransacoesDBHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;

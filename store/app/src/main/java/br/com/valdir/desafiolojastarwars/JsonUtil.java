@@ -7,10 +7,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by valdyrtorres on 21/11/2017.
- */
-
 /* {
           "page":1,
           "results": [],

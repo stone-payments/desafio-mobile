@@ -30,10 +30,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by valdy on 28/01/2018.
- */
-
 public class CartaoCreditoActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private TransacoesDBHelper bancoTransacoes;
