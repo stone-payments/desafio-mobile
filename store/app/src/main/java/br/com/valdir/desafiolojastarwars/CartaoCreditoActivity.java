@@ -99,7 +99,7 @@ public class CartaoCreditoActivity extends AppCompatActivity {
 
                 transacao = new ContentValues();
                 transacao.put(TransacoesContract.TransacaoEntry.COLUMN_USUARIO_ID, card.getNumber());
-                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_VALOR, Double.valueOf(txtValorPagamento.getText().toString()));
+                transacao.put(TransacoesContract.TransacaoEntry.COLUMN_VALOR, Double.valueOf(txtValorPagamento.getText().toString().replace(",",".")));
                 transacao.put(TransacoesContract.TransacaoEntry.COLUMN_DATA, stDia + "/" + stMes + "/" + ano);
                 transacao.put(TransacoesContract.TransacaoEntry.COLUMN_HORA, stHora + ":" + stMinuto);
                 transacao.put(TransacoesContract.TransacaoEntry.COLUMN_ULT_4_DIGITOS_CARTAO, card.getLast4());
