@@ -1,0 +1,5 @@
+<fragment android:layout_height="match_parent"
+    android:id="@+id/main_fragment"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="br.com.valdir.desafiolojastarwars.MainFragment"/>

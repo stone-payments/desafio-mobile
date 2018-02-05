@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.valdir.desafiolojastarwars.MainActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:id="@+id/linhaBotoes"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <Button
+                    android:id="@+id/btn_ver_carrinho"
+                    android:text="Carrinho"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_zerar_carrinho"
+                    android:text="Zerar Carrinho"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:id="@+id/linha2Botoes"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <Button
+                    android:id="@+id/btn_pagar"
+                    android:text="Pagar"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:text="Login"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:visibility="visible"/>
+
+                <Button
+                    android:id="@+id/btn_logout"
+                    android:text="Logout"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/txt_total_carrinho"
+            android:text="Total do Carrinho = R$ "
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ListView
+            style="@style/DesafioLojaStarWarsListStyle"
+            android:id="@+id/list_produtos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+
+
+</FrameLayout>

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">DesafioLojaStarWars</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detalhe_activity_label">Detalhe</string>
+    <string name="settings_activity_label">Configurações</string>
+    <string name="visao_carrinho_activity_label">VisaoCarrinho</string>
+    <string name="cartao_credito_activity_label">CartaoCredito</string>
+    <string name="login_activity_label">Login</string>
+    <string name="login_admin_mock_activity_label">Login Admin mock</string>
+
+    <!-- Preferências de ordem -->
+    <string name="prefs_ordem_label">Ordem</string>
+    <string name="prefs_ordem_key">ordem</string>
+
+    <string-array name="prefs_ordem_values">
+        <item>title</item>
+        <item>price</item>
+    </string-array>
+
+    <string-array name="prefs_ordem_entries">
+        <item>title</item>
+        <item>price</item>
+    </string-array>
+
+    <!-- Preferências de Idioma -->
+    <string name="prefs_idioma_label">Idioma</string>
+    <string name="prefs_idioma_key">idioma</string>
+    <string name="menu_atualizar_label">Atualizar</string>
+    <string name="menu_config_label">Admin</string>
+    <string name="pd_carregando_titulo">Carregando...</string>
+    <string name="pd_carregando_mensagem">Por favor, aguarde!</string>
+
+    <!-- Account Manager -->
+    <string name="sync_account_type">br.com.valdir.desafiolojastarwars</string>
+    <string name="content_authority">br.com.valdir.desafiolojastarwars</string>
+
+    <!-- Preferências de notificação -->
+    <string name="prefs_notif_filmes_titulo">Notificações</string>
+    <string name="prefs_notif_filmes_key">pref_notify_filmes</string>
+    <string name="prefs_notif_filmes_off">Inabilitado</string>
+    <string name="prefs_notif_filmes_on">Habilitado</string>
+    <string name="prefs_notif_filmes_default">true</string>
+    <string name="txt_transacao">Transação:</string>
+    <string name="txt_id_usuario">id usuário:</string>
+    <string name="txt_valor">Valor:</string>
+    <string name="txt_hora">Hora:</string>
+    <string name="txt_ultimos_4_digitos">Últimos 4 dígitos:</string>
+    <string name="txt_nome_no_cartao">Nome:</string>
+
+</resources>
