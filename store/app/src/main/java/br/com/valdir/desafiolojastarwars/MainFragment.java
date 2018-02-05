@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import br.com.valdir.desafiolojastarwars.data.ProdutosContract;
 import br.com.valdir.desafiolojastarwars.login.AlertDialogManager;
+import br.com.valdir.desafiolojastarwars.login.LoginAdminMockActivity;
 import br.com.valdir.desafiolojastarwars.login.SessionManagement;
 import br.com.valdir.desafiolojastarwars.sync.ProdutosSyncAdapter;
 
@@ -197,7 +198,12 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
                 Toast.makeText(getContext(), "Atualizando os produtos...", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.menu_config:
-                startActivity(new Intent(getContext(), AdminActivity.class));
+                Intent i = new Intent(getContext(), LoginAdminMockActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getContext().startActivity(i);
+
+                //startActivity(new Intent(getContext(), AdminActivity.class));
             default:
                 return super.onOptionsItemSelected(item);
         }

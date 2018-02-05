@@ -72,6 +72,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.valdir.desafiolojastarwars.MainActivity"/>
         </activity>
+
+        <activity
+            android:label="@string/login_admin_mock_activity_label"
+            android:name="br.com.valdir.desafiolojastarwars.login.LoginAdminMockActivity"
+            android:parentActivityName="br.com.valdir.desafiolojastarwars.MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.valdir.desafiolojastarwars.MainActivity"/>
+        </activity>
         
         <provider
             android:authorities="@string/content_authority"

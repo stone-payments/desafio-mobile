@@ -8,6 +8,7 @@
     <string name="visao_carrinho_activity_label">VisaoCarrinho</string>
     <string name="cartao_credito_activity_label">CartaoCredito</string>
     <string name="login_activity_label">Login</string>
+    <string name="login_admin_mock_activity_label">Login Admin mock</string>
 
     <!-- Preferências de ordem -->
     <string name="prefs_ordem_label">Ordem</string>

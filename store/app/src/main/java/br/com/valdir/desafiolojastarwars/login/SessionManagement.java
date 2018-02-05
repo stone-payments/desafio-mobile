@@ -11,7 +11,7 @@ public class SessionManagement {
     // Shared Preferences
     SharedPreferences pref;
 
-    // Editor for Shared preferences
+    // Editor para Shared preferences
     Editor editor;
 
     // Context
@@ -21,7 +21,7 @@ public class SessionManagement {
     int PRIVATE_MODE = 0;
 
     // Sharedpref file name
-    private static final String PREF_NAME = "AndroidHivePref";
+    private static final String PREF_NAME = "LojaStarWars";
 
     // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
@@ -56,9 +56,7 @@ public class SessionManagement {
         editor.commit();
     }
 
-    /**
-     * Get stored session data
-     * */
+    // Serve posteriormente para salvar os dados do usuario na compra
     public HashMap<String, String> getUserDetails(){
         HashMap<String, String> user = new HashMap<String, String>();
         // user name
@@ -71,56 +69,42 @@ public class SessionManagement {
         return user;
     }
 
-    /**
-     * Check login method wil check user login status
-     * If false it will redirect user to login page
-     * Else won't do anything
-     * */
     public void checkLogin(){
         // Check login status
         if(!this.isLoggedIn()){
-            // user is not logged in redirect him to Login Activity
+
             Intent i = new Intent(_context, LoginActivity.class);
-            // Closing all the Activities
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-            // Add new Flag to start new Activity
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            // Staring Login Activity
             _context.startActivity(i);
         }
 
     }
 
-    /**
-     * Clear session details
-     * */
     public void logoutUser(){
-        // Clearing all data from Shared Preferences
+        // limpando os dados da Shared Preferences
         editor.clear();
         editor.commit();
 
-        // After logout redirect user to Loing Activity
         Intent i = new Intent(_context, LoginActivity.class);
-        // Closing all the Activities
+        // Fechando todas as Activities
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        // Add new Flag to start new Activity
+        // Adiciona novo Flag para iniciar nova Activity
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        // Staring Login Activity
+        // Inicia Login Activity
         _context.startActivity(i);
     }
 
     public void simplesLogoutUser(){
-        // Clearing all data from Shared Preferences
+        // limpando os dados da Shared Preferences
         editor.clear();
         editor.commit();
     }
 
     /**
-     * Quick check for login
+     * Verificação para o login
      * **/
     // Get Login State
     public boolean isLoggedIn(){
