@@ -1,6 +1,4 @@
-![StoneSDK](https://cloud.githubusercontent.com/assets/2567823/11539067/6300c838-990c-11e5-9831-4f8ce691859e.png)
-
-# Desafio Mobile
+# Wallet Stone
 
 O desafio consiste em criar uma carteira virtual de criptomoedas. Todo cliente ao se cadastrar recebe R$ 100.000,00 (cem mil reais) em conta para comprar Bitcoins e Britas. 
 A cotação da criptomoeda Brita é equivalente ao dólar e pode ser consultada na [API do Banco Central](https://dadosabertos.bcb.gov.br/dataset/taxas-de-cambio-todos-os-boletins-diarios) enquanto que a cotação do Bitcoin pode ser consultada na [API do Mercado Bitcoin](https://www.mercadobitcoin.net/api-doc/).
