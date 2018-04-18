@@ -1,4 +1,4 @@
-![StoneSDK](https://cloud.githubusercontent.com/assets/2567823/11539067/6300c838-990c-11e5-9831-4f8ce691859e.png)
+![StoneSDK](https://github.com/stone-payments/desafio-mobile/raw/master/assets/logo-stone.png)
 
 # Desafio Mobile
 
