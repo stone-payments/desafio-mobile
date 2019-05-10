@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.transactionHistory
+package br.com.stone.vianna.starstore.feature.transactionHistory
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager

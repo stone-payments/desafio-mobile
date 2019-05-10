@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.shoppingCart
+package br.com.stone.vianna.starstore.feature.shoppingCart
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

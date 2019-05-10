@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.itemList
+package br.com.stone.vianna.starstore.feature.itemList
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,8 @@ import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.extensions.hide
 import br.com.stone.vianna.starstore.extensions.show
-import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartActivity
-import br.com.stone.vianna.starstore.view.transactionHistory.TransactionHistoryActivity
+import br.com.stone.vianna.starstore.feature.shoppingCart.ShoppingCartActivity
+import br.com.stone.vianna.starstore.feature.transactionHistory.TransactionHistoryActivity
 import kotlinx.android.synthetic.main.activity_item_list.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf

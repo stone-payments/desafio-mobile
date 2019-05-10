@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.itemList
+package br.com.stone.vianna.starstore.feature.itemList
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

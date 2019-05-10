@@ -12,15 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.itemList.ItemListActivity">
+        <activity android:name=".feature.itemList.ItemListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.shoppingCart.ShoppingCartActivity" />
-        <activity android:name=".view.card.CreditCardActivity" />
-        <activity android:name=".view.transactionHistory.TransactionHistoryActivity" />
+        <activity android:name=".feature.shoppingCart.ShoppingCartActivity" />
+        <activity android:name=".feature.card.CreditCardActivity" />
+        <activity android:name=".feature.transactionHistory.TransactionHistoryActivity" />
 
     </application>
 

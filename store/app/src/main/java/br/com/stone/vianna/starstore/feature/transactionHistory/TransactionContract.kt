@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.transactionHistory
+package br.com.stone.vianna.starstore.feature.transactionHistory
 
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
 

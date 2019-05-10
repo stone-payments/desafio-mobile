@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.shoppingCart
+package br.com.stone.vianna.starstore.feature.shoppingCart
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.extensions.toMoneyFormat
-import br.com.stone.vianna.starstore.view.card.CreditCardActivity
+import br.com.stone.vianna.starstore.feature.card.CreditCardActivity
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf

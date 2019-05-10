@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.transactionHistory
+package br.com.stone.vianna.starstore.feature.transactionHistory
 
 class TransactionPresenter(val view: TransactionContract.View,
                            private val transactionRepository: TransactionRepository)

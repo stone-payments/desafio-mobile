@@ -1,9 +1,9 @@
-package br.com.stone.vianna.starstore.view.card
+package br.com.stone.vianna.starstore.feature.card
 
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
 import br.com.stone.vianna.starstore.extensions.*
-import br.com.stone.vianna.starstore.view.itemList.ItemListRepository
+import br.com.stone.vianna.starstore.feature.itemList.ItemListRepository
 
 class CardPresenter(private val view: CardContract.View,
                     private val paymentRepository: PaymentRepository,

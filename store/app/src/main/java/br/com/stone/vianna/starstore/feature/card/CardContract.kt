@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.card
+package br.com.stone.vianna.starstore.feature.card
 
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 

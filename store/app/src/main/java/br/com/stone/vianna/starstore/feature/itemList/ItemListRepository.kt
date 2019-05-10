@@ -1,4 +1,4 @@
-package br.com.stone.vianna.starstore.view.itemList
+package br.com.stone.vianna.starstore.feature.itemList
 
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
