@@ -18,6 +18,7 @@ class ItemListContract {
         fun onCartIconClicked()
         fun onItemClicked(item: Item)
         fun onHistoryIconClicked()
+        fun updateBadge()
     }
 
 }

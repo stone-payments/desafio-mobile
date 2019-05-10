@@ -8,8 +8,11 @@ class ItemListPresenter(private val view: ItemListContract.View,
 
     override fun init() {
         view.displayLoading()
-        itemListRepository.getTotalOfItems { view.setupBadge(it) }
         getRemoteItems()
+    }
+
+    override fun updateBadge(){
+        itemListRepository.getTotalOfItems { view.setupBadge(it) }
     }
 
     private fun getRemoteItems() {

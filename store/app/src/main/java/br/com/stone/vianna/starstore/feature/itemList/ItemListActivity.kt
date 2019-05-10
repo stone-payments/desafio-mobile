@@ -31,6 +31,7 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         setContentView(R.layout.activity_item_list)
 
         initializeViews()
+        presenter.init()
     }
 
     override fun displayLoading() {
@@ -64,7 +65,7 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         val actionView = menuItem.actionView
         textCartItemCount = actionView.findViewById(R.id.cart_badge) as TextView
         actionView.setOnClickListener { onOptionsItemSelected(menuItem) }
-        presenter.init()
+        presenter.updateBadge()
         return true
     }
 
