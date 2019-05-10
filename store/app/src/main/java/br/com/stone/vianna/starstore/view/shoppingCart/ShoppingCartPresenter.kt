@@ -1,28 +1,13 @@
 package br.com.stone.vianna.starstore.view.shoppingCart
 
 import br.com.stone.vianna.starstore.entity.Item
-import br.com.stone.vianna.starstore.entity.ItemDao
-import io.reactivex.Completable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
-                            private val itemDao: ItemDao) : ShoppingCartContract.Presenter {
-
-
-    override fun removeItem(item: Item) {
-        Completable
-                .fromAction { itemDao.deleteItem(item) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    getCartItems { updateViewWithCartItems(it) }
-                }
-
-    }
+                            private val shoppingCartRepository: ShoppingCartRepository)
+    : ShoppingCartContract.Presenter {
 
     override fun init() {
-        getCartItems { updateViewWithCartItems(it) }
+        shoppingCartRepository.getCartItems { updateViewWithCartItems(it) }
     }
 
     private fun updateViewWithCartItems(cartItems: List<Item>?) {
@@ -42,21 +27,20 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
         return totalValue
     }
 
-    private fun getCartItems(onComplete: (List<Item>?) -> Unit) {
-        itemDao.getItems()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { t: List<Item>? -> onComplete.invoke(t) }
-    }
-
     override fun onProceedToCheckoutButtonClicked() {
-        getCartItems {
+        shoppingCartRepository.getCartItems {
             it?.let {
                 if (it.isNotEmpty()) {
                     val totalValue = getTotalValue(it)
                     view.openCheckout(totalValue)
                 }
             }
+        }
+    }
+
+    override fun removeItem(item: Item) {
+        shoppingCartRepository.removeItem(item) {
+            shoppingCartRepository.getCartItems { updateViewWithCartItems(it) }
         }
     }
 }

@@ -1,18 +1,14 @@
 package br.com.stone.vianna.starstore.view.card
 
-import br.com.stone.vianna.starstore.entity.ItemDao
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
-import br.com.stone.vianna.starstore.entity.TransactionDao
 import br.com.stone.vianna.starstore.extensions.*
-import io.reactivex.Completable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import br.com.stone.vianna.starstore.view.itemList.ItemListRepository
 
 class CardPresenter(private val view: CardContract.View,
                     private val paymentRepository: PaymentRepository,
-                    private val transactionDao: TransactionDao,
-                    private val itemDao: ItemDao) : CardContract.Presenter {
+                    private val itemListRepository: ItemListRepository
+) : CardContract.Presenter {
 
     var value = 0
 
@@ -88,21 +84,15 @@ class CardPresenter(private val view: CardContract.View,
 
     private fun onSuccessCheckout(transaction: PaymentTransaction) {
         view.hideProgressBar()
+        paymentRepository.saveTransactionLocally(transaction) { removeItemsFromCart() }
+    }
 
-        Completable
-                .fromCallable { transactionDao.insertTransaction(transaction) }
-                .doOnComplete { itemDao.removeItems() }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { view.returnToStore() },
-                        { }
-                )
+    private fun removeItemsFromCart() {
+        itemListRepository.removeItems { view.returnToStore() }
     }
 
     private fun onErrorCheckout(error: String) {
         view.hideProgressBar()
-
     }
 
 }

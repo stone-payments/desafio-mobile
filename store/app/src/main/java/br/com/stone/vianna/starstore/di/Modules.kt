@@ -7,8 +7,12 @@ import br.com.stone.vianna.starstore.view.card.*
 import br.com.stone.vianna.starstore.view.itemList.*
 import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartContract
 import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartPresenter
+import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartRepository
+import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartRepositoryImpl
 import br.com.stone.vianna.starstore.view.transactionHistory.TransactionContract
 import br.com.stone.vianna.starstore.view.transactionHistory.TransactionPresenter
+import br.com.stone.vianna.starstore.view.transactionHistory.TransactionRepository
+import br.com.stone.vianna.starstore.view.transactionHistory.TransactionRepositoryImpl
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,14 +32,16 @@ val applicationModule = module(override = true) {
 
 val repositoryModule = module {
 
-    factory { ItemListRepositoryImpl(get()) as ItemListRepository }
-    factory { PaymentRepositoryImpl(get()) as PaymentRepository }
+    factory { ItemListRepositoryImpl(get(), get()) as ItemListRepository }
+    factory { PaymentRepositoryImpl(get(), get(), get()) as PaymentRepository }
+    factory { ShoppingCartRepositoryImpl(get()) as ShoppingCartRepository }
+    factory { TransactionRepositoryImpl(get()) as TransactionRepository }
 }
 
 val presenterModule = module {
 
     factory<ItemListContract.Presenter> { (itemView: ItemListContract.View) ->
-        ItemListPresenter(itemView, get(), get())
+        ItemListPresenter(itemView, get())
     }
 
     factory<ShoppingCartContract.Presenter> { (cartView: ShoppingCartContract.View) ->
@@ -43,7 +49,7 @@ val presenterModule = module {
     }
 
     factory<CardContract.Presenter> { (cardView: CardContract.View) ->
-        CardPresenter(cardView, get(), get(), get())
+        CardPresenter(cardView, get(), get())
     }
 
     factory<TransactionContract.Presenter> { (transactionView: TransactionContract.View) ->

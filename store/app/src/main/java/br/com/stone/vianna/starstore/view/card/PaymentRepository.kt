@@ -1,18 +1,24 @@
 package br.com.stone.vianna.starstore.view.card
 
+import br.com.stone.vianna.starstore.entity.*
 import br.com.stone.vianna.starstore.extensions.addThreads
 import br.com.stone.vianna.starstore.extensions.parser
-import br.com.stone.vianna.starstore.entity.PaymentRequest
-import br.com.stone.vianna.starstore.entity.PaymentTransaction
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 interface PaymentRepository {
 
     fun checkout(paymentRequest: PaymentRequest,
                  onSuccess: ((PaymentTransaction) -> Unit)? = null,
                  onError: ((error: String) -> Unit)? = null)
+
+    fun saveTransactionLocally(transaction: PaymentTransaction, onComplete: () -> Unit)
 }
 
-class PaymentRepositoryImpl(private val paymentDataSource: PaymentDataSource)
+class PaymentRepositoryImpl(private val paymentDataSource: PaymentDataSource,
+                            private val transactionDao: TransactionDao,
+                            private val itemDao: ItemDao)
     : PaymentRepository {
 
 
@@ -28,6 +34,16 @@ class PaymentRepositoryImpl(private val paymentDataSource: PaymentDataSource)
                 }, {
                     onError?.invoke(it.parser.error)
                 })
+    }
+
+    override fun saveTransactionLocally(transaction: PaymentTransaction, onComplete: () -> Unit){
+        Completable
+                .fromAction { transactionDao.insertTransaction(transaction) }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        { onComplete.invoke()},
+                        {  })
     }
 
 }

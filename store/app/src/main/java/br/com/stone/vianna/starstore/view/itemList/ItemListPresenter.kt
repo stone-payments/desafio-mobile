@@ -1,19 +1,14 @@
 package br.com.stone.vianna.starstore.view.itemList
 
 import br.com.stone.vianna.starstore.entity.Item
-import br.com.stone.vianna.starstore.entity.ItemDao
-import io.reactivex.Completable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 class ItemListPresenter(private val view: ItemListContract.View,
-                        private val itemListRepository: ItemListRepository,
-                        private val itemDao: ItemDao)
+                        private val itemListRepository: ItemListRepository)
     : ItemListContract.Presenter {
 
     override fun init() {
         view.displayLoading()
-        getTotalOfItems{ view.setupBadge(it) }
+        itemListRepository.getTotalOfItems { view.setupBadge(it) }
         getRemoteItems()
     }
 
@@ -30,29 +25,16 @@ class ItemListPresenter(private val view: ItemListContract.View,
 
     private fun onErrorLoadItems(error: String) {
         view.hideLoading()
-
     }
 
     override fun onItemClicked(item: Item) {
-        Completable
-                .fromAction { itemDao.insertItem(item) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { getTotalOfItems { view.setupBadge(it) } },
-                        {  }
-                )
-    }
-
-    private fun getTotalOfItems(onComplete: (total: Int) -> Unit) {
-        itemDao.getItemsCount()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { total: Int -> onComplete.invoke(total) }
+        itemListRepository.saveItemLocally(item) {
+            itemListRepository.getTotalOfItems { view.setupBadge(it) }
+        }
     }
 
     override fun onCartIconClicked() {
-        getTotalOfItems { if (it > 0) view.openShoppingCart() }
+        itemListRepository.getTotalOfItems { if (it > 0) view.openShoppingCart() }
     }
 
     override fun onHistoryIconClicked() {
