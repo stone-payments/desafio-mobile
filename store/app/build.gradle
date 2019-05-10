@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -18,7 +17,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'ITEMS_API', '"https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/store/"'
+            buildConfigField 'String', 'PAYMENT_API', '"https://private-a41aa-desafiostonepaymentapi.apiary-mock.com/"'
         }
+        debug {
+            minifyEnabled false
+            buildConfigField 'String', 'ITEMS_API', '"https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/store/"'
+            buildConfigField 'String', 'PAYMENT_API', '"https://private-a41aa-desafiostonepaymentapi.apiary-mock.com/"'
+        }
+
+    }
+
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
     }
 }
 
