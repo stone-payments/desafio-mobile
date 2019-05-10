@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/item_image"
+        android:foreground="@color/black_overlay"
         style="@style/match_match"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
@@ -15,16 +16,23 @@
     <LinearLayout
         style="@style/match_wrap"
         android:layout_gravity="bottom"
-        android:layout_margin="8dp"
-        android:backgroundTint="@color/grey_C4C4C4"
+        android:layout_margin="@dimen/dimen_8dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_item_name"
             style="@style/wrap_wrap"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/dimen_6dp"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimen_16dp"
+            android:textSize="@dimen/text_size_18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_item_price"
+            style="@style/wrap_wrap"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_15sp"
             android:textStyle="bold" />
 
     </LinearLayout>

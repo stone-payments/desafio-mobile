@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.R
+import br.com.stone.vianna.starstore.extensions.toMoneyFormat
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_list_item.view.*
 
@@ -31,6 +32,7 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
     class ViewHolder(itemView: View, private val itemClick: (Item, View) -> Unit) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Item) = with(itemView) {
             itemView.tv_item_name.text = item.title
+            itemView.tv_item_price.text = item.price.toMoneyFormat()
             itemView.setOnClickListener { itemClick(item, itemView) }
 
             Picasso.get()
