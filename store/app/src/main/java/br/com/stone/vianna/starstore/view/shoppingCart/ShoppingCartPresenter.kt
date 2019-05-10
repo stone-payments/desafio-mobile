@@ -49,4 +49,10 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
                 .subscribe { t: List<Item>? -> onComplete.invoke(t) }
     }
 
+    override fun onProceedToCheckoutButtonClicked() {
+        getCartItems {
+            val totalValue = getTotalValue(it)
+            view.openCheckout(totalValue)
+        }
+    }
 }

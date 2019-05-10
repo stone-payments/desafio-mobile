@@ -1,11 +1,13 @@
 package br.com.stone.vianna.starstore.view.shoppingCart
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.extensions.toMoneyFormat
+import br.com.stone.vianna.starstore.view.card.CreditCardActivity
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -47,4 +49,11 @@ class ShoppingCartActivity : BaseActivity(), ShoppingCartContract.View {
         tv_total_value?.text = totalValue.toMoneyFormat()
     }
 
+    override fun openCheckout(value: Int) {
+        val intent = Intent(this, CreditCardActivity::class.java).apply {
+            putExtra(CreditCardActivity.CHECKOUT_VALUE, value)
+        }
+        startActivity(intent)
+        finish()
+    }
 }
