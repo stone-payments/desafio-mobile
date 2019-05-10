@@ -14,6 +14,7 @@ import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.extensions.hide
 import br.com.stone.vianna.starstore.extensions.show
 import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartActivity
+import br.com.stone.vianna.starstore.view.transactionHistory.TransactionHistoryActivity
 import kotlinx.android.synthetic.main.activity_item_list.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -42,6 +43,8 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         toolbar.title = getString(R.string.items_list_screen_title)
         setSupportActionBar(toolbar)
         toolbar.setTitleTextColor(resources.getColor(android.R.color.white, theme))
+        toolbar.navigationIcon = resources.getDrawable(R.mipmap.ic_history, theme)
+        toolbar.setNavigationOnClickListener { presenter.onHistoryIconClicked() }
 
         val layoutManager = LinearLayoutManager(this)
         base_item_list.layoutManager = layoutManager
@@ -99,6 +102,9 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         startActivity(intent)
     }
 
-
+    override fun openHistory() {
+        val intent = Intent(this, TransactionHistoryActivity::class.java)
+        startActivity(intent)
+    }
 
 }

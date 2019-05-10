@@ -10,12 +10,14 @@ class ItemListContract {
         fun updateListItems(items: List<Item>)
         fun setupBadge(number: Int)
         fun openShoppingCart()
+        fun openHistory()
     }
 
     interface Presenter {
         fun init()
         fun onCartIconClicked()
         fun onItemClicked(item: Item)
+        fun onHistoryIconClicked()
     }
 
 }

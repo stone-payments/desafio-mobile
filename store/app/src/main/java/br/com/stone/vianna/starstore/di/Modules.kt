@@ -7,6 +7,8 @@ import br.com.stone.vianna.starstore.view.card.*
 import br.com.stone.vianna.starstore.view.itemList.*
 import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartContract
 import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartPresenter
+import br.com.stone.vianna.starstore.view.transactionHistory.TransactionContract
+import br.com.stone.vianna.starstore.view.transactionHistory.TransactionPresenter
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -42,6 +44,10 @@ val presenterModule = module {
 
     factory<CardContract.Presenter> { (cardView: CardContract.View) ->
         CardPresenter(cardView, get(), get(), get())
+    }
+
+    factory<TransactionContract.Presenter> { (transactionView: TransactionContract.View) ->
+        TransactionPresenter(transactionView, get())
     }
 }
 

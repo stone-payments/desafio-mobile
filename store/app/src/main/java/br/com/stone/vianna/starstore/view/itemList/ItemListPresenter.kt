@@ -56,4 +56,8 @@ class ItemListPresenter(private val view: ItemListContract.View,
         getTotalOfItems { if (it > 0) view.openShoppingCart() }
     }
 
+    override fun onHistoryIconClicked() {
+        view.openHistory()
+    }
+
 }
