@@ -11,9 +11,8 @@ import org.koin.test.KoinTest
 import org.mockito.Mock
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
-import org.mockito.internal.verification.Times
 
-class ItemListPresenter_Test : KoinTest {
+class ItemListPresenterTest : KoinTest {
 
     lateinit var presenter: ItemListContract.Presenter
 
@@ -33,9 +32,21 @@ class ItemListPresenter_Test : KoinTest {
     @Test
     fun whenCartIsSelected_itShouldFetchItemsFromRepository() {
         presenter.init()
-        verify(itemListRepository, Times(1)).getTotalOfItems({})
+        verify(itemListRepository).getTotalOfItems({})
     }
-    
+
+    @Test
+    fun whenCartIconIsClicked_itShouldCheckNumberOfItems(){
+        presenter.onCartIconClicked()
+        verify(itemListRepository).getTotalOfItems({})
+    }
+
+    @Test
+    fun whenHistoryIconIsClicked_itShouldCallViewNavigation(){
+        presenter.onCartIconClicked()
+        verify(view).openShoppingCart()
+    }
+
     @After
     fun finish() {
         stopKoin()
