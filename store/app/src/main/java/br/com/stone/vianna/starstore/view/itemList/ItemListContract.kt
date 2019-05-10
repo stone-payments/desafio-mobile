@@ -8,10 +8,14 @@ class ItemListContract {
         fun displayLoading()
         fun hideLoading()
         fun updateListItems(items: List<Item>)
+        fun setupBadge(number: Int)
+        fun openShoppingCart()
     }
 
     interface Presenter {
         fun init()
+        fun onCartIconClicked()
+        fun onItemClicked(item: Item)
     }
 
 }

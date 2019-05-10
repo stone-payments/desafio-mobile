@@ -2,7 +2,11 @@ package br.com.stone.vianna.starstore.view.itemList
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
@@ -15,6 +19,7 @@ import org.koin.core.parameter.parametersOf
 class ItemListActivity : BaseActivity(), ItemListContract.View {
 
     private val presenter: ItemListContract.Presenter by inject { parametersOf(this) }
+    private var textCartItemCount: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,15 +46,54 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
     }
 
     override fun updateListItems(items: List<Item>) {
-        val adapter = ItemsAdapter(items) { _: Item, _: View ->
+        val adapter = ItemsAdapter(items) { item: Item, _: View ->
+            presenter.onItemClicked(item)
         }
         base_item_list.adapter = adapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.cart_menu, menu)
+        val menuItem = menu.findItem(R.id.actionNotifications)
+        val actionView = menuItem.actionView
+        textCartItemCount = actionView.findViewById(R.id.cart_badge) as TextView
+        actionView.setOnClickListener { onOptionsItemSelected(menuItem) }
+        presenter.init()
+        return true
     }
 
     override fun onResume() {
         super.onResume()
         invalidateOptionsMenu()
-        presenter.init()
+    }
+
+    override fun setupBadge(number: Int) {
+        textCartItemCount?.let {
+            when (number) {
+                0 -> it.hide()
+                else -> {
+                    it.show()
+                    it.text = "${Math.min(number, 99)}"
+                }
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.actionNotifications -> {
+                presenter.onCartIconClicked()
+                true
+            }
+            else -> {
+                return true
+            }
+        }
+    }
+
+    override fun openShoppingCart() {
+        Log.d("SHOPPING CART INTENT", "WORKS")
     }
 
 
