@@ -6,17 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.R
-import br.com.stone.vianna.starstore.extensions.toMoneyFormat
+import br.com.stone.vianna.starstore.helper.toMoneyFormat
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_list_item.view.*
 
 class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
-    private val items: List<Item>
+    private var items: List<Item> = mutableListOf()
     private val itemClick: (Item, View) -> Unit
 
-    constructor(items: List<Item>, itemClick: (Item, View) -> Unit) : super() {
+    constructor(itemClick: (Item, View) -> Unit) : super() {
         this.itemClick = itemClick
+    }
+
+    fun updateItems(items: List<Item>) {
         this.items = items
     }
 

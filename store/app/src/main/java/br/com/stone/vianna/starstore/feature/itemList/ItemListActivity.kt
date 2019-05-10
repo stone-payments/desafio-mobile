@@ -10,8 +10,8 @@ import android.widget.TextView
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
-import br.com.stone.vianna.starstore.extensions.hide
-import br.com.stone.vianna.starstore.extensions.show
+import br.com.stone.vianna.starstore.helper.hide
+import br.com.stone.vianna.starstore.helper.show
 import br.com.stone.vianna.starstore.feature.shoppingCart.ShoppingCartActivity
 import br.com.stone.vianna.starstore.feature.transactionHistory.TransactionHistoryActivity
 import kotlinx.android.synthetic.main.activity_item_list.*
@@ -22,6 +22,9 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
 
     private val presenter: ItemListContract.Presenter by inject { parametersOf(this) }
     private var textCartItemCount: TextView? = null
+    private var adapter = ItemsAdapter { item: Item, _: View ->
+        presenter.onItemClicked(item)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,9 +53,7 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
     }
 
     override fun updateListItems(items: List<Item>) {
-        val adapter = ItemsAdapter(items) { item: Item, _: View ->
-            presenter.onItemClicked(item)
-        }
+        adapter.updateItems(items)
         base_item_list.adapter = adapter
     }
 

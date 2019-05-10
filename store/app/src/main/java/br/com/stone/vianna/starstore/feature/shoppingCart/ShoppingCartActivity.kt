@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.entity.Item
-import br.com.stone.vianna.starstore.extensions.toMoneyFormat
+import br.com.stone.vianna.starstore.helper.toMoneyFormat
 import br.com.stone.vianna.starstore.feature.card.CreditCardActivity
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
 import org.koin.android.ext.android.inject

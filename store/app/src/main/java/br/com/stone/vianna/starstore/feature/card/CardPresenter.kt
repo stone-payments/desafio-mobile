@@ -2,7 +2,7 @@ package br.com.stone.vianna.starstore.feature.card
 
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
-import br.com.stone.vianna.starstore.extensions.*
+import br.com.stone.vianna.starstore.helper.*
 import br.com.stone.vianna.starstore.feature.itemList.ItemListRepository
 
 class CardPresenter(private val view: CardContract.View,

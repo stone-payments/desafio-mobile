@@ -4,13 +4,14 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
+import io.reactivex.Completable
 import io.reactivex.Maybe
 
 @Dao
 interface TransactionDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTransaction(transaction: PaymentTransaction)
+    fun insertTransaction(transaction: PaymentTransaction): Completable
 
     @Query("SELECT * FROM PaymentTransaction")
     fun getTransactions(): Maybe<List<PaymentTransaction>>

@@ -2,8 +2,7 @@ package br.com.stone.vianna.starstore.feature.itemList
 
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
-import br.com.stone.vianna.starstore.extensions.addThreads
-import br.com.stone.vianna.starstore.extensions.parser
+import br.com.stone.vianna.starstore.helper.addThreads
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -32,7 +31,7 @@ class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
                 .subscribe({
                     onSuccess?.invoke(it)
                 }, {
-                    onError?.invoke(it.parser.error)
+                    onError?.invoke(it.localizedMessage)
                 })
     }
 

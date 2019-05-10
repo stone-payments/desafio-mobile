@@ -1,8 +1,7 @@
 package br.com.stone.vianna.starstore.feature.card
 
 import br.com.stone.vianna.starstore.entity.*
-import br.com.stone.vianna.starstore.extensions.addThreads
-import br.com.stone.vianna.starstore.extensions.parser
+import br.com.stone.vianna.starstore.helper.addThreads
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -32,7 +31,7 @@ class PaymentRepositoryImpl(private val paymentDataSource: PaymentDataSource,
                 .subscribe({
                     onSuccess?.invoke(it)
                 }, {
-                    onError?.invoke(it.parser.error)
+                    onError?.invoke(it.localizedMessage)
                 })
     }
 
