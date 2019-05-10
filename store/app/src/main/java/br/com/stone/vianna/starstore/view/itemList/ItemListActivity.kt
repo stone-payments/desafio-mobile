@@ -1,5 +1,6 @@
 package br.com.stone.vianna.starstore.view.itemList
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
@@ -12,6 +13,7 @@ import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.extensions.hide
 import br.com.stone.vianna.starstore.extensions.show
+import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartActivity
 import kotlinx.android.synthetic.main.activity_item_list.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -93,7 +95,8 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
     }
 
     override fun openShoppingCart() {
-        Log.d("SHOPPING CART INTENT", "WORKS")
+        val intent = Intent(this, ShoppingCartActivity::class.java)
+        startActivity(intent)
     }
 
 

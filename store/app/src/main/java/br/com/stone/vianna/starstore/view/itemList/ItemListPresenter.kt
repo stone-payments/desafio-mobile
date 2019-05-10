@@ -14,6 +14,7 @@ class ItemListPresenter(private val view: ItemListContract.View,
 
     override fun init() {
         view.displayLoading()
+        getTotalOfItems{ view.setupBadge(it) }
         getRemoteItems()
     }
 
