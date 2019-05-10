@@ -1,4 +1,4 @@
-package br.com.stone.cryptowallet.entity
+package br.com.stone.vianna.starstore.entity
 
 import com.google.gson.annotations.SerializedName
 

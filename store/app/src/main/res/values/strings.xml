@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">StarStore</string>
+
+    <string name="items_list_screen_title">StarStore</string>
+
+    <string name="error_title">Ocorreu um erro! Entre em contato com nosso suporte.</string>
+    <string name="error_loading">Não foi possível carregar sua solicitação.</string>
 </resources>

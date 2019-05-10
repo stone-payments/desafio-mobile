@@ -1,10 +1,9 @@
-package br.com.stone.cryptowallet.entity
+package br.com.stone.vianna.starstore.entity
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
-import br.com.stone.cryptowallet.entity.PaymentTransaction
 import io.reactivex.Maybe
 
 @Dao

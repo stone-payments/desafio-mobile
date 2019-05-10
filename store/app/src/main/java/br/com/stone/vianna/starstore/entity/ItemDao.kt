@@ -1,9 +1,7 @@
-package br.com.stone.cryptowallet.entity
+package br.com.stone.vianna.starstore.entity
 
 import android.arch.persistence.room.*
-import br.com.stone.cryptowallet.entity.Item
 import io.reactivex.Maybe
-import io.reactivex.Observable
 import io.reactivex.Single
 
 @Dao
