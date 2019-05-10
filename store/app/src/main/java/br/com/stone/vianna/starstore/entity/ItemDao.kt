@@ -9,13 +9,13 @@ import io.reactivex.Single
 interface ItemDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertItem(item: Item): Completable
+    fun insertItem(item: Item)
 
     @Update
-    fun updateItem(item: Item): Completable
+    fun updateItem(item: Item)
 
     @Delete
-    fun deleteItem(item: Item): Completable
+    fun deleteItem(item: Item)
 
     @Query("SELECT * FROM Item WHERE title == :title")
     fun getItemByName(title: String): Single<List<Item>>
@@ -27,5 +27,5 @@ interface ItemDao {
     fun getItemsCount(): Maybe<Int>
 
     @Query("DELETE FROM Item")
-    fun removeItems(): Completable
+    fun removeItems()
 }

@@ -11,7 +11,7 @@ import io.reactivex.Maybe
 interface TransactionDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTransaction(transaction: PaymentTransaction): Completable
+    fun insertTransaction(transaction: PaymentTransaction)
 
     @Query("SELECT * FROM PaymentTransaction")
     fun getTransactions(): Maybe<List<PaymentTransaction>>
