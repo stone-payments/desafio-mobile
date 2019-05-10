@@ -1,14 +1,19 @@
 package br.com.stone.vianna.starstore.view.card
 
 import android.util.Log
+import br.com.stone.vianna.starstore.entity.ItemDao
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
+import br.com.stone.vianna.starstore.entity.TransactionDao
 import br.com.stone.vianna.starstore.extensions.*
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class CardPresenter(private val view: CardContract.View) : CardContract.Presenter {
+class CardPresenter(private val view: CardContract.View,
+                    private val paymentRepository: PaymentRepository,
+                    private val transactionDao: TransactionDao,
+                    private val itemDao: ItemDao) : CardContract.Presenter {
 
     var value = 0
 
@@ -70,10 +75,35 @@ class CardPresenter(private val view: CardContract.View) : CardContract.Presente
         }
 
         if (isFormValid) {
-            Log.d("FORM", "FORM IS VALID!")
+            performCheckout(paymentRequest)
         }
 
     }
 
+    private fun performCheckout(paymentRequest: PaymentRequest) {
+        view.displayProgressBar()
+        paymentRepository.checkout(paymentRequest,
+                { onSuccessCheckout(it) },
+                { onErrorCheckout(it) })
+    }
+
+    private fun onSuccessCheckout(transaction: PaymentTransaction) {
+        view.hideProgressBar()
+
+        Completable
+                .fromCallable { transactionDao.insertTransaction(transaction) }
+                .doOnComplete { itemDao.removeItems() }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        { view.returnToStore() },
+                        { Log.d("Transaction Error", "Insert Error") }
+                )
+    }
+
+    private fun onErrorCheckout(error: String) {
+        view.hideProgressBar()
+        Log.e("ERRO", error)
+    }
 
 }

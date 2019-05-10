@@ -4,6 +4,8 @@ import android.os.Bundle
 import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.entity.PaymentRequest
+import br.com.stone.vianna.starstore.extensions.hide
+import br.com.stone.vianna.starstore.extensions.show
 import kotlinx.android.synthetic.main.activity_credit_card.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -77,5 +79,17 @@ class CreditCardActivity : BaseActivity(), CardContract.View {
 
     override fun hideCardHolderError() {
         text_input_layout_card_holder_name.error = null
+    }
+
+    override fun displayProgressBar() {
+        checkout_progress.show()
+    }
+
+    override fun hideProgressBar() {
+        checkout_progress.hide()
+    }
+
+    override fun returnToStore() {
+        finish()
     }
 }

@@ -15,7 +15,9 @@ class CardContract {
         fun hideCardCvvError()
         fun displayCardHolderError()
         fun hideCardHolderError()
-
+        fun displayProgressBar()
+        fun hideProgressBar()
+        fun returnToStore()
     }
 
     interface Presenter {
