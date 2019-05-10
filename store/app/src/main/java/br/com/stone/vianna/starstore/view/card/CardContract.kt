@@ -7,6 +7,14 @@ class CardContract {
 
     interface View {
 
+        fun displayCardNumberError()
+        fun hideCardNumberError()
+        fun displayCardExpirationDateError()
+        fun hideCardExpirationDateError()
+        fun displayCardCvvError()
+        fun hideCardCvvError()
+        fun displayCardHolderError()
+        fun hideCardHolderError()
 
     }
 

@@ -2,7 +2,11 @@ package br.com.stone.vianna.starstore.view.card
 
 import android.util.Log
 import br.com.stone.vianna.starstore.entity.PaymentRequest
+import br.com.stone.vianna.starstore.entity.PaymentTransaction
 import br.com.stone.vianna.starstore.extensions.*
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class CardPresenter(private val view: CardContract.View) : CardContract.Presenter {
 
@@ -20,9 +24,11 @@ class CardPresenter(private val view: CardContract.View) : CardContract.Presente
             paymentRequest.cardNumber.isEmpty()
                     || !paymentRequest.cardNumber.isValidCardLength() -> {
                 isFormValid = isFormValid && false
+                view.displayCardNumberError()
             }
             else -> {
                 isFormValid = isFormValid && true
+                view.hideCardNumberError()
             }
         }
 
@@ -31,9 +37,11 @@ class CardPresenter(private val view: CardContract.View) : CardContract.Presente
                     || !validateCardExpiryDate(paymentRequest.expirationDate)
                     || isDateExpired(paymentRequest.expirationDate) -> {
                 isFormValid = isFormValid && false
+                view.displayCardExpirationDateError()
             }
             else -> {
                 isFormValid = isFormValid && true
+                view.hideCardExpirationDateError()
             }
         }
 
@@ -41,9 +49,11 @@ class CardPresenter(private val view: CardContract.View) : CardContract.Presente
             paymentRequest.cardHolder.isEmpty()
                     || !paymentRequest.cardHolder.isValidNameLength() -> {
                 isFormValid = isFormValid && false
+                view.displayCardHolderError()
             }
             else -> {
                 isFormValid = isFormValid && true
+                view.hideCardHolderError()
             }
         }
 
@@ -51,16 +61,16 @@ class CardPresenter(private val view: CardContract.View) : CardContract.Presente
             paymentRequest.securityCode.isEmpty()
                     || !paymentRequest.securityCode.isValidCVVLength() -> {
                 isFormValid = isFormValid && false
+                view.displayCardCvvError()
             }
             else -> {
                 isFormValid = isFormValid && true
+                view.hideCardCvvError()
             }
         }
 
         if (isFormValid) {
             Log.d("FORM", "FORM IS VALID!")
-        }else{
-            Log.d("FORM", "FORM IS NOT VALID!")
         }
 
     }
