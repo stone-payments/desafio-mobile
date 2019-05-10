@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/checkout_activity_view"
+    style="@style/match_match"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/match_match"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/transaction_toolbar"
+            style="@style/match_wrap"
+            android:minHeight="?attr/actionBarSize"
+            app:theme="@style/ToolBarStyle"  />
+
+        <ProgressBar
+            android:id="@+id/transaction_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/white"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimary"
+            android:max="100"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkout_toolbar" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/transaction_list"
+            style="@style/match_wrap"
+            android:layout_weight="1"
+            android:layoutAnimation="@anim/layout_animation_slide_up" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

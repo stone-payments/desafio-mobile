@@ -100,4 +100,5 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
     }
 
 
+
 }
