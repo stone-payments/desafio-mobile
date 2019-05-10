@@ -51,8 +51,12 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
 
     override fun onProceedToCheckoutButtonClicked() {
         getCartItems {
-            val totalValue = getTotalValue(it)
-            view.openCheckout(totalValue)
+            it?.let {
+                if (it.isNotEmpty()) {
+                    val totalValue = getTotalValue(it)
+                    view.openCheckout(totalValue)
+                }
+            }
         }
     }
 }
