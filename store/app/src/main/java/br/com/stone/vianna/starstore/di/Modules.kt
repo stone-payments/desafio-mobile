@@ -3,6 +3,8 @@ package  br.com.stone.vianna.starstore.di
 import android.arch.persistence.room.Room
 import br.com.stone.vianna.starstore.AppDatabase
 import br.com.stone.vianna.starstore.BuildConfig
+import br.com.stone.vianna.starstore.view.card.CardContract
+import br.com.stone.vianna.starstore.view.card.CardPresenter
 import br.com.stone.vianna.starstore.view.itemList.*
 import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartContract
 import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartPresenter
@@ -35,6 +37,10 @@ val presenterModule = module {
 
     factory<ShoppingCartContract.Presenter> { (cartView: ShoppingCartContract.View) ->
         ShoppingCartPresenter(cartView, get())
+    }
+
+    factory<CardContract.Presenter> { (cardView: CardContract.View) ->
+        CardPresenter(cardView)
     }
 }
 

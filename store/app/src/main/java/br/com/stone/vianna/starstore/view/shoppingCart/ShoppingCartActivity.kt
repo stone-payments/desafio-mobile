@@ -35,6 +35,7 @@ class ShoppingCartActivity : BaseActivity(), ShoppingCartContract.View {
         cart_list.layoutManager = layoutManager
 
         proceed_to_checkout_button.setOnClickListener {
+            presenter.onProceedToCheckoutButtonClicked()
         }
     }
 

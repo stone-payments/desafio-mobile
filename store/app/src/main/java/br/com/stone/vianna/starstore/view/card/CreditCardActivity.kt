@@ -12,7 +12,7 @@ import org.koin.core.parameter.parametersOf
 
 class CreditCardActivity : BaseActivity(), CardContract.View {
 
-
+    val presenter: CardContract.Presenter by inject { parametersOf(this) }
 
     companion object {
         const val CHECKOUT_VALUE = "CHECKOUT_VALUE"
@@ -26,8 +26,26 @@ class CreditCardActivity : BaseActivity(), CardContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_credit_card)
 
+        presenter.init(value)
+        initializeViews()
     }
 
+    private fun initializeViews() {
 
+        cards_toolbar.title = "VOLTAR"
+        cards_toolbar.setTitleTextColor(resources.getColor(android.R.color.white, theme))
+        setSupportActionBar(cards_toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        checkout_button.setOnClickListener {
+            val paymentRequest = PaymentRequest()
+            paymentRequest.cardNumber = et_card_number.rawText.toString()
+            paymentRequest.cardHolder = et_card_holder_name.text.toString()
+            paymentRequest.expirationDate = et_card_exp_date.text.toString()
+            paymentRequest.securityCode = et_card_cvv.text.toString()
+
+            presenter.onCheckoutButtonClicked(paymentRequest)
+        }
+    }
 
 }

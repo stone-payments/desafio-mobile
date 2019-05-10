@@ -8,7 +8,7 @@
     <string name="error_loading">Não foi possível carregar sua solicitação.</string>
     <string name="proceed_to_checkout">IR PARA PAGAMENTO</string>
     <string name="total_caps">TOTAL</string>
-
+    <string name="pay_caps">PAGAR</string>
     <string name="cvv_hint">CVV</string>
     <string name="expiration_date_hint">Data de venc.</string>
     <string name="card_number_hint">Número do cartão</string>

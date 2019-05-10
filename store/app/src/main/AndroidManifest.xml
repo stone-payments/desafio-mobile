@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.shoppingCart.ShoppingCartActivity" />
+        <activity android:name=".view.card.CreditCardActivity" />
 
     </application>
 
