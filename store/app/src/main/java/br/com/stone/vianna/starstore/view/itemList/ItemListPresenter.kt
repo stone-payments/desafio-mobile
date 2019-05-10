@@ -1,6 +1,5 @@
 package br.com.stone.vianna.starstore.view.itemList
 
-import android.util.Log
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
 import io.reactivex.Completable
@@ -31,7 +30,7 @@ class ItemListPresenter(private val view: ItemListContract.View,
 
     private fun onErrorLoadItems(error: String) {
         view.hideLoading()
-        Log.e("ERRO GETTING ITEMS", error)
+
     }
 
     override fun onItemClicked(item: Item) {
@@ -41,7 +40,7 @@ class ItemListPresenter(private val view: ItemListContract.View,
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { getTotalOfItems { view.setupBadge(it) } },
-                        { Log.d("RxJava", "Insert Error") }
+                        {  }
                 )
     }
 

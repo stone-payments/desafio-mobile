@@ -1,6 +1,5 @@
 package br.com.stone.vianna.starstore.view.card
 
-import android.util.Log
 import br.com.stone.vianna.starstore.entity.ItemDao
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
@@ -97,13 +96,13 @@ class CardPresenter(private val view: CardContract.View,
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { view.returnToStore() },
-                        { Log.d("Transaction Error", "Insert Error") }
+                        { }
                 )
     }
 
     private fun onErrorCheckout(error: String) {
         view.hideProgressBar()
-        Log.e("ERRO", error)
+
     }
 
 }
