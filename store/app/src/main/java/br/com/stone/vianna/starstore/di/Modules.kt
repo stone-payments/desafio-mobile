@@ -1,4 +1,4 @@
-package br.com.stone.cryptowallet.di
+package  br.com.stone.vianna.starstore.di
 
 import android.arch.persistence.room.Room
 import br.com.stone.vianna.starstore.AppDatabase
