@@ -9,6 +9,8 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.io.IOException
+import java.text.NumberFormat
+import java.util.*
 
 /**
  * View
@@ -62,3 +64,13 @@ val Int.translate: String
     get() {
         return StoreApplication.context.getString(this) ?: ""
     }
+
+/**
+ * Money
+ */
+fun Int.toMoneyFormat(): String {
+
+    val currency = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+    val value = currency.format(this / 100.0)
+    return value
+}

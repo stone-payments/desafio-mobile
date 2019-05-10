@@ -4,6 +4,8 @@ import android.arch.persistence.room.Room
 import br.com.stone.vianna.starstore.AppDatabase
 import br.com.stone.vianna.starstore.BuildConfig
 import br.com.stone.vianna.starstore.view.itemList.*
+import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartContract
+import br.com.stone.vianna.starstore.view.shoppingCart.ShoppingCartPresenter
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -29,6 +31,10 @@ val presenterModule = module {
 
     factory<ItemListContract.Presenter> { (itemView: ItemListContract.View) ->
         ItemListPresenter(itemView, get(), get())
+    }
+
+    factory<ShoppingCartContract.Presenter> { (cartView: ShoppingCartContract.View) ->
+        ShoppingCartPresenter(cartView, get())
     }
 }
 
