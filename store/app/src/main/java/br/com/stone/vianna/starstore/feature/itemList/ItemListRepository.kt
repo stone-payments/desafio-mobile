@@ -3,18 +3,15 @@ package br.com.stone.vianna.starstore.feature.itemList
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
 import br.com.stone.vianna.starstore.helper.addThreads
-import io.reactivex.Completable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.Maybe
+import io.reactivex.Observable
 
 interface ItemListRepository {
 
-    fun getItems(onSuccess: ((List<Item>) -> Unit)? = null,
-                 onError: ((error: String) -> Unit)? = null)
-
-    fun saveItemLocally(item: Item, onComplete: () -> Unit)
-    fun getTotalOfItems(onComplete: (total: Int) -> Unit)
-    fun removeItems(onComplete: () -> Unit)
+    fun getItems(): Observable<List<Item>>
+    fun getTotalOfItems(): Maybe<Int>
+    fun saveItemLocally(item: Item)
+    fun removeItems()
 }
 
 class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
@@ -22,43 +19,22 @@ class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
     : ItemListRepository {
 
 
-    override fun getItems(onSuccess: ((List<Item>) -> Unit)?,
-                          onError: ((error: String) -> Unit)?) {
+    override fun getItems(): Observable<List<Item>> {
 
-        itemListDataSource
-                .getItems()
-                .addThreads()
-                .subscribe({
-                    onSuccess?.invoke(it)
-                }, {
-                    onError?.invoke(it.localizedMessage)
-                })
+       return itemListDataSource.getItems()
+
     }
 
-    override fun saveItemLocally(item: Item, onComplete: () -> Unit) {
-        Completable
-                .fromAction { itemDao.insertItem(item) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { onComplete.invoke() },
-                        { })
+    override fun saveItemLocally(item: Item) {
+        itemDao.insertItem(item)
+
     }
 
-    override fun getTotalOfItems(onComplete: (total: Int) -> Unit) {
-        itemDao.getItemsCount()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { total: Int -> onComplete.invoke(total) }
+    override fun getTotalOfItems(): Maybe<Int> {
+        return itemDao.getItemsCount()
     }
 
-    override fun removeItems(onComplete: () -> Unit) {
-        Completable
-                .fromAction { itemDao.removeItems() }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { onComplete.invoke() },
-                        { })
+    override fun removeItems() {
+        itemDao.removeItems()
     }
 }

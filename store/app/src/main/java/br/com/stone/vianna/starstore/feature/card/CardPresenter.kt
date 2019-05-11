@@ -4,6 +4,10 @@ import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
 import br.com.stone.vianna.starstore.helper.*
 import br.com.stone.vianna.starstore.feature.itemList.ItemListRepository
+import io.reactivex.Completable
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class CardPresenter(private val view: CardContract.View,
                     private val paymentRepository: PaymentRepository,
@@ -88,7 +92,11 @@ class CardPresenter(private val view: CardContract.View,
     }
 
     private fun removeItemsFromCart() {
-        itemListRepository.removeItems { view.returnToStore() }
+        Observable
+                .fromCallable { itemListRepository.removeItems() }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { view.returnToStore() }
     }
 
     private fun onErrorCheckout(error: String) {
