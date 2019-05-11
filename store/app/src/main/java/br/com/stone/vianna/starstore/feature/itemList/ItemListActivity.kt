@@ -22,7 +22,7 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
 
     private val presenter: ItemListContract.Presenter by inject { parametersOf(this) }
     private var textCartItemCount: TextView? = null
-    private var adapter = ItemsAdapter { item: Item, _: View ->
+    private var adapter = ItemsAdapter { item: Item ->
         presenter.onItemClicked(item)
     }
 
@@ -59,14 +59,18 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.cart_menu, menu)
+
+        menuInflater.inflate(R.menu.cart_menu, menu)
         val menuItem = menu.findItem(R.id.actionNotifications)
         val actionView = menuItem.actionView
+
         textCartItemCount = actionView.findViewById(R.id.cart_badge) as TextView
         actionView.setOnClickListener { onOptionsItemSelected(menuItem) }
         presenter.updateBadge()
         return true
+    }
+
+    override fun showError() {
     }
 
     override fun onResume() {

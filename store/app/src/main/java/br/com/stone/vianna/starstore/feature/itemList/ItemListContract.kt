@@ -11,6 +11,7 @@ class ItemListContract {
         fun setupBadge(number: Int)
         fun openShoppingCart()
         fun openHistory()
+        fun showError()
     }
 
     interface Presenter {

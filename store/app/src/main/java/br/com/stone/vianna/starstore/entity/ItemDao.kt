@@ -3,6 +3,7 @@ package br.com.stone.vianna.starstore.entity
 import android.arch.persistence.room.*
 import io.reactivex.Completable
 import io.reactivex.Maybe
+import io.reactivex.Observable
 import io.reactivex.Single
 
 @Dao
@@ -18,7 +19,7 @@ interface ItemDao {
     fun deleteItem(item: Item)
 
     @Query("SELECT * FROM Item WHERE title == :title")
-    fun getItemByName(title: String): Single<List<Item>>
+    fun getItemByName(title: String): Maybe<List<Item>>
 
     @Query("SELECT * FROM Item")
     fun getItems(): Maybe<List<Item>>

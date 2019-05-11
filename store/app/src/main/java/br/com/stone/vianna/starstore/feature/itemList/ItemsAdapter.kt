@@ -10,17 +10,14 @@ import br.com.stone.vianna.starstore.helper.toMoneyFormat
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_list_item.view.*
 
-class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
+class ItemsAdapter(private val itemClick: (Item) -> Unit) : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
     private var items: List<Item> = mutableListOf()
-    private val itemClick: (Item, View) -> Unit
 
-    constructor(itemClick: (Item, View) -> Unit) : super() {
-        this.itemClick = itemClick
-    }
 
     fun updateItems(items: List<Item>) {
         this.items = items
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,11 +29,11 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
     override fun getItemCount() = items.size
 
-    class ViewHolder(itemView: View, private val itemClick: (Item, View) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, private val itemClick: (Item) -> Unit) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Item) = with(itemView) {
             itemView.tv_item_name.text = item.title
             itemView.tv_item_price.text = item.price.toMoneyFormat()
-            itemView.setOnClickListener { itemClick(item, itemView) }
+            itemView.setOnClickListener { itemClick(item) }
 
             Picasso.get()
                     .load(item.thumbnailHd)

@@ -11,8 +11,7 @@ import io.reactivex.schedulers.Schedulers
 
 class CardPresenter(private val view: CardContract.View,
                     private val paymentRepository: PaymentRepository,
-                    private val itemListRepository: ItemListRepository
-) : CardContract.Presenter {
+                    private val itemListRepository: ItemListRepository) : CardContract.Presenter {
 
     var value = 0
 
@@ -92,8 +91,7 @@ class CardPresenter(private val view: CardContract.View,
     }
 
     private fun removeItemsFromCart() {
-        Observable
-                .fromCallable { itemListRepository.removeItems() }
+        itemListRepository.removeItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { view.returnToStore() }

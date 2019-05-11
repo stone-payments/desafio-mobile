@@ -65,6 +65,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
 
     testImplementation 'junit:junit:4.12'
-    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation 'org.mockito:mockito-inline:2.23.0'
+    testImplementation 'com.nhaarman:mockito-kotlin-kt1.1:1.6.0'
+    testImplementation 'com.google.truth:truth:0.42'
+    testImplementation 'pl.pragmatists:JUnitParams:1.1.1'
 
 }
