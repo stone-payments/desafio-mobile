@@ -75,7 +75,7 @@ class ItemListPresenter(private val view: ItemListContract.View,
         view.openHistory()
     }
 
-    fun clearEvents() {
+    override fun clearEvents() {
         compositeDisposable.clear()
     }
 }

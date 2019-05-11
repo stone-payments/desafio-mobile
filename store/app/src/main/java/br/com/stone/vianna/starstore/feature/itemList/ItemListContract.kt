@@ -19,6 +19,7 @@ class ItemListContract {
         fun onItemClicked(item: Item)
         fun onHistoryIconClicked()
         fun updateBadge()
+        fun clearEvents()
     }
 
 }

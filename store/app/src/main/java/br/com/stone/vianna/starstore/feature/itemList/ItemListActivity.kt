@@ -108,4 +108,9 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         startActivity(intent)
     }
 
+    override fun onStop() {
+        super.onStop()
+        presenter.clearEvents()
+    }
+
 }
