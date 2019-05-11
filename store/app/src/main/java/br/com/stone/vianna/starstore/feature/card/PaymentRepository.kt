@@ -1,7 +1,7 @@
 package br.com.stone.vianna.starstore.feature.card
 
 import br.com.stone.vianna.starstore.entity.*
-import br.com.stone.vianna.starstore.helper.addThreads
+import br.com.stone.vianna.starstore.helper.addSchedulers
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -27,7 +27,7 @@ class PaymentRepositoryImpl(private val paymentDataSource: PaymentDataSource,
 
         paymentDataSource
                 .checkout(paymentRequest)
-                .addThreads()
+                .addSchedulers()
                 .subscribe({
                     onSuccess?.invoke(it)
                 }, {

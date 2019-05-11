@@ -2,7 +2,6 @@ package br.com.stone.vianna.starstore.feature.itemList
 
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
-import br.com.stone.vianna.starstore.helper.addThreads
 import io.reactivex.Maybe
 import io.reactivex.Observable
 

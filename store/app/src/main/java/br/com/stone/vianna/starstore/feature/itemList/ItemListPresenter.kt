@@ -2,7 +2,7 @@ package br.com.stone.vianna.starstore.feature.itemList
 
 import android.util.Log
 import br.com.stone.vianna.starstore.entity.Item
-import br.com.stone.vianna.starstore.helper.addThreads
+import br.com.stone.vianna.starstore.helper.addSchedulers
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -32,7 +32,7 @@ class ItemListPresenter(private val view: ItemListContract.View,
     private fun getRemoteItems() {
 
         var getItemsDisposable = itemListRepository.getItems()
-                .addThreads()
+                .addSchedulers()
                 .subscribe({
                     onSuccessLoadItems(it)
                 }, {

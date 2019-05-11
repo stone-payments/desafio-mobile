@@ -22,7 +22,7 @@ fun View.hide() {
 /**
  * Observable
  */
-fun <T> Observable<T>.addThreads(): Observable<T> {
+fun <T> Observable<T>.addSchedulers(): Observable<T> {
     return this
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
