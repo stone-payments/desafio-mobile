@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.TextView
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.R
@@ -34,14 +33,6 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         presenter.init()
     }
 
-    override fun displayLoading() {
-        service_loading?.show()
-    }
-
-    override fun hideLoading() {
-        service_loading?.hide()
-    }
-
     private fun initializeViews() {
         toolbar.title = getString(R.string.items_list_screen_title)
         setSupportActionBar(toolbar)
@@ -56,7 +47,6 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
 
     override fun updateListItems(items: List<Item>) {
         adapter.updateItems(items)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -116,6 +106,14 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
     override fun onStop() {
         super.onStop()
         presenter.clearEvents()
+    }
+
+    override fun displayLoading() {
+        service_loading?.show()
+    }
+
+    override fun hideLoading() {
+        service_loading?.hide()
     }
 
 }

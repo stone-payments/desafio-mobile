@@ -4,12 +4,10 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity
-class PaymentTransaction {
-
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null
-    var cardHolderName = ""
-    var cardLastDigits = ""
-    var value = 0
-    var transactionDateTime = ""
-}
+data class PaymentTransaction(
+        @PrimaryKey(autoGenerate = true)
+        val id: Int,
+        val cardHolderName: String,
+        val cardLastDigits: String,
+        val value: Int,
+        val transactionDateTime: String)

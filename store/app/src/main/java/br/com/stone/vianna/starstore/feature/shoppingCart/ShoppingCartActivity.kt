@@ -15,7 +15,9 @@ import org.koin.core.parameter.parametersOf
 class ShoppingCartActivity : BaseActivity(), ShoppingCartContract.View {
 
     private val presenter: ShoppingCartContract.Presenter by inject { parametersOf(this) }
-    lateinit var adapter: ShoppingCartAdapter
+    private val adapter: ShoppingCartAdapter = ShoppingCartAdapter {
+        presenter.removeItem(it)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class ShoppingCartActivity : BaseActivity(), ShoppingCartContract.View {
         setSupportActionBar(cart_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        cart_list.adapter = adapter
         val layoutManager = LinearLayoutManager(this)
         cart_list.layoutManager = layoutManager
 
@@ -40,10 +43,7 @@ class ShoppingCartActivity : BaseActivity(), ShoppingCartContract.View {
     }
 
     override fun updateCartItems(items: List<Item>) {
-        adapter = ShoppingCartAdapter(items) {
-            presenter.removeItem(it)
-        }
-        cart_list.adapter = adapter
+        adapter.updateItems(items)
     }
 
     override fun setTotalValue(totalValue: Int) {

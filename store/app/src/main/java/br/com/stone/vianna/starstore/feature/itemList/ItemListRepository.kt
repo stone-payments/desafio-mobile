@@ -26,19 +26,22 @@ class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
     }
 
     override fun saveItemLocally(item: Item): Completable {
-        return Completable.fromAction { itemDao.insertItem(item) }
+        return Completable
+                .fromAction { itemDao.insertItem(item) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
     override fun getTotalOfItems(): Observable<Int> {
-        return itemDao.getItemsCount().toObservable()
+        return itemDao.getItemsCount()
+                .toObservable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
     override fun removeItems(): Completable {
-        return Completable.fromAction { itemDao.removeItems() }
+        return Completable
+                .fromAction { itemDao.removeItems() }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

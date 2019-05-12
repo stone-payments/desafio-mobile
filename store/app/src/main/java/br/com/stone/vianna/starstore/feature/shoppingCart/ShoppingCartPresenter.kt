@@ -1,19 +1,29 @@
 package br.com.stone.vianna.starstore.feature.shoppingCart
 
 import br.com.stone.vianna.starstore.entity.Item
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 
 class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
-                            private val shoppingCartRepository: ShoppingCartRepository)
+                            shoppingCartRepository: ShoppingCartRepository)
+
     : ShoppingCartContract.Presenter {
 
+    private val compositeDisposable = CompositeDisposable()
+
+    private val cartItemsStream = shoppingCartRepository.getCartItems().share()
+
     override fun init() {
-        shoppingCartRepository.getCartItems { updateViewWithCartItems(it) }
+
+        cartItemsStream
+                .subscribe { updateViewWithCartItems(it) }
+                .addTo(compositeDisposable)
     }
 
     private fun updateViewWithCartItems(cartItems: List<Item>?) {
-        if (cartItems != null) {
-            view.updateCartItems(cartItems)
-            val totalValue = getTotalValue(cartItems)
+        cartItems?.let {
+            view.updateCartItems(it)
+            val totalValue = getTotalValue(it)
             view.setTotalValue(totalValue)
         }
     }
@@ -28,19 +38,21 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
     }
 
     override fun onProceedToCheckoutButtonClicked() {
-        shoppingCartRepository.getCartItems {
-            it?.let {
-                if (it.isNotEmpty()) {
-                    val totalValue = getTotalValue(it)
-                    view.openCheckout(totalValue)
+        cartItemsStream
+                .subscribe {
+                    if (it.isNotEmpty()) {
+                        val totalValue = getTotalValue(it)
+                        view.openCheckout(totalValue)
+                    }
                 }
-            }
-        }
+                .addTo(compositeDisposable)
     }
 
     override fun removeItem(item: Item) {
-        shoppingCartRepository.removeItem(item) {
-            shoppingCartRepository.getCartItems { updateViewWithCartItems(it) }
-        }
+        cartItemsStream
+                .subscribe {
+                    updateViewWithCartItems(it)
+                }
+                .addTo(compositeDisposable)
     }
 }

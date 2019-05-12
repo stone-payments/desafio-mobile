@@ -9,14 +9,13 @@ import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.entity.Item
 import kotlinx.android.synthetic.main.view_item_cart.view.*
 
-class ShoppingCartAdapter : RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder> {
+class ShoppingCartAdapter(private val itemClick: (Item) -> Unit) : RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder>() {
 
-    private val items: MutableList<Item>
-    private val itemClick: (Item) -> Unit
+    private var items: List<Item> = mutableListOf()
 
-    constructor(items: List<Item>, itemClick: (Item) -> Unit) : super() {
-        this.itemClick = itemClick
-        this.items = items.toMutableList()
+    fun updateItems(items: List<Item>) {
+        this.items = items
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
