@@ -3,7 +3,9 @@ package br.com.stone.vianna.starstore.feature.itemList
 import br.com.stone.vianna.starstore.RxTestRule
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
+import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
+import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable
 import org.junit.Rule
@@ -24,6 +26,8 @@ class ItemListRepositoryTest {
     private val itemDao: ItemDao = mock {
         on { getItems() }.thenReturn(Maybe.just(items))
         on { getItemsCount() }.thenReturn(Maybe.just(3))
+        on { removeItems() }.thenReturn(Completable.complete())
+        on { insertItem(any()) }.thenReturn(Completable.complete())
     }
 
     @Spy
@@ -36,7 +40,7 @@ class ItemListRepositoryTest {
     }
 
     @Test
-    fun `call data source when getItems() is called`() {
+    fun `call api when getItems() is called`() {
         repository.getItems().test()
 
         verify(itemListApi).getItems()

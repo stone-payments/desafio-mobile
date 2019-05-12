@@ -3,7 +3,9 @@ package br.com.stone.vianna.starstore.feature.shoppingCart
 import br.com.stone.vianna.starstore.RxTestRule
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
+import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
+import io.reactivex.Completable
 import io.reactivex.Maybe
 import org.junit.Rule
 import org.junit.Test
@@ -18,6 +20,7 @@ class ShoppingCartRepositoryTest {
 
     private val itemDao: ItemDao = mock {
         on { getItems() }.thenReturn(Maybe.just(items))
+        on { deleteItem(any()) }.thenReturn(Completable.complete())
     }
 
     @Spy
@@ -28,8 +31,6 @@ class ShoppingCartRepositoryTest {
 
         val item = Item(id = 1, title = "title 1", price = 200, seller = "Seller1",
                 thumbnailHd = "")
-
-        itemDao.insertItem(item)
 
         repository.removeItem(item).test()
         Mockito.verify(itemDao).deleteItem(item)

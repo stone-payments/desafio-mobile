@@ -24,8 +24,7 @@ class PaymentRepositoryImpl(private val paymentApi: PaymentApi,
     }
 
     override fun saveTransactionLocally(transaction: PaymentTransaction): Completable {
-        return Completable
-                .fromAction { transactionDao.insertTransaction(transaction) }
+        return transactionDao.insertTransaction(transaction)
                 .subscribeOn(Schedulers.io())
     }
 

@@ -24,8 +24,7 @@ class ShoppingCartRepositoryImpl(private val itemDao: ItemDao)
     }
 
     override fun removeItem(item: Item): Completable {
-        return Completable
-                .fromAction { itemDao.deleteItem(item) }
+        return itemDao.deleteItem(item)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

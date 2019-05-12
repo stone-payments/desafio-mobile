@@ -26,8 +26,7 @@ class ItemListRepositoryImpl(private val itemListApi: ItemListApi,
     }
 
     override fun saveItemLocally(item: Item): Completable {
-        return Completable
-                .fromAction { itemDao.insertItem(item) }
+        return itemDao.insertItem(item)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
@@ -40,8 +39,7 @@ class ItemListRepositoryImpl(private val itemListApi: ItemListApi,
     }
 
     override fun removeItems(): Completable {
-        return Completable
-                .fromAction { itemDao.removeItems() }
+        return itemDao.removeItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
