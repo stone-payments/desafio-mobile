@@ -11,8 +11,8 @@ import org.koin.core.parameter.parametersOf
 
 class TransactionHistoryActivity : BaseActivity(), TransactionContract.View {
 
-    val presenter: TransactionContract.Presenter by inject { parametersOf(this) }
-    val adapter = TransactionAdapter()
+    private val presenter: TransactionContract.Presenter by inject { parametersOf(this) }
+    private val adapter = TransactionAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

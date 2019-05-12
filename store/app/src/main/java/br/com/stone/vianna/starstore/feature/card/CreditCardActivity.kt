@@ -3,9 +3,8 @@ package br.com.stone.vianna.starstore.feature.card
 import android.os.Bundle
 import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
-import br.com.stone.vianna.starstore.entity.PaymentRequest
-import br.com.stone.vianna.starstore.helper.hide
-import br.com.stone.vianna.starstore.helper.show
+import br.com.stone.vianna.starstore.extensions.hide
+import br.com.stone.vianna.starstore.extensions.show
 import kotlinx.android.synthetic.main.activity_credit_card.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -13,7 +12,7 @@ import org.koin.core.parameter.parametersOf
 class CreditCardActivity : BaseActivity(), CardContract.View {
 
 
-    val presenter: CardContract.Presenter by inject { parametersOf(this) }
+    private val presenter: CardContract.Presenter by inject { parametersOf(this) }
 
     companion object {
         const val CHECKOUT_VALUE = "CHECKOUT_VALUE"

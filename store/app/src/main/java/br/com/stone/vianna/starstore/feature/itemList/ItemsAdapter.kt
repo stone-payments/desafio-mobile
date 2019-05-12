@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.R
-import br.com.stone.vianna.starstore.helper.toMoneyFormat
+import br.com.stone.vianna.starstore.extensions.toMoneyFormat
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_list_item.view.*
 

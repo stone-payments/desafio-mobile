@@ -1,7 +1,7 @@
 package br.com.stone.vianna.starstore.feature.shoppingCart
 
 import br.com.stone.vianna.starstore.entity.Item
-import br.com.stone.vianna.starstore.helper.toMoneyFormat
+import br.com.stone.vianna.starstore.extensions.toMoneyFormat
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
@@ -55,7 +55,7 @@ class ShoppingCartPresenterTest {
     }
 
     private companion object {
-        var cartItems = listOf(
+        val cartItems = listOf(
                 Item(id = 1, title = "title 1", price = 200, seller = "Seller1", thumbnailHd = ""),
                 Item(id = 2, title = "title 2", price = 100, seller = "Seller2", thumbnailHd = ""),
                 Item(id = 3, title = "title 3", price = 250, seller = "Seller3", thumbnailHd = "")

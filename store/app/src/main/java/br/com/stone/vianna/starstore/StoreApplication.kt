@@ -1,7 +1,6 @@
 package br.com.stone.vianna.starstore
 
 import android.app.Application
-import android.content.Context
 import br.com.stone.vianna.starstore.di.applicationModule
 import br.com.stone.vianna.starstore.di.daoModule
 import br.com.stone.vianna.starstore.di.presenterModule
@@ -13,15 +12,8 @@ import org.koin.core.logger.Level
 
 class StoreApplication : Application() {
 
-    companion object {
-        lateinit var context: Context
-
-    }
-
     override fun onCreate() {
         super.onCreate()
-
-        StoreApplication.context = applicationContext
 
         startKoin {
             androidLogger(Level.DEBUG)

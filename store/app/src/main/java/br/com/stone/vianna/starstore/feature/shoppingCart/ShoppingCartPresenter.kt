@@ -1,7 +1,7 @@
 package br.com.stone.vianna.starstore.feature.shoppingCart
 
 import br.com.stone.vianna.starstore.entity.Item
-import br.com.stone.vianna.starstore.helper.toMoneyFormat
+import br.com.stone.vianna.starstore.extensions.toMoneyFormat
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 

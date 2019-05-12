@@ -4,8 +4,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import  br.com.stone.vianna.starstore.helper.convertDateToFormat
-import  br.com.stone.vianna.starstore.helper.toMoneyFormat
+import  br.com.stone.vianna.starstore.extensions.convertDateToFormat
+import  br.com.stone.vianna.starstore.extensions.toMoneyFormat
 import  br.com.stone.vianna.starstore.R
 import  br.com.stone.vianna.starstore.entity.PaymentTransaction
 import kotlinx.android.synthetic.main.view_item_transaction.view.*
@@ -14,7 +14,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.ViewHolder>()
 
     private var transactions: List<PaymentTransaction> = mutableListOf()
 
-    fun updateItems(items: List<PaymentTransaction>) {
+    fun updateItems(transactions: List<PaymentTransaction>) {
         this.transactions = transactions
         notifyDataSetChanged()
     }

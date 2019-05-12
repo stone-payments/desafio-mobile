@@ -3,7 +3,7 @@ package br.com.stone.vianna.starstore.feature.card
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
 import br.com.stone.vianna.starstore.feature.itemList.ItemListRepository
-import br.com.stone.vianna.starstore.helper.*
+import br.com.stone.vianna.starstore.extensions.*
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 
