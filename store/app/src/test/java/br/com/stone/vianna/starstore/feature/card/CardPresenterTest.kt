@@ -8,11 +8,8 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import io.reactivex.subjects.BehaviorSubject
-import junitparams.JUnitParamsRunner
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(JUnitParamsRunner::class)
 class CardPresenterTest {
 
     private val transactionSubject = BehaviorSubject.createDefault(transaction)
