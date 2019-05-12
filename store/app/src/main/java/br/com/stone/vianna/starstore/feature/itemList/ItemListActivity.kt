@@ -49,13 +49,14 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         toolbar.navigationIcon = resources.getDrawable(R.mipmap.ic_history, theme)
         toolbar.setNavigationOnClickListener { presenter.onHistoryIconClicked() }
 
+        base_item_list.adapter = adapter
         val layoutManager = LinearLayoutManager(this)
         base_item_list.layoutManager = layoutManager
     }
 
     override fun updateListItems(items: List<Item>) {
         adapter.updateItems(items)
-        base_item_list.adapter = adapter
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
