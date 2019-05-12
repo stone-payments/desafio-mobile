@@ -24,11 +24,11 @@ class CardPresenter(private val view: CardContract.View,
 
         var isFormValid = true
 
-        val paymentRequest = PaymentRequest()
-        paymentRequest.cardNumber = cardNumber
-        paymentRequest.cardHolder = cardHolderName
-        paymentRequest.expirationDate = cardExpDate
-        paymentRequest.securityCode = cardCvv
+        val paymentRequest = PaymentRequest(cardNumber,
+                cardHolderName,
+                cardExpDate,
+                cardCvv,
+                this.value)
 
         when {
             paymentRequest.cardNumber.isEmpty()

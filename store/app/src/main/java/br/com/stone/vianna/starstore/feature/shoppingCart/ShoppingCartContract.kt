@@ -6,7 +6,7 @@ class ShoppingCartContract {
 
     interface View {
         fun updateCartItems(items: List<Item>)
-        fun setTotalValue(totalValue: Int)
+        fun setTotalValue(totalValue: String)
         fun openCheckout(value: Int)
     }
 

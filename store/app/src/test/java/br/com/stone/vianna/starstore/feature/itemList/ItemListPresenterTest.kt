@@ -20,7 +20,6 @@ class ItemListPresenterTest {
     }
 
     private val view: ItemListContract.View = mock()
-
     private val presenter = ItemListPresenter(view, itemListRepository)
 
     @Test

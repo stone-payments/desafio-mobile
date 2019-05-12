@@ -1,11 +1,12 @@
 package br.com.stone.vianna.starstore.feature.shoppingCart
 
 import br.com.stone.vianna.starstore.entity.Item
+import br.com.stone.vianna.starstore.helper.toMoneyFormat
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 
 class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
-                            shoppingCartRepository: ShoppingCartRepository)
+                            private val shoppingCartRepository: ShoppingCartRepository)
 
     : ShoppingCartContract.Presenter {
 
@@ -14,18 +15,17 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
     private val cartItemsStream = shoppingCartRepository.getCartItems().share()
 
     override fun init() {
-
-        cartItemsStream
-                .subscribe { updateViewWithCartItems(it) }
-                .addTo(compositeDisposable)
+        updateViewWithCartItems()
     }
 
-    private fun updateViewWithCartItems(cartItems: List<Item>?) {
-        cartItems?.let {
-            view.updateCartItems(it)
-            val totalValue = getTotalValue(it)
-            view.setTotalValue(totalValue)
-        }
+    private fun updateViewWithCartItems() {
+        shoppingCartRepository.getCartItems()
+                .subscribe {
+                    view.updateCartItems(it)
+                    val totalValue = getTotalValue(it)
+                    view.setTotalValue(totalValue.toMoneyFormat())
+                }
+                .addTo(compositeDisposable)
     }
 
     private fun getTotalValue(cartItems: List<Item>?): Int {
@@ -49,9 +49,10 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
     }
 
     override fun removeItem(item: Item) {
-        cartItemsStream
+
+        shoppingCartRepository.removeItem(item)
                 .subscribe {
-                    updateViewWithCartItems(it)
+                    updateViewWithCartItems()
                 }
                 .addTo(compositeDisposable)
     }

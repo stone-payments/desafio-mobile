@@ -46,8 +46,8 @@ class ShoppingCartActivity : BaseActivity(), ShoppingCartContract.View {
         adapter.updateItems(items)
     }
 
-    override fun setTotalValue(totalValue: Int) {
-        tv_total_value?.text = totalValue.toMoneyFormat()
+    override fun setTotalValue(totalValue: String) {
+        tv_total_value?.text = totalValue
     }
 
     override fun openCheckout(value: Int) {
