@@ -19,7 +19,7 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
     }
 
     private fun updateViewWithCartItems() {
-        shoppingCartRepository.getCartItems()
+        cartItemsStream
                 .subscribe {
                     view.updateCartItems(it)
                     val totalValue = getTotalValue(it)
