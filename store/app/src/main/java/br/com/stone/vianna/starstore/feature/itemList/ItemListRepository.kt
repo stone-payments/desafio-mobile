@@ -19,7 +19,6 @@ class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
                              private val itemDao: ItemDao)
     : ItemListRepository {
 
-
     override fun getItems(): Observable<List<Item>> {
         return itemListDataSource.getItems()
                 .subscribeOn(Schedulers.io())

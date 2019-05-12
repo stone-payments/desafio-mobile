@@ -18,7 +18,7 @@ class ItemListPresenter(private val view: ItemListContract.View,
                 .subscribe({
                     onSuccessLoadItems(it)
                 }, {
-                    onErrorLoadItems(it.localizedMessage)
+                    onErrorLoadItems(it.message.toString())
                 }).addTo(compositeDisposable)
     }
 
@@ -55,5 +55,6 @@ class ItemListPresenter(private val view: ItemListContract.View,
 
     private fun onErrorLoadItems(error: String) {
         view.hideLoading()
+        view.showError()
     }
 }
