@@ -13,7 +13,6 @@ import br.com.stone.vianna.starstore.feature.transactionHistory.TransactionContr
 import br.com.stone.vianna.starstore.feature.transactionHistory.TransactionPresenter
 import br.com.stone.vianna.starstore.feature.transactionHistory.TransactionRepository
 import br.com.stone.vianna.starstore.feature.transactionHistory.TransactionRepositoryImpl
-import br.com.stone.vianna.starstore.helper.StringResolver
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -27,8 +26,8 @@ val applicationModule = module(override = true) {
     single { createOkHttpClient() }
     single { Room.databaseBuilder(get(), AppDatabase::class.java, "store_database").build() }
 
-    single { createWebService<ItemListDataSource>(get(), BuildConfig.ITEMS_API) }
-    single { createWebService<PaymentDataSource>(get(), BuildConfig.PAYMENT_API) }
+    single { createWebService<ItemListApi>(get(), BuildConfig.ITEMS_API) }
+    single { createWebService<PaymentApi>(get(), BuildConfig.PAYMENT_API) }
 
 }
 

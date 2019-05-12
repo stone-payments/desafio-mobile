@@ -6,7 +6,7 @@ import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface PaymentDataSource {
+interface PaymentApi {
 
     @POST("/payment/checkout")
     fun checkout(@Body paymentRequest: PaymentRequest): Observable<PaymentTransaction>

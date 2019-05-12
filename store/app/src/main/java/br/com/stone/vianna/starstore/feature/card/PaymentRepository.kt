@@ -1,7 +1,6 @@
 package br.com.stone.vianna.starstore.feature.card
 
 import br.com.stone.vianna.starstore.entity.*
-import br.com.stone.vianna.starstore.helper.addSchedulers
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,15 +12,13 @@ interface PaymentRepository {
     fun checkout(paymentRequest: PaymentRequest): Observable<PaymentTransaction>
 }
 
-class PaymentRepositoryImpl(private val paymentDataSource: PaymentDataSource,
-                            private val transactionDao: TransactionDao,
-                            private val itemDao: ItemDao)
-    : PaymentRepository {
+class PaymentRepositoryImpl(private val paymentApi: PaymentApi,
+                            private val transactionDao: TransactionDao) : PaymentRepository {
 
 
     override fun checkout(paymentRequest: PaymentRequest): Observable<PaymentTransaction> {
 
-        return paymentDataSource.checkout(paymentRequest)
+        return paymentApi.checkout(paymentRequest)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

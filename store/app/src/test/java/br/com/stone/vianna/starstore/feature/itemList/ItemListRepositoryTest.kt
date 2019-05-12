@@ -17,7 +17,7 @@ class ItemListRepositoryTest {
     @JvmField
     val rule = RxTestRule()
 
-    private val itemListDataSource: ItemListDataSource = mock {
+    private val itemListApi: ItemListApi = mock {
         on { getItems() }.thenReturn(Observable.just(items))
     }
 
@@ -27,7 +27,7 @@ class ItemListRepositoryTest {
     }
 
     @Spy
-    private val repository = ItemListRepositoryImpl(itemListDataSource, itemDao)
+    private val repository = ItemListRepositoryImpl(itemListApi, itemDao)
 
     @Test
     fun `call dao when removeItems() is called`() {
@@ -39,7 +39,7 @@ class ItemListRepositoryTest {
     fun `call data source when getItems() is called`() {
         repository.getItems().test()
 
-        verify(itemListDataSource).getItems()
+        verify(itemListApi).getItems()
     }
 
     @Test

@@ -15,12 +15,12 @@ interface ItemListRepository {
     fun removeItems(): Completable
 }
 
-class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
+class ItemListRepositoryImpl(private val itemListApi: ItemListApi,
                              private val itemDao: ItemDao)
     : ItemListRepository {
 
     override fun getItems(): Observable<List<Item>> {
-        return itemListDataSource.getItems()
+        return itemListApi.getItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
