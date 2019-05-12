@@ -29,6 +29,8 @@ class ShoppingCartRepositoryTest {
         val item = Item(id = 1, title = "title 1", price = 200, seller = "Seller1",
                 thumbnailHd = "")
 
+        itemDao.insertItem(item)
+
         repository.removeItem(item).test()
         Mockito.verify(itemDao).deleteItem(item)
     }
