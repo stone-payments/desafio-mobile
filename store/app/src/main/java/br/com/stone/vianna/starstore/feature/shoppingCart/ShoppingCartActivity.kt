@@ -57,4 +57,9 @@ class ShoppingCartActivity : BaseActivity(), ShoppingCartContract.View {
         startActivity(intent)
         finish()
     }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.clearEvents()
+    }
 }

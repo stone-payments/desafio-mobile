@@ -14,5 +14,6 @@ class ShoppingCartContract {
         fun init()
         fun removeItem(item: Item)
         fun onProceedToCheckoutButtonClicked()
+        fun clearEvents()
     }
 }

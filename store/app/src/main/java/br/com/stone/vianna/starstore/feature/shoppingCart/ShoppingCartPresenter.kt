@@ -56,4 +56,8 @@ class ShoppingCartPresenter(private val view: ShoppingCartContract.View,
                 }
                 .addTo(compositeDisposable)
     }
+
+    override fun clearEvents() {
+        compositeDisposable.clear()
+    }
 }

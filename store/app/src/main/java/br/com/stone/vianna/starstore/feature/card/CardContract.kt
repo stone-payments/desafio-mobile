@@ -24,5 +24,7 @@ class CardContract {
         fun init(value: Int)
         fun onCheckoutButtonClicked(cardNumber: String, cardHolderName: String, cardExpDate: String,
                                     cardCvv: String)
+
+        fun clearEvents()
     }
 }

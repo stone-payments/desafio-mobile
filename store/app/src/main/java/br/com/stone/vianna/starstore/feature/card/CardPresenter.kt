@@ -11,7 +11,7 @@ class CardPresenter(private val view: CardContract.View,
                     private val paymentRepository: PaymentRepository,
                     private val itemListRepository: ItemListRepository) : CardContract.Presenter {
 
-    var value = 0
+    private var value = 0
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -19,8 +19,8 @@ class CardPresenter(private val view: CardContract.View,
         this.value = value
     }
 
-    override fun onCheckoutButtonClicked(cardNumber: String, cardHolderName: String, cardExpDate: String,
-                                         cardCvv: String) {
+    override fun onCheckoutButtonClicked(cardNumber: String, cardHolderName: String,
+                                         cardExpDate: String, cardCvv: String) {
 
         var isFormValid = true
 
@@ -89,14 +89,21 @@ class CardPresenter(private val view: CardContract.View,
 
         view.displayProgressBar()
 
-        paymentRepository.checkout(paymentRequest,
-                { onSuccessCheckout(it) },
-                { onErrorCheckout(it) })
+        paymentRepository.checkout(paymentRequest)
+                .subscribe({
+                    onSuccessCheckout(it)
+                }, {
+                    onErrorCheckout(it.message.toString())
+                })
+                .addTo(compositeDisposable)
+
     }
 
     private fun onSuccessCheckout(transaction: PaymentTransaction) {
         view.hideProgressBar()
-        paymentRepository.saveTransactionLocally(transaction) { removeItemsFromCart() }
+        paymentRepository.saveTransactionLocally(transaction)
+                .subscribe { removeItemsFromCart() }
+                .addTo(compositeDisposable)
     }
 
     private fun removeItemsFromCart() {
@@ -109,4 +116,7 @@ class CardPresenter(private val view: CardContract.View,
         view.hideProgressBar()
     }
 
+    override fun clearEvents() {
+        compositeDisposable.clear()
+    }
 }
