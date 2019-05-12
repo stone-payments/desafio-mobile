@@ -11,5 +11,6 @@ class TransactionContract {
 
     interface Presenter {
         fun init()
+        fun clearEvents()
     }
 }

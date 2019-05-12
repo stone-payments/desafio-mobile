@@ -93,6 +93,11 @@ class CreditCardActivity : BaseActivity(), CardContract.View {
     }
 
     override fun showCheckoutError(error: String) {
-        
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.clearEvents()
     }
 }

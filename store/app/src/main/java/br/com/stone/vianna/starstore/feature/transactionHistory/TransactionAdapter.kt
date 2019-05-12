@@ -10,12 +10,13 @@ import  br.com.stone.vianna.starstore.R
 import  br.com.stone.vianna.starstore.entity.PaymentTransaction
 import kotlinx.android.synthetic.main.view_item_transaction.view.*
 
-class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
+class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.ViewHolder>(){
 
-    private val transactions: List<PaymentTransaction>
+    private var transactions: List<PaymentTransaction> = mutableListOf()
 
-    constructor(transactions: List<PaymentTransaction>) : super() {
+    fun updateItems(items: List<PaymentTransaction>) {
         this.transactions = transactions
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

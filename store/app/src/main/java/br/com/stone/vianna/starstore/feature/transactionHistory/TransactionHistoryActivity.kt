@@ -12,6 +12,7 @@ import org.koin.core.parameter.parametersOf
 class TransactionHistoryActivity : BaseActivity(), TransactionContract.View {
 
     val presenter: TransactionContract.Presenter by inject { parametersOf(this) }
+    val adapter = TransactionAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,14 +27,17 @@ class TransactionHistoryActivity : BaseActivity(), TransactionContract.View {
         setSupportActionBar(transaction_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        transaction_list.adapter = adapter
         val layoutManager = LinearLayoutManager(this)
         transaction_list.layoutManager = layoutManager
     }
 
     override fun updateTransactionHistory(transactions: List<PaymentTransaction>) {
-
-        val adapter = TransactionAdapter(transactions)
-        transaction_list.adapter = adapter
+        adapter.updateItems(transactions)
     }
 
+    override fun onStop() {
+        super.onStop()
+        presenter.clearEvents()
+    }
 }
