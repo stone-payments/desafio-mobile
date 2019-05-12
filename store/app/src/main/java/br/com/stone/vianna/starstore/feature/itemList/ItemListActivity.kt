@@ -19,6 +19,7 @@ import org.koin.core.parameter.parametersOf
 
 class ItemListActivity : BaseActivity(), ItemListContract.View {
 
+
     private val presenter: ItemListContract.Presenter by inject { parametersOf(this) }
     private var textCartItemCount: TextView? = null
     private var adapter = ItemsAdapter { item: Item ->
@@ -46,6 +47,7 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
     }
 
     override fun updateListItems(items: List<Item>) {
+        error_message.hide()
         adapter.updateItems(items)
     }
 
@@ -61,7 +63,9 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
         return true
     }
 
-    override fun showError() {
+    override fun showError(error: String) {
+        error_message.text = error
+        error_message.show()
     }
 
     override fun onResume() {
@@ -91,6 +95,11 @@ class ItemListActivity : BaseActivity(), ItemListContract.View {
                 return true
             }
         }
+    }
+
+    override fun displayEmptyView() {
+        error_message.text = getString(R.string.empty_list_text)
+        error_message.show()
     }
 
     override fun openShoppingCart() {

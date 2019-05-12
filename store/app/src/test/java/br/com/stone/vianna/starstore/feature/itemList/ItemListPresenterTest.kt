@@ -8,6 +8,7 @@ import junitparams.JUnitParamsRunner
 import junitparams.Parameters
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mockito.times
 
 @RunWith(JUnitParamsRunner::class)
 class ItemListPresenterTest {
@@ -44,12 +45,12 @@ class ItemListPresenterTest {
 
     @Test
     fun `hide loading and show error when repository returns error`() {
-        itemsSubject.onError(Throwable())
+        itemsSubject.onError(Throwable("Error"))
 
         presenter.init()
 
         verify(view).hideLoading()
-        verify(view).showError()
+        verify(view).showError("Error")
     }
 
     @Test
@@ -60,9 +61,31 @@ class ItemListPresenterTest {
         presenter.updateBadge()
 
         totalItemsSubject.onNext(itemTotal)
-
         verify(view).setupBadge(itemTotal)
     }
+
+    @Test
+    @Parameters(
+            "0"
+    )
+    fun `when cart is empty it should not open CartActivity`(itemTotal: Int) {
+        presenter.onCartIconClicked()
+
+        totalItemsSubject.onNext(itemTotal)
+        verify(view, times(0)).openShoppingCart()
+
+    }
+
+    @Test
+    fun `when no items is fetched from server it should display an empty view`() {
+        itemsSubject.onNext(listOf())
+
+        presenter.init()
+
+        verify(view).hideLoading()
+        verify(view).displayEmptyView()
+    }
+
 
     private companion object {
         var items = listOf(

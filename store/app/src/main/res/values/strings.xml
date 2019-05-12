@@ -7,6 +7,7 @@
 
     <string name="error_title">Ocorreu um erro! Entre em contato com nosso suporte.</string>
     <string name="error_loading">Não foi possível carregar sua solicitação.</string>
+    <string name="empty_list_text">Não foram encontrados items.</string>
     <string name="proceed_to_checkout">IR PARA PAGAMENTO</string>
     <string name="total_caps">TOTAL</string>
     <string name="pay_caps">PAGAR</string>

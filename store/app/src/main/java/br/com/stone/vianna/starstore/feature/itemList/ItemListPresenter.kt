@@ -50,11 +50,15 @@ class ItemListPresenter(private val view: ItemListContract.View,
 
     private fun onSuccessLoadItems(items: List<Item>) {
         view.hideLoading()
-        view.updateListItems(items)
+        if (items.isEmpty()) {
+            view.displayEmptyView()
+        } else {
+            view.updateListItems(items)
+        }
     }
 
     private fun onErrorLoadItems(error: String) {
         view.hideLoading()
-        view.showError()
+        view.showError(error)
     }
 }
