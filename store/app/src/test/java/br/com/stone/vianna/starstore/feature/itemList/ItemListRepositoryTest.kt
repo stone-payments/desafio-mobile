@@ -26,8 +26,6 @@ class ItemListRepositoryTest {
     private val itemDao: ItemDao = mock {
         on { getItems() }.thenReturn(Maybe.just(items))
         on { getItemsCount() }.thenReturn(Maybe.just(3))
-        doNothing().`when`(it).insertItem(any())
-        doNothing().`when`(it).removeItems()
     }
 
     @Spy

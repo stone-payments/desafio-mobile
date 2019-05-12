@@ -3,7 +3,6 @@ package br.com.stone.vianna.starstore.feature.shoppingCart
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.helper.toMoneyFormat
 import com.nhaarman.mockito_kotlin.any
-import com.nhaarman.mockito_kotlin.doNothing
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import io.reactivex.Completable
