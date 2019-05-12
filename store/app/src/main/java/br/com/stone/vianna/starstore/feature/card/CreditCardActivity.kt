@@ -38,13 +38,11 @@ class CreditCardActivity : BaseActivity(), CardContract.View {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         checkout_button.setOnClickListener {
-            val paymentRequest = PaymentRequest()
-            paymentRequest.cardNumber = et_card_number.rawText.toString()
-            paymentRequest.cardHolder = et_card_holder_name.text.toString()
-            paymentRequest.expirationDate = et_card_exp_date.text.toString()
-            paymentRequest.securityCode = et_card_cvv.text.toString()
 
-            presenter.onCheckoutButtonClicked(paymentRequest)
+            presenter.onCheckoutButtonClicked(et_card_number.rawText.toString(),
+                    et_card_holder_name.text.toString(),
+                    et_card_exp_date.text.toString(),
+                    et_card_cvv.text.toString())
         }
     }
 

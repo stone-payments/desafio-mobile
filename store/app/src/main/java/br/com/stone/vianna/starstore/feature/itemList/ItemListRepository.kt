@@ -12,7 +12,7 @@ interface ItemListRepository {
     fun getItems(): Observable<List<Item>>
     fun getTotalOfItems(): Observable<Int>
     fun saveItemLocally(item: Item): Completable
-    fun removeItems()
+    fun removeItems(): Completable
 }
 
 class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
@@ -27,7 +27,7 @@ class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
     }
 
     override fun saveItemLocally(item: Item): Completable {
-        return Completable.fromAction{ itemDao.insertItem(item)}
+        return Completable.fromAction { itemDao.insertItem(item) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
@@ -38,7 +38,9 @@ class ItemListRepositoryImpl(private val itemListDataSource: ItemListDataSource,
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
-    override fun removeItems() {
-        itemDao.removeItems()
+    override fun removeItems(): Completable {
+        return Completable.fromAction { itemDao.removeItems() }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 }

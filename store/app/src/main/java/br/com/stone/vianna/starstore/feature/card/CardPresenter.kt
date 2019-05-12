@@ -2,12 +2,10 @@ package br.com.stone.vianna.starstore.feature.card
 
 import br.com.stone.vianna.starstore.entity.PaymentRequest
 import br.com.stone.vianna.starstore.entity.PaymentTransaction
-import br.com.stone.vianna.starstore.helper.*
 import br.com.stone.vianna.starstore.feature.itemList.ItemListRepository
-import io.reactivex.Completable
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import br.com.stone.vianna.starstore.helper.*
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 
 class CardPresenter(private val view: CardContract.View,
                     private val paymentRepository: PaymentRepository,
@@ -15,13 +13,22 @@ class CardPresenter(private val view: CardContract.View,
 
     var value = 0
 
+    private val compositeDisposable = CompositeDisposable()
+
     override fun init(value: Int) {
         this.value = value
     }
 
-    override fun onCheckoutButtonClicked(paymentRequest: PaymentRequest) {
+    override fun onCheckoutButtonClicked(cardNumber: String, cardHolderName: String, cardExpDate: String,
+                                         cardCvv: String) {
 
         var isFormValid = true
+
+        val paymentRequest = PaymentRequest()
+        paymentRequest.cardNumber = cardNumber
+        paymentRequest.cardHolder = cardHolderName
+        paymentRequest.expirationDate = cardExpDate
+        paymentRequest.securityCode = cardCvv
 
         when {
             paymentRequest.cardNumber.isEmpty()
@@ -79,7 +86,9 @@ class CardPresenter(private val view: CardContract.View,
     }
 
     private fun performCheckout(paymentRequest: PaymentRequest) {
+
         view.displayProgressBar()
+
         paymentRepository.checkout(paymentRequest,
                 { onSuccessCheckout(it) },
                 { onErrorCheckout(it) })
@@ -92,9 +101,8 @@ class CardPresenter(private val view: CardContract.View,
 
     private fun removeItemsFromCart() {
         itemListRepository.removeItems()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { view.returnToStore() }
+                .addTo(compositeDisposable)
     }
 
     private fun onErrorCheckout(error: String) {
