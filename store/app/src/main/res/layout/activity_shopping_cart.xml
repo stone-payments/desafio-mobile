@@ -9,7 +9,7 @@
         style="@style/match_match"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/cart_toolbar"
             style="@style/match_wrap"
             android:minHeight="?attr/actionBarSize"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toBottomOf="@+id/checkout_toolbar" />
 
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_list"
             style="@style/match_wrap"
             android:layout_above="@+id/book_panel"

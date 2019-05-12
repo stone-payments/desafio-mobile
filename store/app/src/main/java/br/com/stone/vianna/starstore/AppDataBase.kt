@@ -1,7 +1,7 @@
 package br.com.stone.vianna.starstore
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import br.com.stone.vianna.starstore.entity.Item
 import br.com.stone.vianna.starstore.entity.ItemDao
 import br.com.stone.vianna.starstore.entity.PaymentTransaction

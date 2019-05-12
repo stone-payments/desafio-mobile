@@ -18,6 +18,7 @@ class CardContract {
         fun displayProgressBar()
         fun hideProgressBar()
         fun returnToStore()
+        fun showCheckoutError(error: String)
     }
 
     interface Presenter {

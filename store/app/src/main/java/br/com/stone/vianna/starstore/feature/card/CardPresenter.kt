@@ -114,6 +114,7 @@ class CardPresenter(private val view: CardContract.View,
 
     private fun onErrorCheckout(error: String) {
         view.hideProgressBar()
+        view.showCheckoutError(error)
     }
 
     override fun clearEvents() {

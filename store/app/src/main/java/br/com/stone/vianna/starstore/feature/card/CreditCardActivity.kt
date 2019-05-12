@@ -12,6 +12,7 @@ import org.koin.core.parameter.parametersOf
 
 class CreditCardActivity : BaseActivity(), CardContract.View {
 
+
     val presenter: CardContract.Presenter by inject { parametersOf(this) }
 
     companion object {
@@ -89,5 +90,9 @@ class CreditCardActivity : BaseActivity(), CardContract.View {
 
     override fun returnToStore() {
         finish()
+    }
+
+    override fun showCheckoutError(error: String) {
+        
     }
 }

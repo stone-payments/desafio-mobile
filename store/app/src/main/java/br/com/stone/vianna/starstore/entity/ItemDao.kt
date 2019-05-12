@@ -1,10 +1,7 @@
 package br.com.stone.vianna.starstore.entity
 
-import android.arch.persistence.room.*
-import io.reactivex.Completable
+import androidx.room.*
 import io.reactivex.Maybe
-import io.reactivex.Observable
-import io.reactivex.Single
 
 @Dao
 interface ItemDao {

@@ -1,7 +1,7 @@
 package br.com.stone.vianna.starstore.feature.transactionHistory
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.stone.vianna.starstore.R
 import br.com.stone.vianna.starstore.baseClasses.BaseActivity
 import br.com.stone.vianna.starstore.entity.PaymentTransaction

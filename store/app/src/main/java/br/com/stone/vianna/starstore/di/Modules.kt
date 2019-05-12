@@ -1,6 +1,6 @@
 package  br.com.stone.vianna.starstore.di
 
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import br.com.stone.vianna.starstore.AppDatabase
 import br.com.stone.vianna.starstore.BuildConfig
 import br.com.stone.vianna.starstore.feature.card.*
@@ -34,7 +34,7 @@ val applicationModule = module(override = true) {
 val repositoryModule = module {
 
     factory { ItemListRepositoryImpl(get(), get()) as ItemListRepository }
-    factory { PaymentRepositoryImpl(get(), get(), get()) as PaymentRepository }
+    factory { PaymentRepositoryImpl(get(), get()) as PaymentRepository }
     factory { ShoppingCartRepositoryImpl(get()) as ShoppingCartRepository }
     factory { TransactionRepositoryImpl(get()) as TransactionRepository }
 }

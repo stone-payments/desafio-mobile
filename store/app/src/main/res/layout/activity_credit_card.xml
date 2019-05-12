@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".feature.card.CreditCardActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/cards_toolbar"
         style="@style/match_wrap"
         android:layout_height="51dp"
@@ -33,7 +33,7 @@
         app:layout_editor_absoluteY="86dp" />
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout_card"
         style="@style/match_wrap"
         android:layout_marginEnd="@dimen/dimen_8dp"
@@ -53,9 +53,9 @@
             android:inputType="number"
             android:maxLines="1"
             app:met_mask="#### #### #### ####" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout_card_holder_name"
         style="@style/match_wrap"
         android:layout_marginEnd="@dimen/dimen_8dp"
@@ -73,7 +73,7 @@
             android:hint="@string/card_holder_hint"
             android:inputType="text"
             android:maxLines="1" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <LinearLayout
@@ -86,7 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_input_layout_card_holder_name">
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_date"
             style="@style/wrap_wrap"
             android:layout_weight="1">
@@ -99,9 +99,9 @@
                 android:inputType="number"
                 android:maxLines="1"
                 app:met_mask="##/##" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_cvv"
             style="@style/wrap_wrap"
             android:layout_marginEnd="@dimen/dimen_8dp"
@@ -115,7 +115,7 @@
                 android:inputType="number"
                 android:maxLines="1"
                 app:met_mask="###" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -142,4 +142,4 @@
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
