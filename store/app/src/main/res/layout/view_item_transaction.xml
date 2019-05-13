@@ -1,0 +1,54 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_card"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_96dp"
+    app:cardBackgroundColor="@color/grayBgLight"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/match_match"
+        android:layout_margin="@dimen/dimen_6dp">
+
+        <TextView
+            android:id="@+id/tv_card_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/dimen_18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_service_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_transaction_date"
+            style="@style/wrap_wrap"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:text="11/12/2019"
+            android:textSize="@dimen/dimen_18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_transaction_value"
+            style="@style/wrap_wrap"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:text="R$2500,00"
+            android:textSize="@dimen/dimen_18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_transaction_date" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
+

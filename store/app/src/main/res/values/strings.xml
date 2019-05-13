@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">StarStore</string>
+
+    <string name="items_list_screen_title">StarStore</string>
+    <string name="shopping_cart_screen_title">Carrinho</string>
+    <string name="transaction_history_screen_title">Transações</string>
+
+    <string name="error_title">Ocorreu um erro! Entre em contato com nosso suporte.</string>
+    <string name="error_loading">Não foi possível carregar sua solicitação.</string>
+    <string name="empty_list_text">Não foram encontrados items.</string>
+    <string name="proceed_to_checkout">IR PARA PAGAMENTO</string>
+    <string name="total_caps">TOTAL</string>
+    <string name="pay_caps">PAGAR</string>
+    <string name="cvv_hint">CVV</string>
+    <string name="expiration_date_hint">Data de venc.</string>
+    <string name="card_number_hint">Número do cartão</string>
+    <string name="card_holder_hint">Nome no cartão</string>
+
+    <string name="card_number_error">Preencha o número do cartão.</string>
+    <string name="expiration_date_error">Informe uma data válida.</string>
+    <string name="card_security_code_error">Informe o código de segurança.</string>
+    <string name="card_holder_name_error">Informe o nome conforme no cartão.</string>
+</resources>

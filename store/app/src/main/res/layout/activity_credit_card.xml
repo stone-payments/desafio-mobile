@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.card.CreditCardActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/cards_toolbar"
+        style="@style/match_wrap"
+        android:layout_height="51dp"
+        android:layout_alignParentTop="true"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:theme="@style/ToolBarStyle" />
+
+    <ProgressBar
+        android:id="@+id/checkout_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/white"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/colorPrimary"
+        android:max="100"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cards_toolbar"
+        app:layout_editor_absoluteY="86dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_card"
+        style="@style/match_wrap"
+        android:layout_marginEnd="@dimen/dimen_8dp"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_12dp"
+        android:imeOptions="actionNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cards_toolbar">
+
+        <com.santalu.widget.MaskEditText
+            android:id="@+id/et_card_number"
+            style="@style/match_wrap"
+            android:drawableLeft="@mipmap/ic_card_square"
+            android:drawablePadding="@dimen/dimen_6dp"
+            android:hint="@string/card_number_hint"
+            android:inputType="number"
+            android:maxLines="1"
+            app:met_mask="#### #### #### ####" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_card_holder_name"
+        style="@style/match_wrap"
+        android:layout_marginEnd="@dimen/dimen_8dp"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_12dp"
+        android:imeOptions="actionNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_card">
+
+        <EditText
+            android:id="@+id/et_card_holder_name"
+            style="@style/match_wrap"
+            android:drawablePadding="@dimen/dimen_6dp"
+            android:hint="@string/card_holder_hint"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:layout_marginEnd="@dimen/dimen_8dp"
+        android:layout_marginRight="@dimen/dimen_6dp"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_12dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_card_holder_name">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_date"
+            style="@style/wrap_wrap"
+            android:layout_weight="1">
+
+            <com.santalu.widget.MaskEditText
+                android:id="@+id/et_card_exp_date"
+                style="@style/match_wrap"
+                android:hint="@string/expiration_date_hint"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLines="1"
+                app:met_mask="##/##" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_cvv"
+            style="@style/wrap_wrap"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:layout_weight="1">
+
+            <com.santalu.widget.MaskEditText
+                android:id="@+id/et_card_cvv"
+                style="@style/match_wrap"
+                android:hint="@string/cvv_hint"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLines="1"
+                app:met_mask="###" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/checkout_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:layout_marginBottom="@dimen/dimen_0dp"
+        android:layout_marginEnd="@dimen/dimen_0dp"
+        android:layout_marginStart="@dimen/dimen_0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            style="@style/match_match"
+            android:gravity="center"
+            android:text="@string/pay_caps"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
