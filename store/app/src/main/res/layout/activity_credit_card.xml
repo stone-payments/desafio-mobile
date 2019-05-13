@@ -12,6 +12,9 @@
         android:layout_height="51dp"
         android:layout_alignParentTop="true"
         android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:theme="@style/ToolBarStyle" />
 
     <ProgressBar
