@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/drawable-anydpi/ic_action_purchases.xml" value="0.18425925925925926" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/drawable/ic_home.xml" value="0.18425925925925926" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/drawable/ic_loading_foreground.xml" value="0.19722222222222222" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/drawable/ic_purchases.xml" value="0.19722222222222222" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/activity_bought_products.xml" value="0.37083333333333335" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/activity_product.xml" value="0.33" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/activity_product_list.xml" value="0.21" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/activity_purchase.xml" value="0.25" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/activity_purchases_cart.xml" value="0.18432971014492755" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/activity_purchases_list.xml" value="0.25" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/bought_products.xml" value="0.25" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/card_item.xml" value="0.37083333333333335" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/fragment_blank.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/product_item.xml" value="0.25" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/layout/recycler_row.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspaces/projetos-proprios/starstore/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
